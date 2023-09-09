@@ -9,10 +9,10 @@ router.post('/', async (req, res) => {
 
     try {
         await user.save();
-        res.status(201).send({ user: { id: user._id, name: user.name, email: user.email } });
+        res.status(201).send({ user });
     } catch (error) {
         console.error("Error while saving user:", error);  // <-- Log the error
-        res.status(500).send({ error: 'Failed to create user.' });
+        res.status(400).send({ error: 'Failed to create user.' });
     }
 });
 
