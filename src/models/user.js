@@ -1,12 +1,19 @@
 const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 const bcrypt = require('bcrypt');
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     name: {
         first: String,
         last: String
     },
-    email: { type: String, unique: true, required: true },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+        match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+    },
     password: { type: String, required: true },
     dataOfBirth: Date,
     address: {
@@ -62,6 +69,7 @@ userSchema.pre('save', async function(next) {
     next();
 });
 
-module.exports = mongoose.model('User', userSchema);
+const User = model('User', userSchema)
+module.exports = User
 
 

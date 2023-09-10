@@ -1,6 +1,6 @@
 const express = require('express');
-const User = require('../models/user');
-const usersController = require('../controllers/users');
+const User = require('../../models/user');
+const usersController = require('../controllers/user/users');
 const router = express.Router();
 
 // CREATE a new user
@@ -19,14 +19,7 @@ router.post('/', async (req, res) => {
 router.post('/login', usersController.login);
 
 // RETRIEVE all users
-router.get('/', async (req, res) => {
-    try {
-        const users = await User.find();
-        res.json(users);
-    } catch (error) {
-        res.status(500).send();
-    }
-});
+router.get('/', usersController.getAll);
 
 // RETRIEVE a single user by ID
 router.get('/:id', async (req, res) => {

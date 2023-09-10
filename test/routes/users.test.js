@@ -1,9 +1,11 @@
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
 const {connectToDb} = require("../../src/config/database");
-const { chai, User, server, expect, TEST_DB_URI} = require('../utils/userTestUtils');
+const { chai, User, expect, TEST_DB_URI} = require('../utils/userTestUtils');
 const {createUser, updateUserModel, commonBeforeHook, commonAfterHook, commonBeforeEachHook, commonAfterEachHook
 } = require('../utils/userTestUtils');
+// import the server
+const server = require('../../src/app');
 
 chai.use(chaiHttp);
 
@@ -17,16 +19,16 @@ describe('User Routes', () => {
     const userInserted = updateUserModel(userModel, { email: "test123@test.com", password: "password345" });
 
     let userSaved = null;
-
-    before(() => commonBeforeHook(TEST_DB_URI));
-
-    after(commonAfterHook);
-
-    beforeEach(async () => {
-        userSaved = await commonBeforeEachHook(userInserted);
-    });
-
-    afterEach(commonAfterEachHook);
+    //
+    // before(() => commonBeforeHook(TEST_DB_URI));
+    //
+    // after(commonAfterHook);
+    //
+    // beforeEach(async () => {
+    //     userSaved = await commonBeforeEachHook(userInserted);
+    // });
+    //
+    // afterEach(commonAfterEachHook);
 
 
     describe('GET /api/users', () => {
