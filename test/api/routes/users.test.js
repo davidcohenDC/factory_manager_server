@@ -1,11 +1,10 @@
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
-const {connectToDb} = require("../../src/config/database");
 const { chai, User, expect, TEST_DB_URI} = require('../utils/userTestUtils');
-const {createUser, updateUserModel, commonBeforeHook, commonAfterHook, commonBeforeEachHook, commonAfterEachHook
+const {updateUserModel, commonBeforeHook, commonAfterHook, commonBeforeEachHook, commonAfterEachHook
 } = require('../utils/userTestUtils');
 // import the server
-const server = require('../../src/app');
+const server = require('../../../src/app');
 
 chai.use(chaiHttp);
 
@@ -19,36 +18,34 @@ describe('User Routes', () => {
     const userInserted = updateUserModel(userModel, { email: "test123@test.com", password: "password345" });
 
     let userSaved = null;
-    //
-    // before(() => commonBeforeHook(TEST_DB_URI));
-    //
-    // after(commonAfterHook);
-    //
-    // beforeEach(async () => {
-    //     userSaved = await commonBeforeEachHook(userInserted);
-    // });
-    //
-    // afterEach(commonAfterEachHook);
+
+    before(() => commonBeforeHook(TEST_DB_URI));
+
+    after(commonAfterHook);
+
+    beforeEach(async () => {
+        userSaved = await commonBeforeEachHook(userInserted);
+    });
+
+    afterEach(commonAfterEachHook);
 
 
     describe('GET /api/users', () => {
 
         it('should return status 200', done => {
             chai.request(server)
-                .get('/api/users')
+                .get('/api/user')
                 .end((err, res) => {
-                    console.log(res.body)
                     expect(res.status).to.equal(200);
-                    expect(res.body).to.be.an('array');
                     done();
                 });
         });
     });
 
-    describe('POST /api/users', () => {
+    describe('POST /api/user', () => {
         it('should return status 201 on successful creation', done => {
             chai.request(server)
-                .post('/api/users')
+                .post('/api/user')
                 .send(userModel)
                 .end((err, res) => {
                     expect(res.status).to.equal(201); // 201 Created
@@ -57,13 +54,14 @@ describe('User Routes', () => {
         });
     });
 
-    describe('PUT /api/users/:id', () => {
+    describe('PATCH /api/user/:id', () => {
 
         it('should return status 200 on successful update', done => {
             chai.request(server)
-                .put(`/api/users/${userSaved.id}`)
+                .patch(`/api/user/${userSaved._id}`)
                 .send(userModel)
                 .end((err, res) => {
+                    console.log(userSaved)
                     expect(res.status).to.equal(200);
                     done();
                 });

@@ -3,4 +3,4 @@ const userModel = require('./user.js');
 
 module.exports = {
     Log: logModel,
-    User: userModel };
+    User: userModel};

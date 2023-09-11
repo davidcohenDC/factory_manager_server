@@ -2,25 +2,9 @@ const chaiHttp = require('chai-http');
 const { chai, server, expect, TEST_DB_URI} = require('../utils/userTestUtils');
 const {createUser, updateUserModel, commonBeforeHook, commonAfterHook, commonBeforeEachHook, commonAfterEachHook
 } = require('../utils/userTestUtils');
+const { testController } = require('../utils/baseControllerFunction');
 
 chai.use(chaiHttp);
-
-function testLogin(credentials, expectedStatus, propertyCheck) {
-    return new Promise((resolve, reject) => {
-        chai.request(server)
-            .post('/api/users/login')
-            .send(credentials)
-            .end((err, res) => {
-                if (err) return reject(err);
-                expect(res.status).to.equal(expectedStatus);
-                if (propertyCheck) {
-                    expect(res.body).to.have.property(propertyCheck);
-                }
-                resolve(res);
-            });
-    });
-}
-
 describe('User Controller', () => {
 
     const userModel = {
@@ -44,23 +28,64 @@ describe('User Controller', () => {
 
     describe('User Login', () => {
 
-        describe('POST /api/users/login', () => {
+        describe('POST /api/user/login', () => {
+
+            const options = {
+                credentials: { email: userInserted.email, password: userInserted.password },
+                url: '/api/user/login',
+                method: 'post',
+                expectations: []
+            }
+
             it('logins successfully and returns a token', async () => {
-                await testLogin({email: userInserted.email, password: userInserted.password}, 200, 'token');
+                options.expectations =[(response) => {
+                        expect(response.status).to.equal(200);
+                        expect(response.body).to.have.property('token');
+                        expect(response.body.token).to.be.a('string');
+                    }]
+                await testController(options);
             });
 
             it('fails with wrong password', async () => {
-                await testLogin({email: userInserted.email, password: "wrongPassword"}, 401);
+                options.credentials.password = 'wrongpassword';
+                options.expectations =[(response) => {
+                        expect(response.status).to.equal(401);
+                        expect(response.body).to.have.property('error');
+                    }]
+                await testController(options);
             });
         });
 
+    });
+
+    describe('User Check Email', () => {
+
+        const options = {
+            credentials: { email: userInserted.email },
+            url: '/api/user/checkemail',
+            method: 'post',
+            expectations: []
+        }
+
+        describe('GET /api/user/checkemail/', () => {
+
+            it('email exist and return boolean exist true', async () => {
+                options.expectations =[(response) => {
+                        expect(response.status).to.equal(200);
+                        expect(response.body).to.have.property('exists');
+                        expect(response.body.exists).to.equal(true);
+                    }]
+                await testController(options);
+
+            });
+        });
     });
 
     describe('User CRUD', () => {
 
         it('should create a new user and return the user email', done => {
             chai.request(server)
-                .post('/api/users')
+                .post('/api/user')
                 .send(userModel)
                 .end((err, res) => {
                     if (err) {
@@ -79,7 +104,7 @@ describe('User Controller', () => {
             const userWithoutEmail = createUser({ password: "password123", testUser: true })
 
             chai.request(server)
-                .post('/api/users')
+                .post('/api/user')
                 .send(userWithoutEmail)
                 .end((err, res) => {
                     if (err) done(err);

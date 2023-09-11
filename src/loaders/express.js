@@ -5,8 +5,6 @@ const { jwtSecretKey } = require('../config/index.js');
 const logger = require('../utils/logger.js');
 const morgan = require('morgan');
 const routes = require('../api/routes/index.js');
-const bodyParser = require('body-parser');
-
 
 module.exports = (app) => {
     process.on('uncaughtException', (error) => {
@@ -18,6 +16,15 @@ module.exports = (app) => {
         logger('00002', '', ex.message, 'Unhandled Rejection', '');
         // process.exit(1);
     } );
+
+    // Graceful shutdown
+    process.on('SIGINT', () => {
+        console.log('Gracefully shutting down...');
+        server.close(() => {
+            console.log('Server closed');
+            process.exit(0);
+        });
+    });
 
     if (!jwtSecretKey) {
         logger('00003', '', 'Jwtprivatekey is not defined', 'Process-Env', '');
@@ -32,7 +39,6 @@ module.exports = (app) => {
     app.use(express.static('public'));
     app.disable('x-powered-by');
     app.disable('etag');
-
     app.use(prefix, routes);
 
     app.get('/', (_req, res) => {
@@ -44,6 +50,9 @@ module.exports = (app) => {
             resultCode: '00004'
         }).end();
     } );
+
+    // Health check
+    app.get('/health', (req, res) => res.send('OK'));
 
     app.use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*');
@@ -62,6 +71,8 @@ module.exports = (app) => {
         error.status = 404;
         next(error);
     });
+
+
 
     app.use((error, req, res, _next) => {
         res.status(error.status || 500);
@@ -84,8 +95,6 @@ module.exports = (app) => {
         });
 
     });
-    console.log(app._router.stack)
-
 }
 
 
