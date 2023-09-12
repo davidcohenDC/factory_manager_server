@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const { prefix, jwtSecretKey, nodeEnv } = require('../config/index.js')
-const { loggingMiddleware, rateLimiter } = require('../../src/api/middlewares/')
+// const { loggingMiddleware, rateLimiter } = require('../../src/api/middlewares/')
 const { userRedis, redisHost, redisPort } = require('../config/index.js')
 const { logEvent } = require('../utils/logger.js')
 const errorCodes = require('../utils/errorCode')
@@ -12,20 +12,14 @@ const bodyParser = require('body-parser')
 
 module.exports = (app) => {
   process.on('uncaughtException', (error) => {
+    console.log(error)
     // logEvent('00001', null, 'error', error.message);
     process.exit(1)
   })
 
   process.on('unhandledRejection', (reason, promise) => {
+    console.log(reason, promise)
     // logEvent('00002', null, 'error', { reason, promise });
-  })
-
-  process.on('SIGINT', () => {
-    console.log('Gracefully shutting down...')
-    server.close(() => {
-      // logEvent('00005', null, 'info', 'Server is closed')
-      process.exit(0)
-    })
   })
 
   // app.use(loggingMiddleware);
@@ -107,7 +101,7 @@ module.exports = (app) => {
       resultMessage: {
         en: errorCodes[resultCode]
       },
-      resultCode: resultCode
+      resultCode
     })
   })
 }

@@ -1,7 +1,7 @@
 const User = require('../../../../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const { logEvent } = require('../../../../utils/logger.js') // Importa il logger avanzato
+// const { logEvent } = require('../../../../utils/logger.js') // Importa il logger avanzato
 
 const JWT_SECRET = process.env.JWT_SECRET
 
@@ -9,7 +9,7 @@ module.exports.login = async (req, res) => {
   try {
     const { email, password } = req.body
 
-    const user = await User.findOne({ email: email })
+    const user = await User.findOne({ email })
     if (!user) {
       // logEvent('API1001', req?.user?._id ?? '', 'warn', 'Invalid email attempted for login'); // Registro tentativo di accesso con email non valida
       return res.status(401).json({ error: 'Invalid email or password' })
@@ -25,7 +25,7 @@ module.exports.login = async (req, res) => {
       expiresIn: '1h'
     })
     // logEvent('API1003', user._id, 'info', 'User logged in successfully'); // Registro l'accesso riuscito
-    res.json({ token: token })
+    res.json({ token })
   } catch (err) {
     // logEvent('API1004', req?.user?._id ?? '', 'error', `Error during login: ${err.message}`);
     console.error('Error in login:', err)

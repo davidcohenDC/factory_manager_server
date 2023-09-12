@@ -3,7 +3,7 @@ const ipHelper = require('./helpers/ip-helper.js')
 const logger = require('../config/winston-config')
 const errorCodes = require('./errorCode')
 
-const logToDatabase = async (code, userId, errorMessage, level, ip) => {
+const logToDatabase = async (code, userId, message, level, ip) => {
   const logData = {
     resultCode: code,
     level,
@@ -13,7 +13,7 @@ const logToDatabase = async (code, userId, errorMessage, level, ip) => {
   }
 
   try {
-    let log = new Log(logData)
+    const log = new Log(logData)
     await log.save()
   } catch (err) {
     logger.error(`Logging to database failed: ${err}`)

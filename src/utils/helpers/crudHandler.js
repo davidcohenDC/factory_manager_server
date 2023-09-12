@@ -31,7 +31,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: `#/components/schemas/Result`
+                    $ref: '#/components/schemas/Result'
                   }
                 }
               }
@@ -60,7 +60,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: `#/components/schemas/Result`
+                    $ref: '#/components/schemas/Result'
                   }
                 }
               }
@@ -99,7 +99,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: `#/components/schemas/Result`
+                    $ref: '#/components/schemas/Result'
                   }
                 }
               }
@@ -146,17 +146,17 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: `#/components/schemas/Result`
+                    $ref: '#/components/schemas/Result'
                   }
                 }
               }
             },
             400: {
-              description: `Invalid updates or other error.`,
+              description: 'Invalid updates or other error.',
               content: {
                 'application/json': {
                   schema: {
-                    $ref: `#/components/schemas/Result`
+                    $ref: '#/components/schemas/Result'
                   }
                 }
               }
@@ -193,7 +193,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: `#/components/schemas/Result`
+                    $ref: '#/components/schemas/Result'
                   }
                 }
               }
@@ -213,7 +213,7 @@ const CRUDHandler = (Model, modelName) => {
         await instance.save()
         res.status(201).send({ [modelName]: instance })
       } catch (error) {
-        //if E11000 duplicate key error, return 400 Bad Request and say that email is already taken
+        // if E11000 duplicate key error, return 400 Bad Request and say that email is already taken
         if (error.code === 11000) {
           res.status(400).send({ error: 'Email is already taken' })
         } else {

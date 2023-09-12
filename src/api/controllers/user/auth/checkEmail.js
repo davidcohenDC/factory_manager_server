@@ -1,6 +1,6 @@
 const User = require('../../../../models/user')
 
-//Check the existence of the email
+// Check the existence of the email
 module.exports.checkEmail = async (req, res) => {
   const { email } = req.body
 

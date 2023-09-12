@@ -7,7 +7,7 @@ module.exports.testController = async ({
   expectations = []
 }) => {
   try {
-    let response = await chai.request(server)[method](url).send(credentials)
+    const response = await chai.request(server)[method](url).send(credentials)
 
     // Run through each expectation function
     for (const expectation of expectations) {

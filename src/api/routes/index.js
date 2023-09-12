@@ -10,7 +10,7 @@ const { specs, swaggerConfig } = require('../../config/index.js')
 Object.assign(swaggerConfig.swaggerDefinition.paths, userCRUDSpecs.paths)
 
 // Now generate the specDoc
-let specDoc = swaggerJsdoc(swaggerConfig)
+const specDoc = swaggerJsdoc(swaggerConfig)
 
 router.use(specs, serve)
 router.get(specs, setup(specDoc, { explorer: true }))
