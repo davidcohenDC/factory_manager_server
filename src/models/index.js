@@ -1,6 +1,7 @@
-const logModel = require('./log.js');
-const userModel = require('./user.js');
+const logModel = require('./log.js')
+const userModel = require('./user.js')
 
 module.exports = {
-    Log: logModel,
-    User: userModel};
+  Log: logModel,
+  User: userModel
+}

@@ -1,5 +1,5 @@
-const { logEvent} = require('./logger');
+const { logEvent } = require('./logger')
 
 module.exports = {
-    logEvent
+  logEvent
 }

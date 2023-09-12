@@ -1,23 +1,25 @@
-const User = require("../../../../models/user");
+const User = require('../../../../models/user')
 
 //Check the existence of the email
 module.exports.checkEmail = async (req, res) => {
-    const {email} = req.body;
+  const { email } = req.body
 
-    try {
-        const user = await User.findOne({ email });
-        console.log(user)
-        if (user) {
-            // If the email exists, return 200 with a message that exist
-            return res.status(200).json({ message: "Email exists", exists: true });
-        } else {
-            // If the email does not exist, return 200 with a message that does not exist
-            return res.status(200).json({ message: "Email does not exist", exists: false });
-        }
-    } catch (error) {
-        console.error("Error checking email:", error); // log the error for investigation
-        return res.status(500).json({ message: 'Internal server error' });
+  try {
+    const user = await User.findOne({ email })
+    console.log(user)
+    if (user) {
+      // If the email exists, return 200 with a message that exist
+      return res.status(200).json({ message: 'Email exists', exists: true })
+    } else {
+      // If the email does not exist, return 200 with a message that does not exist
+      return res
+        .status(200)
+        .json({ message: 'Email does not exist', exists: false })
     }
+  } catch (error) {
+    console.error('Error checking email:', error) // log the error for investigation
+    return res.status(500).json({ message: 'Internal server error' })
+  }
 }
 
 /**
