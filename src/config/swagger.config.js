@@ -56,10 +56,6 @@ module.exports = {
                                     type: 'string',
                                     description: 'English message.'
                                 },
-                                tr: {
-                                    type: 'string',
-                                    description: 'Turkish message.'
-                                }
                             }
                         }
                     },

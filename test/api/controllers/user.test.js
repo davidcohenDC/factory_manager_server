@@ -96,6 +96,7 @@ describe('User Controller', () => {
                     expect(res.status).to.equal(201);
                     expect(res.body).to.have.property('user');
                     expect(res.body.user.email).to.equal(userModel.email);
+
                     done();
                 });
         });
