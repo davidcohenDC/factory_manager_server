@@ -14,4 +14,6 @@ module.exports = async () => {
         .catch(err => {
         console.log(err);
         });
+
+    mongoose.connection.on('error', console.log)
 }
