@@ -1,3 +1,34 @@
+const { swaggerConfig } = require('@config/')
+
+// Funzione per generare middleware di validazione basato su uno schema Joi
+// const generateValidationMiddleware = (bodySchema, paramsSchema) => {
+//   return (req, res, next) => {
+//     if (bodySchema) {
+//       const { error: bodyError } = bodySchema.validate(req.body)
+//       if (bodyError) {
+//         return res.status(400).json({ message: bodyError.details[0].message })
+//       }
+//     }
+//
+//     if (paramsSchema) {
+//       const { error: paramsError } = paramsSchema.validate(req.params)
+//       if (paramsError) {
+//         return res.status(400).json({ message: paramsError.details[0].message })
+//       }
+//     }
+//
+//     next()
+//   }
+// }
+
+// Middleware di Trimming
+// const trimIdMiddleware = (req, res, next) => {
+//   if (req.params.id) {
+//     req.params.id = req.params.id.trim()
+//   }
+//   next()
+// }
+
 function generateSwaggerDocForCRUD(modelName, schemaRef) {
   return {
     paths: {
@@ -268,7 +299,27 @@ const CRUDHandler = (Model, modelName) => {
     }
   }
 }
-module.exports = {
-  CRUDHandler,
-  generateSwaggerDocForCRUD
+
+// Usa queste funzioni di utility per evitare di ripetere la logica della capitalizzazione
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+// Factory function per generare CRUD handlers, specifiche Swagger e middleware di validazione
+module.exports.generateResources = (
+  Model,
+  modelName,
+  // joiBodySchema,
+  // joiParamsSchema = null
+) => {
+  const capitalizedModelName = capitalizeFirstLetter(modelName)
+  const handler = CRUDHandler(Model, modelName)
+  const SwaggerSpecs = generateSwaggerDocForCRUD(
+    capitalizedModelName,
+    `${capitalizedModelName}Schema`
+  )
+  // Update paths before generating specDoc
+  Object.assign(swaggerConfig.swaggerDefinition.paths, SwaggerSpecs.paths)
+  // return an object with all the resources we've generated as handlers, specs and validation
+  return handler
 }

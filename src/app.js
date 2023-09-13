@@ -1,6 +1,7 @@
+require('module-alias/register') // eslint-disable-line
 const express = require('express')
 const { port } = require('./config')
-const loader = require('./loaders/index.js')
+const loader = require('@loaders/')
 const app = express()
 loader(app).then(() => console.log('Server is loaded'))
 

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+    "@utils/*": ["src/utils/*"],
+    "@controllers/*": ["src/api/controllers/*"],
+    "@models/*": ["src/models/*"],
+    "@routes/*": ["src/api/routes/*"],
+    "@services/*": ["src/services/*"],
+    "@loaders/*": ["src/loaders/*"],
+    "@config/*": ["src/config/*"],
+    "@middlewares/*": ["src/api/middlewares/*"],
+    "@validations/*": ["src/api/validations/*"],
+    "@tests/*": ["tests/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

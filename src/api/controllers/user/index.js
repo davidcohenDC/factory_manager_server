@@ -1,17 +1,9 @@
-const { login } = require('./auth/login')
-const { checkEmail } = require('./auth/checkEmail')
-const {
-  CRUDHandler,
-  generateSwaggerDocForCRUD
-} = require('../../../utils/helpers/crudHandler')
-const User = require('../../../models/user')
-
-const userHandler = CRUDHandler(User, 'user')
-const userCRUDSpecs = generateSwaggerDocForCRUD('User', 'UserSchema')
+const { checkEmail } = require('@controllers/user/auth/checkEmail')
+const { login } = require('@controllers/user/auth/login')
+const { userCRUD } = require('@controllers/user/userCRUD')
 
 module.exports = {
-  userHandler,
-  userCRUDSpecs,
+  userCRUD,
   login,
   checkEmail
 }

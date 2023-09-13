@@ -1,7 +1,7 @@
-const User = require('../../../../models/user')
+const User = require('@models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-// const { logEvent } = require('../../../../utils/logger.js') // Importa il logger avanzato
+// const {logEvent } = require('../../../../utils/logger.js') // Importa il logger avanzato
 
 const JWT_SECRET = process.env.JWT_SECRET
 

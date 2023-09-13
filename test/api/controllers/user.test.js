@@ -14,13 +14,13 @@ chai.use(chaiHttp)
 describe('User Controller', () => {
   const userModel = {
     email: 'john@example.com',
-    password: 'password123',
+    password: 'Password123!',
     testUser: true
   }
 
   const userInserted = updateUserModel(userModel, {
     email: 'test123@test.com',
-    password: 'password345'
+    password: 'Password345!'
   })
 
   let userSaved = null
@@ -59,7 +59,7 @@ describe('User Controller', () => {
       })
 
       it('fails with wrong password', async () => {
-        options.credentials.password = 'wrongpassword'
+        options.credentials.password = 'WrongPassword123!'
         options.expectations = [
           (response) => {
             expect(response.status).to.equal(401)
@@ -101,7 +101,8 @@ describe('User Controller', () => {
         .send(userModel)
         .end((err, res) => {
           if (err) {
-            console.error(err)
+            //print the json error
+            console.log(err.response.body)
             return done(err)
           }
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { RateLimiterMongo } = require('rate-limiter-flexible')
-const { dbUri } = require('../../config/index.js')
-const { logEvent } = require('../../utils/index.js')
+const { dbUri } = require('@config/')
+const { logEvent } = require('@utils/')
 
 mongoose.set('strictQuery', false)
 const mongoConn = mongoose.createConnection(dbUri, {})

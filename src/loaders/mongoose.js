@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { dbUri } = require('../config/index.js')
+const { dbUri } = require('@config/')
 
 module.exports = async () => {
   mongoose.set('strictQuery', false)

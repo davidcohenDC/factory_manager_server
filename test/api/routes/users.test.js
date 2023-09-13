@@ -69,7 +69,6 @@ describe('User Routes', () => {
         .patch(`/api/user/${userSaved._id}`)
         .send(userModel)
         .end((err, res) => {
-          console.log(userSaved)
           expect(res.status).to.equal(200)
           done()
         })

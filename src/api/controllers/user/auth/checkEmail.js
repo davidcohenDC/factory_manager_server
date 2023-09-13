@@ -1,4 +1,4 @@
-const User = require('../../../../models/user')
+const User = require('@models/user')
 
 // Check the existence of the email
 module.exports.checkEmail = async (req, res) => {
@@ -6,7 +6,6 @@ module.exports.checkEmail = async (req, res) => {
 
   try {
     const user = await User.findOne({ email })
-    console.log(user)
     if (user) {
       // If the email exists, return 200 with a message that exist
       return res.status(200).json({ message: 'Email exists', exists: true })

@@ -1,6 +1,6 @@
-const { Log } = require('../models')
-const ipHelper = require('./helpers/ip-helper.js')
-const logger = require('../config/winston-config')
+const { Log } = require('@models/')
+const { ipHelper } = require('@utils/helpers/')
+const logger = require('@config/')
 const errorCodes = require('./errorCode')
 
 const logToDatabase = async (code, userId, message, level, ip) => {

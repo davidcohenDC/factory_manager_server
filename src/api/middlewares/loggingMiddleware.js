@@ -1,5 +1,5 @@
 // loggingMiddleware.js
-import logEvent from '../../utils/logger.js'
+const logEvent = require('@config//')
 
 const loggingMiddleware = (req, res, next) => {
   const startHrTime = process.hrtime()
