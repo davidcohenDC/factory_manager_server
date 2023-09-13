@@ -1,8 +1,6 @@
-const { generateResources } = require('@utils/helpers/crudHandler')
-const User = require('@models/user')
-const { userBodySchema, userIdSchema } = require('@validations/user.validation')
-const userCRUD = generateResources(User, 'user', userBodySchema, userIdSchema)
+const { generateResources } = require('@utils/helpers/crudHandler');
+const User = require('@models/user');
 
 module.exports = {
-  userCRUD
-}
+  userCRUD: generateResources(User, 'user')
+};
