@@ -10,35 +10,166 @@ module.exports = {
         email: 'david.cohen@studio.unibo.it; giulia.nardicchia@studio.unibo.it'
       }
     },
-    servers: [
-      {
-        url: '{protocol}://localhost:4000/api/',
-        variables: {
-          protocol: {
-            default: 'http',
-            description: 'API protocol.'
-          }
+    servers: [{
+      url: '{protocol}://localhost:4000/api/',
+      variables: {
+        protocol: {
+          default: 'http',
+          description: 'API protocol.'
         }
       }
-    ],
+    }],
     paths: {}, // Initialize an empty paths object
     components: {
       schemas: {
         UserSchema: {
           type: 'object',
-          description: 'User entity with email and password fields.',
           properties: {
+            name: {
+              type: 'object',
+              properties: {
+                first: {
+                  type: 'string',
+                  example: 'John'
+                },
+                last: {
+                  type: 'string',
+                  example: 'Doe'
+                }
+              }
+            },
             email: {
               type: 'string',
               format: 'email',
-              description: 'User email address.'
+              example: 'john.doe@example.com'
             },
             password: {
               type: 'string',
-              description: 'User password (hashed).'
+              example: 'Password1234!'
+            },
+            dateOfBirth: {
+              type: 'string',
+              format: 'date',
+              example: '1990-01-01'
+            },
+            address: {
+              type: 'object',
+              properties: {
+                street: {
+                  type: 'string',
+                  example: '123 Main St'
+                },
+                city: {
+                  type: 'string',
+                  example: 'Anytown'
+                },
+                state: {
+                  type: 'string',
+                  example: 'CA'
+                },
+                zip: {
+                  type: 'string',
+                  example: '90210'
+                },
+                country: {
+                  type: 'string',
+                  example: 'US'
+                }
+              }
+            },
+            phoneNumbers: {
+              type: 'array',
+              items: {
+                type: 'object',
+                properties: {
+                  type: {
+                    type: 'string',
+                    enum: ['mobile'],
+                    example: 'mobile'
+                  },
+                  number: {
+                    type: 'string',
+                    example: '+1234567890'
+                  }
+                }
+              }
+            },
+            role: {
+              type: 'string',
+              enum: ['administrator', 'moderator', 'worker'],
+              example: 'worker'
+            },
+            department: {
+              type: 'string',
+              example: 'Engineering'
+            },
+            isActive: {
+              type: 'boolean',
+              default: true
+            },
+            lastLogin: {
+              type: 'string',
+              format: 'date-time'
+            },
+            profilePicture: {
+              type: 'string',
+              example: 'http://example.com/path/to/profile.jpg'
+            },
+            security: {
+              type: 'object',
+              properties: {
+                twoFactorEnabled: {
+                  type: 'boolean',
+                  example: false
+                },
+                lastPasswordChange: {
+                  type: 'string',
+                  format: 'date-time'
+                }
+              }
+            },
+            preferences: {
+              type: 'object',
+              properties: {
+                theme: {
+                  type: 'string',
+                  enum: ['light', 'dark'],
+                  default: 'light'
+                },
+                language: {
+                  type: 'string',
+                  enum: ['en', 'es', 'fr'],
+                  default: 'en'
+                }
+              }
+            },
+            socialLinks: {
+              type: 'object',
+              properties: {
+                linkedin: {
+                  type: 'string',
+                  example: 'http://linkedin.com/in/johndoe'
+                },
+                twitter: {
+                  type: 'string',
+                  example: 'http://twitter.com/johndoe'
+                }
+              }
+            },
+            joinedDate: {
+              type: 'string',
+              format: 'date',
+              example: '2022-01-01'
+            },
+            notes: {
+              type: 'string',
+              example: 'This is a note about John Doe.'
+            },
+            testUser: {
+              type: 'boolean',
+              default: false
             }
-          },
-          required: ['email', 'password']
+          }
         },
         Result: {
           type: 'object',
@@ -61,25 +192,19 @@ module.exports = {
           },
           required: ['resultCode', 'resultMessage']
         },
-        // If using JWT or similar, define the security scheme here
-        securitySchemes: {
-          bearerAuth: {
-            type: 'http',
-            scheme: 'bearer',
-            bearerFormat: 'JWT'
-          }
-        },
         LoginRequestBody: {
           type: 'object',
           properties: {
             email: {
               type: 'string',
               format: 'email',
-              description: 'Email of the user.'
+              description: 'Email of the user.',
+              example: 'john.doe@example.com'
             },
             password: {
               type: 'string',
-              description: 'Password of the user.'
+              description: 'Password of the user.',
+              example: 'Password1234!'
             }
           },
           required: ['email', 'password']
@@ -90,10 +215,11 @@ module.exports = {
             email: {
               type: 'string',
               format: 'email',
-              description: 'Email of the user.'
+              description: 'Email of the user.',
+              example: 'john.doe@example.com'
             }
           },
-          required: ['email', 'password']
+          required: ['email']  // Removed 'password' from required since it's not present in the schema.
         },
         ErrorResponse: {
           type: 'object',
@@ -104,8 +230,18 @@ module.exports = {
             }
           }
         }
+      },
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT'
+        }
       }
-    }
+    },
+    security: [{
+      bearerAuth: []
+    }],
   },
   apis: [
     'src/utils/helpers/*.js',

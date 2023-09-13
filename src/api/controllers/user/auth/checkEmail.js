@@ -28,6 +28,8 @@ module.exports.checkEmail = async (req, res) => {
  *      summary: Check if an email exists.
  *      tags:
  *        - Authentication
+ *      security:
+ *        - bearerAuth: []
  *      requestBody:
  *        description: User's login credentials
  *        required: true
@@ -47,7 +49,7 @@ module.exports.checkEmail = async (req, res) => {
  *                    type: boolean
  *                    description: Indicates if the email exists (true) or not (false).
  *        "500":
- *          description: Internal server error.
+ *          description: Internal server error.q
  *          content:
  *            application/json:
  *              schema:

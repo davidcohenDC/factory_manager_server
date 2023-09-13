@@ -28,14 +28,14 @@ const userSchema = new Schema({
     {
       type: {
         type: String,
-        enum: ['mobile'] // Add more types if necessary
+        enum: ['mobile']
       },
       number: String
     }
   ],
   role: {
     type: String,
-    enum: ['administrator,  moderator, worker'] // Add more roles if necessary
+    enum: ['administrator', 'moderator', 'worker'] // Array of strings
   },
   department: { type: String },
   isActive: { type: Boolean, default: true },
@@ -48,12 +48,12 @@ const userSchema = new Schema({
   preferences: {
     theme: {
       type: String,
-      enum: ['light', 'dark'], // Ensure 'light' is in the enum list
+      enum: ['light', 'dark'],
       default: 'light'
     },
     language: {
       type: String,
-      enum: ['en', 'es', 'fr'], // Ensure 'en' is in the enum list
+      enum: ['en', 'es', 'fr'],
       default: 'en'
     }
   },

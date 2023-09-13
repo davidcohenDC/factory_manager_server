@@ -1,38 +1,77 @@
-const chai = require('chai')
-const chaiHttp = require('chai-http')
-const mongoose = require('mongoose')
-const User = require('../../../src/models/user')
-const server = require('../../../src/app')
-const { connectToDb } = require('../../../src/config/database')
-const { expect } = chai
-const { TEST_DB_URI } = require('./test_helper')
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const mongoose = require('mongoose');
+const User = require('../../../src/models/user');
+const server = require('../../../src/app');
+const { connectToDb } = require('../../../src/config/database');
+const { expect } = chai;
+const { TEST_DB_URI } = require('./test_helper');
 
-chai.use(chaiHttp)
+chai.use(chaiHttp);
+
+const TEST_USER_FILTER = { testUser: true };
 
 const updateUserModel = (model, updates) => {
-  return { ...model, ...updates }
-}
+  return { ...model, ...updates };
+};
 
-async function createUser(data) {
-  const user = new User(data)
-  return await user.save()
-}
+const createUser = async (data) => {
+  try {
+    const user = new User(data);
+    return await user.save();
+  } catch (error) {
+    console.error('Error while creating user:', error);
+    throw error;
+  }
+};
 
-async function commonBeforeHook(dbUri) {
-  await connectToDb(dbUri)
-}
+const commonBeforeHook = async (dbUri) => {
+  try {
+    await connectToDb(dbUri);
+  } catch (error) {
+    console.error('Error while connecting to DB:', error);
+    throw error;
+  }
+};
 
-async function commonAfterHook() {
-  await mongoose.connection.close()
-  server.close()
-}
+const commonAfterHook = async () => {
+  try {
+    await mongoose.connection.close();
+    server.close();
+  } catch (error) {
+    console.error('Error while closing the DB connection or server:', error);
+    throw error;
+  }
+};
 
-async function commonBeforeEachHook(userModel) {
-  return await createUser(userModel)
-}
+const commonBeforeEachHook = async (userModel) => {
+  return await createUser(userModel);
+};
 
-async function commonAfterEachHook() {
-  await User.deleteMany({ testUser: true })
+const commonAfterEachHook = async () => {
+  try {
+    await User.deleteMany(TEST_USER_FILTER);
+  } catch (error) {
+    console.error('Error while deleting test users:', error);
+    throw error;
+  }
+};
+
+async function obtainTestToken() {
+  const testUserCredentials = {
+    email: 'testuser@example.com',
+    password: 'testPassword123!'
+  };
+
+  const res = await chai.request(server)
+      .post('/api/user/login')
+      .send(testUserCredentials);
+
+  if (res.status !== 200) {
+    throw new Error('Failed to obtain test token');
+  }
+
+  return res.body.token;
 }
 
 module.exports = {
@@ -40,6 +79,7 @@ module.exports = {
   mongoose,
   User,
   server,
+  obtainTestToken,
   connectToDb,
   expect,
   TEST_DB_URI,
@@ -49,4 +89,4 @@ module.exports = {
   commonAfterHook,
   commonBeforeEachHook,
   commonAfterEachHook
-}
+};
