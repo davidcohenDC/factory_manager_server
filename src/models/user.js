@@ -3,6 +3,8 @@ const { Schema, model } = mongoose
 const bcrypt = require('bcrypt')
 const { logger } = require('@config/')
 
+const logSource = { source: 'UserSchema' };
+
 const userSchema = new Schema({
   name: {
     first: String,
@@ -66,25 +68,24 @@ const userSchema = new Schema({
   notes: String,
   testUser: { type: Boolean, default: false }
 })
+
 userSchema.pre('save', async function (next) {
   if (this.isModified('password')) {
     try {
       this.password = await bcrypt.hash(this.password, 10);
     } catch (error) {
-      logger.error(`Error hashing password for user ${this.email}: ${error.message}`);
+      logger.error(`Error hashing password for user ${this.email}: ${error.message}`, logSource);
       next(error);
     }
   }
   next();
 });
 
-// This hook handles errors after saving
 userSchema.post('save', function (err, doc, next) {
   if (err) {
     if (err.name === 'MongoServerError' && err.code === 11000) {
       next(new Error(`Email address ${doc.email} is already registered.`));
     } else {
-      // Handle other errors or just pass them along
       next(err);
     }
   } else {
@@ -92,24 +93,24 @@ userSchema.post('save', function (err, doc, next) {
   }
 });
 
-// This hook runs after saving, when there's no error
 userSchema.post('save', function (doc) {
-  logger.info(`User with id: ${doc._id} was saved.`);
+  logger.info(`Successfully saved user with id: ${doc._id}, Email: ${doc.email}.`, logSource);
 });
 
 userSchema.post('validate', function (doc) {
-  logger.info(`User with id: ${doc._id} passed validation.`);
+  logger.info(`User with id: ${doc._id}, Email: ${doc.email} passed validation.`, logSource);
 });
 
 userSchema.post('findOneAndUpdate', function (doc) {
-    logger.info(`User with id: ${doc._id} was updated.`);
-})
+  logger.info(`User with id: ${doc._id}, Email: ${doc.email} was updated.`, logSource);
+});
 
 userSchema.post('findOneAndDelete', function (doc, next) {
-    logger.info(`User with id: ${doc._id} was deleted.`);
-    next();
-})
-
+  logger.info(`User with id: ${doc._id}, Email: ${doc.email} was deleted.`, logSource);
+  next();
+});
 
 const User = model('User', userSchema);
 module.exports = User;
+
+

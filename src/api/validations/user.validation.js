@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const { logger } = require('@config/')
 
 //use comprehensive8 regex
 const passwordRegex =
@@ -40,42 +41,69 @@ const checkMailSchema = Joi.object({
   ...emailValidationStructure
 })
 
+const validate = async (schema, source, req) => {
+  await schema.validateAsync(req[source]);
+};
+
 module.exports.validateUserBody = async (req, res, next) => {
-  //create base schema for creation of the user
   try {
-    await userBodySchema.validateAsync(req.body)
-    next()
+    await validate(userBodySchema, 'body', req);
+    next();
   } catch (error) {
-    res.status(400).json({ message: error.details[0].message })
+    const errorMessage = error.details[0].message;
+    logger.error(`Validation Error in body - User Validation Middleware`, {
+      message: errorMessage,
+      req,
+      source: 'validateUserBody'
+    });
+    res.status(400).json({ message: errorMessage });
   }
-}
+};
 
 module.exports.validateUserId = async (req, res, next) => {
   try {
-    await userIdSchema.validateAsync(req.params)
-    next()
+    await validate(userIdSchema, 'params', req);
+    next();
   } catch (error) {
-    res.status(400).json({ message: error.details[0].message })
+    const errorMessage = error.details[0].message;
+    logger.error(`Validation Error in params - User Validation Middleware`, {
+      message: errorMessage,
+      req,
+      source: 'validateUserId'
+    });
+    res.status(400).json({ message: errorMessage });
   }
-}
+};
 
 module.exports.validateLogin = async (req, res, next) => {
   try {
-    await loginSchema.validateAsync(req.body)
-    next()
+    await validate(loginSchema, 'body', req);
+    next();
   } catch (error) {
-    res.status(400).json({ message: error.details[0].message })
+    const errorMessage = error.details[0].message;
+    logger.error(`Validation Error in body - User Validation Middleware`, {
+      message: errorMessage,
+      req,
+      source: 'validateLogin'
+    });
+    res.status(400).json({ message: errorMessage });
   }
-}
+};
 
 module.exports.validateCheckMail = async (req, res, next) => {
   try {
-    await checkMailSchema.validateAsync(req.body)
-    next()
+    await validate(checkMailSchema, 'body', req);
+    next();
   } catch (error) {
-    res.status(400).json({ message: error.details[0].message })
+    const errorMessage = error.details[0].message;
+    logger.error(`Validation Error in body - User Validation Middleware`, {
+      message: errorMessage,
+      req,
+      source: 'validateCheckMail'
+    });
+    res.status(400).json({ message: errorMessage });
   }
-}
+};
 
 // export also the schemas
 module.exports.emailValidationStructure = emailValidationStructure

@@ -5,18 +5,19 @@ const loader = require('@loaders/');
 const { logger } = require('@config/'); // Modify the path to point to your logger file
 const app = express();
 
-loader(app).then(() => logger.info('Server is loaded'));
+const logSource = { source: 'Express Server' };
+loader(app).then(() => logger.info('Server is loaded', logSource));
 
 const server = app.listen(port, () => {
-  logger.info(`Server is running on port ${port}`);
+  logger.info(`Server is running on port ${port}`, logSource);
 });
 
 process.on('SIGINT', () => {
-  logger.info('Gracefully shutting down...');
+  logger.info('Gracefully shutting down...', logSource);
   server.close(() => {
-    logger.info('[Code: 00005] - Server is closed');
+    logger.info('[Code: 00005] - Server is closed', logSource);
     process.exit(0);
   });
 });
 
-module.exports = server; // For chai-http
+module.exports = server;  // For chai-http

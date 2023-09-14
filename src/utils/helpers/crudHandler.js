@@ -1,34 +1,5 @@
 const { swaggerConfig } = require('@config/')
-
-// Funzione per generare middleware di validazione basato su uno schema Joi
-// const generateValidationMiddleware = (bodySchema, paramsSchema) => {
-//   return (req, res, next) => {
-//     if (bodySchema) {
-//       const { error: bodyError } = bodySchema.validate(req.body)
-//       if (bodyError) {
-//         return res.status(400).json({ message: bodyError.details[0].message })
-//       }
-//     }
-//
-//     if (paramsSchema) {
-//       const { error: paramsError } = paramsSchema.validate(req.params)
-//       if (paramsError) {
-//         return res.status(400).json({ message: paramsError.details[0].message })
-//       }
-//     }
-//
-//     next()
-//   }
-// }
-
-// Middleware di Trimming
-// const trimIdMiddleware = (req, res, next) => {
-//   if (req.params.id) {
-//     req.params.id = req.params.id.trim()
-//   }
-//   next()
-// }
-
+const { logger } = require('@config/')
 function generateSwaggerDocForCRUD(modelName, schemaRef) {
   return {
     paths: {
@@ -236,70 +207,88 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
   }
 }
 
+
 const CRUDHandler = (Model, modelName) => {
+  const logSource = `CRUDHandler - ${modelName}`;
+
   return {
     create: async (req, res) => {
-      const instance = new Model(req.body)
+      const instance = new Model(req.body);
       try {
-        await instance.save()
-        res.status(201).send({ [modelName]: instance })
+        await instance.save();
+        logger.info(`Successfully created ${modelName} with id ${instance._id}.`, { source: logSource });
+        res.status(201).send({ [modelName]: instance });
       } catch (error) {
-        // if E11000 duplicate key error, return 400 Bad Request and say that email is already taken
+        logger.error(`Error creating ${modelName}: ${error.message}`, { source: logSource });
         if (error.code === 11000) {
-          res.status(400).send({ error: 'Email is already taken' })
+          res.status(400).send({ error: 'Email is already taken' });
         } else {
-          console.error(`Error while saving ${modelName}:`, error)
-          res.status(400).send({ error: `Failed to create ${modelName}.` })
+          res.status(400).send({ error: `Failed to create ${modelName}.` });
         }
       }
     },
 
     getOne: async (req, res) => {
       try {
-        const instance = await Model.findById(req.params.id)
-        if (!instance) return res.status(404).send()
-        res.json({ [modelName]: instance })
+        const instance = await Model.findById(req.params.id);
+        if (!instance) {
+          logger.warn(`${modelName} with id ${req.params.id} not found.`, { source: logSource });
+          return res.status(404).send();
+        }
+        logger.info(`Successfully retrieved ${modelName} with id ${req.params.id}.`, { source: logSource });
+        res.json({ [modelName]: instance });
       } catch (error) {
-        res.status(500).send()
+        logger.error(`Error retrieving ${modelName} with id ${req.params.id}: ${error.message}`, { source: logSource });
+        res.status(500).send();
       }
     },
 
     getAll: async (req, res) => {
       try {
-        const instances = await Model.find()
-        res.json({ [modelName]: instances })
+        const instances = await Model.find();
+        logger.info(`Successfully retrieved all ${modelName}s.`, { source: logSource });
+        res.json({ [modelName]: instances });
       } catch (error) {
-        console.error(`Error in retrieving ${modelName}s:`, error)
-        res.status(500).json({ error: 'Internal server error' })
+        logger.error(`Error retrieving all ${modelName}s: ${error.message}`, { source: logSource });
+        res.status(500).json({ error: 'Internal server error' });
       }
     },
 
     update: async (req, res) => {
       try {
         const instance = await Model.findByIdAndUpdate(
-          req.params.id,
-          req.body,
-          { new: true, runValidators: true }
-        )
-        if (!instance) return res.status(404).send()
-        res.send({ [modelName]: instance })
+            req.params.id,
+            req.body,
+            { new: true, runValidators: true }
+        );
+        if (!instance) {
+          logger.warn(`Failed to update ${modelName} with id ${req.params.id} - Not found.`, { source: logSource });
+          return res.status(404).send();
+        }
+        logger.info(`Successfully updated ${modelName} with id ${req.params.id}.`, { source: logSource });
+        res.send({ [modelName]: instance });
       } catch (error) {
-        res.status(400).send(error)
+        logger.error(`Error updating ${modelName} with id ${req.params.id}: ${error.message}`, { source: logSource });
+        res.status(400).send(error);
       }
     },
 
     remove: async (req, res) => {
       try {
-        const instance = await Model.findByIdAndDelete(req.params.id)
-        if (!instance) return res.status(404).send()
-        res.send({ [modelName]: instance })
+        const instance = await Model.findByIdAndDelete(req.params.id);
+        if (!instance) {
+          logger.warn(`Failed to delete ${modelName} with id ${req.params.id} - Not found.`, { source: logSource });
+          return res.status(404).send();
+        }
+        logger.info(`Successfully deleted ${modelName} with id ${req.params.id}.`, { source: logSource });
+        res.send({ [modelName]: instance });
       } catch (error) {
-        res.status(500).send()
+        logger.error(`Error deleting ${modelName} with id ${req.params.id}: ${error.message}`, { source: logSource });
+        res.status(500).send();
       }
     }
   }
-}
-
+};
 // Usa queste funzioni di utility per evitare di ripetere la logica della capitalizzazione
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)

@@ -1,8 +1,9 @@
-
 const expressJwt = require('express-jwt');
 const jwtBlacklist = require('express-jwt-blacklist');
+const { logger } = require('@config/');  // Modify the path to point to your logger file
 
 const jwtSecretKey = process.env.JWT_SECRET_KEY; // From environment variable
+const logSource = { source: 'JWT Middleware' };
 
 jwtBlacklist.configure({
     tokenId: 'jti', // the JWT token identifier key
@@ -18,12 +19,11 @@ jwtBlacklist.configure({
     }
 });
 
-// Utility function to send error response
 function sendErrorResponse(res, statusCode, message) {
+    logger.error(`[Code: ${statusCode}] - ${message}`, logSource);
     return res.status(statusCode).json({ error: message });
 }
 
-// Function to extract token from Authorization header
 function extractToken(req) {
     if (!req.header('Authorization') || !req.header('Authorization').startsWith('Bearer ')) {
         return null;

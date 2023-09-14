@@ -31,24 +31,36 @@ const customTransports = {
     format: winston.format.combine(
         winston.format.colorize(),
         winston.format.printf(({ timestamp, level, message, ...metadata }) => {
-          let output = `${timestamp} [${level}]: ${message}`;
+          //if metadatada.source is not defined we dont want to print undefined
+          let output = ``;
+          if(metadata.source === undefined) {
+            output = `${timestamp} [${level}]: ${message}`;
+          } else {
+            output = `${timestamp} [${level}]: [${metadata.source}] ${message}`;
+          }
+
+          if (metadata.req) {
+            const { method, originalUrl, ip } = metadata.req;
+            output += `
+              Method: ${method}
+              Path: ${originalUrl}
+              IP: ${ip}
+            `;
+          }
 
           if (level === 'error') {
-            const { user, method, path, ip, error } = metadata;
+            const { user, error } = metadata;
             output += `
               User: ${user ? user : 'N/A'}
-              Method: ${method}
-              Path: ${path}
-              IP: ${ip}
-              Error Status: ${error.status}
-              `;
+              Error Status: ${error ? error.status : ''}
+            `;
           } else if (level === 'warn') {
             const { path, statusCode, headers } = metadata;
             output += `
               Path: ${path}
               Status Code: ${statusCode}
               Headers: ${JSON.stringify(headers, null, 2)}
-              `;
+            `;
           }
 
           return output;
