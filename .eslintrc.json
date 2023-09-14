@@ -2,5 +2,8 @@
   "extends": [
     "semistandard",
     "standard"
-  ]
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018
+  }
 }
