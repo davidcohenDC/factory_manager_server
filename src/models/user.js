@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema, model } = mongoose
 const bcrypt = require('bcrypt')
+const { logger } = require('@config/')
 
 const userSchema = new Schema({
   name: {
@@ -67,10 +68,47 @@ const userSchema = new Schema({
 })
 userSchema.pre('save', async function (next) {
   if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 10)
+    try {
+      this.password = await bcrypt.hash(this.password, 10);
+    } catch (error) {
+      logger.error(`Error hashing password for user ${this.email}: ${error.message}`);
+      next(error);
+    }
   }
-  next()
+  next();
+});
+
+// This hook handles errors after saving
+userSchema.post('save', function (err, doc, next) {
+  if (err) {
+    if (err.name === 'MongoServerError' && err.code === 11000) {
+      next(new Error(`Email address ${doc.email} is already registered.`));
+    } else {
+      // Handle other errors or just pass them along
+      next(err);
+    }
+  } else {
+    next();
+  }
+});
+
+// This hook runs after saving, when there's no error
+userSchema.post('save', function (doc) {
+  logger.info(`User with id: ${doc._id} was saved.`);
+});
+
+userSchema.post('validate', function (doc) {
+  logger.info(`User with id: ${doc._id} passed validation.`);
+});
+
+userSchema.post('updateOne|findOneAndUpdate|findOneAndUpdate', function (doc) {
+    logger.info(`User with id: ${doc._id} was updated.`);
 })
 
-const User = model('User', userSchema)
-module.exports = User
+userSchema.post('deleteOne|findOneAndDelete|findOneAndRemove', function (doc) {
+    logger.info(`User with id: ${doc._id} was deleted.`);
+})
+
+
+const User = model('User', userSchema);
+module.exports = User;
