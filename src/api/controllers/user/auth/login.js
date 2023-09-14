@@ -1,6 +1,7 @@
 const User = require('@models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { logger }  = require('@config/');
 const jwtSecretKey = process.env.JWT_SECRET; // Directly from environment variable
 
 module.exports.login = async (req, res) => {
@@ -9,13 +10,13 @@ module.exports.login = async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      // logEvent('API1001', req?.user?._id ?? '', 'warn', 'Invalid email attempted for login');
+      logger.warn(`[Code: API1001] - Invalid email attempted for login by user: ${req?.user?._id ?? 'Unknown'}`);
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      // logEvent('API1002', req?.user?._id ?? '', 'warn', 'Invalid password attempted for login');
+      logger.warn(`[Code: API1002] - Invalid password attempted for login by user: ${req?.user?._id ?? 'Unknown'}`);
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
@@ -23,12 +24,11 @@ module.exports.login = async (req, res) => {
       expiresIn: '30d'
     });
 
-    // logEvent('API1003', user._id, 'info', 'User logged in successfully');
+    logger.info(`[Code: API1003] - User ${user._id} logged in successfully`);
     res.status(200).json({ token });
 
   } catch (err) {
-    // logEvent('API1004', req?.user?._id ?? '', 'error', `Error during login: ${err.message}`);
-    console.error('Error in login:', err);
+    logger.error(`[Code: API1004] - Error during login for user ${req?.user?._id ?? 'Unknown'}: ${err.message}`, { error: err });
     res.status(500).json({ error: 'Internal server error' });
   }
 };

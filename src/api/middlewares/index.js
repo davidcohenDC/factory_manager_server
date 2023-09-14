@@ -1,9 +1,9 @@
 const { rateLimiter } = require('@middlewares/rateLimiter')
-const { loggingMiddleware } = require('@middlewares/loggingMiddleware')
+const logMiddleware = require('@middlewares/logMiddleware')
 const auth = require('@middlewares/authenticate')
 
 module.exports = {
   rateLimiter,
-  loggingMiddleware,
+  logMiddleware,
   auth
 }

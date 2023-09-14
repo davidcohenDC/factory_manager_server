@@ -11,7 +11,8 @@
     "@config/*": ["src/config/*"],
     "@middlewares/*": ["src/api/middlewares/*"],
     "@validations/*": ["src/api/validations/*"],
-    "@tests/*": ["tests/*"]
+    "@tests/*": ["tests/*"],
+    "@logs/*": ["logs/*"]
     }
   },
   "exclude": ["node_modules"]
