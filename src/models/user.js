@@ -101,12 +101,13 @@ userSchema.post('validate', function (doc) {
   logger.info(`User with id: ${doc._id} passed validation.`);
 });
 
-userSchema.post('updateOne|findOneAndUpdate|findOneAndUpdate', function (doc) {
+userSchema.post('findOneAndUpdate', function (doc) {
     logger.info(`User with id: ${doc._id} was updated.`);
 })
 
-userSchema.post('deleteOne|findOneAndDelete|findOneAndRemove', function (doc) {
+userSchema.post('findOneAndDelete', function (doc, next) {
     logger.info(`User with id: ${doc._id} was deleted.`);
+    next();
 })
 
 
