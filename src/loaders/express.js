@@ -4,6 +4,7 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
+
 const {
   prefix,
   jwtSecretKey,
@@ -54,6 +55,7 @@ module.exports = (app) => {
     });
     app.use(cache);
   }
+  app.use(require('express-status-monitor')())
 
   app.use(cors());
   app.use(compression());
