@@ -1,51 +1,62 @@
-const expressJwt = require('express-jwt');
-const jwtBlacklist = require('express-jwt-blacklist');
-const { logger } = require('@config/');  // Modify the path to point to your logger file
+const expressJwt = require('express-jwt')
+const jwtBlacklist = require('express-jwt-blacklist')
+const { logger } = require('@config/') // Modify the path to point to your logger file
 
-const jwtSecretKey = process.env.JWT_SECRET_KEY; // From environment variable
-const logSource = { source: 'JWT Middleware' };
+const jwtSecretKey = process.env.JWT_SECRET_KEY // From environment variable
+const logSource = { source: 'JWT Middleware' }
 
 jwtBlacklist.configure({
-    tokenId: 'jti', // the JWT token identifier key
-    strict: true,
-    store: {
-        type: 'memcached',
-        host: 'localhost',
-        port: 11211,
-        keyPrefix: 'blacklist:',
-        options: {
-            timeout: 10 // Blacklist cache timeout in seconds
-        }
+  tokenId: 'jti', // the JWT token identifier key
+  strict: true,
+  store: {
+    type: 'memcached',
+    host: 'localhost',
+    port: 11211,
+    keyPrefix: 'blacklist:',
+    options: {
+      timeout: 10 // Blacklist cache timeout in seconds
     }
-});
+  }
+})
 
 function sendErrorResponse(res, statusCode, message) {
-    logger.error(`[Code: ${statusCode}] - ${message}`, logSource);
-    return res.status(statusCode).json({ error: message });
+  logger.error(`[Code: ${statusCode}] - ${message}`, logSource)
+  return res.status(statusCode).json({ error: message })
 }
 
 function extractToken(req) {
-    if (!req.header('Authorization') || !req.header('Authorization').startsWith('Bearer ')) {
-        return null;
-    }
-    return req.header('Authorization').split(' ')[1];
+  if (
+    !req.header('Authorization') ||
+    !req.header('Authorization').startsWith('Bearer ')
+  ) {
+    return null
+  }
+  return req.header('Authorization').split(' ')[1]
 }
 
 module.exports = (req, res, next) => {
-    const token = extractToken(req);
+  const token = extractToken(req)
 
-    if (!token) {
-        return sendErrorResponse(res, 401, 'Access denied. Token not provided or format incorrect.');
-    }
+  if (!token) {
+    return sendErrorResponse(
+      res,
+      401,
+      'Access denied. Token not provided or format incorrect.'
+    )
+  }
 
-    // Validate the token
-    expressJwt({ secret: jwtSecretKey, isRevoked: jwtBlacklist.isRevoked })(req, res, error => {
-        if (error) {
-            if (error.code === 'invalid_token') {
-                return sendErrorResponse(res, 401, 'Invalid token');
-            }
-            return sendErrorResponse(res, 500, 'Failed to authenticate token');
+  // Validate the token
+  expressJwt({ secret: jwtSecretKey, isRevoked: jwtBlacklist.isRevoked })(
+    req,
+    res,
+    (error) => {
+      if (error) {
+        if (error.code === 'invalid_token') {
+          return sendErrorResponse(res, 401, 'Invalid token')
         }
-        next();
-    });
-};
+        return sendErrorResponse(res, 500, 'Failed to authenticate token')
+      }
+      next()
+    }
+  )
+}

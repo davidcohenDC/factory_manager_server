@@ -12,7 +12,7 @@ const {
   JWT_SECRET,
   TEST_COMMAND,
   REDIS_HOST,
-  REDIS_PORT,
+  REDIS_PORT
 } = process.env
 
 module.exports = {

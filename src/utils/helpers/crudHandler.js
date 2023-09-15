@@ -207,88 +207,122 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
   }
 }
 
-
 const CRUDHandler = (Model, modelName) => {
-  const logSource = `CRUDHandler - ${modelName}`;
+  const logSource = `CRUDHandler - ${modelName}`
 
   return {
     create: async (req, res) => {
-      const instance = new Model(req.body);
+      const instance = new Model(req.body)
       try {
-        await instance.save();
-        logger.info(`Successfully created ${modelName} with id ${instance._id}.`, { source: logSource });
-        res.status(201).send({ [modelName]: instance });
+        await instance.save()
+        logger.info(
+          `Successfully created ${modelName} with id ${instance._id}.`,
+          { source: logSource }
+        )
+        res.status(201).send({ [modelName]: instance })
       } catch (error) {
-        logger.error(`Error creating ${modelName}: ${error.message}`, { source: logSource });
+        logger.error(`Error creating ${modelName}: ${error.message}`, {
+          source: logSource
+        })
         if (error.code === 11000) {
-          res.status(400).send({ error: 'Email is already taken' });
+          res.status(400).send({ error: 'Email is already taken' })
         } else {
-          res.status(400).send({ error: `Failed to create ${modelName}.` });
+          res.status(400).send({ error: `Failed to create ${modelName}.` })
         }
       }
     },
 
     getOne: async (req, res) => {
       try {
-        const instance = await Model.findById(req.params.id);
+        const instance = await Model.findById(req.params.id)
         if (!instance) {
-          logger.warn(`${modelName} with id ${req.params.id} not found.`, { source: logSource });
-          return res.status(404).send();
+          logger.warn(`${modelName} with id ${req.params.id} not found.`, {
+            source: logSource
+          })
+          return res.status(404).send()
         }
-        logger.info(`Successfully retrieved ${modelName} with id ${req.params.id}.`, { source: logSource });
-        res.json({ [modelName]: instance });
+        logger.info(
+          `Successfully retrieved ${modelName} with id ${req.params.id}.`,
+          { source: logSource }
+        )
+        res.json({ [modelName]: instance })
       } catch (error) {
-        logger.error(`Error retrieving ${modelName} with id ${req.params.id}: ${error.message}`, { source: logSource });
-        res.status(500).send();
+        logger.error(
+          `Error retrieving ${modelName} with id ${req.params.id}: ${error.message}`,
+          { source: logSource }
+        )
+        res.status(500).send()
       }
     },
 
     getAll: async (req, res) => {
       try {
-        const instances = await Model.find();
-        logger.info(`Successfully retrieved all ${modelName}s.`, { source: logSource });
-        res.json({ [modelName]: instances });
+        const instances = await Model.find()
+        logger.info(`Successfully retrieved all ${modelName}s.`, {
+          source: logSource
+        })
+        res.json({ [modelName]: instances })
       } catch (error) {
-        logger.error(`Error retrieving all ${modelName}s: ${error.message}`, { source: logSource });
-        res.status(500).json({ error: 'Internal server error' });
+        logger.error(`Error retrieving all ${modelName}s: ${error.message}`, {
+          source: logSource
+        })
+        res.status(500).json({ error: 'Internal server error' })
       }
     },
 
     update: async (req, res) => {
       try {
         const instance = await Model.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { new: true, runValidators: true }
-        );
+          req.params.id,
+          req.body,
+          { new: true, runValidators: true }
+        )
         if (!instance) {
-          logger.warn(`Failed to update ${modelName} with id ${req.params.id} - Not found.`, { source: logSource });
-          return res.status(404).send();
+          logger.warn(
+            `Failed to update ${modelName} with id ${req.params.id} - Not found.`,
+            { source: logSource }
+          )
+          return res.status(404).send()
         }
-        logger.info(`Successfully updated ${modelName} with id ${req.params.id}.`, { source: logSource });
-        res.send({ [modelName]: instance });
+        logger.info(
+          `Successfully updated ${modelName} with id ${req.params.id}.`,
+          { source: logSource }
+        )
+        res.send({ [modelName]: instance })
       } catch (error) {
-        logger.error(`Error updating ${modelName} with id ${req.params.id}: ${error.message}`, { source: logSource });
-        res.status(400).send(error);
+        logger.error(
+          `Error updating ${modelName} with id ${req.params.id}: ${error.message}`,
+          { source: logSource }
+        )
+        res.status(400).send(error)
       }
     },
 
     remove: async (req, res) => {
       try {
-        const instance = await Model.findByIdAndDelete(req.params.id);
+        const instance = await Model.findByIdAndDelete(req.params.id)
         if (!instance) {
-          logger.warn(`Failed to delete ${modelName} with id ${req.params.id} - Not found.`, { source: logSource });
-          return res.status(404).send();
+          logger.warn(
+            `Failed to delete ${modelName} with id ${req.params.id} - Not found.`,
+            { source: logSource }
+          )
+          return res.status(404).send()
         }
-        logger.info(`Successfully deleted ${modelName} with id ${req.params.id}.`, { source: logSource });
-        res.send({ [modelName]: instance });
+        logger.info(
+          `Successfully deleted ${modelName} with id ${req.params.id}.`,
+          { source: logSource }
+        )
+        res.send({ [modelName]: instance })
       } catch (error) {
-        logger.error(`Error deleting ${modelName} with id ${req.params.id}: ${error.message}`, { source: logSource });
-        res.status(500).send();
+        logger.error(
+          `Error deleting ${modelName} with id ${req.params.id}: ${error.message}`,
+          { source: logSource }
+        )
+        res.status(500).send()
       }
     }
   }
-};
+}
 // Usa queste funzioni di utility per evitare di ripetere la logica della capitalizzazione
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
@@ -297,7 +331,7 @@ function capitalizeFirstLetter(string) {
 // Factory function per generare CRUD handlers, specifiche Swagger e middleware di validazione
 module.exports.generateResources = (
   Model,
-  modelName,
+  modelName
   // joiBodySchema,
   // joiParamsSchema = null
 ) => {

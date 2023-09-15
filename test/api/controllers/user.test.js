@@ -133,7 +133,7 @@ describe('User Controller', () => {
   })
 
   describe('User Get All with Authentication', () => {
-    let token;
+    let token
 
     before(async () => {
       const options = {
@@ -145,34 +145,34 @@ describe('User Controller', () => {
         method: 'post',
         expectations: []
       }
-    });
-
-
+    })
 
     describe('GET /api/user', () => {
       it('should retrieve all users when authenticated', (done) => {
-        chai.request(server)
-            .get('/api/user')
-            .set('Authorization', `Bearer ${token}`)
-            .end((err, res) => {
-              if (err) done(err);
+        chai
+          .request(server)
+          .get('/api/user')
+          .set('Authorization', `Bearer ${token}`)
+          .end((err, res) => {
+            if (err) done(err)
 
-              expect(res.status).to.equal(200);
-              // expect(res.body).to.be.an('array');
-              done();
-            });
-      });
+            expect(res.status).to.equal(200)
+            // expect(res.body).to.be.an('array');
+            done()
+          })
+      })
 
       it('should return 401 when not authenticated', (done) => {
-        chai.request(server)
-            .get('/api/user')
-            .end((err, res) => {
-              if (err) done(err);
+        chai
+          .request(server)
+          .get('/api/user')
+          .end((err, res) => {
+            if (err) done(err)
 
-              expect(res.status).to.equal(401);
-              done();
-            });
-      });
-    });
-  });
+            expect(res.status).to.equal(401)
+            done()
+          })
+      })
+    })
+  })
 })

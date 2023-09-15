@@ -10,15 +10,17 @@ module.exports = {
         email: 'david.cohen@studio.unibo.it; giulia.nardicchia@studio.unibo.it'
       }
     },
-    servers: [{
-      url: '{protocol}://localhost:4000/api/',
-      variables: {
-        protocol: {
-          default: 'http',
-          description: 'API protocol.'
+    servers: [
+      {
+        url: '{protocol}://localhost:4000/api/',
+        variables: {
+          protocol: {
+            default: 'http',
+            description: 'API protocol.'
+          }
         }
       }
-    }],
+    ],
     paths: {}, // Initialize an empty paths object
     components: {
       schemas: {
@@ -219,7 +221,7 @@ module.exports = {
               example: 'john.doe@example.com'
             }
           },
-          required: ['email']  // Removed 'password' from required since it's not present in the schema.
+          required: ['email'] // Removed 'password' from required since it's not present in the schema.
         },
         ErrorResponse: {
           type: 'object',
@@ -239,9 +241,11 @@ module.exports = {
         }
       }
     },
-    security: [{
-      bearerAuth: []
-    }],
+    security: [
+      {
+        bearerAuth: []
+      }
+    ]
   },
   apis: [
     'src/utils/helpers/*.js',
