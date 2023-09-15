@@ -1,8 +1,7 @@
 const expressJwt = require('express-jwt')
 const jwtBlacklist = require('express-jwt-blacklist')
-const { logger } = require('@config/') // Modify the path to point to your logger file
-
-const jwtSecretKey = process.env.JWT_SECRET_KEY // From environment variable
+const { logger } = require('@config/')
+const { host, port, jwtSecretKey } = require('@config/')
 const logSource = { source: 'JWT Middleware' }
 
 jwtBlacklist.configure({
@@ -10,8 +9,8 @@ jwtBlacklist.configure({
   strict: true,
   store: {
     type: 'memcached',
-    host: 'localhost',
-    port: 11211,
+    host: host,
+    port: port,
     keyPrefix: 'blacklist:',
     options: {
       timeout: 10 // Blacklist cache timeout in seconds

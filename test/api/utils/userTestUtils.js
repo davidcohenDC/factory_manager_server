@@ -1,3 +1,4 @@
+require('module-alias/register')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 const mongoose = require('mongoose')

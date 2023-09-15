@@ -3,7 +3,7 @@ const cors = require('cors')
 const compression = require('compression')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
-
+const mongoose = require('mongoose')
 const {
   prefix,
   jwtSecretKey,
@@ -21,7 +21,7 @@ const logSource = { source: 'Express Loader' }
 
 module.exports = (app) => {
   process.on('uncaughtException', (error) => {
-    logger.error(`[Code: 00001] - Uncaught Exception: ${error.message}`, {
+    logger.error(`Uncaught Exception: ${error.message}`, {
       ...logSource,
       error
     })
@@ -29,7 +29,7 @@ module.exports = (app) => {
   })
 
   process.on('unhandledRejection', (reason, promise) => {
-    logger.error(`[Code: 00002] - Unhandled Rejection at Promise`, {
+    logger.error(`Unhandled Rejection at Promise`, {
       ...logSource,
       reason,
       promise
@@ -37,7 +37,7 @@ module.exports = (app) => {
   })
 
   if (!jwtSecretKey) {
-    logger.error(`[Code: 00003] - ${errorCodes['00003']}`, logSource)
+    logger.error(`${errorCodes['00003']}`, logSource)
     process.exit(1)
   }
 

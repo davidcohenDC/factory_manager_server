@@ -12,7 +12,6 @@ module.exports = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
-
     logger.info('Successfully connected to MongoDB', { source: sourceName })
   } catch (error) {
     logger.error('Error connecting to MongoDB', { error, source: sourceName })

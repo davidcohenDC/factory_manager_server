@@ -1,23 +1,40 @@
 require('module-alias/register')
 const express = require('express')
 const { port } = require('./config')
-const loader = require('@loaders/')
-const { logger } = require('@config/') // Modify the path to point to your logger file
+const initializeLoaders = require('@loaders/')
+const { logger } = require('@config/')
+const mongoose = require('mongoose')
 const app = express()
-
 const logSource = { source: 'Express Server' }
-loader(app).then(() => logger.info('Server is loaded', logSource))
 
-const server = app.listen(port, () => {
-  logger.info(`Server is running on port ${port}`, logSource)
-})
+initializeLoaders(app).then(() => logger.info('Server is loaded', logSource))
 
-process.on('SIGINT', () => {
-  logger.info('Gracefully shutting down...', logSource)
-  server.close(() => {
-    logger.info('[Code: 00005] - Server is closed', logSource)
-    process.exit(0)
+const startServer = (appInstance) => {
+  const server = appInstance.listen(port, () => {
+    logger.info(`Server is running on port ${port}`, logSource)
   })
-})
 
-module.exports = server // For chai-http
+  process.on('SIGINT', () =>
+  {
+    logger.info('Gracefully shutting down...', logSource)
+    server.close(() => {
+      logger.info('Server is closed', logSource)
+      // Disconnect mongoose connection
+      mongoose.disconnect()
+          .then(() => {
+            logger.info('Mongoose disconnected', logSource);
+            process.exit(0);
+          })
+          .catch(() => {
+            logger.error('Error while disconnecting from Mongoose', logSource);
+            process.exit(1);
+          });
+    })
+  })
+
+  return server
+}
+
+const server = startServer(app)
+
+module.exports = server // For testing
