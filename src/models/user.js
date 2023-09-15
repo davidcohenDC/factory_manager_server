@@ -69,6 +69,20 @@ const userSchema = new Schema({
   testUser: { type: Boolean, default: false }
 })
 
+// Indexing
+userSchema.index({ email: 1 });
+
+// Virtual for fullName
+userSchema.virtual('fullName')
+    .get(function() {
+      return this.name.firstName + ' ' + this.name.lastName;
+    })
+    .set(function(value) {
+      const parts = value.split(' ');
+      this.name.firstName = parts[0];
+      this.name.lastName = parts[1];
+    });
+
 userSchema.pre('save', async function (next) {
   if (this.isModified('password')) {
     try {
