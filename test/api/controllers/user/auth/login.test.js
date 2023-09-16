@@ -1,10 +1,11 @@
 require('module-alias/register')
-const server = require('@root/app')
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
 const User = require('@models/user')
+const mongoose = require('mongoose')
+const {configureApp, app} = require("@root/app");
 chai.use(chaiHttp)
 
 describe('User Controller - Login', () => {
@@ -13,18 +14,21 @@ describe('User Controller - Login', () => {
     password: 'testPassword123!',
     testUser: true
   }
+  let server;  // This will be our test server
 
+  // Setup: start the server before tests
   before(async () => {
-    await new User(user).save()
-  })
+    await configureApp();
+    server = app.listen(); // Start the server
+    await new User(user).save();
+  });
 
-  after(() => {
-    User.deleteMany({ testUser: true }).then(() => {
-      mongoose.disconnect().then(() => {
-        server.close()
-      })
-    })
-  })
+  after(async () => {
+    await User.deleteMany({ testUser: true });
+    await mongoose.disconnect();
+    server.close();  // Close the server after tests
+  });
+
   describe('POST /api/user/login', () => {
     it('should login successfully and return a token', async () => {
       const res = await chai.request(server).post('/api/user/login').send({

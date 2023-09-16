@@ -1,5 +1,5 @@
 require('module-alias/register')
-const server = require('@root/app')
+const { app, configureApp } = require('@root/app');
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
@@ -15,18 +15,23 @@ describe('User Controller - CheckEmail', () => {
     testUser: true
   }
 
+  let server;  // This will be our test server
+
+  // Setup: start the server before tests
   before(async () => {
-    await new User(user).save()
-  })
+    await configureApp();
+    server = app.listen(); // Start the server
+    await new User(user).save();
+  });
 
   after(async () => {
-    await User.deleteMany({ testUser: true })
-    await mongoose.disconnect()
-    await server.close()
-  })
+    await User.deleteMany({ testUser: true });
+    await mongoose.disconnect();
+    server.close();  // Close the server after tests
+  });
 
   describe('POST /api/user/checkEmail', () => {
-    it('should return true when the email is valid', async () => {
+    it( 'should return true when the email is valid', async () => {
       const res = await chai.request(server).post('/api/user/checkEmail').send({
         email: user.email
       })

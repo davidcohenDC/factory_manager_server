@@ -1,5 +1,5 @@
 require('module-alias/register')
-const server = require('@root/app')
+const {configureApp, app} = require("@root/app");
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
@@ -8,10 +8,18 @@ chai.use(chaiHttp)
 
 describe('User Routes', () => {
 
+    let server;  // This will be our test server
+
+    // Setup: start the server before tests
+    before(async () => {
+        await configureApp();
+        server = app.listen(); // Start the server
+    });
+
     after(async () => {
-        await mongoose.disconnect()
-        await server.close()
-    })
+        await mongoose.disconnect();
+        server.close();  // Close the server after tests
+    });
 
   describe('route /api/users', () => {
     it('should exist', (done) => {

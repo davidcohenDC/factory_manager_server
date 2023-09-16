@@ -2,14 +2,14 @@
   "name": "factory_manager_server",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node src/server.js",
     "clean-install": "rimraf node_modules package-lock.json && npm install",
     "lint": "eslint --fix --config .eslintrc.json \"src/**/*.js\"",
     "prettier": "prettier --write --config .prettierrc.json \"**/*.js\"",
     "test": "mocha --recursive --exit",
-    "dev": "cross-env NODE_ENV=development nodemon --inspect=9230 src/app.js"
+    "dev": "cross-env NODE_ENV=development nodemon --inspect=9230 src/server.js"
   },
   "author": "david.cohen@studio.unibo.it",
   "license": "ISC",
