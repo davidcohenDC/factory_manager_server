@@ -224,11 +224,7 @@ const CRUDHandler = (Model, modelName) => {
         logger.error(`Error creating ${modelName}: ${error.message}`, {
           source: logSource
         })
-        if (error.code === 11000) {
-          res.status(400).send({ error: 'Email is already taken' })
-        } else {
-          res.status(400).send({ error: `Failed to create ${modelName}.` })
-        }
+        res.status(400).send({ error: error.message })
       }
     },
 
@@ -239,7 +235,7 @@ const CRUDHandler = (Model, modelName) => {
           logger.warn(`${modelName} with id ${req.params.id} not found.`, {
             source: logSource
           })
-          return res.status(404).send()
+          return res.status(404).send({ error: `${modelName} not found.` })
         }
         logger.info(
           `Successfully retrieved ${modelName} with id ${req.params.id}.`,
@@ -248,10 +244,10 @@ const CRUDHandler = (Model, modelName) => {
         res.json({ [modelName]: instance })
       } catch (error) {
         logger.error(
-          `Error retrieving ${modelName} with id ${req.params.id}: ${error.message}`,
+          `Error retrieving ${modelName} with id ${req.params.id}: ${error}`,
           { source: logSource }
         )
-        res.status(500).send()
+        res.status(500).send({ error: 'Internal server error' })
       }
     },
 
@@ -282,7 +278,7 @@ const CRUDHandler = (Model, modelName) => {
             `Failed to update ${modelName} with id ${req.params.id} - Not found.`,
             { source: logSource }
           )
-          return res.status(404).send()
+          return res.status(404).send({ error: `${modelName} not found.` })
         }
         logger.info(
           `Successfully updated ${modelName} with id ${req.params.id}.`,
@@ -294,7 +290,7 @@ const CRUDHandler = (Model, modelName) => {
           `Error updating ${modelName} with id ${req.params.id}: ${error.message}`,
           { source: logSource }
         )
-        res.status(400).send(error)
+        res.status(400).send({ error: error.message })
       }
     },
 
@@ -306,19 +302,22 @@ const CRUDHandler = (Model, modelName) => {
             `Failed to delete ${modelName} with id ${req.params.id} - Not found.`,
             { source: logSource }
           )
-          return res.status(404).send()
+          return res.status(404).send({ error: `${modelName} not found.` })
         }
         logger.info(
           `Successfully deleted ${modelName} with id ${req.params.id}.`,
           { source: logSource }
         )
-        res.send({ [modelName]: instance })
+        res.send({
+          [modelName]: instance,
+          message: `${modelName} deleted successfully`
+        })
       } catch (error) {
         logger.error(
           `Error deleting ${modelName} with id ${req.params.id}: ${error.message}`,
           { source: logSource }
         )
-        res.status(500).send()
+        res.status(500).send({ error: 'Internal server error' })
       }
     }
   }

@@ -12,13 +12,13 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: [true, "'email' is required"],
     unique: true,
     lowercase: true,
     match:
       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
   },
-  password: { type: String, required: true },
+  password: { type: String, required: [true, "'password' is required"] },
   dataOfBirth: Date,
   address: {
     street: String,
@@ -102,7 +102,8 @@ userSchema.pre('save', async function (next) {
 userSchema.post('save', function (err, doc, next) {
   if (err) {
     if (err.name === 'MongoServerError' && err.code === 11000) {
-      next(new Error(`Email address ${doc.email} is already registered.`))
+      logger.error(`Error saving user ${doc.email}: ${err.message}`, logSource)
+      next(new Error(`email address is already taken.`))
     } else {
       next(err)
     }
@@ -126,18 +127,25 @@ userSchema.post('validate', function (doc) {
 })
 
 userSchema.post('findOneAndUpdate', function (doc) {
+  if (!doc) {
+    logger.warn(`No user was found to update.`, logSource)
+    return
+  }
   logger.info(
     `User with id: ${doc._id}, Email: ${doc.email} was updated.`,
     logSource
   )
 })
 
-userSchema.post('findOneAndDelete', function (doc, next) {
-  logger.info(
-    `User with id: ${doc._id}, Email: ${doc.email} was deleted.`,
-    logSource
-  )
-  next()
+userSchema.post('findOneAndDelete', function (doc) {
+  if (!doc) {
+    logger.warn(`No user was found to delete.`, logSource)
+  } else {
+    logger.info(
+      `User with id: ${doc._id}, Email: ${doc.email} was deleted.`,
+      logSource
+    )
+  }
 })
 
 const User = model('User', userSchema)

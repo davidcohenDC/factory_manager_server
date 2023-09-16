@@ -16,7 +16,7 @@ const passwordSchema = Joi.string()
   .pattern(passwordRegex)
   .message({
     'string.pattern.base':
-      'Password must contain at least 8 characters, one letter, one number, and one special character'
+      '"password" must contain at least 8 characters, one letter, one number, and one special character'
   })
 
 const userBodySchema = Joi.object({
@@ -60,7 +60,7 @@ const userBodySchema = Joi.object({
   testUser: Joi.boolean().optional()
 })
 const userIdSchema = Joi.object({
-  id: Joi.string().required().trim()
+  id: Joi.string().length(24).hex().required().trim()
 })
 
 const loginSchema = Joi.object({
@@ -83,11 +83,11 @@ const validateUserBody = async (req, res, next) => {
   } catch (error) {
     const errorMessage = error.details[0].message
     logger.error('Validation Error in body - User Validation Middleware', {
-      message: errorMessage,
+      error: errorMessage,
       req,
       source: 'validateUserBody'
     })
-    res.status(400).json({ message: errorMessage })
+    res.status(400).json({ error: errorMessage })
   }
 }
 
@@ -98,11 +98,11 @@ const validateUserId = async (req, res, next) => {
   } catch (error) {
     const errorMessage = error.details[0].message
     logger.error('Validation Error in params - User Validation Middleware', {
-      message: errorMessage,
+      error: errorMessage,
       req,
       source: 'validateUserId'
     })
-    res.status(400).json({ message: errorMessage })
+    res.status(400).json({ error: errorMessage })
   }
 }
 
@@ -113,11 +113,11 @@ const validateLogin = async (req, res, next) => {
   } catch (error) {
     const errorMessage = error.details[0].message
     logger.error('Validation Error in body - User Validation Middleware', {
-      message: errorMessage,
+      error: errorMessage,
       req,
       source: 'validateLogin'
     })
-    res.status(400).json({ message: errorMessage })
+    res.status(400).json({ error: errorMessage })
   }
 }
 
@@ -132,7 +132,7 @@ const validateCheckMail = async (req, res, next) => {
       req,
       source: 'validateCheckMail'
     })
-    res.status(400).json({ message: errorMessage })
+    res.status(400).json({ error: errorMessage })
   }
 }
 

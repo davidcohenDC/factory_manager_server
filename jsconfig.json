@@ -3,6 +3,7 @@
     "baseUrl": "./",
     "paths": {
     "@utils/*": ["src/utils/*"],
+    "@root/*": ["src/*"],
     "@controllers/*": ["src/api/controllers/*"],
     "@models/*": ["src/models/*"],
     "@routes/*": ["src/api/routes/*"],

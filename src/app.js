@@ -14,21 +14,21 @@ const startServer = (appInstance) => {
     logger.info(`Server is running on port ${port}`, logSource)
   })
 
-  process.on('SIGINT', () =>
-  {
+  process.on('SIGINT', () => {
     logger.info('Gracefully shutting down...', logSource)
     server.close(() => {
       logger.info('Server is closed', logSource)
       // Disconnect mongoose connection
-      mongoose.disconnect()
-          .then(() => {
-            logger.info('Mongoose disconnected', logSource);
-            process.exit(0);
-          })
-          .catch(() => {
-            logger.error('Error while disconnecting from Mongoose', logSource);
-            process.exit(1);
-          });
+      mongoose
+        .disconnect()
+        .then(() => {
+          logger.info('Mongoose disconnected', logSource)
+          process.exit(0)
+        })
+        .catch(() => {
+          logger.error('Error while disconnecting from Mongoose', logSource)
+          process.exit(1)
+        })
     })
   })
 
