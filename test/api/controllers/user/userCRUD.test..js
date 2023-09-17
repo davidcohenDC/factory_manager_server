@@ -1,12 +1,14 @@
 require('module-alias/register')
-const { app, configureApp } = require('@root/app')
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
-const mongoose = require('mongoose')
 const User = require('@models/user')
-const { expectError } = require('../../utils/helper/')
+const {
+  expectError,
+  initializeServer,
+  closeServer
+} = require('@test/api/utils/helper')
 chai.use(chaiHttp)
 describe('User Controller - CRUD', () => {
   let server // This will be our test server
@@ -18,33 +20,9 @@ describe('User Controller - CRUD', () => {
     password: 'Password123!'
   }
 
-  const invalidUserInputs = [
-    {
-      name: 'missing email',
-      userData: { password: 'password123!' },
-      expectedError: '"email" is required'
-    },
-    {
-      name: 'missing password',
-      userData: { email: faker.internet.email() },
-      expectedError: '"password" is required'
-    },
-    {
-      name: 'invalid email',
-      userData: { email: 'invalidEmail', password: 'password123!' },
-      expectedError: '"email" must be a valid email'
-    },
-    {
-      name: 'invalid password',
-      userData: { email: faker.internet.email(), password: 'hi' },
-      expectedError: '"password" must contain at least 8 characters'
-    }
-  ]
-
   // Setup: start the server before tests
   before(async () => {
-    await configureApp()
-    server = app.listen() // Start the server
+    server = await initializeServer()
     userSaved = await new User({
       email: faker.internet.email(),
       password: 'Password123!'
@@ -54,8 +32,7 @@ describe('User Controller - CRUD', () => {
 
   after(async () => {
     await User.deleteMany({ testUser: true })
-    await mongoose.disconnect()
-    server.close() // Close the server after tests
+    await closeServer(server)
   })
 
   describe('Create User', () => {
@@ -75,6 +52,29 @@ describe('User Controller - CRUD', () => {
 
       expectError(res, 400, 'email address is already taken.')
     })
+
+    const invalidUserInputs = [
+      {
+        name: 'missing email',
+        userData: { password: 'password123!' },
+        expectedError: '"email" is required'
+      },
+      {
+        name: 'missing password',
+        userData: { email: faker.internet.email() },
+        expectedError: '"password" is required'
+      },
+      {
+        name: 'invalid email',
+        userData: { email: 'invalidEmail', password: 'password123!' },
+        expectedError: '"email" must be a valid email'
+      },
+      {
+        name: 'invalid password',
+        userData: { email: faker.internet.email(), password: 'hi' },
+        expectedError: '"password" must contain at least 8 characters'
+      }
+    ]
 
     //Validation tests
     invalidUserInputs.forEach((testCase) => {

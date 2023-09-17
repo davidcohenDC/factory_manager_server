@@ -1,9 +1,8 @@
 require('module-alias/register')
-const { configureApp, app } = require('@root/app')
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
-const mongoose = require('mongoose')
+const { initializeServer, closeServer } = require('@test/api/utils/helper')
 chai.use(chaiHttp)
 
 describe('User Routes', () => {
@@ -11,71 +10,33 @@ describe('User Routes', () => {
 
   // Setup: start the server before tests
   before(async () => {
-    await configureApp()
-    server = app.listen() // Start the server
+    server = await initializeServer()
   })
 
   after(async () => {
-    await mongoose.disconnect()
-    server.close() // Close the server after tests
+    await closeServer(server)
   })
 
-  describe('route /api/users', () => {
-    it('should exist', (done) => {
-      chai
-        .request(server)
-        .get('/api/users')
-        .end((err, res) => {
-          expect(res.status).to.not.be.undefined
-          done()
-        })
-    })
-  })
+  // Routes to test
+  const routes = [
+    { path: '/api/users', method: 'get' },
+    { path: '/api/user', method: 'get' },
+    { path: '/api/user/:id', method: 'get' },
+    { path: '/api/login', method: 'delete' },
+    { path: '/api/user/login', method: 'delete' }
+  ]
 
-  describe('route /api/user', () => {
-    it('should exist', (done) => {
-      chai
-        .request(server)
-        .get('/api/user')
-        .end((err, res) => {
-          expect(res.status).to.not.be.undefined
-          done()
-        })
-    })
-  })
-
-  describe('route /api/user/:id', () => {
-    it('should exist', (done) => {
-      chai
-        .request(server)
-        .get('/api/user/:id')
-        .end((err, res) => {
-          expect(res.status).to.not.be.undefined
-          done()
-        })
-    })
-  })
-  describe('route /api/login', () => {
-    it('should exist', (done) => {
-      chai
-        .request(server)
-        .delete('/api/login')
-        .end((err, res) => {
-          expect(res.status).to.not.be.undefined
-          done()
-        })
-    })
-  })
-
-  describe('route /api/user/login', () => {
-    it('should exist', (done) => {
-      chai
-        .request(server)
-        .delete('/api/user/login')
-        .end((err, res) => {
-          expect(res.status).to.not.be.undefined
-          done()
-        })
+  routes.forEach((route) => {
+    describe(`route ${route.path}`, () => {
+      it('should exist', (done) => {
+        chai
+          .request(server)
+          [route.method](route.path)
+          .end((err, res) => {
+            expect(res.status).to.not.be.undefined
+            done()
+          })
+      })
     })
   })
 })

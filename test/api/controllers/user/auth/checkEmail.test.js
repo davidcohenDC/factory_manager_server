@@ -1,11 +1,14 @@
 require('module-alias/register')
-const { app, configureApp } = require('@root/app')
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
 const User = require('@models/user')
-const mongoose = require('mongoose')
+const {
+  expectError,
+  initializeServer,
+  closeServer
+} = require('@test/api/utils/helper')
 chai.use(chaiHttp)
 
 describe('User Controller - CheckEmail', () => {
@@ -15,23 +18,19 @@ describe('User Controller - CheckEmail', () => {
     testUser: true
   }
 
-  let server // This will be our test server
-
   // Setup: start the server before tests
   before(async () => {
-    await configureApp()
-    server = app.listen() // Start the server
+    server = await initializeServer()
     await new User(user).save()
   })
 
   after(async () => {
     await User.deleteMany({ testUser: true })
-    await mongoose.disconnect()
-    server.close() // Close the server after tests
+    await closeServer(server)
   })
 
   describe('POST /api/user/checkEmail', () => {
-    it('should return true when the email is valid', async () => {
+    it('should return true when the email exists', async () => {
       const res = await chai.request(server).post('/api/user/checkEmail').send({
         email: user.email
       })
@@ -41,7 +40,7 @@ describe('User Controller - CheckEmail', () => {
       expect(res.body.valid).to.be.true
     })
 
-    it('should return false when the email is wrong', async () => {
+    it("should return false when the email doesn't exist", async () => {
       const res = await chai.request(server).post('/api/user/checkEmail').send({
         email: faker.internet.email()
       })
@@ -50,14 +49,28 @@ describe('User Controller - CheckEmail', () => {
       expect(res.body.valid).to.be.false
     })
 
-    it('should return 400 when the email is invalid', async () => {
-      const res = await chai.request(server).post('/api/user/checkEmail').send({
-        email: 'invalidEmail'
+    const invalidUserInputs = [
+      {
+        name: 'missing email',
+        userData: { password: 'password123!' },
+        expectedError: '"email" is required'
+      },
+      {
+        name: 'invalid email',
+        userData: { email: 'invalidEmail', password: 'password123!' },
+        expectedError: '"email" must be a valid email'
+      }
+    ]
+
+    //Validation tests
+    invalidUserInputs.forEach((testCase) => {
+      it(`should return 400 when ${testCase.name}`, async () => {
+        const res = await chai
+          .request(server)
+          .post('/api/user')
+          .send(testCase.userData)
+        expectError(res, 400, testCase.expectedError)
       })
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.contains('"email" must be a valid email')
-      expect(res.body.valid).to.be.undefined
     })
   })
 })

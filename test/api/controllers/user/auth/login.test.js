@@ -4,8 +4,11 @@ const { expect } = chai
 const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
 const User = require('@models/user')
-const mongoose = require('mongoose')
-const { configureApp, app } = require('@root/app')
+const {
+  expectError,
+  initializeServer,
+  closeServer
+} = require('@test/api/utils/helper')
 chai.use(chaiHttp)
 
 describe('User Controller - Login', () => {
@@ -18,15 +21,13 @@ describe('User Controller - Login', () => {
 
   // Setup: start the server before tests
   before(async () => {
-    await configureApp()
-    server = app.listen() // Start the server
+    server = await initializeServer()
     await new User(user).save()
   })
 
   after(async () => {
     await User.deleteMany({ testUser: true })
-    await mongoose.disconnect()
-    server.close() // Close the server after tests
+    await closeServer(server)
   })
 
   describe('POST /api/user/login', () => {
@@ -36,38 +37,13 @@ describe('User Controller - Login', () => {
         password: user.password
       })
 
-      console.log(res.body)
       expect(res).to.have.status(200)
       expect(res.body).to.be.a('object')
       expect(res.body.token).to.be.a('string')
       expect(res.body.token).to.not.be.empty
     })
 
-    it('should return 400 when the email is invalid', async () => {
-      const res = await chai.request(server).post('/api/user/login').send({
-        email: 'invalidEmail',
-        password: user.password
-      })
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.equal('"email" must be a valid email')
-      expect(res.body.token).to.be.undefined
-    })
-
-    it('should return 400 when the password is invalid', async () => {
-      const res = await chai.request(server).post('/api/user/login').send({
-        email: user.email,
-        password: 'invalidPassword'
-      })
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.contains(
-        '"password" must contain at least 8 characters'
-      )
-      expect(res.body.token).to.be.undefined
-    })
-
-    it('should fails to login with wrong password', async () => {
+    it('should fails and return 401 to login with wrong password', async () => {
       const res = await chai.request(server).post('/api/user/login').send({
         email: user.email,
         password: 'wrongPassword123!'
@@ -78,7 +54,7 @@ describe('User Controller - Login', () => {
       expect(res.body.token).to.be.undefined
     })
 
-    it('should fails to login with wrong email', async () => {
+    it('should fails and return 401 to login with wrong email', async () => {
       const res = await chai.request(server).post('/api/user/login').send({
         email: faker.internet.email(),
         password: user.password
@@ -87,6 +63,40 @@ describe('User Controller - Login', () => {
       expect(res.body).to.be.a('object')
       expect(res.body.error).to.equal('Invalid email or password')
       expect(res.body.token).to.be.undefined
+    })
+
+    const invalidUserInputs = [
+      {
+        name: 'missing email',
+        userData: { password: 'password123!' },
+        expectedError: '"email" is required'
+      },
+      {
+        name: 'missing password',
+        userData: { email: faker.internet.email() },
+        expectedError: '"password" is required'
+      },
+      {
+        name: 'invalid email',
+        userData: { email: 'invalidEmail', password: 'password123!' },
+        expectedError: '"email" must be a valid email'
+      },
+      {
+        name: 'invalid password',
+        userData: { email: faker.internet.email(), password: 'hi' },
+        expectedError: '"password" must contain at least 8 characters'
+      }
+    ]
+
+    //Validation tests
+    invalidUserInputs.forEach((testCase) => {
+      it(`should return 400 when ${testCase.name}`, async () => {
+        const res = await chai
+          .request(server)
+          .post('/api/user')
+          .send(testCase.userData)
+        expectError(res, 400, testCase.expectedError)
+      })
     })
   })
 })
