@@ -9,8 +9,8 @@ jwtBlacklist.configure({
   strict: true,
   store: {
     type: 'memcached',
-    host: host,
-    port: port,
+    host,
+    port,
     keyPrefix: 'blacklist:',
     options: {
       timeout: 10 // Blacklist cache timeout in seconds

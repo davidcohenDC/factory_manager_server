@@ -14,12 +14,18 @@ function backupLogger(message) {
 function logMiddleware(req, res, next) {
   const start = Date.now()
 
+  let method // Defined outside the try block
+  let url // Defined outside the try block
+
   function logRequest() {
     try {
-      const { method, url, headers, body, query, ip } = req
+      method = req.method // Assign the value from req
+      url = req.url // Assign the value from req
+
+      const { headers, body, query, ip } = req
       const duration = Date.now() - start
 
-      let logDetails = {
+      const logDetails = {
         ...logSource,
         method,
         path: url,

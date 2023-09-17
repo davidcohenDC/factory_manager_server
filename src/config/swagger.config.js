@@ -202,7 +202,7 @@ module.exports = {
             }
           },
           required: ['email'] // Removed 'password' from required since it's not present in the schema.
-        },
+        }
       },
       securitySchemes: {
         bearerAuth: {

@@ -103,7 +103,7 @@ userSchema.post('save', function (err, doc, next) {
   if (err) {
     if (err.name === 'MongoServerError' && err.code === 11000) {
       logger.error(`Error saving user ${doc.email}: ${err.message}`, logSource)
-      next(new Error(`email address is already taken.`))
+      next(new Error('email address is already taken.'))
     } else {
       next(err)
     }
@@ -128,7 +128,7 @@ userSchema.post('validate', function (doc) {
 
 userSchema.post('findOneAndUpdate', function (doc) {
   if (!doc) {
-    logger.warn(`No user was found to update.`, logSource)
+    logger.warn('No user was found to update.', logSource)
     return
   }
   logger.info(
@@ -139,7 +139,7 @@ userSchema.post('findOneAndUpdate', function (doc) {
 
 userSchema.post('findOneAndDelete', function (doc) {
   if (!doc) {
-    logger.warn(`No user was found to delete.`, logSource)
+    logger.warn('No user was found to delete.', logSource)
   } else {
     logger.info(
       `User with id: ${doc._id}, Email: ${doc.email} was deleted.`,

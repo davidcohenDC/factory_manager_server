@@ -21,7 +21,6 @@ const { logMiddleware } = require('@middlewares/')
 const logSource = { source: 'Express Loader' }
 
 module.exports = (app) => {
-
   process.on('uncaughtException', (error) => {
     logger.error(`Uncaught Exception: ${error.message}`, {
       ...logSource,
@@ -65,8 +64,8 @@ module.exports = (app) => {
   }
 
   app.get('/socketdemo', (_req, res) =>
-      res.sendFile(path.join(__dirname, '..', '..', 'public', 'socket-demo.html')));
-
+    res.sendFile(path.join(__dirname, '..', '..', 'public', 'socket-demo.html'))
+  )
 
   app.use(require('express-status-monitor')())
 

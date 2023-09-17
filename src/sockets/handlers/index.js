@@ -1,5 +1,5 @@
-const { chatHandler } = require('./chatHandler');
+const { chatHandler } = require('./chatHandler')
 
 module.exports = {
-    chatHandler
+  chatHandler
 }

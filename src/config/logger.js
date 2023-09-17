@@ -31,8 +31,8 @@ const customTransports = {
     format: winston.format.combine(
       winston.format.colorize(),
       winston.format.printf(({ timestamp, level, message, ...metadata }) => {
-        //if metadatada.source is not defined we dont want to print undefined
-        let output = ``
+        // if metadatada.source is not defined we dont want to print undefined
+        let output = ''
         if (metadata.source === undefined) {
           output = `${timestamp} [${level}]: ${message}`
         } else {
@@ -51,7 +51,7 @@ const customTransports = {
         if (level === 'error') {
           const { user, error } = metadata
           output += `
-              User: ${user ? user : 'N/A'}
+              User: ${user || 'N/A'}
               Error Status: ${error ? error.status : ''}
             `
         } else if (level === 'warn') {
