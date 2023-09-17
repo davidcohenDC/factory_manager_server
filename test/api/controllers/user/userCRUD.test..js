@@ -23,7 +23,7 @@ describe('User Controller - CRUD', () => {
   // Setup: start the server before tests
   before(async () => {
     server = await initializeServer()
-    userSaved = await new User({
+    const userSaved = await new User({
       email: faker.internet.email(),
       password: 'Password123!'
     }).save()
