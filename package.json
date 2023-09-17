@@ -69,7 +69,7 @@
     "@models": "src/models",
     "@middlewares": "src/api/middlewares",
     "@config": "src/config",
-    "@test": "test",
-    "@logs": "logs"
+    "@test": "./test",
+    "@logs": "./logs"
   }
 }

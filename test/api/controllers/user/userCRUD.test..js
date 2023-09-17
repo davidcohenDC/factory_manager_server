@@ -1,98 +1,71 @@
 require('module-alias/register')
-const { app, configureApp } = require('@root/app');
+const { app, configureApp } = require('@root/app')
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
 const mongoose = require('mongoose')
 const User = require('@models/user')
+const { expectError } = require('../../utils/helper/')
 chai.use(chaiHttp)
 describe('User Controller - CRUD', () => {
-  const userID = '6505a373b8bc9badb1caa7de' //use only a real id to test
+  let server // This will be our test server
+  let userID = ''
 
   //create the user
   const user = {
     email: faker.internet.email(),
-    password: 'testPassword123!',
-    testUser: true
+    password: 'Password123!'
   }
 
-  let server;  // This will be our test server
+  const invalidUserInputs = [
+    {
+      name: 'missing email',
+      userData: { password: 'password123!' },
+      expectedError: '"email" is required'
+    },
+    {
+      name: 'missing password',
+      userData: { email: faker.internet.email() },
+      expectedError: '"password" is required'
+    },
+    {
+      name: 'invalid email',
+      userData: { email: 'invalidEmail', password: 'password123!' },
+      expectedError: '"email" must be a valid email'
+    },
+    {
+      name: 'invalid password',
+      userData: { email: faker.internet.email(), password: 'hi' },
+      expectedError: '"password" must contain at least 8 characters'
+    }
+  ]
 
   // Setup: start the server before tests
   before(async () => {
-    await configureApp();
-    server = app.listen(); // Start the server
-  });
+    await configureApp()
+    server = app.listen() // Start the server
+    userSaved = await new User({
+      email: faker.internet.email(),
+      password: 'Password123!'
+    }).save()
+    userID = userSaved._id
+  })
 
   after(async () => {
-    await User.deleteMany({ testUser: true });
-    await mongoose.disconnect();
-    server.close();  // Close the server after tests
-  });
+    await User.deleteMany({ testUser: true })
+    await mongoose.disconnect()
+    server.close() // Close the server after tests
+  })
 
   describe('Create User', () => {
     it('should create a new user', async () => {
       const res = await chai.request(server).post('/api/user').send(user)
-
       expect(res).to.have.status(201)
       expect(res.body).to.be.a('object')
       expect(res.body.user).to.have.property('_id')
       expect(res.body.user.email).to.equal(user.email.toLowerCase())
       expect(res.body.user.password).to.not.equal(user.password)
-      user._id = res.body.id
-    })
-
-    //Validation tests
-
-    it('should return 400 when the email or password is missing', async () => {
-      const userWithoutEmail = {
-        password: 'password123',
-        testUser: true
-      }
-      const res = await chai
-        .request(server)
-        .post('/api/user')
-        .send(userWithoutEmail)
-
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      console.log(res.body)
-      expect(res.body.error).to.equal('"email" is required')
-    })
-
-    it('should return 400 when the email is invalid', async () => {
-      const userWithInvalidEmail = {
-        email: 'invalidEmail',
-        password: 'password123',
-        testUser: true
-      }
-      const res = await chai
-        .request(server)
-        .post('/api/user')
-        .send(userWithInvalidEmail)
-
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.equal('"email" must be a valid email')
-    })
-
-    it('should return 400 when the password is invalid', async () => {
-      const userWithInvalidPassword = {
-        email: user.email,
-        password: 'hi',
-        testUser: true
-      }
-      const res = await chai
-        .request(server)
-        .post('/api/user')
-        .send(userWithInvalidPassword)
-
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.contain(
-        '"password" must contain at least 8 characters'
-      )
     })
 
     it('should return 400 when the email is already in use', async () => {
@@ -100,18 +73,26 @@ describe('User Controller - CRUD', () => {
 
       const res = await chai.request(server).post('/api/user').send(user)
 
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.equal(`email address is already taken.`)
+      expectError(res, 400, 'email address is already taken.')
+    })
+
+    //Validation tests
+    invalidUserInputs.forEach((testCase) => {
+      it(`should return 400 when ${testCase.name}`, async () => {
+        const res = await chai
+          .request(server)
+          .post('/api/user')
+          .send(testCase.userData)
+        expectError(res, 400, testCase.expectedError)
+      })
     })
   })
 
   describe('Get User', () => {
     it('should return the user', async () => {
-      if (userID === '') return
+      if (userID === '') this.skip()
       const res = await chai.request(server).get(`/api/user/${userID}`)
 
-      console.log(res.body)
       expect(res).to.have.status(200)
       expect(res.body).to.be.a('object')
       expect(res.body.user).to.have.property('_id')
@@ -119,23 +100,18 @@ describe('User Controller - CRUD', () => {
     })
 
     it('should return 404 when the user is not valid', async () => {
-      if (userID === '') return
+      if (userID === '') this.skip()
       const res = await chai.request(server).get(`/api/user/123`)
-
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.equal('"id" length must be 24 characters long')
+      expectError(res, 400, '"id" length must be 24 characters long')
     })
 
     it('should return 404 when the user is not found', async () => {
-      if (userID === '') return
+      if (userID === '') this.skip()
       const res = await chai
         .request(server)
         .get(`/api/user/000000000000000000000001`)
 
-      expect(res).to.have.status(404)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.equal('user not found.')
+      expectError(res, 404, 'user not found.')
     })
   })
   describe('Get All Users', () => {
@@ -155,7 +131,7 @@ describe('User Controller - CRUD', () => {
   //using patch
   describe('Update User', () => {
     it('should update the user', async () => {
-      if (userID === '') return
+      if (userID === '') this.skip()
       const res = await chai
         .request(server)
         .patch(`/api/user/${userID}`)
@@ -168,36 +144,29 @@ describe('User Controller - CRUD', () => {
     })
 
     it('should return 404 when the user is not valid', async () => {
-      if (userID === '') return
+      if (userID === '') this.skip()
       const res = await chai.request(server).patch(`/api/user/123`)
 
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.equal('"id" length must be 24 characters long')
+      expectError(res, 400, '"id" length must be 24 characters long')
     })
 
     it('should return 404 when the user is not found', async () => {
-      if (userID === '') return
+      if (userID === '') this.skip()
       const res = await chai
         .request(server)
         .patch(`/api/user/000000000000000000000001`)
 
-      console.log(res.body)
-      expect(res).to.have.status(404)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.equal('user not found.')
+      expectError(res, 404, 'user not found.')
     })
 
     it('should return 400 when the email is invalid', async () => {
-      if (userID === '') return
+      if (userID === '') this.skip()
       const res = await chai
         .request(server)
         .patch(`/api/user/${userID}`)
         .send({ email: 'invalidEmail' })
 
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.contains('Validation failed')
+      expectError(res, 400, 'Validation failed: email:')
     })
   })
 
@@ -222,23 +191,19 @@ describe('User Controller - CRUD', () => {
     })
 
     it('should return 404 when the user is not valid', async () => {
-      if (userID === '') return
+      if (userID === '') this.skip()
       const res = await chai.request(server).delete(`/api/user/123`)
 
-      expect(res).to.have.status(400)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.equal('"id" length must be 24 characters long')
+      expectError(res, 400, '"id" length must be 24 characters long')
     })
 
     it('should return 404 when the user is not found', async () => {
-      if (userID === '') return
+      if (userID === '') this.skip()
       const res = await chai
         .request(server)
         .delete(`/api/user/000000000000000000000001`)
 
-      expect(res).to.have.status(404)
-      expect(res.body).to.be.a('object')
-      expect(res.body.error).to.equal('user not found.')
+      expectError(res, 404, 'user not found.')
     })
   })
 })

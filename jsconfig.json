@@ -12,7 +12,7 @@
     "@config/*": ["src/config/*"],
     "@middlewares/*": ["src/api/middlewares/*"],
     "@validations/*": ["src/api/validations/*"],
-    "@tests/*": ["tests/*"],
+    "@test/*": ["test/*"],
     "@logs/*": ["logs/*"]
     }
   },

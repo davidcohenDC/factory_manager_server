@@ -1,5 +1,5 @@
 require('module-alias/register')
-const {configureApp, app} = require("@root/app");
+const { configureApp, app } = require('@root/app')
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
@@ -19,20 +19,20 @@ describe('User Model', () => {
     await User.deleteMany({ testUser: true })
   })
 
-  let server;  // This will be our test server
+  let server // This will be our test server
 
   // Setup: start the server before tests
   before(async () => {
-    await configureApp();
-    server = app.listen(); // Start the server
-    await new User(user).save();
-  });
+    await configureApp()
+    server = app.listen() // Start the server
+    await new User(user).save()
+  })
 
   after(async () => {
-    await User.deleteMany({ testUser: true });
-    await mongoose.disconnect();
-    server.close();  // Close the server after tests
-  });
+    await User.deleteMany({ testUser: true })
+    await mongoose.disconnect()
+    server.close() // Close the server after tests
+  })
 
   describe('Model Creation & Saving', () => {
     it('creates and saves a user successfully', async () => {
@@ -77,7 +77,6 @@ describe('User Model', () => {
     })
 
     describe('Unique Constraints', () => {
-
       it('throws an error when email is not unique', async () => {
         await new User(user).save()
         await new User(user).save().catch((error) => {
