@@ -35,7 +35,6 @@ describe('User Controller - CheckEmail', () => {
       const res = await chai.request(server).post('/api/user/checkEmail').send({
         email: user.email
       })
-      console.log(res.body)
       expect(res).to.have.status(200)
       expect(res.body).to.be.a('object')
       expect(res.body.valid).to.be.true
