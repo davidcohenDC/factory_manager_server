@@ -3,11 +3,12 @@ const cors = require('cors')
 const compression = require('compression')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
-const mongoose = require('mongoose')
+const path = require('path')
+
 const {
   prefix,
   jwtSecretKey,
-  nodeEnv,
+  // nodeEnv,
   userRedis,
   redisHost,
   redisPort,
@@ -20,6 +21,7 @@ const { logMiddleware } = require('@middlewares/')
 const logSource = { source: 'Express Loader' }
 
 module.exports = (app) => {
+
   process.on('uncaughtException', (error) => {
     logger.error(`Uncaught Exception: ${error.message}`, {
       ...logSource,
@@ -61,6 +63,11 @@ module.exports = (app) => {
     })
     app.use(cache)
   }
+
+  app.get('/socketdemo', (_req, res) =>
+      res.sendFile(path.join(__dirname, '..', '..', 'public', 'socket-demo.html')));
+
+
   app.use(require('express-status-monitor')())
 
   app.use(cors())
@@ -69,17 +76,16 @@ module.exports = (app) => {
   app.use(bodyParser.urlencoded({ limit: '20mb', extended: true }))
   app.use(helmet.frameguard())
   app.use(helmet.noSniff())
-  app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
   app.use(express.static('public'))
 
   app.use(prefix, routes)
 
-  app.get('/', (_req, res) =>
-    res.status(200).json({
-      resultMessage: { en: errorCodes['00004'] },
-      resultCode: '00004'
-    })
-  )
+  // app.get('/', (_req, res) =>
+  //   res.status(200).json({
+  //     resultMessage: { en: errorCodes['00004'] },
+  //     resultCode: '00004'
+  //   })
+  // )
   app.get('/health', (_req, res) => res.send('OK'))
 
   app.use((_req, _res, next) => {

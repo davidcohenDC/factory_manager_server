@@ -9,6 +9,7 @@
     "@routes/*": ["src/api/routes/*"],
     "@services/*": ["src/services/*"],
     "@loaders/*": ["src/loaders/*"],
+    "@public/*": ["public/*"],
     "@config/*": ["src/config/*"],
     "@middlewares/*": ["src/api/middlewares/*"],
     "@validations/*": ["src/api/validations/*"],

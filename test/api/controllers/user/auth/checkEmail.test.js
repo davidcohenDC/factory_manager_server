@@ -18,7 +18,7 @@ describe('User Controller - CheckEmail', () => {
     testUser: true
   }
 
-  let server;
+  let server
   // Setup: start the server before tests
   before(async () => {
     server = await initializeServer()

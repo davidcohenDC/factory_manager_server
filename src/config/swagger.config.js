@@ -171,28 +171,8 @@ module.exports = {
               type: 'boolean',
               default: false
             }
-          }
-        },
-        Result: {
-          type: 'object',
-          description: 'Standard API response with result code and message.',
-          properties: {
-            resultCode: {
-              type: 'string',
-              description: 'Unique result code indicating the response type.'
-            },
-            resultMessage: {
-              type: 'object',
-              description: 'Localized result messages.',
-              properties: {
-                en: {
-                  type: 'string',
-                  description: 'English message.'
-                }
-              }
-            }
           },
-          required: ['resultCode', 'resultMessage']
+          required: ['email', 'password']
         },
         LoginRequestBody: {
           type: 'object',
@@ -223,15 +203,6 @@ module.exports = {
           },
           required: ['email'] // Removed 'password' from required since it's not present in the schema.
         },
-        ErrorResponse: {
-          type: 'object',
-          properties: {
-            error: {
-              type: 'string',
-              description: 'Description of the error.'
-            }
-          }
-        }
       },
       securitySchemes: {
         bearerAuth: {

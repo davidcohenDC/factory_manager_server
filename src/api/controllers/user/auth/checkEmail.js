@@ -40,15 +40,15 @@ module.exports.checkEmail = async (req, res) => {
  *              $ref: '#/components/schemas/CheckEmailRequestBody'
  *      responses:
  *        "200":
- *          description: Email check successful or not.
+ *          description: Email check valid or not.
  *          content:
  *            application/json:
  *              schema:
- *                type: object
+ *                type: json
  *                properties:
- *                  exists:
+ *                  valid:
  *                    type: boolean
- *                    description: Indicates if the email exists (true) or not (false).
+ *                    description: Indicates if the email is valid (true) or not (false).
  *        "500":
  *          description: Internal server error.q
  *          content:
