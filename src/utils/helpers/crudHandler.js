@@ -32,9 +32,9 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               description: `Failed to create ${modelName}.`,
               content: {
                 'application/json': {
-                  schema: {
-                    $ref: '#/components/schemas/Result'
-                  }
+                  // schema: {
+                  //   $ref: `#/components/schemas/${schemaRef}Response`
+                  // }
                 }
               }
             }
@@ -43,6 +43,30 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
         get: {
           summary: `Retrieve all ${modelName}s`,
           tags: [modelName],
+          parameters: [
+            {
+              name: 'limit',
+              in: 'query',
+              required: false,
+              description: 'Limit the number of results per request. Maximum allowed is 100.',
+              schema: {
+                type: 'integer',
+                default: 50,
+                maximum: 100
+              }
+            },
+            {
+              name: 'offset',
+              in: 'query',
+              required: false,
+              description: 'Offset to start fetching results from. Useful for pagination.',
+              schema: {
+                description: 'Limit the number of results per request. Maximum allowed is 100.',
+                type: 'integer',
+                default: 0
+              }
+            }
+          ],
           responses: {
             200: {
               description: `List of all ${modelName}s`,
@@ -50,9 +74,9 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
                 'application/json': {
                   schema: {
                     type: 'array',
-                    items: {
-                      $ref: `#/components/schemas/${schemaRef}`
-                    }
+                    // items: {
+                    //   $ref: `#/components/schemas/${schemaRef}`
+                    // }
                   }
                 }
               }
@@ -61,9 +85,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               description: `Failed to retrieve ${modelName}s.`,
               content: {
                 'application/json': {
-                  schema: {
-                    $ref: '#/components/schemas/Result'
-                  }
+
                 }
               }
             }
@@ -101,7 +123,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: '#/components/schemas/Result'
+                    $ref: `#/components/schemas/Response404`
                   }
                 }
               }
@@ -148,7 +170,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: '#/components/schemas/Result'
+                    $ref: `#/components/schemas/Response404`
                   }
                 }
               }
@@ -158,7 +180,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: '#/components/schemas/Result'
+                    $ref: `#/components/schemas/Response400`
                   }
                 }
               }
@@ -195,7 +217,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: '#/components/schemas/Result'
+                    $ref: `#/components/schemas/Response404`
                   }
                 }
               }
@@ -203,6 +225,20 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
           }
         }
       }
+    }
+  }
+}
+
+function logAndRespond(res, status, message, modelName, instance = null) {
+  if (status >= 400) {
+    logger.error(message, { source: logSource });
+    res.status(status).send({ error: message });
+  } else {
+    logger.info(message, { source: logSource });
+    if (instance) {
+      res.status(status).send({ [modelName]: instance });
+    } else {
+      res.status(status).send({ message });
     }
   }
 }
@@ -252,17 +288,29 @@ const CRUDHandler = (Model, modelName) => {
     },
 
     getAll: async (req, res) => {
+      // Parsing limit and offset from query parameters
+      const limit = parseInt(req.query.limit, 10) || 50;  // Default limit is 50
+      const offset = parseInt(req.query.offset, 10) || 0;  // Default offset is 0
+
+      // Ensure limit doesn't exceed maximum allowed value
+      if (limit > 100) {
+        logger.warn(`Requested limit exceeds maximum allowed limit.`, {
+          source: logSource
+        });
+        return res.status(400).send({ error: `Limit should not exceed 100 items per request.` });
+      }
+
       try {
-        const instances = await Model.find()
-        logger.info(`Successfully retrieved all ${modelName}s.`, {
+        const instances = await Model.find().skip(offset).limit(limit);
+        logger.info(`Successfully retrieved ${instances.length} ${modelName}s from offset ${offset}.`, {
           source: logSource
-        })
-        res.json({ [modelName]: instances })
+        });
+        res.json({ [modelName]: instances });
       } catch (error) {
-        logger.error(`Error retrieving all ${modelName}s: ${error.message}`, {
+        logger.error(`Error retrieving ${modelName}s: ${error.message}`, {
           source: logSource
-        })
-        res.status(500).json({ error: 'Internal server error' })
+        });
+        res.status(500).json({ error: 'Internal server error' });
       }
     },
 

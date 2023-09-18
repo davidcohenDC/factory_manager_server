@@ -202,6 +202,36 @@ module.exports = {
             }
           },
           required: ['email'] // Removed 'password' from required since it's not present in the schema.
+        },
+        Response404: {
+            description: 'Resource not found.',
+            content: {
+                'application/json': {
+                    schema: {
+                        type: 'object',
+                        properties: {
+                            error: {
+                                type: 'string',
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        Response400: {
+            description: 'Bad request.',
+            content: {
+                'application/json': {
+                    schema: {
+                        type: 'object',
+                        properties: {
+                            error: {
+                                type: 'string',
+                            }
+                        }
+                    }
+                }
+            }
         }
       },
       securitySchemes: {

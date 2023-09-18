@@ -126,6 +126,58 @@ describe('User Controller - CRUD', () => {
         expect(res.body.user[0]).to.have.property('_id')
       }
     })
+
+  //   use pagination in the request, the offset and limit using testing adding user
+    it('should limit the users', async () => {
+      const all = await chai.request(server).get(`/api/user`)
+        const res = await chai.request(server).get(`/api/user?limit=5`)
+
+        expect(res).to.have.status(200)
+        expect(res.body).to.be.a('object')
+        expect(res.body.user).to.be.a('array')
+        expect(res.body.user.length).to.be.equal(5)
+        for (let i = 0; i < 5; i++) {
+            expect(res.body.user[i]._id).to.be.equal(all.body.user[i]._id)
+        }
+    } )
+
+    it('should offset the users', async () => {
+        const all = await chai.request(server).get(`/api/user`)
+        const res = await chai.request(server).get(`/api/user?offset=5`)
+
+        expect(res).to.have.status(200)
+        expect(res.body).to.be.a('object')
+        expect(res.body.user).to.be.a('array')
+        expect(res.body.user.length).to.be.equal(parseInt(process.env.ITEMS_PER_PAGE))
+
+        for (let i = 0; i < all.body.user.length - 5; i++) {
+            expect(res.body.user[i]._id).to.be.equal(all.body.user[i + 5]._id)
+        }
+    })
+
+    it('should limit and offset the users', async () => {
+        const all = await chai.request(server).get(`/api/user`)
+        const res = await chai.request(server).get(`/api/user?offset=5&limit=5`)
+
+        expect(res).to.have.status(200)
+        expect(res.body).to.be.a('object')
+        expect(res.body.user).to.be.a('array')
+        expect(res.body.user.length).to.be.equal(5)
+        for (let i = 0; i < 5; i++) {
+            expect(res.body.user[i]._id).to.be.equal(all.body.user[i + 5]._id)
+        }
+    })
+
+  //   check the max limit
+    it('should limit the users to max limit', async () => {
+        const res = await chai.request(server).get(`/api/user?limit=200`)
+
+        expect(res).to.have.status(400)
+        expect(res.body).to.be.a('object')
+        expect(res.body.error).to.be.equal(`Limit should not exceed ${process.env.MAX_ITEMS_PER_PAGE} items per request.`)
+
+    })
+
   })
 
   //using patch
