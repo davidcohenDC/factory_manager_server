@@ -85,7 +85,7 @@ module.exports = (app) => {
   //     resultCode: '00004'
   //   })
   // )
-  app.get('/health', (_req, res) => res.send('OK'))
+  app.get('/health', (_req, res) => res.send({ status: 'OK' }))
 
   app.use((_req, _res, next) => {
     const error = new Error(errorCodes['00014'])
