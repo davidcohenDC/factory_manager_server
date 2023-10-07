@@ -7,20 +7,25 @@
  * @returns {Function} Express middleware function
  */
 module.exports = (options = {}) => {
-    const itemsPerPage = options.itemsPerPage || process.env.ITEMS_PER_PAGE ;
-    const maxItemsPerPage = options.maxItemsPerPage || process.env.MAX_ITEMS_PER_PAGE ;
+  const itemsPerPage = options.itemsPerPage || process.env.ITEMS_PER_PAGE
+  const maxItemsPerPage =
+    options.maxItemsPerPage || process.env.MAX_ITEMS_PER_PAGE
 
-    return (req, res, next) => {
-        let { limit, offset } = req.query;
+  return (req, res, next) => {
+    let { limit, offset } = req.query
 
-        limit = parseInt(limit, 10) || itemsPerPage;
-        offset = parseInt(offset, 10) || 0;
+    limit = parseInt(limit, 10) || itemsPerPage
+    offset = parseInt(offset, 10) || 0
 
-        if (limit > maxItemsPerPage) {
-            return res.status(400).json({ error: `Limit should not exceed ${maxItemsPerPage} items per request.` });
-        }
+    if (limit > maxItemsPerPage) {
+      return res
+        .status(400)
+        .json({
+          error: `Limit should not exceed ${maxItemsPerPage} items per request.`
+        })
+    }
 
-        req.pagination = { limit, offset };
-        next();
-    };
-};
+    req.pagination = { limit, offset }
+    next()
+  }
+}

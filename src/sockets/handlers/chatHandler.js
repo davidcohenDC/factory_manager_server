@@ -1,8 +1,9 @@
 const chatUtils = require('../utils/chatUtils')
 const { logger } = require('@root/config')
 
+const logSource = { source: 'Chat Handler' }
+
 const broadcastChatMessage = (socket, data) => {
-  const logSource = { source: 'Chat Handler' }
   logger.info("Chat message: '" + data.message + "' received", logSource)
   const formattedMessage = chatUtils.formatMessage(data.username, data.message)
   socket.broadcast.emit('chatMessage', formattedMessage)

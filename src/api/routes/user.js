@@ -8,7 +8,7 @@ const {
 } = require('@validations/user.validation')
 const router = express.Router()
 const { userCRUD } = require('@controllers/user/')
-const { tagTestUser} = require('@middlewares/testUserMiddleware')
+const { tagTestUser } = require('@middlewares/testUserMiddleware')
 const pagination = require('@middlewares/pagination')
 
 // CRUD operations for user
@@ -17,10 +17,14 @@ const pagination = require('@middlewares/pagination')
 router.post('/', validateUserBody, tagTestUser, userCRUD.create)
 
 // RETRIEVE all users
-router.get('/',  pagination({
-  itemsPerPage: 50,
-  maxItemsPerPage: 100
-}), userCRUD.getAll)
+router.get(
+  '/',
+  pagination({
+    itemsPerPage: 50,
+    maxItemsPerPage: 100
+  }),
+  userCRUD.getAll
+)
 
 // RETRIEVE a single user by ID
 router.get('/:id', validateUserId, userCRUD.getOne)

@@ -48,7 +48,8 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               name: 'limit',
               in: 'query',
               required: false,
-              description: 'Limit the number of results per request. Maximum allowed is 100.',
+              description:
+                'Limit the number of results per request. Maximum allowed is 100.',
               schema: {
                 type: 'integer',
                 default: 50,
@@ -59,9 +60,11 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               name: 'offset',
               in: 'query',
               required: false,
-              description: 'Offset to start fetching results from. Useful for pagination.',
+              description:
+                'Offset to start fetching results from. Useful for pagination.',
               schema: {
-                description: 'Limit the number of results per request. Maximum allowed is 100.',
+                description:
+                  'Limit the number of results per request. Maximum allowed is 100.',
                 type: 'integer',
                 default: 0
               }
@@ -73,7 +76,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
               content: {
                 'application/json': {
                   schema: {
-                    type: 'array',
+                    type: 'array'
                     // items: {
                     //   $ref: `#/components/schemas/${schemaRef}`
                     // }
@@ -84,9 +87,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
             500: {
               description: `Failed to retrieve ${modelName}s.`,
               content: {
-                'application/json': {
-
-                }
+                'application/json': {}
               }
             }
           }
@@ -229,20 +230,6 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
   }
 }
 
-function logAndRespond(res, status, message, modelName, instance = null) {
-  if (status >= 400) {
-    logger.error(message, { source: logSource });
-    res.status(status).send({ error: message });
-  } else {
-    logger.info(message, { source: logSource });
-    if (instance) {
-      res.status(status).send({ [modelName]: instance });
-    } else {
-      res.status(status).send({ message });
-    }
-  }
-}
-
 const CRUDHandler = (Model, modelName) => {
   const logSource = `CRUDHandler - ${modelName}`
 
@@ -289,28 +276,33 @@ const CRUDHandler = (Model, modelName) => {
 
     getAll: async (req, res) => {
       // Parsing limit and offset from query parameters
-      const limit = parseInt(req.query.limit, 10) || 50;  // Default limit is 50
-      const offset = parseInt(req.query.offset, 10) || 0;  // Default offset is 0
+      const limit = parseInt(req.query.limit, 10) || 50 // Default limit is 50
+      const offset = parseInt(req.query.offset, 10) || 0 // Default offset is 0
 
       // Ensure limit doesn't exceed maximum allowed value
       if (limit > 100) {
         logger.warn(`Requested limit exceeds maximum allowed limit.`, {
           source: logSource
-        });
-        return res.status(400).send({ error: `Limit should not exceed 100 items per request.` });
+        })
+        return res
+          .status(400)
+          .send({ error: `Limit should not exceed 100 items per request.` })
       }
 
       try {
-        const instances = await Model.find().skip(offset).limit(limit);
-        logger.info(`Successfully retrieved ${instances.length} ${modelName}s from offset ${offset}.`, {
-          source: logSource
-        });
-        res.json({ [modelName]: instances });
+        const instances = await Model.find().skip(offset).limit(limit)
+        logger.info(
+          `Successfully retrieved ${instances.length} ${modelName}s from offset ${offset}.`,
+          {
+            source: logSource
+          }
+        )
+        res.json({ [modelName]: instances })
       } catch (error) {
         logger.error(`Error retrieving ${modelName}s: ${error.message}`, {
           source: logSource
-        });
-        res.status(500).json({ error: 'Internal server error' });
+        })
+        res.status(500).json({ error: 'Internal server error' })
       }
     },
 

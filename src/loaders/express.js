@@ -66,8 +66,11 @@ module.exports = (app) => {
   app.get('/socketdemo', (_req, res) =>
     res.sendFile(path.join(__dirname, '..', '..', 'public', 'socket-demo.html'))
   )
+  app.get('/metrics', (_req, res) =>
+    res.sendFile(path.join(__dirname, '..', '..', 'public', 'metrics.html'))
+  )
 
-  app.use(require('express-status-monitor')())
+  // app.use(require('express-status-monitor')())
 
   app.use(cors())
   app.use(compression())

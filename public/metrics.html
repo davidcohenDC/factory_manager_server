@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Dashboard</title>
+</head>
+<body>
+<h1>Server Monitoring Dashboard</h1>
+
+<p><strong>Uptime:</strong> <span id="uptime">Loading...</span></p>
+<p><strong>Memory Usage:</strong> <span id="memory">Loading...</span></p>
+<p><strong>Socket Connections:</strong> <span id="connections">Loading...</span></p>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io.connect('http://localhost:4000');
+
+    socket.on('metrics', (data) => {
+        document.getElementById('uptime').textContent = data.uptime.toFixed(2) + ' seconds';
+        document.getElementById('memory').textContent = (data.memoryUsage / (1024 * 1024)).toFixed(2) + ' MB';
+    });
+</script>
+</body>
+</html>

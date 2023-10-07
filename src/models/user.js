@@ -85,6 +85,7 @@ userSchema
   })
 
 userSchema.pre('save', async function (next) {
+  logger.info('Pre save hook called', logSource)
   if (this.isModified('password')) {
     try {
       this.password = await bcrypt.hash(this.password, 10)

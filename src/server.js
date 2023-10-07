@@ -10,7 +10,7 @@ const startServer = async () => {
   await configureApp() // Configure the app before starting the server
 
   const server = http.createServer(app)
-  initializeSocket(server) // Initialize the socket.io server
+  await initializeSocket(server) // Initialize the socket.io server
 
   server.listen(port, () => {
     logger.info(`Server is running on port ${port}`, logSource)
@@ -34,4 +34,4 @@ const startServer = async () => {
   return server
 }
 
-startServer()
+startServer().then((r) => r)

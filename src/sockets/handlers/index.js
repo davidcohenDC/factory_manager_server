@@ -1,5 +1,7 @@
-const { chatHandler } = require('./chatHandler')
+const { broadcastChatMessage } = require('./chatHandler')
+const { sendMetrics } = require('./metricsHandler')
 
 module.exports = {
-  chatHandler
+  broadcastChatMessage,
+  sendMetrics
 }
