@@ -1,9 +1,8 @@
-const User = require('@models/user')
 
 // Middleware to tag users as test users
-module.exports.tagTestUser = (req, res, next) => {
+module.exports.tagTest = (req, res, next) => {
   if (process.env.NODE_ENV === 'test') {
-    req.body.testUser = true // Add a testUser property to the user data
+    req.body.test = 'true' // Add a test property to the data
   }
   next()
 }
@@ -11,7 +10,7 @@ module.exports.tagTestUser = (req, res, next) => {
 // Middleware for cleanup tasks
 module.exports.cleanupTestUsers = async (req, res, next) => {
   if (process.env.NODE_ENV === 'test') {
-    await User.deleteMany({ testUser: true })
+    await req.Model.deleteMany({ test: true })
   }
   next()
 }

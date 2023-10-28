@@ -8,13 +8,13 @@ const {
 } = require('@validations/user.validation')
 const router = express.Router()
 const { userCRUD } = require('@controllers/user/')
-const { tagTestUser } = require('@middlewares/testUserMiddleware')
+const { tagTest } = require('@middlewares/')
 const pagination = require('@middlewares/pagination')
 
 // CRUD operations for user
 
 // CREATE a new user
-router.post('/', validateUserBody, tagTestUser, userCRUD.create)
+router.post('/', validateUserBody, tagTest, userCRUD.create)
 
 // RETRIEVE all users
 router.get(

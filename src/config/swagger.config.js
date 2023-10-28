@@ -348,7 +348,7 @@ module.exports = {
               }
             }
           },
-          "required": ['machineId','name', 'location', 'status', 'specifications', 'turns', 'maintenance', 'log']
+          "required": ['machineId','name', 'status', 'operational','status']
         },
         "SpecRange": {
           "type": "object",

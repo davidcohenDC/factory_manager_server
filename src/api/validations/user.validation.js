@@ -1,15 +1,24 @@
 const Joi = require('joi')
 const { logger } = require('@config/')
 
+const logSource =  'User Validation'
+
 const passwordRegex =
   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+
 
 const phoneNumberSchema = Joi.object({
   type: Joi.string().valid('mobile').trim(),
   number: Joi.string().trim()
 })
 
-const emailSchema = Joi.string().email().required().trim()
+const emailSchema = Joi.string().
+  required().
+  trim().
+  email().
+  message({
+    'string.pattern.base': '"email" must be a valid email'
+})
 const passwordSchema = Joi.string()
   .required()
   .trim()
@@ -82,10 +91,11 @@ const validateUserBody = async (req, res, next) => {
     next()
   } catch (error) {
     const errorMessage = error.details[0].message
-    logger.error('Validation Error in body - User Validation Middleware', {
+
+    logger.error('Validation Error in body', {
       error: errorMessage,
       req,
-      source: 'validateUserBody'
+      source: logSource
     })
     res.status(400).json({ error: errorMessage })
   }
@@ -97,10 +107,10 @@ const validateUserId = async (req, res, next) => {
     next()
   } catch (error) {
     const errorMessage = error.details[0].message
-    logger.error('Validation Error in params - User Validation Middleware', {
+    logger.error('Validation Error in params', {
       error: errorMessage,
       req,
-      source: 'validateUserId'
+      source: logSource
     })
     res.status(400).json({ error: errorMessage })
   }
@@ -112,10 +122,10 @@ const validateLogin = async (req, res, next) => {
     next()
   } catch (error) {
     const errorMessage = error.details[0].message
-    logger.error('Validation Error in body - User Validation Middleware', {
+    logger.error('Validation Error in body', {
       error: errorMessage,
       req,
-      source: 'validateLogin'
+      source: logSource
     })
     res.status(400).json({ error: errorMessage })
   }
@@ -127,10 +137,10 @@ const validateCheckMail = async (req, res, next) => {
     next()
   } catch (error) {
     const errorMessage = error.details[0].message
-    logger.error('Validation Error in body - User Validation Middleware', {
+    logger.error('Validation Error in body', {
       message: errorMessage,
       req,
-      source: 'validateCheckMail'
+      source: logSource
     })
     res.status(400).json({ error: errorMessage })
   }

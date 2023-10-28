@@ -12,11 +12,9 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: [true, "'email' is required"],
+    required: true,
     unique: true,
-    lowercase: true,
-    match:
-      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+    lowercase: true
   },
   password: { type: String, required: [true, "'password' is required"] },
   dataOfBirth: Date,
@@ -66,7 +64,7 @@ const userSchema = new Schema({
   },
   joinedDate: Date,
   notes: String,
-  testUser: { type: Boolean, default: false }
+  test: { type: Boolean }
 })
 
 // Indexing
@@ -103,8 +101,8 @@ userSchema.pre('save', async function (next) {
 userSchema.post('save', function (err, doc, next) {
   if (err) {
     if (err.name === 'MongoServerError' && err.code === 11000) {
-      logger.error(`Error saving user ${doc.email}: ${err.message}`, logSource)
-      next(new Error('email address is already taken.'))
+      logger.error(`Error saving machine (MongoServerError): ${err.message}`, logSource)
+      next(new Error('user is already taken.'))
     } else {
       next(err)
     }

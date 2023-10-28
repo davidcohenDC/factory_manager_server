@@ -1,4 +1,5 @@
 const { expectError } = require('@test/api/utils/helper/expectedError')
+const generateCRUDTests = require('@test/api/utils/helper/generateCRUDtests')
 const {
   initializeServer,
   closeServer
@@ -7,5 +8,6 @@ const {
 module.exports = {
   expectError,
   initializeServer,
-  closeServer
+  closeServer,
+  generateCRUDTests
 }

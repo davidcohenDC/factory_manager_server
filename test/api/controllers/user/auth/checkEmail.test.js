@@ -39,14 +39,12 @@ describe('User Controller - CheckEmail', () => {
       expect(res.body).to.be.a('object')
       expect(res.body.valid).to.be.true
     })
-
-    it("should return false when the email doesn't exist", async () => {
-      const res = await chai.request(server).post('/api/user/checkEmail').send({
-        email: faker.internet.email()
-      })
-      expect(res).to.have.status(200)
-      expect(res.body).to.be.a('object')
-      expect(res.body.valid).to.be.false
+    it('should return error when the email does not exist', async () => {
+        const res = await chai
+            .request(server)
+            .post('/api/user/checkEmail')
+            .send({ email: 'notexist@notexist.it ' })
+        expectError(res, 401, 'Email does not exist')
     })
 
     const invalidUserInputs = [

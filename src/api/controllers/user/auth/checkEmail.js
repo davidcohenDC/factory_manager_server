@@ -14,7 +14,7 @@ module.exports.checkEmail = async (req, res) => {
     } else {
       // If the email does not exist, return 200 with a message that it does not exist
       logger.info('Email does not exist', { req, source: 'checkEmail' })
-      return res.status(200).json({ valid: false })
+      return res.status(401).json({ error: 'Email does not exist' })
     }
   } catch (error) {
     logger.error('Error checking email', { req, error, source: 'checkEmail' })

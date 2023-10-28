@@ -22,7 +22,8 @@ const machineSchema = new Schema({
   status: {
     operational: {
       type: Boolean,
-      default: true
+      default: true,
+      required: true
     },
     currentAnomalies: [
       {
@@ -89,7 +90,8 @@ const machineSchema = new Schema({
         duration: String // As above
       }
     ]
-  }
+  },
+  test: { type: Boolean }
 })
 
 machineSchema.pre('save', async function (next) {
@@ -116,6 +118,19 @@ machineSchema.pre('save', async function (next) {
   logger.info('Total running time updated', logSource);
   next();
 });
+
+machineSchema.post('save', function (err, doc, next) {
+  if (err) {
+    if (err.name === 'MongoServerError' && err.code === 11000) {
+      logger.error(`Error saving machine (MongoServerError): ${err.message}`, logSource)
+      next(new Error('machine is already taken.'))
+    } else {
+      next(err)
+    }
+  } else {
+    next()
+  }
+})
 
 
 const Machine = mongoose.model('Machine', machineSchema)
