@@ -1,6 +1,6 @@
 const { generateResources } = require('@utils/helpers/crudHandler')
-const Machine = require('@models/')
+const Area = require('@models/area')
 
 module.exports = {
-  machineCRUD: generateResources(Machine, 'machine')
+    areaCRUD: generateResources(Area, 'area')
 }

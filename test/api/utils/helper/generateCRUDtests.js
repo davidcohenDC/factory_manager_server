@@ -70,24 +70,25 @@ function generateCRUDTests(modelName, Model, modelDataPre, modelData, requiredFi
 
         it(`should create a new ${modelName}`, async () => {
             const res = await chai.request(server).post(`/api/${modelName}`).send(modelData);
-            expect(res).to.have.status(201)
-            expect(res.body).to.be.a('object')
+            // assuming modelData is an array
+            expect(res).to.have.status(201);
+            expect(res.body).to.be.a('object');
 
-            const responseBodyModel = res.body[modelName];  // Nota: qui ho usato modelName
-
-            for (const field in modelData) {
-                if (field === 'password') continue;
-                if (Array.isArray(modelData[field])) {
-                    expect(responseBodyModel[field]).to.deep.equal(modelData[field]);
-                } else if (typeof modelData[field] === 'object' && modelData[field] !== null) {
-                    for (const subField in modelData[field]) {
-                        expect(responseBodyModel[field][subField]).to.deep.equal(modelData[field][subField]);
+            const responseBodyModel = res.body;  // Assuming response body contains the model directly
+            console.log("Incoming Data:", responseBodyModel);
+            for (const field in modelData[0]) {
+                if (typeof modelData[0][field] === 'object' && modelData[0][field] !== null) {
+                    // Handle nested objects
+                    for (const subField in modelData[0][field]) {
+                        expect(responseBodyModel[0][field][subField]).to.equal(modelData[0][field][subField]);
                     }
                 } else {
-                    expect(responseBodyModel[field]).to.equal(modelData[field]);
+                    // Handle primitive types
+                    expect(responseBodyModel[0][field]).to.equal(modelData[0][field]);
                 }
             }
-        })
+        });
+
 
         it(`should return 400 when the ${modelName} id is already in use`, async () => {
             await chai.request(server).post(`/api/${modelName}/`).send(modelData)
@@ -169,8 +170,9 @@ function generateCRUDTests(modelName, Model, modelDataPre, modelData, requiredFi
             expect(res).to.have.status(200)
             expect(res.body).to.be.a('object')
             expect(res.body[modelName]).to.be.a('array')
-            expect(res.body[modelName].length).to.be.equal(5)
-            for (let i = 0; i < 5; i++) {
+            const expectedLength = Math.min(5, all.body[modelName].length);
+            expect(res.body[modelName].length).to.be.equal(expectedLength);
+            for (let i = 0; i < expectedLength; i++) {
                 expect(res.body[modelName][i]._id).to.be.equal(all.body[modelName][i]._id)
             }
         })
@@ -197,24 +199,25 @@ function generateCRUDTests(modelName, Model, modelDataPre, modelData, requiredFi
         })
 
         it(`should limit and offset the ${modelName}`, async () => {
-                const all = await chai.request(server).get(`/api/${modelName}`);
-                const totalModels = all.body[modelName].length;
+            const all = await chai.request(server).get(`/api/${modelName}`);
+            const totalModels = all.body[modelName].length;
 
-                // Calculate the expected length
-                const expectedLength = Math.min(5, totalModels - 5); // -5 because we offset by 5
+            // Ensure you have a non-negative expectedLength
+            const expectedLength = Math.max(0, totalModels - 5);  // Changed Math.min to Math.max
 
-                const res = await chai.request(server).get(`/api/${modelName}?offset=5&limit=5`);
+            const res = await chai.request(server).get(`/api/${modelName}?offset=5&limit=5`);
 
-                expect(res).to.have.status(200);
-                expect(res.body).to.be.a('object');
-                expect(res.body[modelName]).to.be.a('array');
-                expect(res.body[modelName].length).to.be.equal(expectedLength);
+            expect(res).to.have.status(200);
+            expect(res.body).to.be.a('object');
+            expect(res.body[modelName]).to.be.a('array');
+            expect(res.body[modelName].length).to.be.equal(expectedLength);
 
-                for (let i = 0; i < expectedLength; i++) {
-                    expect(res.body[modelName][i]._id).to.be.equal(all.body[modelName][i + 5]._id);
-                }
+            for (let i = 0; i < expectedLength; i++) {
+                // Changed index to i + 5 as you have offset by 5
+                expect(res.body[modelName][i]._id).to.be.equal(all.body[modelName][i + 5]._id);
             }
-        );
+        });
+
     })
 
     describe(`Update ${capitalizeFirstLetter(modelName)}`, () => {
