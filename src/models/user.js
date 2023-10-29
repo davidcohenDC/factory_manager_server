@@ -101,7 +101,10 @@ userSchema.pre('save', async function (next) {
 userSchema.post('save', function (err, doc, next) {
   if (err) {
     if (err.name === 'MongoServerError' && err.code === 11000) {
-      logger.error(`Error saving machine (MongoServerError): ${err.message}`, logSource)
+      logger.error(
+        `Error saving machine (MongoServerError): ${err.message}`,
+        logSource
+      )
       next(new Error('user is already taken.'))
     } else {
       next(err)

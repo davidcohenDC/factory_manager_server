@@ -95,34 +95,39 @@ const machineSchema = new Schema({
 })
 
 machineSchema.pre('save', async function (next) {
-  logger.info('Pre save hook called', logSource);
+  logger.info('Pre save hook called', logSource)
 
   if (this.log.sessions && this.log.sessions.length > 0) {
     // Get the latest session
-    const lastSession = this.log.sessions[this.log.sessions.length - 1];
+    const lastSession = this.log.sessions[this.log.sessions.length - 1]
 
     // Calculate duration of the current session
     // Assuming that powerOn and powerOff are Date objects
-    const currentSessionDuration = new Date(lastSession.powerOff).getTime() - new Date(lastSession.powerOn).getTime();
+    const currentSessionDuration =
+      new Date(lastSession.powerOff).getTime() -
+      new Date(lastSession.powerOn).getTime()
 
     // Check if totalRunningTime exists, if not initialize it
     if (!this.log.totalRunningTime) {
-      this.log.totalRunningTime = 0;
+      this.log.totalRunningTime = 0
     }
 
     // Add the duration of the current session to the total running time
     // Note: You need to ensure that totalRunningTime is in the same unit as the duration (e.g., milliseconds)
-    this.log.totalRunningTime += currentSessionDuration;
+    this.log.totalRunningTime += currentSessionDuration
   }
 
-  logger.info('Total running time updated', logSource);
-  next();
-});
+  logger.info('Total running time updated', logSource)
+  next()
+})
 
 machineSchema.post('save', function (err, doc, next) {
   if (err) {
     if (err.name === 'MongoServerError' && err.code === 11000) {
-      logger.error(`Error saving machine (MongoServerError): ${err.message}`, logSource)
+      logger.error(
+        `Error saving machine (MongoServerError): ${err.message}`,
+        logSource
+      )
       next(new Error('machine is already taken.'))
     } else {
       next(err)
@@ -131,7 +136,6 @@ machineSchema.post('save', function (err, doc, next) {
     next()
   }
 })
-
 
 const Machine = mongoose.model('Machine', machineSchema)
 

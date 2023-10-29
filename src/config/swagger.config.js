@@ -174,173 +174,173 @@ module.exports = {
           },
           required: ['email', 'password']
         },
-        "MachineSchema": {
-          "type": "object",
-          "properties": {
-            "machineId": {
-              "type": "string",
-              "example": "MCHN001"
+        MachineSchema: {
+          type: 'object',
+          properties: {
+            machineId: {
+              type: 'string',
+              example: 'MCHN001'
             },
-            "name": {
-              "type": "string",
-              "example": "Lathe-101"
+            name: {
+              type: 'string',
+              example: 'Lathe-101'
             },
-            "location": {
-              "type": "object",
-              "properties": {
-                "area": {
-                  "type": "string",
-                  "example": "Plant1-South"
+            location: {
+              type: 'object',
+              properties: {
+                area: {
+                  type: 'string',
+                  example: 'Plant1-South'
                 }
               }
             },
-            "status": {
-              "type": "object",
-              "properties": {
-                "operational": {
-                  "type": "boolean",
-                  "example": true
+            status: {
+              type: 'object',
+              properties: {
+                operational: {
+                  type: 'boolean',
+                  example: true
                 },
-                "currentAnomalies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
+                currentAnomalies: {
+                  type: 'array',
+                  items: {
+                    type: 'string'
                   },
-                  "example": ["High Temperature"]
+                  example: ['High Temperature']
                 }
               }
             },
-            "specifications": {
-              "type": "object",
-              "properties": {
-                "powerConsumption": {
-                  "type": "object",
-                  "properties": {
-                    "normalRange": {
-                      "type": "object",
-                      "properties": {
-                        "min": {
-                          "type": "string",
-                          "format": "Decimal",
-                          "example": "150.0"
+            specifications: {
+              type: 'object',
+              properties: {
+                powerConsumption: {
+                  type: 'object',
+                  properties: {
+                    normalRange: {
+                      type: 'object',
+                      properties: {
+                        min: {
+                          type: 'string',
+                          format: 'Decimal',
+                          example: '150.0'
                         },
-                        "max": {
-                          "type": "string",
-                          "format": "Decimal",
-                          "example": "200.0"
+                        max: {
+                          type: 'string',
+                          format: 'Decimal',
+                          example: '200.0'
                         }
                       }
                     },
-                    "current": {
-                      "type": "string",
-                      "format": "Decimal",
-                      "example": "180.5"
+                    current: {
+                      type: 'string',
+                      format: 'Decimal',
+                      example: '180.5'
                     }
                   }
                 },
-                "emissions": {
-                  "$ref": "#/components/schemas/SpecRange"
+                emissions: {
+                  $ref: '#/components/schemas/SpecRange'
                 },
-                "operatingTemperature": {
-                  "$ref": "#/components/schemas/SpecRange"
+                operatingTemperature: {
+                  $ref: '#/components/schemas/SpecRange'
                 },
-                "humidity": {
-                  "$ref": "#/components/schemas/SpecRange"
+                humidity: {
+                  $ref: '#/components/schemas/SpecRange'
                 },
-                "otherSpecification": {
-                  "type": "string",
-                  "example": "Emergency Stop Feature"
+                otherSpecification: {
+                  type: 'string',
+                  example: 'Emergency Stop Feature'
                 }
               }
             },
-            "turns": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "turn": {
-                    "type": "string",
-                    "example": "Turn1"
+            turns: {
+              type: 'array',
+              items: {
+                type: 'object',
+                properties: {
+                  turn: {
+                    type: 'string',
+                    example: 'Turn1'
                   },
-                  "userId": {
-                    "type": "string",
-                    "format": "ObjectId",
-                    "example": "60f5b5f7a2f7c42fd6501acc"
+                  userId: {
+                    type: 'string',
+                    format: 'ObjectId',
+                    example: '60f5b5f7a2f7c42fd6501acc'
                   },
-                  "userName": {
-                    "type": "string",
-                    "example": "John Doe"
+                  userName: {
+                    type: 'string',
+                    example: 'John Doe'
                   }
                 }
               }
             },
-            "maintenance": {
-              "type": "object",
-              "properties": {
-                "lastMaintenanceDate": {
-                  "type": "string",
-                  "format": "date",
-                  "example": "2023-09-15"
+            maintenance: {
+              type: 'object',
+              properties: {
+                lastMaintenanceDate: {
+                  type: 'string',
+                  format: 'date',
+                  example: '2023-09-15'
                 },
-                "nextMaintenanceDate": {
-                  "type": "string",
-                  "format": "date",
-                  "example": "2023-11-15"
+                nextMaintenanceDate: {
+                  type: 'string',
+                  format: 'date',
+                  example: '2023-11-15'
                 },
-                "maintenanceHistory": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2023-09-15"
+                maintenanceHistory: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      date: {
+                        type: 'string',
+                        format: 'date',
+                        example: '2023-09-15'
                       },
-                      "description": {
-                        "type": "string",
-                        "example": "Replaced grinding wheel"
+                      description: {
+                        type: 'string',
+                        example: 'Replaced grinding wheel'
                       }
                     }
                   }
                 }
               }
             },
-            "log": {
-              "type": "object",
-              "properties": {
-                "lastPowerOn": {
-                  "type": "string",
-                  "format": "date-time",
-                  "example": "2023-10-06T08:30:00Z"
+            log: {
+              type: 'object',
+              properties: {
+                lastPowerOn: {
+                  type: 'string',
+                  format: 'date-time',
+                  example: '2023-10-06T08:30:00Z'
                 },
-                "lastPowerOff": {
-                  "type": "string",
-                  "format": "date-time",
-                  "example": "2023-10-06T14:30:00Z"
+                lastPowerOff: {
+                  type: 'string',
+                  format: 'date-time',
+                  example: '2023-10-06T14:30:00Z'
                 },
-                "totalRunningTime": {
-                  "type": "string",
-                  "example": "PT6H"
+                totalRunningTime: {
+                  type: 'string',
+                  example: 'PT6H'
                 },
-                "sessions": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "powerOn": {
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2023-10-06T08:30:00Z"
+                sessions: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      powerOn: {
+                        type: 'string',
+                        format: 'date-time',
+                        example: '2023-10-06T08:30:00Z'
                       },
-                      "powerOff": {
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2023-10-06T14:30:00Z"
+                      powerOff: {
+                        type: 'string',
+                        format: 'date-time',
+                        example: '2023-10-06T14:30:00Z'
                       },
-                      "duration": {
-                        "type": "string",
-                        "example": "PT6H"
+                      duration: {
+                        type: 'string',
+                        example: 'PT6H'
                       }
                     }
                   }
@@ -348,30 +348,30 @@ module.exports = {
               }
             }
           },
-          "required": ['machineId','name', 'status', 'operational','status']
+          required: ['machineId', 'name', 'status', 'operational', 'status']
         },
-        "SpecRange": {
-          "type": "object",
-          "properties": {
-            "normalRange": {
-              "type": "object",
-              "properties": {
-                "min": {
-                  "type": "string",
-                  "format": "Decimal",
-                  "example": "20.0"
+        SpecRange: {
+          type: 'object',
+          properties: {
+            normalRange: {
+              type: 'object',
+              properties: {
+                min: {
+                  type: 'string',
+                  format: 'Decimal',
+                  example: '20.0'
                 },
-                "max": {
-                  "type": "string",
-                  "format": "Decimal",
-                  "example": "40.0"
+                max: {
+                  type: 'string',
+                  format: 'Decimal',
+                  example: '40.0'
                 }
               }
             },
-            "current": {
-              "type": "string",
-              "format": "Decimal",
-              "example": "30.0"
+            current: {
+              type: 'string',
+              format: 'Decimal',
+              example: '30.0'
             }
           }
         },

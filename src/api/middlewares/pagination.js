@@ -18,11 +18,9 @@ module.exports = (options = {}) => {
     offset = parseInt(offset, 10) || 0
 
     if (limit > maxItemsPerPage) {
-      return res
-        .status(400)
-        .json({
-          error: `Limit should not exceed ${maxItemsPerPage} items per request.`
-        })
+      return res.status(400).json({
+        error: `Limit should not exceed ${maxItemsPerPage} items per request.`
+      })
     }
 
     req.pagination = { limit, offset }

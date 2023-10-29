@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const { validateMachineBody, validateMachineId} = require('@validations/machine.validation')
+const {
+  validateMachineBody,
+  validateMachineId
+} = require('@validations/machine.validation')
 const { machineCRUD } = require('@controllers/machine/')
 const pagination = require('@middlewares/pagination')
 const { tagTest } = require('@middlewares/')
@@ -11,10 +14,14 @@ const { tagTest } = require('@middlewares/')
 router.post('/', validateMachineBody, tagTest, machineCRUD.create)
 
 // RETRIEVE all machines
-router.get('/', pagination({
+router.get(
+  '/',
+  pagination({
     itemsPerPage: 50,
     maxItemsPerPage: 100
-}), machineCRUD.getAll)
+  }),
+  machineCRUD.getAll
+)
 
 // RETRIEVE a single machine by ID
 router.get('/:id', validateMachineId, machineCRUD.getOne)

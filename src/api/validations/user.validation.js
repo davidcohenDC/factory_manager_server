@@ -1,23 +1,18 @@
 const Joi = require('joi')
 const { logger } = require('@config/')
 
-const logSource =  'User Validation'
+const logSource = 'User Validation'
 
 const passwordRegex =
   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
-
 
 const phoneNumberSchema = Joi.object({
   type: Joi.string().valid('mobile').trim(),
   number: Joi.string().trim()
 })
 
-const emailSchema = Joi.string().
-  required().
-  trim().
-  email().
-  message({
-    'string.pattern.base': '"email" must be a valid email'
+const emailSchema = Joi.string().required().trim().email().message({
+  'string.pattern.base': '"email" must be a valid email'
 })
 const passwordSchema = Joi.string()
   .required()

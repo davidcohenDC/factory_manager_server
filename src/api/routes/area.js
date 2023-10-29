@@ -1,7 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const { areaCRUD } = require('@controllers/area/')
-const { validateAreaBody, validateAreaId} = require('@validations/area.validation')
+const {
+  validateAreaBody,
+  validateAreaId
+} = require('@validations/area.validation')
 const pagination = require('@middlewares/pagination')
 const { tagTest } = require('@middlewares/')
 
@@ -11,10 +14,14 @@ const { tagTest } = require('@middlewares/')
 router.post('/', tagTest, areaCRUD.create)
 
 // RETRIEVE all ares
-router.get('/', pagination({
+router.get(
+  '/',
+  pagination({
     itemsPerPage: 50,
     maxItemsPerPage: 100
-}), areaCRUD.getAll)
+  }),
+  areaCRUD.getAll
+)
 
 // RETRIEVE a single area by ID
 router.get('/:id', validateAreaId, areaCRUD.getOne)

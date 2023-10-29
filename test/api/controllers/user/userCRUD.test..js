@@ -1,40 +1,51 @@
 require('module-alias/register')
 const { faker } = require('@faker-js/faker')
 const User = require('@models/user')
-const { expectError, initializeServer, closeServer } = require('@test/api/utils/helper');
+const {
+  expectError,
+  initializeServer,
+  closeServer
+} = require('@test/api/utils/helper')
 const { generateCRUDTests } = require('@test/api/utils/helper/')
 
 const userDataPre = {
-    email: faker.internet.email().toLowerCase(),
-    password: 'Password123!'
+  email: faker.internet.email().toLowerCase(),
+  password: 'Password123!'
 }
 
 const userData = {
-    email: faker.internet.email().toLowerCase(),
-    password: 'Password123!'
+  email: faker.internet.email().toLowerCase(),
+  password: 'Password123!'
 }
 
 const requiredFields = [
-    { fieldName: "email", fieldValue: faker.internet.email().toLowerCase() },
-    { fieldName: "password", fieldValue: 'Password123!' }
-];
+  { fieldName: 'email', fieldValue: faker.internet.email().toLowerCase() },
+  { fieldName: 'password', fieldValue: 'Password123!' }
+]
 
 const validationFields = [
-    {
-        name: 'invalid email',
-        userData: { email: 'invalidEmail', password: 'password123!' },
-        expectedError: '"email" must be a valid email'
-    },
-    {
-        name: 'invalid password',
-        userData: { email: faker.internet.email(), password: 'hi' },
-        expectedError: '"password" must contain at least 8 characters'
-    }
-];
+  {
+    name: 'invalid email',
+    userData: { email: 'invalidEmail', password: 'password123!' },
+    expectedError: '"email" must be a valid email'
+  },
+  {
+    name: 'invalid password',
+    userData: { email: faker.internet.email(), password: 'hi' },
+    expectedError: '"password" must contain at least 8 characters'
+  }
+]
 
 describe('User Controller - CRUD', () => {
-    generateCRUDTests('user', User, userDataPre, userData, requiredFields, validationFields,
-        { expectError, initializeServer, closeServer });
+  generateCRUDTests(
+    'user',
+    User,
+    userDataPre,
+    userData,
+    requiredFields,
+    validationFields,
+    { expectError, initializeServer, closeServer }
+  )
 })
 //   let server // This will be our test server
 //   let userID = ''

@@ -1,4 +1,3 @@
-
 // Middleware to tag users as test users
 module.exports.tagTest = (req, res, next) => {
   if (process.env.NODE_ENV === 'test') {
