@@ -82,6 +82,11 @@ module.exports = (app) => {
 
   app.use(prefix, routes)
 
+  // Redirect from root to your Swagger docs
+  app.get('/', (_req, res) => {
+    res.redirect(`${prefix}${specs}`);
+  });
+
   // app.get('/', (_req, res) =>
   //   res.status(200).json({
   //     resultMessage: { en: errorCodes['00004'] },
