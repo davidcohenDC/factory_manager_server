@@ -1,4 +1,4 @@
-const { logger } = require('@root/config')
+const { logger } = require('/src/config/logger')
 
 const logSource = { source: 'Metrics Controller' }
 

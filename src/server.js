@@ -5,12 +5,11 @@ const mongoose = require('mongoose')
 const { port } = require('./config')
 const logSource = { source: 'Express Server' }
 const http = require('http')
-const { initializeSocket } = require('./sockets/')
+
 const startServer = async () => {
   await configureApp() // Configure the app before starting the server
 
   const server = http.createServer(app)
-  await initializeSocket(server) // Initialize the socket.io server
 
   server.listen(port, () => {
     logger.info(`Server is running on port ${port}`, logSource)

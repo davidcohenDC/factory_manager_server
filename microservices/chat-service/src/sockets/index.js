@@ -1,6 +1,6 @@
 const socketIo = require('socket.io')
 const { broadcastChatMessage } = require('./handlers/')
-const { logger } = require('@root/config')
+const { logger } = require('../config/')
 
 const logSource = { source: 'Socket Server' }
 
@@ -13,7 +13,13 @@ function sendMetrics(io) {
   io.emit('metrics', metrics)
 }
 const initializeSocket = (server) => {
-  const io = socketIo(server)
+  const io = socketIo(server, {
+    cors: {
+      origin: "http://localhost:4000",
+      methods: ["GET", "POST"],
+      credentials: true
+    }
+  })
 
   io.on('connection', (socket) => {
     setInterval(() => {

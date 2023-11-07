@@ -1,6 +1,5 @@
 const metricsController = require('../controllers/metricsController')
-const { logger } = require('@root/config')
-
+const { logger } = require('/src/config/')
 const logSource = { source: 'Metrics Events' }
 module.exports = (io) => {
   io.on('connection', (socket) => {

@@ -1,0 +1,5 @@
+/node_modules
+/test
+/daily_logs
+/logs
+# .env

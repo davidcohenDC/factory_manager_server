@@ -1,5 +1,5 @@
 const chatController = require('../controllers/chatController')
-const { logger } = require('@root/config')
+const { logger } = require('/src/config/')
 
 module.exports = (io) => {
   const logSource = { source: 'Chat Events' }

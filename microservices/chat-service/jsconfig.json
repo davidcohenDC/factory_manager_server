@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+    "@utils/*": ["src/sockets/utils/*"],
+    "@root/*": ["src/sockets/*"],
+    "@controllers/*": ["src/sockets/api/controllers/*"],
+    "@models/*": ["src/sockets/models/*"],
+    "@routes/*": ["src/sockets/api/routes/*"],
+    "@services/*": ["src/sockets/services/*"],
+    "@loaders/*": ["src/sockets/loaders/*"],
+    "@public/*": ["public/*"],
+    "@config/*": ["src/sockets/config/*"],
+    "@middlewares/*": ["src/sockets/api/middlewares/*"],
+    "@validations/*": ["src/sockets/api/validations/*"],
+    "@test/*": ["test/*"],
+    "@logs/*": ["logs/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

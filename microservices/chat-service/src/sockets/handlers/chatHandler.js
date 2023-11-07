@@ -1,5 +1,5 @@
 const chatUtils = require('../utils/chatUtils')
-const { logger } = require('@root/config')
+const { logger } = require('../../config/')
 
 const logSource = { source: 'Chat Handler' }
 
