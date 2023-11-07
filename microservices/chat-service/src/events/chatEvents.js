@@ -1,10 +1,10 @@
 const chatController = require('../controllers/chatController')
-const { logger } = require('/src/config/')
+const { logger } = require('/src/config')
 
 module.exports = (io) => {
-  const logSource = { source: 'Chat Events' }
+  const logSource = 'Chat Events'
   io.on('connection', (socket) => {
-    logger.info('User connected', logSource)
+    logger.info('User connected', {source: logSource})
 
     socket.on('chatMessage', (message) => {
       logger.info('Chat message received', { ...logSource, message }, logSource)

@@ -1,8 +1,8 @@
 const socketIo = require('socket.io')
-const { broadcastChatMessage } = require('./handlers/')
-const { logger } = require('../config/')
+const { broadcastChatMessage } = require('./handlers')
+const { logger } = require('./config')
 
-const logSource = { source: 'Socket Server' }
+const logSource ='Socket Server'
 
 function sendMetrics(io) {
   const metrics = {
@@ -25,19 +25,11 @@ const initializeSocket = (server) => {
     setInterval(() => {
       sendMetrics(socket)
     }, 500)
-    logger.info(
-      'User connected',
-      { ...logSource, socketId: socket.id },
-      logSource
-    )
+    logger.info('User connected', { source: logSource, socketId: socket.id})
     socket.on('chatMessage', (data) => broadcastChatMessage(socket, data))
 
     socket.on('disconnect', () => {
-      logger.info(
-        'User disconnected',
-        { ...logSource, socketId: socket.id },
-        logSource
-      )
+      logger.info('User disconnected', { source: logSource, socketId: socket.id })
     })
   })
 }

@@ -1,110 +1,70 @@
-const DailyRotateFile = require('winston-daily-rotate-file')
-const winston = require('winston')
-const { format, transports } = winston
+const { createLogger, format, transports } = require('winston');
+require('winston-daily-rotate-file');
+const { combine, timestamp, printf, errors, json } = format;
+const { config } = require('dotenv');
+const dotenvExpand = require('dotenv-expand');
 
-// Custom formatter for logs.
-// const customFormat = format.printf(({ timestamp, level, message, ...metadata }) => {
-//   let metaString = Object.keys(metadata).length ? JSON.stringify(metadata) : "";
-//   return `${timestamp} [${level}]: ${message} ${metaString}`;
-// });
+dotenvExpand.expand(config());
 
-// Get the log level from environment variables or set to 'info' as default.
-const logLevel = process.env.LOG_LEVEL || 'info'
+// Extracting environment variables after dotenv configuration
+const env = process.env.NODE_ENV || 'development';
+const serviceName = process.env.SERVICE_NAME || 'UnnamedService';
+const logDir = process.env.LOG_DIR || 'logs';
+const logLevel = process.env.LOG_LEVEL || 'debug';
 
-// const logDir = 'logs/';
+// Define the custom console format
+const consoleFormat = printf(({ level, message, timestamp, stack }) => {
+  let msg = `${timestamp} [${serviceName}] ${level}: ${message}`;
+  if (stack) {
+    msg += ` ${stack}`;
+  }
+  return msg;
+});
 
-// Daily log rotation configuration.
-const dailyRotateFileTransport = new DailyRotateFile({
-  dirname: 'daily_logs',
-  filename: 'application-%DATE%.log',
+
+// Create a daily rotate file transport for JSON logs
+const dailyRotateFileTransport = new transports.DailyRotateFile({
+  dirname: `${logDir}`,
+  filename: `${serviceName}-%DATE%.log`,
   datePattern: 'YYYY-MM-DD',
   zippedArchive: true,
   maxSize: '20m',
   maxFiles: '14d',
-  level: 'trace' // Captures everything.
-})
+  defaultMeta: { serviceName },
+  format: combine(
+      timestamp(),
+      errors({ stack: true }), // Include stack trace if available
+      json() // Log in JSON format
+  )
+});
 
-// Individual transport configurations for modularization and clarity.
-const customTransports = {
-  console: new winston.transports.Console({
-    level: logLevel,
-    format: winston.format.combine(
-      winston.format.colorize(),
-      winston.format.printf(({ timestamp, level, message, ...metadata }) => {
-        // if metadatada.source is not defined we dont want to print undefined
-        let output = ''
-        if (metadata.source === undefined) {
-          output = `${timestamp} [${level}]: ${message}`
-        } else {
-          output = `${timestamp} [${level}]: [${metadata.source}] ${message}`
-        }
-
-        if (metadata.req) {
-          const { method, originalUrl, ip } = metadata.req
-          output += `
-              Method: ${method}
-              Path: ${originalUrl}
-              IP: ${ip}
-            `
-        }
-
-        if (level === 'error') {
-          const { user, error } = metadata
-          output += `
-              User: ${user || 'N/A'}
-              Error Status: ${error ? error.status : ''}
-            `
-        } else if (level === 'warn') {
-          const { path, statusCode, headers } = metadata
-          output += `
-              Path: ${path}
-              Status Code: ${statusCode}
-              Headers: ${JSON.stringify(headers, null, 2)}
-            `
-        }
-
-        return output
-      })
-    ),
-    handleExceptions: true
-  }),
-  fileError: new transports.File({
-    filename: 'logs/error.log',
-    level: 'error',
-    format: winston.format.combine(
-      winston.format.json(),
-      winston.format.colorize(),
-      winston.format.prettyPrint()
-    )
-  }),
-  fileException: new transports.File({
-    filename: 'logs/exceptions.log',
-    handleExceptions: true
-  }),
-  file: new transports.File({
-    filename: 'logs/combined.log',
-    level: logLevel
-  }),
-  rejectionFile: new transports.File({ filename: 'logs/rejections.log' }),
-  dailyRotateFile: dailyRotateFileTransport
-}
-
-// Winston logger configuration.
-const logger = winston.createLogger({
-  format: format.combine(
-    format.timestamp(),
-    format.splat(),
-    winston.format.colorize(),
-    format.errors({ stack: true }) // Enables logging of error stack trace.
+// Logger configuration
+const logger = createLogger({
+  level: env === 'development' ? logLevel : 'info', // More verbose logging in development
+  format: combine(
+      timestamp(),
+      errors({ stack: true }) // Include stack trace if available
   ),
   transports: [
-    customTransports.console,
-    customTransports.fileError,
-    customTransports.file,
-    customTransports.dailyRotateFile
+    // Console transport with a human-readable format
+    new transports.Console({
+      format: combine(
+          format.colorize(), // Colorize log output for the console
+          consoleFormat
+      ),
+      handleExceptions: true,
+      level: env === 'development' ? logLevel : 'info', // More verbose logging in development
+    }),
+    // File transport with JSON format
+    dailyRotateFileTransport
   ],
-  exceptionHandlers: [customTransports.fileException],
-  rejectionHandlers: [customTransports.rejectionFile]
-})
+  exceptionHandlers: [
+    new transports.File({ filename: `${logDir}//exceptions.log`, format: json() })
+  ],
+  rejectionHandlers: [
+    new transports.File({ filename: `${logDir}/rejections.log`, format: json() })
+  ]
+});
 
+// Exporting the logger and environment variables together
 module.exports = logger

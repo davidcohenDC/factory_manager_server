@@ -1,6 +1,6 @@
 const metricsController = require('../controllers/metricsController')
-const { logger } = require('/src/config/')
-const logSource = { source: 'Metrics Events' }
+const { logger } = require('/src/config')
+const logSource = 'Metrics Events'
 module.exports = (io) => {
   io.on('connection', (socket) => {
     socket.on('metrics', () => {
@@ -8,7 +8,7 @@ module.exports = (io) => {
     })
 
     socket.on('disconnect', () => {
-      logger.info('User disconnected', logSource)
+      logger.info('User disconnected', {source: logSource})
     })
   })
 }
