@@ -1,0 +1,165 @@
+@startuml
+
+class Area {
+  +String name
+  +Number size
+  +List<Machine> machines
+  +List<Area> subAreas
+  +Boolean test
+}
+
+class Log {
+  +ObjectId userId
+  +String resultCode
+  +String level
+  +String errorMessage
+  +String ip
+  +Date createdAt
+  +Date updatedAt
+}
+
+class Machine {
+  +String machineId
+  +String name
+  +Location location
+  +Status status
+  +Specifications specifications
+  +List<Turn> turns
+  +Maintenance maintenance
+  +Log log
+  +Boolean test
+}
+
+class User {
+  +Name name
+  +String email
+  +String password
+  +Date dateOfBirth
+  +Address address
+  +List<PhoneNumber> phoneNumbers
+  +String role
+  +String department
+  +Boolean isActive
+  +Date lastLogin
+  +String profilePicture
+  +Security security
+  +Preferences preferences
+  +Accessibility accessibility
+  +SocialLinks socialLinks
+  +Date joinedDate
+  +String notes
+  +Boolean test
+}
+
+class Location {
+  +String area
+}
+
+class Status {
+  +Boolean operational
+  +List<String> currentAnomalies
+}
+
+class Specifications {
+  +Decimal128 normalRange.min
+  +Decimal128 normalRange.max
+  +Decimal128 current
+  +Decimal128 emissions.min
+  +Decimal128 emissions.max
+  +Decimal128 emissions.current
+  +Decimal128 operatingTemperature.min
+  +Decimal128 operatingTemperature.max
+  +Decimal128 operatingTemperature.current
+  +Decimal128 humidity.min
+  +Decimal128 humidity.max
+  +Decimal128 humidity.current
+  +Mixed otherSpecification
+}
+
+class Turn {
+  +String turn
+  +ObjectId userId
+  +String userName
+}
+
+class Maintenance {
+  +Date lastMaintenanceDate
+  +Date nextMaintenanceDate
+  +List<MaintenanceHistory> maintenanceHistory
+}
+
+class MaintenanceHistory {
+  +Date date
+  +String description
+}
+
+class Log {
+  +Date lastPowerOn
+  +Date lastPowerOff
+  +String totalRunningTime
+  +List<Session> sessions
+}
+
+class Session {
+  +Date powerOn
+  +Date powerOff
+  +String duration
+}
+
+class Name {
+  +String first
+  +String last
+}
+
+class Address {
+  +String street
+  +String city
+  +String state
+  +String zip
+  +String country
+}
+
+class PhoneNumber {
+  +String type
+  +String number
+}
+
+class Security {
+  +Boolean twoFactorEnabled
+  +Date lastPasswordChange
+}
+
+class Preferences {
+  +String theme
+  +String language
+}
+
+class Accessibility {
+  +String color
+}
+
+class SocialLinks {
+  +String linkedin
+  +String twitter
+}
+
+Area "0..*" --> "1" Area : subAreas
+Area "0..*" --> "1" Machine : machines
+User "0..1" --> "1" Log : logs
+Machine "0..1" --> "1" Location : location
+Machine "0..1" --> "1" Status : status
+Machine "0..1" --> "1" Specifications : specifications
+Machine "0..*" --> "1" Turn : turns
+Machine "0..1" --> "1" Maintenance : maintenance
+Machine "0..1" --> "1" Log : log
+User "0..1" --> "1" Name : name
+User "0..1" --> "1" Address : address
+User "0..*" --> "1" PhoneNumber : phoneNumbers
+User "0..1" --> "1" Security : security
+User "0..1" --> "1" Preferences : preferences
+User "0..1" --> "1" Accessibility : accessibility
+User "0..1" --> "1" SocialLinks : socialLinks
+Maintenance "0..*" --> "1" MaintenanceHistory : maintenanceHistory
+Log "0..*" --> "1" Session : sessions
+
+@enduml

@@ -8,7 +8,7 @@ dotenvExpand.expand(config());
 
 // Extracting environment variables after dotenv configuration
 const env = process.env.NODE_ENV || 'development';
-const serviceName = process.env.SERVICE_NAME || 'chat-service';
+const serviceName = process.env.SERVICE_NAME || 'metric-service';
 const logDir = process.env.LOG_DIR || 'logs';
 const logLevel = process.env.LOG_LEVEL || 'debug';
 

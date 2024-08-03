@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Monitoring Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .metric {
+            display: flex;
+            align-items: center;
+        }
+        .metric strong {
+            margin-right: 10px;
+        }
+        .metric span {
+            font-weight: bold;
+        }
+        .emoji {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>📊 Server Monitoring Dashboard</h1>
+
+<p class="metric"><span class="emoji">⏱️</span><strong>Uptime:</strong> <span id="uptime">Loading...</span></p>
+<p class="metric"><span class="emoji">💾</span><strong>Memory Usage:</strong> <span id="memory">Loading...</span></p>
+
+
+<script src="https://cdn.jsdelivr.net/npm/socket.io/client-dist/socket.io.js"></script>
+<script>
+    const socket = io('http://localhost:7000');
+
+    socket.on('metrics', (data) => {
+        document.getElementById('uptime').textContent = data.uptime.toFixed(2) + ' seconds';
+        document.getElementById('memory').textContent = (data.memoryUsage / (1024 * 1024)).toFixed(2) + ' MB';
+    });
+</script>
+</body>
+</html>

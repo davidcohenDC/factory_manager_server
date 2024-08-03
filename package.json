@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "concurrently \"node src/server.js\" \"node microservices/metric-service/server.js\"",
+    "start-metric": "node microservices/metric-service/server.js",
     "clean-install": "rm -rf node_modules package-lock.json && npm install",
     "lint": "eslint --fix --config .eslintrc.json \"src/**/*.js\"",
     "prettier": "prettier --write --config .prettierrc.json \"**/*.js\"",
@@ -55,6 +56,7 @@
     "@types/mongoose": "^5.11.97",
     "benchtest": "^3.2.0",
     "chai": "^4.3.8",
+    "concurrently": "^8.2.2",
     "eslint": "^8.49.0",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-config-standard": "^17.1.0",

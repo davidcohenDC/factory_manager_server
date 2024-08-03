@@ -3,7 +3,7 @@ const { logger } = require('/src/config')
 const logSource = 'Metrics Events'
 module.exports = (io) => {
   io.on('connection', (socket) => {
-    socket.on('metrics', () => {
+    socket.on('status', () => {
       metricsController.sendMetrics(io)
     })
 

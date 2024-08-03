@@ -53,7 +53,7 @@ const userBodySchema = Joi.object({
   }),
   preferences: Joi.object({
     theme: Joi.string().valid('light', 'dark').trim().optional(),
-    language: Joi.string().valid('en', 'es', 'fr').trim().optional()
+    language: Joi.string().valid('en', 'es', 'fr','it').trim().optional()
   }),
   socialLinks: Joi.object({
     linkedin: Joi.string().trim().optional(),

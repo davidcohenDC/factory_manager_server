@@ -66,8 +66,8 @@ module.exports = (app) => {
   app.get('/socketdemo', (_req, res) =>
     res.sendFile(path.join(__dirname, '..', '..', 'public', 'socket-demo.html'))
   )
-  app.get('/metrics', (_req, res) =>
-    res.sendFile(path.join(__dirname, '..', '..', 'public', 'metrics.html'))
+  app.get('/status', (_req, res) =>
+    res.sendFile(path.join(__dirname, '..', '..', 'public', 'status.html'))
   )
 
   // app.use(require('express-status-monitor')())
@@ -101,23 +101,30 @@ module.exports = (app) => {
     next(error)
   })
 
+
+
   app.use((error, req, res, _next) => {
-    const status = error.status || 500
-    let resultCode = status === 500 ? '00013' : '00014'
-    let level = status === 500 ? 'Server Error' : 'Client Error'
+    if (error) {
+      const status = error.status || 500;
+      let resultCode = status === 500 ? '00013' : '00014';
+      let level = status === 500 ? 'Server Error' : 'Client Error';
 
-    logger.error(`[Code: ${resultCode}] - ${level}: ${error.message}`, {
-      ...logSource,
-      user: req?.user?._id ?? null,
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      error
-    })
+      // Log the error
+      logger.error(`[Code: ${resultCode}] - ${level}: ${error.message} with req ${req.method} ${req.originalUrl}`, {
+        ...logSource,
+        user: req?.user?._id ?? null,
+        method: req.method,
+        path: req.originalUrl,
+        ip: req.ip,
+        error
+      });
 
-    return res.status(status).json({
-      resultMessage: { en: errorCodes[resultCode] },
-      resultCode
-    })
-  })
+      return res.status(status).json({
+        resultMessage: { en: errorCodes[resultCode] },
+        resultCode
+      });
+    } else {
+      _next();
+    }
+  });
 }
