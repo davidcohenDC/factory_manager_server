@@ -21,7 +21,8 @@ describe('User Routes', () => {
   const routes = [
     { path: '/api/users', method: 'get' },
     { path: '/api/user', method: 'get' },
-    { path: '/api/user/:id', method: 'get' },
+    { path: '/api/user/id/:id', method: 'get' },
+    { path: '/api/user/email/:email', method: 'get' },
     { path: '/api/login', method: 'delete' },
     { path: '/api/user/login', method: 'delete' }
   ]

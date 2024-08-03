@@ -36,7 +36,7 @@ router.patch('/id/:id', validateUserId, userCRUD.update)
 router.delete('/id/:id', validateUserId, userCRUD.remove)
 
 // retrieve user by email
-router.get('/email/:email', validateCheckMail, getByEmail)
+router.get('/email/:email', getByEmail)
 
 // LOGIN a user
 router.post('/login', validateLogin, login)
