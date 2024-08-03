@@ -24,13 +24,12 @@ router.get(
 )
 
 // RETRIEVE a single machine by ID
-router.get('/:id', validateMachineId, machineCRUD.getOne)
+router.get('/id/:id', validateMachineId, machineCRUD.getOne)
 
 // UPDATE a machine by ID
-router.patch('/:id', validateMachineId, machineCRUD.update)
+router.patch('/id/:id', validateMachineId, machineCRUD.update)
 
 // DELETE a machine by ID
-
-router.delete('/:id', validateMachineId, machineCRUD.remove)
+router.delete('/id/:id', validateMachineId, machineCRUD.remove)
 
 module.exports = router

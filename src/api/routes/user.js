@@ -1,5 +1,5 @@
 const express = require('express')
-const { login, checkEmail } = require('@controllers/user/')
+const { login, checkEmail, getByEmail} = require('@controllers/user/')
 const {
   validateLogin,
   validateCheckMail,
@@ -27,18 +27,23 @@ router.get(
 )
 
 // RETRIEVE a single user by ID
-router.get('/:id', validateUserId, userCRUD.getOne)
+router.get('/id/:id', validateUserId, userCRUD.getOne)
 
 // UPDATE a user by ID
-router.patch('/:id', validateUserId, userCRUD.update)
+router.patch('/id/:id', validateUserId, userCRUD.update)
 
 // DELETE a user by ID
-router.delete('/:id', validateUserId, userCRUD.remove)
+router.delete('/id/:id', validateUserId, userCRUD.remove)
+
+// retrieve user by email
+router.get('/email/:email', validateCheckMail, getByEmail)
 
 // LOGIN a user
 router.post('/login', validateLogin, login)
 
 // CheckEmail a user
 router.post('/checkemail/', validateCheckMail, checkEmail)
+
+
 
 module.exports = router

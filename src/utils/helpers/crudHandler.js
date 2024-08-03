@@ -93,7 +93,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef) {
           }
         }
       },
-      [`/${modelName.toLowerCase()}/{id}`]: {
+      [`/${modelName.toLowerCase()}/id/{id}`]: {
         get: {
           summary: `Retrieve a ${modelName} by ID`,
           tags: [modelName],

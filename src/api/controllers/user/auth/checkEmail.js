@@ -54,5 +54,5 @@ module.exports.checkEmail = async (req, res) => {
  *          content:
  *            application/json:
  *              schema:
- *                $ref: '#/components/schemas/ErrorResponse'
+ *                $ref: '#/components/schemas/Response404'
  */

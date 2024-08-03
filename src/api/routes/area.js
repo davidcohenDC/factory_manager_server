@@ -24,12 +24,12 @@ router.get(
 )
 
 // RETRIEVE a single area by ID
-router.get('/:id', validateAreaId, areaCRUD.getOne)
+router.get('/id/:id', validateAreaId, areaCRUD.getOne)
 
 // UPDATE an area by ID
-router.patch('/:id', validateAreaId, areaCRUD.update)
+router.patch('/id/:id', validateAreaId, areaCRUD.update)
 
 // DELETE an area by ID
-router.delete('/:id', validateAreaId, areaCRUD.remove)
+router.delete('/id/:id', validateAreaId, areaCRUD.remove)
 
 module.exports = router

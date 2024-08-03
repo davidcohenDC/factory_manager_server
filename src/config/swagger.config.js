@@ -350,6 +350,38 @@ module.exports = {
           },
           required: ['machineId', 'name', 'status', 'operational', 'status']
         },
+        AreaSchema: {
+          type: 'object',
+          properties: {
+            name: {
+              type: 'string',
+              example: 'Warehouse A',
+              required: true
+            },
+            size: {
+              type: 'number',
+              example: 500,
+              required: true
+            },
+            machines: {
+              type: 'array',
+              items: {
+                $ref: '#/components/schemas/MachineSchema'
+              }
+            },
+            subAreas: {
+              type: 'array',
+              items: {
+                $ref: '#/components/schemas/AreaSchema'
+              }
+            },
+            test: {
+              type: 'boolean',
+              example: false
+            }
+          },
+          required: ['name', 'size']
+        },
         SpecRange: {
           type: 'object',
           properties: {

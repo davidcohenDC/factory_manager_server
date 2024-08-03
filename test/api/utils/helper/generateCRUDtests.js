@@ -103,7 +103,7 @@ function generateCRUDTests(
     })
 
     it(`should return 400 when the ${modelName} id is already in use`, async () => {
-      await chai.request(server).post(`/api/${modelName}/`).send(modelData)
+      await chai.request(server).post(`/api/${modelName}`).send(modelData)
 
       const res = await chai
         .request(server)
@@ -144,7 +144,7 @@ function generateCRUDTests(
   describe(`Get ${capitalizeFirstLetter(modelName)}`, () => {
     it(`should return the ${modelName}`, async () => {
       if (modelID === '') this.skip()
-      const res = await chai.request(server).get(`/api/${modelName}/${modelID}`)
+      const res = await chai.request(server).get(`/api/${modelName}/id/${modelID}`)
 
       expect(res).to.have.status(200)
       expect(res.body).to.be.a('object')
@@ -154,7 +154,7 @@ function generateCRUDTests(
 
     it(`should return 404 when the ${modelName} is not valid`, async () => {
       if (modelID === '') this.skip()
-      const res = await chai.request(server).get(`/api/${modelName}/123`)
+      const res = await chai.request(server).get(`/api/${modelName}/id/123`)
       expectError(res, 400, '"id" length must be 24 characters long')
     })
 
@@ -162,7 +162,7 @@ function generateCRUDTests(
       if (modelID === '') this.skip()
       const res = await chai
         .request(server)
-        .get(`/api/${modelName}/000000000000000000000001`)
+        .get(`/api/${modelName}/id/000000000000000000000001`)
 
       expectError(res, 404, `${modelName} not found.`)
     })
@@ -269,7 +269,7 @@ function generateCRUDTests(
       if (modelID === '') this.skip()
       const res = await chai
         .request(server)
-        .patch(`/api/${modelName}/${modelID}`)
+        .patch(`/api/${modelName}/id/${modelID}`)
         .send({ email: faker.internet.email() })
 
       expect(res).to.have.status(200)
@@ -280,7 +280,7 @@ function generateCRUDTests(
 
     it(`should return 404 when the ${modelName} is not valid`, async () => {
       if (modelID === '') this.skip()
-      const res = await chai.request(server).patch(`/api/${modelName}/123`)
+      const res = await chai.request(server).patch(`/api/${modelName}/id/123`)
 
       expectError(res, 400, '"id" length must be 24 characters long')
     })
@@ -289,7 +289,7 @@ function generateCRUDTests(
       if (modelID === '') this.skip()
       const res = await chai
         .request(server)
-        .patch(`/api/${modelName}/000000000000000000000001`)
+        .patch(`/api/${modelName}/id/000000000000000000000001`)
 
       expectError(res, 404, `${modelName} not found.`)
     })
@@ -299,7 +299,7 @@ function generateCRUDTests(
     it(`should delete the ${modelName}`, async () => {
       const res = await chai
         .request(server)
-        .delete(`/api/${modelName}/${modelID}`)
+        .delete(`/api/${modelName}/id/${modelID}`)
 
       expect(res).to.have.status(200)
       expect(res.body).to.be.a('object')
@@ -308,7 +308,7 @@ function generateCRUDTests(
 
     it(`should return 404 when the ${modelName} is not valid`, async () => {
       if (modelID === '') this.skip()
-      const res = await chai.request(server).delete(`/api/${modelName}/123`)
+      const res = await chai.request(server).delete(`/api/${modelName}/id/123`)
 
       expectError(res, 400, '"id" length must be 24 characters long')
     })
@@ -317,7 +317,7 @@ function generateCRUDTests(
       if (modelID === '') this.skip()
       const res = await chai
         .request(server)
-        .delete(`/api/${modelName}/000000000000000000000001`)
+        .delete(`/api/${modelName}/id/000000000000000000000001`)
 
       expectError(res, 404, `${modelName} not found.`)
     })
