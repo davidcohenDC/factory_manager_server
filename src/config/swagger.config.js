@@ -43,10 +43,13 @@ module.exports = {
             email: {
               type: 'string',
               format: 'email',
+              required: true,
+              unique: true,
               example: 'john.doe@example.com'
             },
             password: {
               type: 'string',
+              required: true,
               example: 'Password1234!'
             },
             dateOfBirth: {
@@ -107,11 +110,13 @@ module.exports = {
             },
             isActive: {
               type: 'boolean',
-              default: true
+              default: true,
+              example: true
             },
             lastLogin: {
               type: 'string',
-              format: 'date-time'
+              format: 'date-time',
+              example: '2024-01-01T00:00:00Z'
             },
             profilePicture: {
               type: 'string',
@@ -126,7 +131,8 @@ module.exports = {
                 },
                 lastPasswordChange: {
                   type: 'string',
-                  format: 'date-time'
+                  format: 'date-time',
+                  example: '2024-01-01T00:00:00Z'
                 }
               }
             },
@@ -136,12 +142,14 @@ module.exports = {
                 theme: {
                   type: 'string',
                   enum: ['light', 'dark'],
-                  default: 'light'
+                  default: 'light',
+                  example: 'light'
                 },
                 language: {
                   type: 'string',
                   enum: ['en', 'es', 'fr'],
-                  default: 'en'
+                  default: 'en',
+                  example: 'en'
                 }
               }
             },
@@ -167,9 +175,10 @@ module.exports = {
               type: 'string',
               example: 'This is a note about John Doe.'
             },
-            testUser: {
+            test: {
               type: 'boolean',
-              default: false
+              default: false,
+              example: false
             }
           },
           required: ['email', 'password']
@@ -183,30 +192,35 @@ module.exports = {
             },
             name: {
               type: 'string',
-              example: 'Lathe-101'
+              example: 'Olive Crusher 1'
             },
             location: {
               type: 'object',
               properties: {
+                factory: {
+                  type: 'string',
+                  example: 'Main Olive Oil Production Factory'
+                },
                 area: {
                   type: 'string',
-                  example: 'Plant1-South'
+                  example: 'Crushing Section'
                 }
               }
             },
-            status: {
+            machineState: {
               type: 'object',
               properties: {
-                operational: {
-                  type: 'boolean',
-                  example: true
+                currentState: {
+                  type: 'string',
+                  enum: ['operational', 'stand-by', 'maintenance', 'anomaly', 'off'],
+                  example: 'operational'
                 },
-                currentAnomalies: {
+                anomalyDetails: {
                   type: 'array',
                   items: {
-                    type: 'string'
-                  },
-                  example: ['High Temperature']
+                    type: 'string',
+                    example: 'Overheating'
+                  }
                 }
               }
             },
@@ -221,35 +235,77 @@ module.exports = {
                       properties: {
                         min: {
                           type: 'string',
-                          format: 'Decimal',
-                          example: '150.0'
+                          format: 'decimal',
+                          example: '150.00'
                         },
                         max: {
                           type: 'string',
-                          format: 'Decimal',
-                          example: '200.0'
+                          format: 'decimal',
+                          example: '500.00'
                         }
                       }
-                    },
-                    current: {
-                      type: 'string',
-                      format: 'Decimal',
-                      example: '180.5'
                     }
                   }
                 },
                 emissions: {
-                  $ref: '#/components/schemas/SpecRange'
+                  type: 'object',
+                  properties: {
+                    normalRange: {
+                      type: 'object',
+                      properties: {
+                        min: {
+                          type: 'string',
+                          format: 'decimal',
+                          example: '0.50'
+                        },
+                        max: {
+                          type: 'string',
+                          format: 'decimal',
+                          example: '1.50'
+                        }
+                      }
+                    }
+                  }
                 },
                 operatingTemperature: {
-                  $ref: '#/components/schemas/SpecRange'
+                  type: 'object',
+                  properties: {
+                    normalRange: {
+                      type: 'object',
+                      properties: {
+                        min: {
+                          type: 'string',
+                          format: 'decimal',
+                          example: '10.00'
+                        },
+                        max: {
+                          type: 'string',
+                          format: 'decimal',
+                          example: '35.00'
+                        }
+                      }
+                    }
+                  }
                 },
                 humidity: {
-                  $ref: '#/components/schemas/SpecRange'
-                },
-                otherSpecification: {
-                  type: 'string',
-                  example: 'Emergency Stop Feature'
+                  type: 'object',
+                  properties: {
+                    normalRange: {
+                      type: 'object',
+                      properties: {
+                        min: {
+                          type: 'string',
+                          format: 'decimal',
+                          example: '30.00'
+                        },
+                        max: {
+                          type: 'string',
+                          format: 'decimal',
+                          example: '60.00'
+                        }
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -260,12 +316,13 @@ module.exports = {
                 properties: {
                   turn: {
                     type: 'string',
-                    example: 'Turn1'
+                    enum: ['morning', 'evening', 'night'],
+                    example: 'morning'
                   },
                   userId: {
                     type: 'string',
                     format: 'ObjectId',
-                    example: '60f5b5f7a2f7c42fd6501acc'
+                    example: '64c8a8fdf86a5d4a781d9f3a'
                   },
                   userName: {
                     type: 'string',
@@ -279,13 +336,13 @@ module.exports = {
               properties: {
                 lastMaintenanceDate: {
                   type: 'string',
-                  format: 'date',
-                  example: '2023-09-15'
+                  format: 'date-time',
+                  example: '2024-01-15T08:30:00Z'
                 },
                 nextMaintenanceDate: {
                   type: 'string',
-                  format: 'date',
-                  example: '2023-11-15'
+                  format: 'date-time',
+                  example: '2024-07-15T08:30:00Z'
                 },
                 maintenanceHistory: {
                   type: 'array',
@@ -294,12 +351,12 @@ module.exports = {
                     properties: {
                       date: {
                         type: 'string',
-                        format: 'date',
-                        example: '2023-09-15'
+                        format: 'date-time',
+                        example: '2023-07-15T08:30:00Z'
                       },
                       description: {
                         type: 'string',
-                        example: 'Replaced grinding wheel'
+                        example: 'Replaced crusher blades'
                       }
                     }
                   }
@@ -312,16 +369,12 @@ module.exports = {
                 lastPowerOn: {
                   type: 'string',
                   format: 'date-time',
-                  example: '2023-10-06T08:30:00Z'
+                  example: '2024-02-01T08:00:00Z'
                 },
                 lastPowerOff: {
                   type: 'string',
                   format: 'date-time',
-                  example: '2023-10-06T14:30:00Z'
-                },
-                totalRunningTime: {
-                  type: 'string',
-                  example: 'PT6H'
+                  example: '2024-02-01T16:00:00Z'
                 },
                 sessions: {
                   type: 'array',
@@ -331,48 +384,20 @@ module.exports = {
                       powerOn: {
                         type: 'string',
                         format: 'date-time',
-                        example: '2023-10-06T08:30:00Z'
+                        example: '2024-02-01T08:00:00Z'
                       },
                       powerOff: {
                         type: 'string',
                         format: 'date-time',
-                        example: '2023-10-06T14:30:00Z'
+                        example: '2024-02-01T16:00:00Z'
                       },
                       duration: {
                         type: 'string',
-                        example: 'PT6H'
+                        example: '8h'
                       }
                     }
                   }
                 }
-              }
-            }
-          },
-          required: ['machineId', 'name', 'status', 'operational', 'status']
-        },
-        AreaSchema: {
-          type: 'object',
-          properties: {
-            name: {
-              type: 'string',
-              example: 'Warehouse A',
-              required: true
-            },
-            size: {
-              type: 'number',
-              example: 500,
-              required: true
-            },
-            machines: {
-              type: 'array',
-              items: {
-                $ref: '#/components/schemas/MachineSchema'
-              }
-            },
-            subAreas: {
-              type: 'array',
-              items: {
-                $ref: '#/components/schemas/AreaSchema'
               }
             },
             test: {
@@ -380,7 +405,7 @@ module.exports = {
               example: false
             }
           },
-          required: ['name', 'size']
+          required: ['machineId', 'name', 'location', 'machineState', 'specifications']
         },
         SpecRange: {
           type: 'object',
@@ -390,19 +415,19 @@ module.exports = {
               properties: {
                 min: {
                   type: 'string',
-                  format: 'Decimal',
+                  format: 'decimal',
                   example: '20.0'
                 },
                 max: {
                   type: 'string',
-                  format: 'Decimal',
+                  format: 'decimal',
                   example: '40.0'
                 }
               }
             },
             current: {
               type: 'string',
-              format: 'Decimal',
+              format: 'decimal',
               example: '30.0'
             }
           }
@@ -422,7 +447,7 @@ module.exports = {
               example: 'Password1234!'
             }
           },
-          required: ['machineId', 'location']
+          required: ['email', 'password']
         },
         CheckEmailRequestBody: {
           type: 'object',
@@ -434,7 +459,7 @@ module.exports = {
               example: 'john.doe@example.com'
             }
           },
-          required: ['email'] // Removed 'password' from required since it's not present in the schema.
+          required: ['email']
         },
         Response404: {
           description: 'Resource not found.',
@@ -486,4 +511,4 @@ module.exports = {
     'src/api/controllers/user/*.js',
     'src/api/controllers/user/auth/*.js'
   ]
-}
+};

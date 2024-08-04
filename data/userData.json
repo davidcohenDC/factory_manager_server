@@ -1,0 +1,212 @@
+[
+    {
+        "name": {
+            "first": "John",
+            "last": "Doe"
+        },
+        "email": "john.doe@example.com",
+        "password": "$2a$12$kXv43EMcQWoRZGbGfqfAQuJ06nwJLRFcs5jkpkbqKtnd.d7hlk1O2",
+        "dataOfBirth": "1990-01-15T00:00:00Z",
+        "address": {
+            "street": "123 Olive St",
+            "city": "Olive City",
+            "state": "OC",
+            "zip": "12345",
+            "country": "USA"
+        },
+        "phoneNumbers": [
+            {
+                "type": "mobile",
+                "number": "555-1234"
+            }
+        ],
+        "role": "worker",
+        "department": "Crushing",
+        "isActive": true,
+        "lastLogin": "2024-01-25T08:00:00Z",
+        "profilePicture": "profile1.jpg",
+        "security": {
+            "twoFactorEnabled": false,
+            "lastPasswordChange": "2024-01-01T00:00:00Z"
+        },
+        "preferences": {
+            "theme": "light",
+            "language": "en"
+        },
+        "socialLinks": {
+            "linkedin": "https://linkedin.com/in/johndoe",
+            "twitter": "https://twitter.com/johndoe"
+        },
+        "joinedDate": "2018-05-15T00:00:00Z",
+        "notes": "Experienced worker in crushing section.",
+        "test": false
+    },
+    {
+        "name": {
+            "first": "Jane",
+            "last": "Smith"
+        },
+        "email": "jane.smith@example.com",
+        "password": "$2a$12$iZNtmrXRb7k.sTAIn9Qjl.uOO3Y1yBs60XQ7O.H.PHVCOHSnAsaOG",
+        "dataOfBirth": "1985-02-20T00:00:00Z",
+        "address": {
+            "street": "456 Olive Ave",
+            "city": "Olive City",
+            "state": "OC",
+            "zip": "12345",
+            "country": "USA"
+        },
+        "phoneNumbers": [
+            {
+                "type": "mobile",
+                "number": "555-5678"
+            }
+        ],
+        "role": "moderator",
+        "department": "Mixing",
+        "isActive": true,
+        "lastLogin": "2024-01-26T08:00:00Z",
+        "profilePicture": "profile2.jpg",
+        "security": {
+            "twoFactorEnabled": true,
+            "lastPasswordChange": "2024-01-02T00:00:00Z"
+        },
+        "preferences": {
+            "theme": "dark",
+            "language": "es"
+        },
+        "socialLinks": {
+            "linkedin": "https://linkedin.com/in/janesmith",
+            "twitter": "https://twitter.com/janesmith"
+        },
+        "joinedDate": "2017-06-10T00:00:00Z",
+        "notes": "Responsible for overseeing mixing operations.",
+        "test": false
+    },
+    {
+        "name": {
+            "first": "Alex",
+            "last": "Johnson"
+        },
+        "email": "alex.johnson@example.com",
+        "password": "$2a$12$QxibGOmeyzl1LSjV4Eb4net5jfwLfLzZgBNrWQ2dyAPYO.MuvIkN6",
+        "dataOfBirth": "1992-03-10T00:00:00Z",
+        "address": {
+            "street": "789 Olive Blvd",
+            "city": "Olive City",
+            "state": "OC",
+            "zip": "12345",
+            "country": "USA"
+        },
+        "phoneNumbers": [
+            {
+                "type": "mobile",
+                "number": "555-9012"
+            }
+        ],
+        "role": "worker",
+        "department": "Separation",
+        "isActive": true,
+        "lastLogin": "2024-01-27T08:00:00Z",
+        "profilePicture": "profile3.jpg",
+        "security": {
+            "twoFactorEnabled": false,
+            "lastPasswordChange": "2024-01-03T00:00:00Z"
+        },
+        "preferences": {
+            "theme": "light",
+            "language": "fr"
+        },
+        "socialLinks": {
+            "linkedin": "https://linkedin.com/in/alexjohnson",
+            "twitter": "https://twitter.com/alexjohnson"
+        },
+        "joinedDate": "2019-07-20T00:00:00Z",
+        "notes": "Expert in decanter centrifuge operations.",
+        "test": false
+    },
+    {
+        "name": {
+            "first": "Michael",
+            "last": "Brown"
+        },
+        "email": "michael.brown@example.com",
+        "password": "$2a$12$Yxb89UI08GsgUmyjiS97Vem16MoJWz2vLnjkIkc.0haAbvGzMe.NO",
+        "dataOfBirth": "1988-04-25T00:00:00Z",
+        "address": {
+            "street": "321 Olive Ln",
+            "city": "Olive City",
+            "state": "OC",
+            "zip": "12345",
+            "country": "USA"
+        },
+        "phoneNumbers": [
+            {
+                "type": "mobile",
+                "number": "555-3456"
+            }
+        ],
+        "role": "worker",
+        "department": "Filtration",
+        "isActive": true,
+        "lastLogin": "2024-01-28T08:00:00Z",
+        "profilePicture": "profile4.jpg",
+        "security": {
+            "twoFactorEnabled": true,
+            "lastPasswordChange": "2024-01-04T00:00:00Z"
+        },
+        "preferences": {
+            "theme": "dark",
+            "language": "en"
+        },
+        "socialLinks": {
+            "linkedin": "https://linkedin.com/in/michaelbrown",
+            "twitter": "https://twitter.com/michaelbrown"
+        },
+        "joinedDate": "2020-08-25T00:00:00Z",
+        "notes": "Skilled in handling oil filters.",
+        "test": false
+    },
+    {
+        "name": {
+            "first": "Emily",
+            "last": "Davis"
+        },
+        "email": "emily.davis@example.com",
+        "password": "$2a$12$SVb8h6b6tdwLZjZHb7ZO3exvZcTimiNRdlw4UTJfwBeObAUybOmcm",
+        "dataOfBirth": "1995-05-30T00:00:00Z",
+        "address": {
+            "street": "654 Olive Way",
+            "city": "Olive City",
+            "state": "OC",
+            "zip": "12345",
+            "country": "USA"
+        },
+        "phoneNumbers": [
+            {
+                "type": "mobile",
+                "number": "555-7890"
+            }
+        ],
+        "role": "worker",
+        "department": "Bottling",
+        "isActive": true,
+        "lastLogin": "2024-01-29T08:00:00Z",
+        "profilePicture": "profile5.jpg",
+        "security": {
+            "twoFactorEnabled": false,
+            "lastPasswordChange": "2024-01-05T00:00:00Z"
+        },
+        "preferences": {
+            "theme": "light",
+            "language": "es"
+        },
+        "socialLinks": {
+            "linkedin": "https://linkedin.com/in/emilydavis",
+            "twitter": "https://twitter.com/emilydavis"
+        },
+        "joinedDate": "2021-09-30T00:00:00Z",
+        "notes": "Responsible for bottling section operations.",
+        "test": false
+    }
+]
