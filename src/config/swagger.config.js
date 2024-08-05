@@ -509,6 +509,7 @@ module.exports = {
   apis: [
     'src/utils/helpers/*.js',
     'src/api/controllers/user/*.js',
-    'src/api/controllers/user/auth/*.js'
+    'src/api/controllers/user/auth/*.js',
+    'src/api/controllers/machineSensor/getByMachine.js',
   ]
 };

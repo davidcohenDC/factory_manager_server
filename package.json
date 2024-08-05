@@ -44,6 +44,7 @@
     "rate-limiter-flexible": "^3.0.0",
     "redis": "^4.6.8",
     "rimraf": "^5.0.1",
+    "serve-favicon": "^2.5.0",
     "socket.io": "^4.7.2",
     "socket.io-client": "^4.7.2",
     "swagger-jsdoc": "^6.2.8",

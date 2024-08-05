@@ -2,6 +2,7 @@ const { Router } = require('express')
 const UserRoutes = require('@routes/user')
 const MachineRoutes = require('@routes/machine')
 const AreaRoutes = require('@routes/area')
+const MachineSensorRoutes = require('@routes/machineSensor')
 const router = Router()
 const swaggerJsdoc = require('swagger-jsdoc')
 const { serve, setup } = require('swagger-ui-express')
@@ -15,6 +16,7 @@ router.get(specs, setup(specDoc, { explorer: true }))
 router.use('/user', UserRoutes)
 router.use('/machine', MachineRoutes)
 router.use('/area', AreaRoutes)
+router.use('/machineSensor', MachineSensorRoutes)
 
 // Redirect from root to /docs
 router.use((_req, res, _next) => {

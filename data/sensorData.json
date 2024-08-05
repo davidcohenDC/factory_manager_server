@@ -1,0 +1,4412 @@
+[
+    {
+        "machineId": "MCH1011",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.286921Z",
+                "powerConsumption": "361.6",
+                "emissions": "0.54",
+                "operatingTemperature": "26.81",
+                "humidity": "52.48",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.286921Z",
+                "powerConsumption": "355.44",
+                "emissions": "1.26",
+                "operatingTemperature": "24.17",
+                "humidity": "50.63",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.286921Z",
+                "powerConsumption": "308.2",
+                "emissions": "1.43",
+                "operatingTemperature": "33.44",
+                "humidity": "38.03",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.286921Z",
+                "powerConsumption": "453.8",
+                "emissions": "0.64",
+                "operatingTemperature": "15.67",
+                "humidity": "49.7",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.286921Z",
+                "powerConsumption": "319.13",
+                "emissions": "1.08",
+                "operatingTemperature": "28.76",
+                "humidity": "54.76",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.286921Z",
+                "powerConsumption": "226.39",
+                "emissions": "1.46",
+                "operatingTemperature": "26.72",
+                "humidity": "39.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.286921Z",
+                "powerConsumption": "407.05",
+                "emissions": "0.92",
+                "operatingTemperature": "16.92",
+                "humidity": "57.6",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.286921Z",
+                "powerConsumption": "364.96",
+                "emissions": "1.18",
+                "operatingTemperature": "32.6",
+                "humidity": "65.87",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.286921Z",
+                "powerConsumption": "217.23",
+                "emissions": "1.13",
+                "operatingTemperature": "19.89",
+                "humidity": "51.7",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.286921Z",
+                "powerConsumption": "358.54",
+                "emissions": "1.03",
+                "operatingTemperature": "18.99",
+                "humidity": "64.66",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.286921Z",
+                "powerConsumption": "226.49",
+                "emissions": "1.11",
+                "operatingTemperature": "21.44",
+                "humidity": "54.39",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.286921Z",
+                "powerConsumption": "263.01",
+                "emissions": "0.69",
+                "operatingTemperature": "28.96",
+                "humidity": "46.13",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.286921Z",
+                "powerConsumption": "481.97",
+                "emissions": "1.23",
+                "operatingTemperature": "20.83",
+                "humidity": "31.37",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.286921Z",
+                "powerConsumption": "256.79",
+                "emissions": "0.64",
+                "operatingTemperature": "16.64",
+                "humidity": "45.04",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.286921Z",
+                "powerConsumption": "319.72",
+                "emissions": "1.35",
+                "operatingTemperature": "22.51",
+                "humidity": "62.84",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.286921Z",
+                "powerConsumption": "304.46",
+                "emissions": "0.7",
+                "operatingTemperature": "29.07",
+                "humidity": "59.9",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.286921Z",
+                "powerConsumption": "487.96",
+                "emissions": "0.65",
+                "operatingTemperature": "21.72",
+                "humidity": "53.31",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.286921Z",
+                "powerConsumption": "347.17",
+                "emissions": "0.72",
+                "operatingTemperature": "25.96",
+                "humidity": "43.12",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.286921Z",
+                "powerConsumption": "308.69",
+                "emissions": "1.01",
+                "operatingTemperature": "16.86",
+                "humidity": "39.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.286921Z",
+                "powerConsumption": "284.84",
+                "emissions": "1.4",
+                "operatingTemperature": "23.84",
+                "humidity": "65.04",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.286921Z",
+                "powerConsumption": "443.05",
+                "emissions": "1.1",
+                "operatingTemperature": "23.03",
+                "humidity": "46.84",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.286921Z",
+                "powerConsumption": "486.24",
+                "emissions": "1.0",
+                "operatingTemperature": "16.33",
+                "humidity": "41.61",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.286921Z",
+                "powerConsumption": "494.86",
+                "emissions": "0.69",
+                "operatingTemperature": "33.82",
+                "humidity": "31.35",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.286921Z",
+                "powerConsumption": "489.31",
+                "emissions": "0.96",
+                "operatingTemperature": "31.09",
+                "humidity": "40.02",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.286921Z",
+                "powerConsumption": "212.67",
+                "emissions": "0.71",
+                "operatingTemperature": "18.65",
+                "humidity": "44.47",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.286921Z",
+                "powerConsumption": "493.15",
+                "emissions": "1.02",
+                "operatingTemperature": "33.87",
+                "humidity": "45.37",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.286921Z",
+                "powerConsumption": "320.66",
+                "emissions": "0.88",
+                "operatingTemperature": "16.99",
+                "humidity": "67.12",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.286921Z",
+                "powerConsumption": "235.45",
+                "emissions": "1.24",
+                "operatingTemperature": "32.81",
+                "humidity": "66.15",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.286921Z",
+                "powerConsumption": "304.86",
+                "emissions": "0.82",
+                "operatingTemperature": "28.42",
+                "humidity": "53.93",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.286921Z",
+                "powerConsumption": "347.72",
+                "emissions": "0.58",
+                "operatingTemperature": "20.89",
+                "humidity": "53.47",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1012",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.287379Z",
+                "powerConsumption": "199.73",
+                "emissions": "1.16",
+                "operatingTemperature": "20.63",
+                "humidity": "44.97",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.287379Z",
+                "powerConsumption": "300.03",
+                "emissions": "1.07",
+                "operatingTemperature": "29.69",
+                "humidity": "57.23",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.287379Z",
+                "powerConsumption": "162.9",
+                "emissions": "1.3",
+                "operatingTemperature": "28.87",
+                "humidity": "37.73",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.287379Z",
+                "powerConsumption": "411.78",
+                "emissions": "0.98",
+                "operatingTemperature": "34.35",
+                "humidity": "38.55",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.287379Z",
+                "powerConsumption": "453.28",
+                "emissions": "0.78",
+                "operatingTemperature": "20.63",
+                "humidity": "61.94",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.287379Z",
+                "powerConsumption": "373.62",
+                "emissions": "0.72",
+                "operatingTemperature": "15.03",
+                "humidity": "67.43",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.287379Z",
+                "powerConsumption": "409.63",
+                "emissions": "0.83",
+                "operatingTemperature": "16.35",
+                "humidity": "43.87",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.287379Z",
+                "powerConsumption": "190.46",
+                "emissions": "0.99",
+                "operatingTemperature": "26.36",
+                "humidity": "54.14",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.287379Z",
+                "powerConsumption": "246.43",
+                "emissions": "0.74",
+                "operatingTemperature": "19.31",
+                "humidity": "55.76",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.287379Z",
+                "powerConsumption": "373.79",
+                "emissions": "0.91",
+                "operatingTemperature": "32.02",
+                "humidity": "66.32",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.287379Z",
+                "powerConsumption": "329.71",
+                "emissions": "0.97",
+                "operatingTemperature": "31.85",
+                "humidity": "48.83",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.287379Z",
+                "powerConsumption": "481.01",
+                "emissions": "0.85",
+                "operatingTemperature": "21.67",
+                "humidity": "45.79",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.287379Z",
+                "powerConsumption": "169.89",
+                "emissions": "1.41",
+                "operatingTemperature": "26.21",
+                "humidity": "64.41",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.287379Z",
+                "powerConsumption": "198.97",
+                "emissions": "0.97",
+                "operatingTemperature": "19.76",
+                "humidity": "60.76",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.287379Z",
+                "powerConsumption": "322.08",
+                "emissions": "0.88",
+                "operatingTemperature": "30.69",
+                "humidity": "52.97",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.287379Z",
+                "powerConsumption": "194.58",
+                "emissions": "0.6",
+                "operatingTemperature": "18.62",
+                "humidity": "56.96",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.287379Z",
+                "powerConsumption": "485.5",
+                "emissions": "1.02",
+                "operatingTemperature": "16.24",
+                "humidity": "69.89",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.287379Z",
+                "powerConsumption": "447.43",
+                "emissions": "0.75",
+                "operatingTemperature": "17.77",
+                "humidity": "47.32",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.287379Z",
+                "powerConsumption": "276.23",
+                "emissions": "0.76",
+                "operatingTemperature": "21.2",
+                "humidity": "52.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.287379Z",
+                "powerConsumption": "239.97",
+                "emissions": "1.35",
+                "operatingTemperature": "15.34",
+                "humidity": "32.18",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.287379Z",
+                "powerConsumption": "216.54",
+                "emissions": "0.74",
+                "operatingTemperature": "28.67",
+                "humidity": "41.32",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.287379Z",
+                "powerConsumption": "336.85",
+                "emissions": "1.29",
+                "operatingTemperature": "17.12",
+                "humidity": "68.09",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.287379Z",
+                "powerConsumption": "165.73",
+                "emissions": "1.42",
+                "operatingTemperature": "24.46",
+                "humidity": "46.83",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.287379Z",
+                "powerConsumption": "167.64",
+                "emissions": "0.94",
+                "operatingTemperature": "30.6",
+                "humidity": "65.72",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.287379Z",
+                "powerConsumption": "498.25",
+                "emissions": "0.9",
+                "operatingTemperature": "18.86",
+                "humidity": "44.09",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.287379Z",
+                "powerConsumption": "463.57",
+                "emissions": "1.05",
+                "operatingTemperature": "27.21",
+                "humidity": "43.63",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.287379Z",
+                "powerConsumption": "153.13",
+                "emissions": "1.31",
+                "operatingTemperature": "25.02",
+                "humidity": "39.71",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.287379Z",
+                "powerConsumption": "184.39",
+                "emissions": "1.22",
+                "operatingTemperature": "15.04",
+                "humidity": "49.56",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.287379Z",
+                "powerConsumption": "432.95",
+                "emissions": "0.52",
+                "operatingTemperature": "20.41",
+                "humidity": "54.68",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.287379Z",
+                "powerConsumption": "150.19",
+                "emissions": "1.41",
+                "operatingTemperature": "31.21",
+                "humidity": "39.44",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1001",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.287805Z",
+                "powerConsumption": "259.05",
+                "emissions": "1.15",
+                "operatingTemperature": "33.85",
+                "humidity": "65.17",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.287805Z",
+                "powerConsumption": "409.57",
+                "emissions": "0.72",
+                "operatingTemperature": "28.05",
+                "humidity": "31.58",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.287805Z",
+                "powerConsumption": "169.86",
+                "emissions": "0.57",
+                "operatingTemperature": "28.85",
+                "humidity": "45.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.287805Z",
+                "powerConsumption": "496.14",
+                "emissions": "0.96",
+                "operatingTemperature": "20.96",
+                "humidity": "33.72",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.287805Z",
+                "powerConsumption": "218.42",
+                "emissions": "0.82",
+                "operatingTemperature": "22.74",
+                "humidity": "58.4",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.287805Z",
+                "powerConsumption": "229.7",
+                "emissions": "1.12",
+                "operatingTemperature": "29.88",
+                "humidity": "41.89",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.287805Z",
+                "powerConsumption": "441.75",
+                "emissions": "0.56",
+                "operatingTemperature": "26.79",
+                "humidity": "65.51",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.287805Z",
+                "powerConsumption": "213.42",
+                "emissions": "0.8",
+                "operatingTemperature": "17.82",
+                "humidity": "63.74",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.287805Z",
+                "powerConsumption": "294.55",
+                "emissions": "1.32",
+                "operatingTemperature": "17.07",
+                "humidity": "69.26",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.287805Z",
+                "powerConsumption": "405.82",
+                "emissions": "0.5",
+                "operatingTemperature": "27.66",
+                "humidity": "39.58",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.287805Z",
+                "powerConsumption": "460.95",
+                "emissions": "1.25",
+                "operatingTemperature": "24.48",
+                "humidity": "58.29",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.287805Z",
+                "powerConsumption": "313.53",
+                "emissions": "1.27",
+                "operatingTemperature": "20.16",
+                "humidity": "36.69",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.287805Z",
+                "powerConsumption": "153.4",
+                "emissions": "1.33",
+                "operatingTemperature": "20.2",
+                "humidity": "50.18",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.287805Z",
+                "powerConsumption": "176.11",
+                "emissions": "0.83",
+                "operatingTemperature": "20.43",
+                "humidity": "50.17",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.287805Z",
+                "powerConsumption": "400.31",
+                "emissions": "0.61",
+                "operatingTemperature": "15.43",
+                "humidity": "35.44",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.287805Z",
+                "powerConsumption": "359.85",
+                "emissions": "1.24",
+                "operatingTemperature": "18.94",
+                "humidity": "42.52",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.287805Z",
+                "powerConsumption": "214.71",
+                "emissions": "0.82",
+                "operatingTemperature": "15.69",
+                "humidity": "67.59",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.287805Z",
+                "powerConsumption": "227.77",
+                "emissions": "0.79",
+                "operatingTemperature": "20.82",
+                "humidity": "53.33",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.287805Z",
+                "powerConsumption": "370.81",
+                "emissions": "0.94",
+                "operatingTemperature": "23.79",
+                "humidity": "50.28",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.287805Z",
+                "powerConsumption": "361.5",
+                "emissions": "0.56",
+                "operatingTemperature": "23.96",
+                "humidity": "42.91",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.287805Z",
+                "powerConsumption": "296.66",
+                "emissions": "1.32",
+                "operatingTemperature": "20.92",
+                "humidity": "39.66",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.287805Z",
+                "powerConsumption": "161.75",
+                "emissions": "0.54",
+                "operatingTemperature": "19.67",
+                "humidity": "68.67",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.287805Z",
+                "powerConsumption": "224.11",
+                "emissions": "0.79",
+                "operatingTemperature": "27.08",
+                "humidity": "61.18",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.287805Z",
+                "powerConsumption": "214.15",
+                "emissions": "1.48",
+                "operatingTemperature": "28.21",
+                "humidity": "41.96",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.287805Z",
+                "powerConsumption": "362.79",
+                "emissions": "1.02",
+                "operatingTemperature": "19.41",
+                "humidity": "48.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.287805Z",
+                "powerConsumption": "302.47",
+                "emissions": "1.45",
+                "operatingTemperature": "33.7",
+                "humidity": "48.95",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.287805Z",
+                "powerConsumption": "182.78",
+                "emissions": "1.34",
+                "operatingTemperature": "31.09",
+                "humidity": "51.9",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.287805Z",
+                "powerConsumption": "471.1",
+                "emissions": "0.72",
+                "operatingTemperature": "24.82",
+                "humidity": "60.29",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.287805Z",
+                "powerConsumption": "348.43",
+                "emissions": "1.03",
+                "operatingTemperature": "27.02",
+                "humidity": "66.43",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.287805Z",
+                "powerConsumption": "415.4",
+                "emissions": "0.99",
+                "operatingTemperature": "17.77",
+                "humidity": "35.8",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1002",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.288225Z",
+                "powerConsumption": "300.45",
+                "emissions": "0.62",
+                "operatingTemperature": "32.45",
+                "humidity": "40.07",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.288225Z",
+                "powerConsumption": "431.64",
+                "emissions": "1.49",
+                "operatingTemperature": "30.05",
+                "humidity": "39.11",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.288225Z",
+                "powerConsumption": "355.12",
+                "emissions": "0.62",
+                "operatingTemperature": "16.57",
+                "humidity": "60.43",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.288225Z",
+                "powerConsumption": "416.35",
+                "emissions": "1.48",
+                "operatingTemperature": "27.11",
+                "humidity": "64.88",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.288225Z",
+                "powerConsumption": "185.02",
+                "emissions": "0.79",
+                "operatingTemperature": "27.07",
+                "humidity": "54.18",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.288225Z",
+                "powerConsumption": "457.14",
+                "emissions": "1.34",
+                "operatingTemperature": "19.89",
+                "humidity": "56.36",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.288225Z",
+                "powerConsumption": "236.47",
+                "emissions": "1.06",
+                "operatingTemperature": "28.13",
+                "humidity": "31.37",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.288225Z",
+                "powerConsumption": "406.51",
+                "emissions": "0.98",
+                "operatingTemperature": "21.93",
+                "humidity": "44.26",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.288225Z",
+                "powerConsumption": "455.15",
+                "emissions": "1.29",
+                "operatingTemperature": "26.9",
+                "humidity": "51.51",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.288225Z",
+                "powerConsumption": "412.97",
+                "emissions": "0.9",
+                "operatingTemperature": "30.21",
+                "humidity": "67.6",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.288225Z",
+                "powerConsumption": "420.5",
+                "emissions": "0.79",
+                "operatingTemperature": "22.59",
+                "humidity": "61.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.288225Z",
+                "powerConsumption": "344.77",
+                "emissions": "0.6",
+                "operatingTemperature": "19.2",
+                "humidity": "48.27",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.288225Z",
+                "powerConsumption": "310.47",
+                "emissions": "0.68",
+                "operatingTemperature": "24.15",
+                "humidity": "48.67",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.288225Z",
+                "powerConsumption": "187.87",
+                "emissions": "0.91",
+                "operatingTemperature": "26.59",
+                "humidity": "34.53",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.288225Z",
+                "powerConsumption": "177.56",
+                "emissions": "1.39",
+                "operatingTemperature": "24.27",
+                "humidity": "36.3",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.288225Z",
+                "powerConsumption": "348.09",
+                "emissions": "1.45",
+                "operatingTemperature": "22.31",
+                "humidity": "51.84",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.288225Z",
+                "powerConsumption": "487.64",
+                "emissions": "1.17",
+                "operatingTemperature": "17.75",
+                "humidity": "43.57",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.288225Z",
+                "powerConsumption": "292.15",
+                "emissions": "1.08",
+                "operatingTemperature": "27.83",
+                "humidity": "59.58",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.288225Z",
+                "powerConsumption": "208.25",
+                "emissions": "0.78",
+                "operatingTemperature": "23.96",
+                "humidity": "41.75",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.288225Z",
+                "powerConsumption": "271.1",
+                "emissions": "0.77",
+                "operatingTemperature": "30.3",
+                "humidity": "32.88",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.288225Z",
+                "powerConsumption": "317.11",
+                "emissions": "1.43",
+                "operatingTemperature": "30.33",
+                "humidity": "47.55",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.288225Z",
+                "powerConsumption": "364.9",
+                "emissions": "0.7",
+                "operatingTemperature": "19.76",
+                "humidity": "63.78",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.288225Z",
+                "powerConsumption": "252.61",
+                "emissions": "0.72",
+                "operatingTemperature": "29.97",
+                "humidity": "37.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.288225Z",
+                "powerConsumption": "196.62",
+                "emissions": "0.53",
+                "operatingTemperature": "31.64",
+                "humidity": "31.59",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.288225Z",
+                "powerConsumption": "291.35",
+                "emissions": "1.23",
+                "operatingTemperature": "16.04",
+                "humidity": "45.09",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.288225Z",
+                "powerConsumption": "239.1",
+                "emissions": "1.16",
+                "operatingTemperature": "27.52",
+                "humidity": "35.59",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.288225Z",
+                "powerConsumption": "196.76",
+                "emissions": "0.96",
+                "operatingTemperature": "27.39",
+                "humidity": "65.42",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.288225Z",
+                "powerConsumption": "211.96",
+                "emissions": "0.9",
+                "operatingTemperature": "25.44",
+                "humidity": "61.39",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.288225Z",
+                "powerConsumption": "260.48",
+                "emissions": "0.71",
+                "operatingTemperature": "30.86",
+                "humidity": "31.83",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.288225Z",
+                "powerConsumption": "321.64",
+                "emissions": "0.91",
+                "operatingTemperature": "18.26",
+                "humidity": "42.35",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1022",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.288657Z",
+                "powerConsumption": "428.95",
+                "emissions": "1.36",
+                "operatingTemperature": "29.57",
+                "humidity": "54.33",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.288657Z",
+                "powerConsumption": "300.99",
+                "emissions": "0.54",
+                "operatingTemperature": "30.71",
+                "humidity": "37.59",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.288657Z",
+                "powerConsumption": "411.31",
+                "emissions": "0.69",
+                "operatingTemperature": "19.58",
+                "humidity": "40.23",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.288657Z",
+                "powerConsumption": "307.62",
+                "emissions": "0.98",
+                "operatingTemperature": "21.97",
+                "humidity": "69.29",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.288657Z",
+                "powerConsumption": "330.0",
+                "emissions": "1.34",
+                "operatingTemperature": "19.94",
+                "humidity": "37.27",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.288657Z",
+                "powerConsumption": "279.69",
+                "emissions": "1.15",
+                "operatingTemperature": "27.5",
+                "humidity": "55.41",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.288657Z",
+                "powerConsumption": "326.65",
+                "emissions": "1.02",
+                "operatingTemperature": "20.01",
+                "humidity": "56.26",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.288657Z",
+                "powerConsumption": "331.81",
+                "emissions": "0.73",
+                "operatingTemperature": "20.56",
+                "humidity": "67.39",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.288657Z",
+                "powerConsumption": "469.38",
+                "emissions": "1.0",
+                "operatingTemperature": "17.82",
+                "humidity": "63.71",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.288657Z",
+                "powerConsumption": "175.51",
+                "emissions": "0.53",
+                "operatingTemperature": "22.48",
+                "humidity": "31.54",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.288657Z",
+                "powerConsumption": "194.41",
+                "emissions": "1.29",
+                "operatingTemperature": "27.0",
+                "humidity": "40.69",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.288657Z",
+                "powerConsumption": "286.94",
+                "emissions": "1.17",
+                "operatingTemperature": "31.76",
+                "humidity": "41.26",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.288657Z",
+                "powerConsumption": "400.51",
+                "emissions": "1.19",
+                "operatingTemperature": "26.06",
+                "humidity": "35.68",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.288657Z",
+                "powerConsumption": "267.16",
+                "emissions": "1.49",
+                "operatingTemperature": "34.49",
+                "humidity": "40.29",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.288657Z",
+                "powerConsumption": "177.76",
+                "emissions": "1.01",
+                "operatingTemperature": "24.68",
+                "humidity": "65.74",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.288657Z",
+                "powerConsumption": "402.08",
+                "emissions": "0.78",
+                "operatingTemperature": "23.21",
+                "humidity": "54.0",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.288657Z",
+                "powerConsumption": "153.31",
+                "emissions": "0.92",
+                "operatingTemperature": "23.29",
+                "humidity": "54.53",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.288657Z",
+                "powerConsumption": "284.6",
+                "emissions": "1.31",
+                "operatingTemperature": "26.23",
+                "humidity": "33.97",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.288657Z",
+                "powerConsumption": "158.86",
+                "emissions": "1.04",
+                "operatingTemperature": "23.54",
+                "humidity": "50.33",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.288657Z",
+                "powerConsumption": "321.33",
+                "emissions": "1.29",
+                "operatingTemperature": "23.94",
+                "humidity": "49.62",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.288657Z",
+                "powerConsumption": "312.22",
+                "emissions": "1.44",
+                "operatingTemperature": "27.16",
+                "humidity": "48.07",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.288657Z",
+                "powerConsumption": "413.24",
+                "emissions": "1.22",
+                "operatingTemperature": "28.61",
+                "humidity": "45.27",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.288657Z",
+                "powerConsumption": "313.22",
+                "emissions": "0.72",
+                "operatingTemperature": "17.55",
+                "humidity": "66.77",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.288657Z",
+                "powerConsumption": "220.79",
+                "emissions": "0.7",
+                "operatingTemperature": "30.04",
+                "humidity": "53.57",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.288657Z",
+                "powerConsumption": "332.89",
+                "emissions": "1.3",
+                "operatingTemperature": "17.72",
+                "humidity": "57.03",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.288657Z",
+                "powerConsumption": "213.03",
+                "emissions": "1.12",
+                "operatingTemperature": "18.17",
+                "humidity": "58.86",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.288657Z",
+                "powerConsumption": "333.46",
+                "emissions": "1.44",
+                "operatingTemperature": "18.46",
+                "humidity": "40.86",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.288657Z",
+                "powerConsumption": "481.16",
+                "emissions": "0.97",
+                "operatingTemperature": "21.73",
+                "humidity": "53.77",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.288657Z",
+                "powerConsumption": "498.89",
+                "emissions": "0.76",
+                "operatingTemperature": "17.24",
+                "humidity": "36.71",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.288657Z",
+                "powerConsumption": "325.99",
+                "emissions": "1.38",
+                "operatingTemperature": "17.23",
+                "humidity": "30.47",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1003",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.289072Z",
+                "powerConsumption": "368.1",
+                "emissions": "1.43",
+                "operatingTemperature": "27.37",
+                "humidity": "34.44",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.289072Z",
+                "powerConsumption": "478.97",
+                "emissions": "1.05",
+                "operatingTemperature": "20.21",
+                "humidity": "42.19",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.289072Z",
+                "powerConsumption": "191.34",
+                "emissions": "0.59",
+                "operatingTemperature": "18.96",
+                "humidity": "34.5",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.289072Z",
+                "powerConsumption": "477.78",
+                "emissions": "0.82",
+                "operatingTemperature": "15.99",
+                "humidity": "52.05",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.289072Z",
+                "powerConsumption": "400.48",
+                "emissions": "1.38",
+                "operatingTemperature": "22.36",
+                "humidity": "45.86",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.289072Z",
+                "powerConsumption": "174.93",
+                "emissions": "1.03",
+                "operatingTemperature": "26.27",
+                "humidity": "32.77",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.289072Z",
+                "powerConsumption": "189.1",
+                "emissions": "1.44",
+                "operatingTemperature": "31.93",
+                "humidity": "31.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.289072Z",
+                "powerConsumption": "463.97",
+                "emissions": "1.0",
+                "operatingTemperature": "31.48",
+                "humidity": "33.79",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.289072Z",
+                "powerConsumption": "261.28",
+                "emissions": "0.8",
+                "operatingTemperature": "32.63",
+                "humidity": "54.25",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.289072Z",
+                "powerConsumption": "441.24",
+                "emissions": "1.5",
+                "operatingTemperature": "22.69",
+                "humidity": "50.9",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.289072Z",
+                "powerConsumption": "162.72",
+                "emissions": "0.65",
+                "operatingTemperature": "32.31",
+                "humidity": "34.4",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.289072Z",
+                "powerConsumption": "429.79",
+                "emissions": "1.29",
+                "operatingTemperature": "25.81",
+                "humidity": "65.68",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.289072Z",
+                "powerConsumption": "385.02",
+                "emissions": "1.02",
+                "operatingTemperature": "33.81",
+                "humidity": "55.35",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.289072Z",
+                "powerConsumption": "360.02",
+                "emissions": "1.28",
+                "operatingTemperature": "25.6",
+                "humidity": "30.0",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.289072Z",
+                "powerConsumption": "186.25",
+                "emissions": "1.28",
+                "operatingTemperature": "34.85",
+                "humidity": "58.4",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.289072Z",
+                "powerConsumption": "444.37",
+                "emissions": "0.86",
+                "operatingTemperature": "19.47",
+                "humidity": "33.97",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.289072Z",
+                "powerConsumption": "352.07",
+                "emissions": "1.01",
+                "operatingTemperature": "19.37",
+                "humidity": "54.64",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.289072Z",
+                "powerConsumption": "492.47",
+                "emissions": "1.26",
+                "operatingTemperature": "31.02",
+                "humidity": "41.47",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.289072Z",
+                "powerConsumption": "485.96",
+                "emissions": "0.91",
+                "operatingTemperature": "19.03",
+                "humidity": "41.33",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.289072Z",
+                "powerConsumption": "338.31",
+                "emissions": "0.77",
+                "operatingTemperature": "17.06",
+                "humidity": "66.57",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.289072Z",
+                "powerConsumption": "244.04",
+                "emissions": "1.21",
+                "operatingTemperature": "32.92",
+                "humidity": "32.92",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.289072Z",
+                "powerConsumption": "170.81",
+                "emissions": "0.84",
+                "operatingTemperature": "28.32",
+                "humidity": "49.47",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.289072Z",
+                "powerConsumption": "480.9",
+                "emissions": "1.19",
+                "operatingTemperature": "28.94",
+                "humidity": "33.5",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.289072Z",
+                "powerConsumption": "411.24",
+                "emissions": "0.61",
+                "operatingTemperature": "32.2",
+                "humidity": "52.96",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.289072Z",
+                "powerConsumption": "295.57",
+                "emissions": "1.44",
+                "operatingTemperature": "27.41",
+                "humidity": "37.53",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.289072Z",
+                "powerConsumption": "160.57",
+                "emissions": "0.88",
+                "operatingTemperature": "26.0",
+                "humidity": "59.64",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.289072Z",
+                "powerConsumption": "333.02",
+                "emissions": "1.25",
+                "operatingTemperature": "24.31",
+                "humidity": "39.46",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.289072Z",
+                "powerConsumption": "313.53",
+                "emissions": "1.24",
+                "operatingTemperature": "25.44",
+                "humidity": "39.17",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.289072Z",
+                "powerConsumption": "201.79",
+                "emissions": "1.09",
+                "operatingTemperature": "23.53",
+                "humidity": "45.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.289072Z",
+                "powerConsumption": "161.01",
+                "emissions": "0.64",
+                "operatingTemperature": "21.82",
+                "humidity": "36.31",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1004",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.289491Z",
+                "powerConsumption": "430.0",
+                "emissions": "1.17",
+                "operatingTemperature": "19.06",
+                "humidity": "48.2",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.289491Z",
+                "powerConsumption": "401.61",
+                "emissions": "0.96",
+                "operatingTemperature": "16.15",
+                "humidity": "53.02",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.289491Z",
+                "powerConsumption": "392.94",
+                "emissions": "0.9",
+                "operatingTemperature": "30.05",
+                "humidity": "54.39",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.289491Z",
+                "powerConsumption": "227.04",
+                "emissions": "1.03",
+                "operatingTemperature": "23.79",
+                "humidity": "69.31",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.289491Z",
+                "powerConsumption": "452.1",
+                "emissions": "1.07",
+                "operatingTemperature": "20.56",
+                "humidity": "42.92",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.289491Z",
+                "powerConsumption": "290.3",
+                "emissions": "0.54",
+                "operatingTemperature": "19.78",
+                "humidity": "41.96",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.289491Z",
+                "powerConsumption": "277.88",
+                "emissions": "0.9",
+                "operatingTemperature": "28.93",
+                "humidity": "32.87",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.289491Z",
+                "powerConsumption": "190.8",
+                "emissions": "1.09",
+                "operatingTemperature": "19.66",
+                "humidity": "43.29",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.289491Z",
+                "powerConsumption": "173.45",
+                "emissions": "1.34",
+                "operatingTemperature": "22.6",
+                "humidity": "65.57",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.289491Z",
+                "powerConsumption": "199.39",
+                "emissions": "0.75",
+                "operatingTemperature": "24.66",
+                "humidity": "53.21",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.289491Z",
+                "powerConsumption": "490.97",
+                "emissions": "1.0",
+                "operatingTemperature": "22.66",
+                "humidity": "47.98",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.289491Z",
+                "powerConsumption": "484.78",
+                "emissions": "0.52",
+                "operatingTemperature": "20.1",
+                "humidity": "52.5",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.289491Z",
+                "powerConsumption": "287.51",
+                "emissions": "0.79",
+                "operatingTemperature": "29.34",
+                "humidity": "47.4",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.289491Z",
+                "powerConsumption": "439.42",
+                "emissions": "1.3",
+                "operatingTemperature": "30.2",
+                "humidity": "69.07",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.289491Z",
+                "powerConsumption": "346.74",
+                "emissions": "0.53",
+                "operatingTemperature": "21.62",
+                "humidity": "56.08",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.289491Z",
+                "powerConsumption": "398.48",
+                "emissions": "0.74",
+                "operatingTemperature": "19.53",
+                "humidity": "53.96",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.289491Z",
+                "powerConsumption": "228.18",
+                "emissions": "1.27",
+                "operatingTemperature": "16.53",
+                "humidity": "67.1",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.289491Z",
+                "powerConsumption": "251.32",
+                "emissions": "1.46",
+                "operatingTemperature": "23.86",
+                "humidity": "45.78",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.289491Z",
+                "powerConsumption": "343.11",
+                "emissions": "0.89",
+                "operatingTemperature": "22.26",
+                "humidity": "59.09",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.289491Z",
+                "powerConsumption": "304.76",
+                "emissions": "0.83",
+                "operatingTemperature": "18.0",
+                "humidity": "32.84",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.289491Z",
+                "powerConsumption": "432.94",
+                "emissions": "0.93",
+                "operatingTemperature": "27.46",
+                "humidity": "53.82",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.289491Z",
+                "powerConsumption": "349.24",
+                "emissions": "0.79",
+                "operatingTemperature": "22.01",
+                "humidity": "59.22",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.289491Z",
+                "powerConsumption": "460.46",
+                "emissions": "0.96",
+                "operatingTemperature": "21.36",
+                "humidity": "50.69",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.289491Z",
+                "powerConsumption": "341.95",
+                "emissions": "1.0",
+                "operatingTemperature": "20.4",
+                "humidity": "34.71",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.289491Z",
+                "powerConsumption": "284.29",
+                "emissions": "1.34",
+                "operatingTemperature": "25.72",
+                "humidity": "48.01",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.289491Z",
+                "powerConsumption": "350.09",
+                "emissions": "0.72",
+                "operatingTemperature": "20.5",
+                "humidity": "53.73",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.289491Z",
+                "powerConsumption": "491.59",
+                "emissions": "1.2",
+                "operatingTemperature": "16.63",
+                "humidity": "55.4",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.289491Z",
+                "powerConsumption": "290.89",
+                "emissions": "1.45",
+                "operatingTemperature": "32.81",
+                "humidity": "67.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.289491Z",
+                "powerConsumption": "311.94",
+                "emissions": "0.67",
+                "operatingTemperature": "29.1",
+                "humidity": "37.74",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.289491Z",
+                "powerConsumption": "154.38",
+                "emissions": "1.22",
+                "operatingTemperature": "23.79",
+                "humidity": "56.71",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1007",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.290044Z",
+                "powerConsumption": "284.37",
+                "emissions": "0.61",
+                "operatingTemperature": "29.55",
+                "humidity": "52.51",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.290044Z",
+                "powerConsumption": "377.04",
+                "emissions": "0.86",
+                "operatingTemperature": "30.77",
+                "humidity": "48.33",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.290044Z",
+                "powerConsumption": "494.75",
+                "emissions": "0.79",
+                "operatingTemperature": "22.29",
+                "humidity": "44.28",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.290044Z",
+                "powerConsumption": "432.7",
+                "emissions": "1.38",
+                "operatingTemperature": "20.53",
+                "humidity": "31.1",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.290044Z",
+                "powerConsumption": "349.72",
+                "emissions": "1.05",
+                "operatingTemperature": "28.6",
+                "humidity": "39.6",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.290044Z",
+                "powerConsumption": "193.35",
+                "emissions": "1.5",
+                "operatingTemperature": "17.02",
+                "humidity": "59.7",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.290044Z",
+                "powerConsumption": "150.19",
+                "emissions": "1.41",
+                "operatingTemperature": "17.36",
+                "humidity": "53.09",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.290044Z",
+                "powerConsumption": "465.99",
+                "emissions": "1.34",
+                "operatingTemperature": "21.01",
+                "humidity": "61.37",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.290044Z",
+                "powerConsumption": "245.95",
+                "emissions": "0.79",
+                "operatingTemperature": "26.03",
+                "humidity": "31.32",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.290044Z",
+                "powerConsumption": "164.0",
+                "emissions": "0.92",
+                "operatingTemperature": "29.92",
+                "humidity": "46.41",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.290044Z",
+                "powerConsumption": "498.75",
+                "emissions": "1.16",
+                "operatingTemperature": "15.6",
+                "humidity": "41.56",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.290044Z",
+                "powerConsumption": "413.29",
+                "emissions": "0.7",
+                "operatingTemperature": "28.58",
+                "humidity": "41.52",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.290044Z",
+                "powerConsumption": "177.07",
+                "emissions": "0.7",
+                "operatingTemperature": "33.27",
+                "humidity": "50.64",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.290044Z",
+                "powerConsumption": "173.82",
+                "emissions": "0.93",
+                "operatingTemperature": "20.29",
+                "humidity": "62.52",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.290044Z",
+                "powerConsumption": "301.11",
+                "emissions": "1.29",
+                "operatingTemperature": "17.46",
+                "humidity": "40.1",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.290044Z",
+                "powerConsumption": "212.37",
+                "emissions": "0.59",
+                "operatingTemperature": "31.11",
+                "humidity": "55.43",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.290044Z",
+                "powerConsumption": "386.68",
+                "emissions": "1.29",
+                "operatingTemperature": "24.07",
+                "humidity": "35.53",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.290044Z",
+                "powerConsumption": "151.85",
+                "emissions": "1.38",
+                "operatingTemperature": "16.91",
+                "humidity": "53.45",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.290044Z",
+                "powerConsumption": "379.24",
+                "emissions": "0.83",
+                "operatingTemperature": "30.12",
+                "humidity": "41.72",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.290044Z",
+                "powerConsumption": "154.9",
+                "emissions": "0.88",
+                "operatingTemperature": "27.51",
+                "humidity": "33.7",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.290044Z",
+                "powerConsumption": "210.23",
+                "emissions": "0.93",
+                "operatingTemperature": "29.33",
+                "humidity": "38.7",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.290044Z",
+                "powerConsumption": "438.78",
+                "emissions": "1.0",
+                "operatingTemperature": "15.05",
+                "humidity": "64.35",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.290044Z",
+                "powerConsumption": "177.27",
+                "emissions": "0.78",
+                "operatingTemperature": "24.75",
+                "humidity": "51.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.290044Z",
+                "powerConsumption": "486.49",
+                "emissions": "1.47",
+                "operatingTemperature": "31.89",
+                "humidity": "61.71",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.290044Z",
+                "powerConsumption": "204.73",
+                "emissions": "0.92",
+                "operatingTemperature": "20.39",
+                "humidity": "54.19",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.290044Z",
+                "powerConsumption": "201.01",
+                "emissions": "1.03",
+                "operatingTemperature": "33.88",
+                "humidity": "66.06",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.290044Z",
+                "powerConsumption": "461.19",
+                "emissions": "0.92",
+                "operatingTemperature": "33.89",
+                "humidity": "46.67",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.290044Z",
+                "powerConsumption": "483.69",
+                "emissions": "1.05",
+                "operatingTemperature": "28.86",
+                "humidity": "50.89",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.290044Z",
+                "powerConsumption": "346.72",
+                "emissions": "1.33",
+                "operatingTemperature": "30.98",
+                "humidity": "62.15",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.290044Z",
+                "powerConsumption": "192.46",
+                "emissions": "1.14",
+                "operatingTemperature": "25.54",
+                "humidity": "34.12",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1008",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.290468Z",
+                "powerConsumption": "390.79",
+                "emissions": "0.78",
+                "operatingTemperature": "31.12",
+                "humidity": "62.63",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.290468Z",
+                "powerConsumption": "399.01",
+                "emissions": "1.02",
+                "operatingTemperature": "21.15",
+                "humidity": "65.95",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.290468Z",
+                "powerConsumption": "228.48",
+                "emissions": "0.71",
+                "operatingTemperature": "22.84",
+                "humidity": "44.65",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.290468Z",
+                "powerConsumption": "190.47",
+                "emissions": "1.32",
+                "operatingTemperature": "25.67",
+                "humidity": "54.94",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.290468Z",
+                "powerConsumption": "379.5",
+                "emissions": "0.5",
+                "operatingTemperature": "18.82",
+                "humidity": "40.69",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.290468Z",
+                "powerConsumption": "238.33",
+                "emissions": "1.17",
+                "operatingTemperature": "15.9",
+                "humidity": "56.58",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.290468Z",
+                "powerConsumption": "394.38",
+                "emissions": "1.29",
+                "operatingTemperature": "34.17",
+                "humidity": "50.81",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.290468Z",
+                "powerConsumption": "370.42",
+                "emissions": "0.61",
+                "operatingTemperature": "16.82",
+                "humidity": "48.45",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.290468Z",
+                "powerConsumption": "176.38",
+                "emissions": "0.79",
+                "operatingTemperature": "31.9",
+                "humidity": "64.46",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.290468Z",
+                "powerConsumption": "207.85",
+                "emissions": "0.98",
+                "operatingTemperature": "25.55",
+                "humidity": "49.95",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.290468Z",
+                "powerConsumption": "241.58",
+                "emissions": "1.01",
+                "operatingTemperature": "19.01",
+                "humidity": "44.13",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.290468Z",
+                "powerConsumption": "174.72",
+                "emissions": "1.07",
+                "operatingTemperature": "28.23",
+                "humidity": "63.03",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.290468Z",
+                "powerConsumption": "197.98",
+                "emissions": "0.88",
+                "operatingTemperature": "17.72",
+                "humidity": "63.21",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.290468Z",
+                "powerConsumption": "320.49",
+                "emissions": "0.55",
+                "operatingTemperature": "17.65",
+                "humidity": "35.11",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.290468Z",
+                "powerConsumption": "189.87",
+                "emissions": "0.66",
+                "operatingTemperature": "30.31",
+                "humidity": "56.2",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.290468Z",
+                "powerConsumption": "443.72",
+                "emissions": "0.57",
+                "operatingTemperature": "24.5",
+                "humidity": "47.88",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.290468Z",
+                "powerConsumption": "246.45",
+                "emissions": "0.53",
+                "operatingTemperature": "20.18",
+                "humidity": "62.3",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.290468Z",
+                "powerConsumption": "269.08",
+                "emissions": "1.17",
+                "operatingTemperature": "29.97",
+                "humidity": "65.32",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.290468Z",
+                "powerConsumption": "382.35",
+                "emissions": "0.93",
+                "operatingTemperature": "31.24",
+                "humidity": "49.13",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.290468Z",
+                "powerConsumption": "173.51",
+                "emissions": "1.46",
+                "operatingTemperature": "16.11",
+                "humidity": "67.92",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.290468Z",
+                "powerConsumption": "366.08",
+                "emissions": "0.87",
+                "operatingTemperature": "21.19",
+                "humidity": "69.36",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.290468Z",
+                "powerConsumption": "192.42",
+                "emissions": "1.43",
+                "operatingTemperature": "22.14",
+                "humidity": "55.63",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.290468Z",
+                "powerConsumption": "302.32",
+                "emissions": "0.91",
+                "operatingTemperature": "28.54",
+                "humidity": "57.29",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.290468Z",
+                "powerConsumption": "382.31",
+                "emissions": "1.03",
+                "operatingTemperature": "15.51",
+                "humidity": "48.23",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.290468Z",
+                "powerConsumption": "360.63",
+                "emissions": "0.55",
+                "operatingTemperature": "21.94",
+                "humidity": "41.62",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.290468Z",
+                "powerConsumption": "256.58",
+                "emissions": "0.85",
+                "operatingTemperature": "16.37",
+                "humidity": "40.61",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.290468Z",
+                "powerConsumption": "307.78",
+                "emissions": "0.89",
+                "operatingTemperature": "31.81",
+                "humidity": "57.91",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.290468Z",
+                "powerConsumption": "205.23",
+                "emissions": "1.38",
+                "operatingTemperature": "19.05",
+                "humidity": "58.12",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.290468Z",
+                "powerConsumption": "490.29",
+                "emissions": "0.67",
+                "operatingTemperature": "15.79",
+                "humidity": "36.89",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.290468Z",
+                "powerConsumption": "218.38",
+                "emissions": "0.54",
+                "operatingTemperature": "30.11",
+                "humidity": "61.85",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1009",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.290796Z",
+                "powerConsumption": "279.44",
+                "emissions": "0.58",
+                "operatingTemperature": "26.23",
+                "humidity": "54.87",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.290796Z",
+                "powerConsumption": "282.47",
+                "emissions": "1.19",
+                "operatingTemperature": "28.61",
+                "humidity": "52.57",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.290796Z",
+                "powerConsumption": "199.07",
+                "emissions": "0.9",
+                "operatingTemperature": "20.36",
+                "humidity": "54.65",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.290796Z",
+                "powerConsumption": "186.12",
+                "emissions": "0.59",
+                "operatingTemperature": "23.22",
+                "humidity": "48.26",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.290796Z",
+                "powerConsumption": "358.84",
+                "emissions": "0.76",
+                "operatingTemperature": "18.35",
+                "humidity": "30.74",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.290796Z",
+                "powerConsumption": "369.92",
+                "emissions": "1.2",
+                "operatingTemperature": "28.75",
+                "humidity": "69.35",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.290796Z",
+                "powerConsumption": "496.69",
+                "emissions": "0.7",
+                "operatingTemperature": "17.21",
+                "humidity": "46.51",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.290796Z",
+                "powerConsumption": "488.17",
+                "emissions": "0.62",
+                "operatingTemperature": "32.19",
+                "humidity": "31.68",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.290796Z",
+                "powerConsumption": "412.74",
+                "emissions": "0.81",
+                "operatingTemperature": "19.87",
+                "humidity": "62.54",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.290796Z",
+                "powerConsumption": "447.57",
+                "emissions": "0.8",
+                "operatingTemperature": "26.94",
+                "humidity": "55.69",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.290796Z",
+                "powerConsumption": "307.14",
+                "emissions": "1.29",
+                "operatingTemperature": "33.13",
+                "humidity": "41.47",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.290796Z",
+                "powerConsumption": "266.3",
+                "emissions": "1.36",
+                "operatingTemperature": "16.77",
+                "humidity": "67.96",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.290796Z",
+                "powerConsumption": "189.84",
+                "emissions": "0.84",
+                "operatingTemperature": "16.46",
+                "humidity": "43.52",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.290796Z",
+                "powerConsumption": "225.28",
+                "emissions": "0.77",
+                "operatingTemperature": "25.56",
+                "humidity": "67.72",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.290796Z",
+                "powerConsumption": "369.71",
+                "emissions": "1.02",
+                "operatingTemperature": "16.52",
+                "humidity": "36.67",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.290796Z",
+                "powerConsumption": "228.27",
+                "emissions": "1.33",
+                "operatingTemperature": "25.29",
+                "humidity": "46.95",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.290796Z",
+                "powerConsumption": "265.87",
+                "emissions": "1.42",
+                "operatingTemperature": "15.56",
+                "humidity": "68.54",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.290796Z",
+                "powerConsumption": "205.3",
+                "emissions": "0.98",
+                "operatingTemperature": "22.41",
+                "humidity": "34.56",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.290796Z",
+                "powerConsumption": "452.76",
+                "emissions": "0.54",
+                "operatingTemperature": "29.12",
+                "humidity": "61.84",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.290796Z",
+                "powerConsumption": "243.72",
+                "emissions": "0.87",
+                "operatingTemperature": "22.65",
+                "humidity": "36.78",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.290796Z",
+                "powerConsumption": "485.98",
+                "emissions": "1.15",
+                "operatingTemperature": "27.94",
+                "humidity": "55.3",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.290796Z",
+                "powerConsumption": "312.91",
+                "emissions": "1.18",
+                "operatingTemperature": "28.76",
+                "humidity": "59.87",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.290796Z",
+                "powerConsumption": "175.79",
+                "emissions": "0.96",
+                "operatingTemperature": "15.86",
+                "humidity": "66.31",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.290796Z",
+                "powerConsumption": "297.57",
+                "emissions": "0.5",
+                "operatingTemperature": "23.86",
+                "humidity": "37.35",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.290796Z",
+                "powerConsumption": "453.18",
+                "emissions": "1.37",
+                "operatingTemperature": "22.96",
+                "humidity": "68.13",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.290796Z",
+                "powerConsumption": "207.68",
+                "emissions": "1.15",
+                "operatingTemperature": "19.44",
+                "humidity": "55.44",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.290796Z",
+                "powerConsumption": "449.48",
+                "emissions": "0.92",
+                "operatingTemperature": "22.68",
+                "humidity": "63.59",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.290796Z",
+                "powerConsumption": "200.08",
+                "emissions": "1.48",
+                "operatingTemperature": "28.13",
+                "humidity": "46.35",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.290796Z",
+                "powerConsumption": "218.05",
+                "emissions": "0.89",
+                "operatingTemperature": "28.65",
+                "humidity": "62.64",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.290796Z",
+                "powerConsumption": "255.46",
+                "emissions": "1.49",
+                "operatingTemperature": "29.39",
+                "humidity": "55.3",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1010",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.291483Z",
+                "powerConsumption": "487.5",
+                "emissions": "0.57",
+                "operatingTemperature": "16.56",
+                "humidity": "56.36",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.291483Z",
+                "powerConsumption": "400.06",
+                "emissions": "0.65",
+                "operatingTemperature": "15.7",
+                "humidity": "35.77",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.291483Z",
+                "powerConsumption": "151.23",
+                "emissions": "0.51",
+                "operatingTemperature": "30.91",
+                "humidity": "61.4",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.291483Z",
+                "powerConsumption": "440.31",
+                "emissions": "1.24",
+                "operatingTemperature": "21.17",
+                "humidity": "48.13",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.291483Z",
+                "powerConsumption": "154.59",
+                "emissions": "1.05",
+                "operatingTemperature": "18.9",
+                "humidity": "66.26",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.291483Z",
+                "powerConsumption": "156.84",
+                "emissions": "0.86",
+                "operatingTemperature": "33.9",
+                "humidity": "67.97",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.291483Z",
+                "powerConsumption": "215.37",
+                "emissions": "0.88",
+                "operatingTemperature": "34.41",
+                "humidity": "60.18",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.291483Z",
+                "powerConsumption": "321.91",
+                "emissions": "1.03",
+                "operatingTemperature": "19.48",
+                "humidity": "46.07",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.291483Z",
+                "powerConsumption": "204.51",
+                "emissions": "1.35",
+                "operatingTemperature": "17.02",
+                "humidity": "57.25",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.291483Z",
+                "powerConsumption": "317.31",
+                "emissions": "1.43",
+                "operatingTemperature": "28.69",
+                "humidity": "47.67",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.291483Z",
+                "powerConsumption": "436.49",
+                "emissions": "1.16",
+                "operatingTemperature": "17.36",
+                "humidity": "58.6",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.291483Z",
+                "powerConsumption": "373.86",
+                "emissions": "0.74",
+                "operatingTemperature": "22.17",
+                "humidity": "68.26",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.291483Z",
+                "powerConsumption": "163.44",
+                "emissions": "0.51",
+                "operatingTemperature": "29.3",
+                "humidity": "30.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.291483Z",
+                "powerConsumption": "328.95",
+                "emissions": "1.12",
+                "operatingTemperature": "33.29",
+                "humidity": "38.95",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.291483Z",
+                "powerConsumption": "416.79",
+                "emissions": "1.29",
+                "operatingTemperature": "20.57",
+                "humidity": "48.19",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.291483Z",
+                "powerConsumption": "427.28",
+                "emissions": "0.88",
+                "operatingTemperature": "24.13",
+                "humidity": "44.73",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.291483Z",
+                "powerConsumption": "435.65",
+                "emissions": "1.16",
+                "operatingTemperature": "26.56",
+                "humidity": "32.33",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.291483Z",
+                "powerConsumption": "370.83",
+                "emissions": "0.52",
+                "operatingTemperature": "16.06",
+                "humidity": "34.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.291483Z",
+                "powerConsumption": "489.62",
+                "emissions": "1.32",
+                "operatingTemperature": "19.62",
+                "humidity": "38.97",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.291483Z",
+                "powerConsumption": "443.41",
+                "emissions": "1.37",
+                "operatingTemperature": "31.83",
+                "humidity": "35.56",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.291483Z",
+                "powerConsumption": "497.07",
+                "emissions": "1.26",
+                "operatingTemperature": "27.46",
+                "humidity": "51.02",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.291483Z",
+                "powerConsumption": "431.35",
+                "emissions": "1.15",
+                "operatingTemperature": "23.6",
+                "humidity": "59.51",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.291483Z",
+                "powerConsumption": "248.34",
+                "emissions": "0.56",
+                "operatingTemperature": "21.49",
+                "humidity": "58.51",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.291483Z",
+                "powerConsumption": "245.21",
+                "emissions": "1.11",
+                "operatingTemperature": "22.26",
+                "humidity": "32.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.291483Z",
+                "powerConsumption": "215.48",
+                "emissions": "1.34",
+                "operatingTemperature": "30.45",
+                "humidity": "52.96",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.291483Z",
+                "powerConsumption": "338.3",
+                "emissions": "0.56",
+                "operatingTemperature": "20.15",
+                "humidity": "59.31",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.291483Z",
+                "powerConsumption": "419.33",
+                "emissions": "0.92",
+                "operatingTemperature": "29.15",
+                "humidity": "48.42",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.291483Z",
+                "powerConsumption": "209.46",
+                "emissions": "1.14",
+                "operatingTemperature": "27.1",
+                "humidity": "36.32",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.291483Z",
+                "powerConsumption": "460.51",
+                "emissions": "1.46",
+                "operatingTemperature": "23.25",
+                "humidity": "55.91",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.291483Z",
+                "powerConsumption": "285.97",
+                "emissions": "1.03",
+                "operatingTemperature": "29.81",
+                "humidity": "47.48",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1013",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.291986Z",
+                "powerConsumption": "426.73",
+                "emissions": "0.55",
+                "operatingTemperature": "32.81",
+                "humidity": "51.32",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.291986Z",
+                "powerConsumption": "155.87",
+                "emissions": "1.31",
+                "operatingTemperature": "30.78",
+                "humidity": "53.04",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.291986Z",
+                "powerConsumption": "191.08",
+                "emissions": "1.24",
+                "operatingTemperature": "25.48",
+                "humidity": "34.04",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.291986Z",
+                "powerConsumption": "430.18",
+                "emissions": "0.9",
+                "operatingTemperature": "15.32",
+                "humidity": "37.82",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.291986Z",
+                "powerConsumption": "277.33",
+                "emissions": "0.7",
+                "operatingTemperature": "24.51",
+                "humidity": "49.82",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.291986Z",
+                "powerConsumption": "461.73",
+                "emissions": "0.72",
+                "operatingTemperature": "26.51",
+                "humidity": "59.61",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.291986Z",
+                "powerConsumption": "395.03",
+                "emissions": "0.98",
+                "operatingTemperature": "25.34",
+                "humidity": "65.74",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.291986Z",
+                "powerConsumption": "176.57",
+                "emissions": "0.57",
+                "operatingTemperature": "15.6",
+                "humidity": "39.19",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.291986Z",
+                "powerConsumption": "454.93",
+                "emissions": "1.29",
+                "operatingTemperature": "31.21",
+                "humidity": "59.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.291986Z",
+                "powerConsumption": "330.66",
+                "emissions": "0.56",
+                "operatingTemperature": "21.17",
+                "humidity": "33.04",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.291986Z",
+                "powerConsumption": "357.74",
+                "emissions": "1.31",
+                "operatingTemperature": "32.02",
+                "humidity": "52.61",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.291986Z",
+                "powerConsumption": "332.67",
+                "emissions": "0.88",
+                "operatingTemperature": "34.3",
+                "humidity": "39.0",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.291986Z",
+                "powerConsumption": "215.11",
+                "emissions": "0.84",
+                "operatingTemperature": "34.57",
+                "humidity": "62.55",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.291986Z",
+                "powerConsumption": "381.81",
+                "emissions": "1.45",
+                "operatingTemperature": "30.85",
+                "humidity": "50.98",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.291986Z",
+                "powerConsumption": "184.11",
+                "emissions": "1.32",
+                "operatingTemperature": "28.71",
+                "humidity": "61.33",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.291986Z",
+                "powerConsumption": "342.73",
+                "emissions": "0.54",
+                "operatingTemperature": "33.46",
+                "humidity": "52.47",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.291986Z",
+                "powerConsumption": "460.27",
+                "emissions": "1.38",
+                "operatingTemperature": "17.64",
+                "humidity": "54.3",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.291986Z",
+                "powerConsumption": "153.58",
+                "emissions": "0.78",
+                "operatingTemperature": "28.05",
+                "humidity": "48.41",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.291986Z",
+                "powerConsumption": "245.37",
+                "emissions": "0.92",
+                "operatingTemperature": "24.5",
+                "humidity": "36.07",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.291986Z",
+                "powerConsumption": "331.78",
+                "emissions": "0.54",
+                "operatingTemperature": "20.14",
+                "humidity": "60.03",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.291986Z",
+                "powerConsumption": "269.12",
+                "emissions": "0.89",
+                "operatingTemperature": "26.66",
+                "humidity": "63.84",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.291986Z",
+                "powerConsumption": "224.02",
+                "emissions": "0.65",
+                "operatingTemperature": "18.6",
+                "humidity": "65.27",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.291986Z",
+                "powerConsumption": "189.59",
+                "emissions": "1.27",
+                "operatingTemperature": "23.7",
+                "humidity": "43.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.291986Z",
+                "powerConsumption": "296.54",
+                "emissions": "0.81",
+                "operatingTemperature": "29.15",
+                "humidity": "33.07",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.291986Z",
+                "powerConsumption": "188.49",
+                "emissions": "0.99",
+                "operatingTemperature": "26.97",
+                "humidity": "50.7",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.291986Z",
+                "powerConsumption": "343.24",
+                "emissions": "1.37",
+                "operatingTemperature": "24.16",
+                "humidity": "58.95",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.291986Z",
+                "powerConsumption": "257.63",
+                "emissions": "1.17",
+                "operatingTemperature": "33.12",
+                "humidity": "57.63",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.291986Z",
+                "powerConsumption": "468.61",
+                "emissions": "0.9",
+                "operatingTemperature": "25.02",
+                "humidity": "61.72",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.291986Z",
+                "powerConsumption": "232.07",
+                "emissions": "0.52",
+                "operatingTemperature": "34.3",
+                "humidity": "51.77",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.291986Z",
+                "powerConsumption": "155.79",
+                "emissions": "1.22",
+                "operatingTemperature": "34.08",
+                "humidity": "33.61",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1014",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.292436Z",
+                "powerConsumption": "346.76",
+                "emissions": "0.73",
+                "operatingTemperature": "34.43",
+                "humidity": "62.14",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.292436Z",
+                "powerConsumption": "467.91",
+                "emissions": "1.24",
+                "operatingTemperature": "25.07",
+                "humidity": "35.21",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.292436Z",
+                "powerConsumption": "179.9",
+                "emissions": "1.04",
+                "operatingTemperature": "16.2",
+                "humidity": "42.61",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.292436Z",
+                "powerConsumption": "189.22",
+                "emissions": "0.8",
+                "operatingTemperature": "33.04",
+                "humidity": "62.27",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.292436Z",
+                "powerConsumption": "339.31",
+                "emissions": "1.48",
+                "operatingTemperature": "15.26",
+                "humidity": "55.43",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.292436Z",
+                "powerConsumption": "431.84",
+                "emissions": "1.49",
+                "operatingTemperature": "34.62",
+                "humidity": "59.78",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.292436Z",
+                "powerConsumption": "333.59",
+                "emissions": "0.78",
+                "operatingTemperature": "20.16",
+                "humidity": "38.97",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.292436Z",
+                "powerConsumption": "351.63",
+                "emissions": "0.51",
+                "operatingTemperature": "33.85",
+                "humidity": "66.71",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.292436Z",
+                "powerConsumption": "314.9",
+                "emissions": "0.61",
+                "operatingTemperature": "23.49",
+                "humidity": "64.7",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.292436Z",
+                "powerConsumption": "335.94",
+                "emissions": "1.01",
+                "operatingTemperature": "30.9",
+                "humidity": "68.17",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.292436Z",
+                "powerConsumption": "225.69",
+                "emissions": "1.35",
+                "operatingTemperature": "32.84",
+                "humidity": "46.11",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.292436Z",
+                "powerConsumption": "363.77",
+                "emissions": "0.53",
+                "operatingTemperature": "29.44",
+                "humidity": "48.57",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.292436Z",
+                "powerConsumption": "393.88",
+                "emissions": "1.24",
+                "operatingTemperature": "27.03",
+                "humidity": "42.53",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.292436Z",
+                "powerConsumption": "488.39",
+                "emissions": "0.78",
+                "operatingTemperature": "32.39",
+                "humidity": "36.71",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.292436Z",
+                "powerConsumption": "383.73",
+                "emissions": "1.17",
+                "operatingTemperature": "24.1",
+                "humidity": "69.32",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.292436Z",
+                "powerConsumption": "371.39",
+                "emissions": "1.44",
+                "operatingTemperature": "21.92",
+                "humidity": "60.09",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.292436Z",
+                "powerConsumption": "235.98",
+                "emissions": "0.59",
+                "operatingTemperature": "18.94",
+                "humidity": "42.43",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.292436Z",
+                "powerConsumption": "315.94",
+                "emissions": "0.66",
+                "operatingTemperature": "26.04",
+                "humidity": "30.59",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.292436Z",
+                "powerConsumption": "191.77",
+                "emissions": "1.38",
+                "operatingTemperature": "20.48",
+                "humidity": "66.37",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.292436Z",
+                "powerConsumption": "258.12",
+                "emissions": "1.22",
+                "operatingTemperature": "28.1",
+                "humidity": "57.13",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.292436Z",
+                "powerConsumption": "181.57",
+                "emissions": "0.53",
+                "operatingTemperature": "16.3",
+                "humidity": "62.58",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.292436Z",
+                "powerConsumption": "383.36",
+                "emissions": "1.46",
+                "operatingTemperature": "31.18",
+                "humidity": "35.15",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.292436Z",
+                "powerConsumption": "383.39",
+                "emissions": "0.92",
+                "operatingTemperature": "28.31",
+                "humidity": "56.61",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.292436Z",
+                "powerConsumption": "173.47",
+                "emissions": "0.5",
+                "operatingTemperature": "27.39",
+                "humidity": "58.59",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.292436Z",
+                "powerConsumption": "496.72",
+                "emissions": "0.57",
+                "operatingTemperature": "18.81",
+                "humidity": "37.95",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.292436Z",
+                "powerConsumption": "388.99",
+                "emissions": "1.28",
+                "operatingTemperature": "17.52",
+                "humidity": "38.81",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.292436Z",
+                "powerConsumption": "292.07",
+                "emissions": "1.1",
+                "operatingTemperature": "19.82",
+                "humidity": "39.73",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.292436Z",
+                "powerConsumption": "328.53",
+                "emissions": "0.82",
+                "operatingTemperature": "33.69",
+                "humidity": "56.6",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.292436Z",
+                "powerConsumption": "304.62",
+                "emissions": "1.19",
+                "operatingTemperature": "31.26",
+                "humidity": "50.59",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.292436Z",
+                "powerConsumption": "248.35",
+                "emissions": "0.7",
+                "operatingTemperature": "17.29",
+                "humidity": "32.23",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1014",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.292894Z",
+                "powerConsumption": "462.48",
+                "emissions": "0.7",
+                "operatingTemperature": "21.16",
+                "humidity": "31.81",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.292894Z",
+                "powerConsumption": "426.13",
+                "emissions": "1.2",
+                "operatingTemperature": "20.16",
+                "humidity": "63.51",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.292894Z",
+                "powerConsumption": "253.58",
+                "emissions": "1.12",
+                "operatingTemperature": "29.75",
+                "humidity": "53.88",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.292894Z",
+                "powerConsumption": "244.48",
+                "emissions": "1.19",
+                "operatingTemperature": "19.95",
+                "humidity": "30.2",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.292894Z",
+                "powerConsumption": "245.6",
+                "emissions": "1.27",
+                "operatingTemperature": "19.64",
+                "humidity": "45.57",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.292894Z",
+                "powerConsumption": "483.13",
+                "emissions": "1.46",
+                "operatingTemperature": "20.6",
+                "humidity": "32.78",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.292894Z",
+                "powerConsumption": "158.67",
+                "emissions": "1.28",
+                "operatingTemperature": "31.22",
+                "humidity": "66.48",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.292894Z",
+                "powerConsumption": "223.04",
+                "emissions": "1.02",
+                "operatingTemperature": "27.57",
+                "humidity": "39.39",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.292894Z",
+                "powerConsumption": "452.62",
+                "emissions": "0.91",
+                "operatingTemperature": "34.84",
+                "humidity": "52.53",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.292894Z",
+                "powerConsumption": "499.83",
+                "emissions": "1.33",
+                "operatingTemperature": "21.44",
+                "humidity": "45.43",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.292894Z",
+                "powerConsumption": "430.19",
+                "emissions": "1.06",
+                "operatingTemperature": "18.04",
+                "humidity": "63.82",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.292894Z",
+                "powerConsumption": "477.39",
+                "emissions": "0.73",
+                "operatingTemperature": "33.15",
+                "humidity": "50.11",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.292894Z",
+                "powerConsumption": "292.81",
+                "emissions": "0.76",
+                "operatingTemperature": "18.97",
+                "humidity": "68.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.292894Z",
+                "powerConsumption": "316.97",
+                "emissions": "0.83",
+                "operatingTemperature": "17.66",
+                "humidity": "63.63",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.292894Z",
+                "powerConsumption": "274.96",
+                "emissions": "0.58",
+                "operatingTemperature": "24.97",
+                "humidity": "47.77",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.292894Z",
+                "powerConsumption": "249.07",
+                "emissions": "0.74",
+                "operatingTemperature": "29.75",
+                "humidity": "59.01",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.292894Z",
+                "powerConsumption": "285.72",
+                "emissions": "1.22",
+                "operatingTemperature": "34.81",
+                "humidity": "41.23",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.292894Z",
+                "powerConsumption": "278.37",
+                "emissions": "1.47",
+                "operatingTemperature": "15.84",
+                "humidity": "30.37",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.292894Z",
+                "powerConsumption": "281.43",
+                "emissions": "0.52",
+                "operatingTemperature": "29.41",
+                "humidity": "50.38",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.292894Z",
+                "powerConsumption": "401.04",
+                "emissions": "1.06",
+                "operatingTemperature": "33.35",
+                "humidity": "53.14",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.292894Z",
+                "powerConsumption": "467.44",
+                "emissions": "1.38",
+                "operatingTemperature": "23.11",
+                "humidity": "57.42",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.292894Z",
+                "powerConsumption": "490.53",
+                "emissions": "0.85",
+                "operatingTemperature": "20.16",
+                "humidity": "50.6",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.292894Z",
+                "powerConsumption": "383.67",
+                "emissions": "0.58",
+                "operatingTemperature": "18.72",
+                "humidity": "36.87",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.292894Z",
+                "powerConsumption": "361.57",
+                "emissions": "1.19",
+                "operatingTemperature": "24.17",
+                "humidity": "33.73",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.292894Z",
+                "powerConsumption": "215.65",
+                "emissions": "0.5",
+                "operatingTemperature": "25.16",
+                "humidity": "50.42",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.292894Z",
+                "powerConsumption": "222.84",
+                "emissions": "0.85",
+                "operatingTemperature": "20.29",
+                "humidity": "62.15",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.292894Z",
+                "powerConsumption": "338.53",
+                "emissions": "1.36",
+                "operatingTemperature": "20.09",
+                "humidity": "40.65",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.292894Z",
+                "powerConsumption": "209.29",
+                "emissions": "0.97",
+                "operatingTemperature": "28.49",
+                "humidity": "54.89",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.292894Z",
+                "powerConsumption": "161.3",
+                "emissions": "1.22",
+                "operatingTemperature": "22.34",
+                "humidity": "41.97",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.292894Z",
+                "powerConsumption": "270.32",
+                "emissions": "1.48",
+                "operatingTemperature": "29.28",
+                "humidity": "35.89",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1005",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.293316Z",
+                "powerConsumption": "237.47",
+                "emissions": "0.84",
+                "operatingTemperature": "31.71",
+                "humidity": "37.36",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.293316Z",
+                "powerConsumption": "210.0",
+                "emissions": "0.53",
+                "operatingTemperature": "17.55",
+                "humidity": "61.46",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.293316Z",
+                "powerConsumption": "344.31",
+                "emissions": "1.09",
+                "operatingTemperature": "30.18",
+                "humidity": "36.61",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.293316Z",
+                "powerConsumption": "330.03",
+                "emissions": "1.34",
+                "operatingTemperature": "17.6",
+                "humidity": "44.7",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.293316Z",
+                "powerConsumption": "359.68",
+                "emissions": "1.08",
+                "operatingTemperature": "28.09",
+                "humidity": "66.72",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.293316Z",
+                "powerConsumption": "465.56",
+                "emissions": "1.01",
+                "operatingTemperature": "23.83",
+                "humidity": "46.47",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.293316Z",
+                "powerConsumption": "170.59",
+                "emissions": "1.24",
+                "operatingTemperature": "28.32",
+                "humidity": "41.04",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.293316Z",
+                "powerConsumption": "338.32",
+                "emissions": "1.21",
+                "operatingTemperature": "17.89",
+                "humidity": "34.17",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.293316Z",
+                "powerConsumption": "448.13",
+                "emissions": "1.47",
+                "operatingTemperature": "27.19",
+                "humidity": "56.1",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.293316Z",
+                "powerConsumption": "483.2",
+                "emissions": "1.11",
+                "operatingTemperature": "26.16",
+                "humidity": "40.69",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.293316Z",
+                "powerConsumption": "278.23",
+                "emissions": "0.76",
+                "operatingTemperature": "28.33",
+                "humidity": "35.44",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.293316Z",
+                "powerConsumption": "250.54",
+                "emissions": "0.55",
+                "operatingTemperature": "30.57",
+                "humidity": "67.85",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.293316Z",
+                "powerConsumption": "174.72",
+                "emissions": "1.33",
+                "operatingTemperature": "16.21",
+                "humidity": "32.04",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.293316Z",
+                "powerConsumption": "339.91",
+                "emissions": "1.19",
+                "operatingTemperature": "25.31",
+                "humidity": "62.13",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.293316Z",
+                "powerConsumption": "464.57",
+                "emissions": "1.1",
+                "operatingTemperature": "30.16",
+                "humidity": "63.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.293316Z",
+                "powerConsumption": "175.18",
+                "emissions": "1.32",
+                "operatingTemperature": "34.38",
+                "humidity": "44.93",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.293316Z",
+                "powerConsumption": "403.27",
+                "emissions": "0.99",
+                "operatingTemperature": "22.21",
+                "humidity": "65.62",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.293316Z",
+                "powerConsumption": "428.67",
+                "emissions": "0.69",
+                "operatingTemperature": "24.06",
+                "humidity": "38.67",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.293316Z",
+                "powerConsumption": "275.11",
+                "emissions": "0.71",
+                "operatingTemperature": "19.61",
+                "humidity": "50.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.293316Z",
+                "powerConsumption": "240.29",
+                "emissions": "0.93",
+                "operatingTemperature": "16.78",
+                "humidity": "67.88",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.293316Z",
+                "powerConsumption": "398.7",
+                "emissions": "1.48",
+                "operatingTemperature": "16.82",
+                "humidity": "54.18",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.293316Z",
+                "powerConsumption": "496.51",
+                "emissions": "1.21",
+                "operatingTemperature": "28.79",
+                "humidity": "60.31",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.293316Z",
+                "powerConsumption": "413.85",
+                "emissions": "0.65",
+                "operatingTemperature": "17.37",
+                "humidity": "35.02",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.293316Z",
+                "powerConsumption": "422.57",
+                "emissions": "0.84",
+                "operatingTemperature": "34.18",
+                "humidity": "46.22",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.293316Z",
+                "powerConsumption": "262.18",
+                "emissions": "1.24",
+                "operatingTemperature": "27.49",
+                "humidity": "51.63",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.293316Z",
+                "powerConsumption": "437.76",
+                "emissions": "1.5",
+                "operatingTemperature": "20.88",
+                "humidity": "53.26",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.293316Z",
+                "powerConsumption": "372.89",
+                "emissions": "1.41",
+                "operatingTemperature": "22.24",
+                "humidity": "51.94",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.293316Z",
+                "powerConsumption": "408.44",
+                "emissions": "1.45",
+                "operatingTemperature": "18.8",
+                "humidity": "44.86",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.293316Z",
+                "powerConsumption": "451.83",
+                "emissions": "0.77",
+                "operatingTemperature": "20.92",
+                "humidity": "43.4",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.293316Z",
+                "powerConsumption": "282.73",
+                "emissions": "0.87",
+                "operatingTemperature": "18.44",
+                "humidity": "52.2",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1006",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.293616Z",
+                "powerConsumption": "220.09",
+                "emissions": "0.91",
+                "operatingTemperature": "33.83",
+                "humidity": "51.01",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.293616Z",
+                "powerConsumption": "305.2",
+                "emissions": "1.39",
+                "operatingTemperature": "25.0",
+                "humidity": "55.02",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.293616Z",
+                "powerConsumption": "405.17",
+                "emissions": "1.23",
+                "operatingTemperature": "17.57",
+                "humidity": "50.06",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.293616Z",
+                "powerConsumption": "236.91",
+                "emissions": "1.45",
+                "operatingTemperature": "33.03",
+                "humidity": "69.03",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.293616Z",
+                "powerConsumption": "455.76",
+                "emissions": "0.8",
+                "operatingTemperature": "30.08",
+                "humidity": "33.53",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.293616Z",
+                "powerConsumption": "282.34",
+                "emissions": "1.02",
+                "operatingTemperature": "32.85",
+                "humidity": "56.98",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.293616Z",
+                "powerConsumption": "479.33",
+                "emissions": "0.89",
+                "operatingTemperature": "29.66",
+                "humidity": "58.0",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.293616Z",
+                "powerConsumption": "310.85",
+                "emissions": "0.67",
+                "operatingTemperature": "17.74",
+                "humidity": "54.92",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.293616Z",
+                "powerConsumption": "309.05",
+                "emissions": "0.51",
+                "operatingTemperature": "22.19",
+                "humidity": "46.15",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.293616Z",
+                "powerConsumption": "312.1",
+                "emissions": "1.18",
+                "operatingTemperature": "16.57",
+                "humidity": "57.23",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.293616Z",
+                "powerConsumption": "202.03",
+                "emissions": "0.99",
+                "operatingTemperature": "21.32",
+                "humidity": "57.81",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.293616Z",
+                "powerConsumption": "399.87",
+                "emissions": "0.5",
+                "operatingTemperature": "26.72",
+                "humidity": "55.13",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.293616Z",
+                "powerConsumption": "184.89",
+                "emissions": "1.43",
+                "operatingTemperature": "22.95",
+                "humidity": "37.31",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.293616Z",
+                "powerConsumption": "443.68",
+                "emissions": "1.37",
+                "operatingTemperature": "29.41",
+                "humidity": "37.52",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.293616Z",
+                "powerConsumption": "311.46",
+                "emissions": "0.59",
+                "operatingTemperature": "18.92",
+                "humidity": "67.2",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.293616Z",
+                "powerConsumption": "223.55",
+                "emissions": "0.93",
+                "operatingTemperature": "16.98",
+                "humidity": "44.36",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.293616Z",
+                "powerConsumption": "466.78",
+                "emissions": "0.71",
+                "operatingTemperature": "22.78",
+                "humidity": "52.82",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.293616Z",
+                "powerConsumption": "369.24",
+                "emissions": "0.72",
+                "operatingTemperature": "16.23",
+                "humidity": "38.83",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.293616Z",
+                "powerConsumption": "265.53",
+                "emissions": "1.36",
+                "operatingTemperature": "26.8",
+                "humidity": "53.64",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.293616Z",
+                "powerConsumption": "344.24",
+                "emissions": "1.34",
+                "operatingTemperature": "15.89",
+                "humidity": "40.68",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.293616Z",
+                "powerConsumption": "294.82",
+                "emissions": "1.27",
+                "operatingTemperature": "15.66",
+                "humidity": "50.27",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.293616Z",
+                "powerConsumption": "274.86",
+                "emissions": "0.83",
+                "operatingTemperature": "19.17",
+                "humidity": "31.56",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.293616Z",
+                "powerConsumption": "360.34",
+                "emissions": "0.86",
+                "operatingTemperature": "34.05",
+                "humidity": "69.98",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.293616Z",
+                "powerConsumption": "239.05",
+                "emissions": "0.73",
+                "operatingTemperature": "29.55",
+                "humidity": "59.27",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.293616Z",
+                "powerConsumption": "406.02",
+                "emissions": "1.28",
+                "operatingTemperature": "22.18",
+                "humidity": "36.07",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.293616Z",
+                "powerConsumption": "271.04",
+                "emissions": "0.6",
+                "operatingTemperature": "27.92",
+                "humidity": "58.43",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.293616Z",
+                "powerConsumption": "234.12",
+                "emissions": "0.85",
+                "operatingTemperature": "28.79",
+                "humidity": "53.27",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.293616Z",
+                "powerConsumption": "164.3",
+                "emissions": "0.87",
+                "operatingTemperature": "31.44",
+                "humidity": "66.47",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.293616Z",
+                "powerConsumption": "457.35",
+                "emissions": "0.64",
+                "operatingTemperature": "15.97",
+                "humidity": "62.51",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.293616Z",
+                "powerConsumption": "492.83",
+                "emissions": "0.95",
+                "operatingTemperature": "19.73",
+                "humidity": "33.12",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1026",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.293890Z",
+                "powerConsumption": "269.83",
+                "emissions": "0.75",
+                "operatingTemperature": "29.16",
+                "humidity": "45.49",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.293890Z",
+                "powerConsumption": "427.66",
+                "emissions": "1.24",
+                "operatingTemperature": "23.45",
+                "humidity": "30.4",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.293890Z",
+                "powerConsumption": "483.43",
+                "emissions": "0.91",
+                "operatingTemperature": "22.87",
+                "humidity": "48.94",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.293890Z",
+                "powerConsumption": "349.51",
+                "emissions": "0.62",
+                "operatingTemperature": "16.89",
+                "humidity": "60.86",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.293890Z",
+                "powerConsumption": "203.16",
+                "emissions": "1.35",
+                "operatingTemperature": "32.57",
+                "humidity": "45.61",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.293890Z",
+                "powerConsumption": "171.23",
+                "emissions": "0.5",
+                "operatingTemperature": "20.04",
+                "humidity": "58.23",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.293890Z",
+                "powerConsumption": "241.61",
+                "emissions": "0.91",
+                "operatingTemperature": "23.06",
+                "humidity": "39.89",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.293890Z",
+                "powerConsumption": "382.01",
+                "emissions": "0.95",
+                "operatingTemperature": "27.61",
+                "humidity": "63.01",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.293890Z",
+                "powerConsumption": "401.84",
+                "emissions": "0.63",
+                "operatingTemperature": "33.59",
+                "humidity": "68.95",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.293890Z",
+                "powerConsumption": "283.42",
+                "emissions": "0.73",
+                "operatingTemperature": "25.2",
+                "humidity": "40.8",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.293890Z",
+                "powerConsumption": "296.79",
+                "emissions": "0.54",
+                "operatingTemperature": "21.13",
+                "humidity": "32.36",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.293890Z",
+                "powerConsumption": "286.36",
+                "emissions": "1.5",
+                "operatingTemperature": "21.32",
+                "humidity": "50.52",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.293890Z",
+                "powerConsumption": "495.29",
+                "emissions": "0.96",
+                "operatingTemperature": "27.63",
+                "humidity": "43.46",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.293890Z",
+                "powerConsumption": "248.77",
+                "emissions": "0.62",
+                "operatingTemperature": "33.77",
+                "humidity": "66.71",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.293890Z",
+                "powerConsumption": "265.58",
+                "emissions": "1.35",
+                "operatingTemperature": "19.18",
+                "humidity": "65.44",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.293890Z",
+                "powerConsumption": "317.41",
+                "emissions": "1.33",
+                "operatingTemperature": "29.9",
+                "humidity": "42.56",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.293890Z",
+                "powerConsumption": "163.06",
+                "emissions": "1.2",
+                "operatingTemperature": "21.79",
+                "humidity": "67.11",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.293890Z",
+                "powerConsumption": "291.36",
+                "emissions": "0.63",
+                "operatingTemperature": "25.13",
+                "humidity": "42.29",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.293890Z",
+                "powerConsumption": "499.37",
+                "emissions": "0.59",
+                "operatingTemperature": "32.29",
+                "humidity": "55.41",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.293890Z",
+                "powerConsumption": "177.04",
+                "emissions": "1.41",
+                "operatingTemperature": "27.29",
+                "humidity": "54.22",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.293890Z",
+                "powerConsumption": "396.39",
+                "emissions": "0.68",
+                "operatingTemperature": "24.79",
+                "humidity": "63.88",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.293890Z",
+                "powerConsumption": "360.04",
+                "emissions": "0.89",
+                "operatingTemperature": "23.77",
+                "humidity": "52.34",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.293890Z",
+                "powerConsumption": "271.36",
+                "emissions": "0.91",
+                "operatingTemperature": "20.45",
+                "humidity": "46.91",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.293890Z",
+                "powerConsumption": "226.06",
+                "emissions": "1.06",
+                "operatingTemperature": "21.99",
+                "humidity": "47.69",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.293890Z",
+                "powerConsumption": "429.58",
+                "emissions": "1.37",
+                "operatingTemperature": "23.05",
+                "humidity": "66.72",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.293890Z",
+                "powerConsumption": "206.23",
+                "emissions": "0.69",
+                "operatingTemperature": "30.55",
+                "humidity": "31.96",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.293890Z",
+                "powerConsumption": "151.1",
+                "emissions": "1.4",
+                "operatingTemperature": "31.6",
+                "humidity": "57.47",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.293890Z",
+                "powerConsumption": "448.38",
+                "emissions": "0.7",
+                "operatingTemperature": "16.21",
+                "humidity": "64.35",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.293890Z",
+                "powerConsumption": "237.95",
+                "emissions": "0.82",
+                "operatingTemperature": "31.28",
+                "humidity": "69.42",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.293890Z",
+                "powerConsumption": "235.97",
+                "emissions": "0.79",
+                "operatingTemperature": "33.27",
+                "humidity": "59.14",
+                "anomaly": false
+            }
+        ]
+    },
+    {
+        "machineId": "MCH1024",
+        "sensorData": [
+            {
+                "timestamp": "2024-08-04T22:32:45.294151Z",
+                "powerConsumption": "316.33",
+                "emissions": "0.77",
+                "operatingTemperature": "25.9",
+                "humidity": "44.44",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-04T23:32:45.294151Z",
+                "powerConsumption": "332.2",
+                "emissions": "0.62",
+                "operatingTemperature": "25.52",
+                "humidity": "69.93",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T00:32:45.294151Z",
+                "powerConsumption": "353.4",
+                "emissions": "1.14",
+                "operatingTemperature": "21.51",
+                "humidity": "41.29",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T01:32:45.294151Z",
+                "powerConsumption": "408.58",
+                "emissions": "1.32",
+                "operatingTemperature": "31.38",
+                "humidity": "61.82",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T02:32:45.294151Z",
+                "powerConsumption": "252.88",
+                "emissions": "0.53",
+                "operatingTemperature": "16.92",
+                "humidity": "38.35",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T03:32:45.294151Z",
+                "powerConsumption": "202.61",
+                "emissions": "0.97",
+                "operatingTemperature": "21.16",
+                "humidity": "31.51",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T04:32:45.294151Z",
+                "powerConsumption": "367.17",
+                "emissions": "0.68",
+                "operatingTemperature": "23.15",
+                "humidity": "51.37",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T05:32:45.294151Z",
+                "powerConsumption": "313.15",
+                "emissions": "0.98",
+                "operatingTemperature": "32.01",
+                "humidity": "45.02",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T06:32:45.294151Z",
+                "powerConsumption": "365.79",
+                "emissions": "0.78",
+                "operatingTemperature": "21.15",
+                "humidity": "37.49",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T07:32:45.294151Z",
+                "powerConsumption": "164.78",
+                "emissions": "0.57",
+                "operatingTemperature": "17.17",
+                "humidity": "56.32",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T08:32:45.294151Z",
+                "powerConsumption": "446.83",
+                "emissions": "0.76",
+                "operatingTemperature": "17.06",
+                "humidity": "45.76",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T09:32:45.294151Z",
+                "powerConsumption": "432.41",
+                "emissions": "1.35",
+                "operatingTemperature": "29.71",
+                "humidity": "42.91",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T10:32:45.294151Z",
+                "powerConsumption": "215.05",
+                "emissions": "1.13",
+                "operatingTemperature": "16.44",
+                "humidity": "61.19",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T11:32:45.294151Z",
+                "powerConsumption": "171.84",
+                "emissions": "0.94",
+                "operatingTemperature": "29.75",
+                "humidity": "56.18",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T12:32:45.294151Z",
+                "powerConsumption": "463.69",
+                "emissions": "1.21",
+                "operatingTemperature": "20.96",
+                "humidity": "59.69",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T13:32:45.294151Z",
+                "powerConsumption": "284.28",
+                "emissions": "0.92",
+                "operatingTemperature": "16.18",
+                "humidity": "37.47",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T14:32:45.294151Z",
+                "powerConsumption": "429.86",
+                "emissions": "1.21",
+                "operatingTemperature": "27.63",
+                "humidity": "68.12",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T15:32:45.294151Z",
+                "powerConsumption": "366.65",
+                "emissions": "1.22",
+                "operatingTemperature": "32.21",
+                "humidity": "61.29",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T16:32:45.294151Z",
+                "powerConsumption": "342.2",
+                "emissions": "1.24",
+                "operatingTemperature": "32.86",
+                "humidity": "52.39",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T17:32:45.294151Z",
+                "powerConsumption": "336.0",
+                "emissions": "1.11",
+                "operatingTemperature": "23.8",
+                "humidity": "53.28",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T18:32:45.294151Z",
+                "powerConsumption": "330.88",
+                "emissions": "1.34",
+                "operatingTemperature": "27.14",
+                "humidity": "46.48",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T19:32:45.294151Z",
+                "powerConsumption": "398.33",
+                "emissions": "1.35",
+                "operatingTemperature": "32.64",
+                "humidity": "68.0",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T20:32:45.294151Z",
+                "powerConsumption": "335.12",
+                "emissions": "0.92",
+                "operatingTemperature": "32.39",
+                "humidity": "57.94",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T21:32:45.294151Z",
+                "powerConsumption": "454.27",
+                "emissions": "0.67",
+                "operatingTemperature": "21.88",
+                "humidity": "57.26",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T22:32:45.294151Z",
+                "powerConsumption": "150.33",
+                "emissions": "1.3",
+                "operatingTemperature": "21.16",
+                "humidity": "56.66",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-05T23:32:45.294151Z",
+                "powerConsumption": "448.52",
+                "emissions": "0.97",
+                "operatingTemperature": "33.76",
+                "humidity": "40.17",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T00:32:45.294151Z",
+                "powerConsumption": "347.69",
+                "emissions": "1.36",
+                "operatingTemperature": "26.9",
+                "humidity": "61.96",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T01:32:45.294151Z",
+                "powerConsumption": "396.22",
+                "emissions": "1.2",
+                "operatingTemperature": "18.93",
+                "humidity": "45.01",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T02:32:45.294151Z",
+                "powerConsumption": "229.38",
+                "emissions": "1.38",
+                "operatingTemperature": "28.44",
+                "humidity": "56.48",
+                "anomaly": false
+            },
+            {
+                "timestamp": "2024-08-06T03:32:45.294151Z",
+                "powerConsumption": "337.37",
+                "emissions": "1.12",
+                "operatingTemperature": "28.79",
+                "humidity": "38.49",
+                "anomaly": false
+            }
+        ]
+    }
+]
