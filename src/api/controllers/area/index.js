@@ -1,5 +1,6 @@
-const { areaCRUD } = require('@controllers/area/areaCRUD')
+const { generateResources } = require('@utils/helpers/crudHandler');
+const Area = require('@models/area');
 
 module.exports = {
-  areaCRUD
+  areaCRUD: generateResources(Area, 'area')
 }

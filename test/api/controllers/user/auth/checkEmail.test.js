@@ -2,27 +2,22 @@ require('module-alias/register')
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
-const { faker } = require('@faker-js/faker')
 const User = require('@models/user')
-const {
-  expectError,
-  initializeServer,
-  closeServer
-} = require('@test/api/utils/helper')
+const { expectError,  initializeServer,  closeServer } = require('@test/api/utils/helper')
+const { userData } = require('@test/api/controllers/user')
+const {faker} = require("@faker-js/faker");
 chai.use(chaiHttp)
 
 describe('User Controller - CheckEmail', () => {
-  const user = {
-    email: faker.internet.email(),
-    password: 'testPassword123!',
-    testUser: true
-  }
+
+
+    delete userData._id
 
   let server
   // Setup: start the server before tests
   before(async () => {
     server = await initializeServer()
-    await new User(user).save()
+    await new User(userData).save()
   })
 
   after(async () => {
@@ -33,7 +28,7 @@ describe('User Controller - CheckEmail', () => {
   describe('POST /api/user/checkEmail', () => {
     it('should return true when the email exists', async () => {
       const res = await chai.request(server).post('/api/user/checkEmail').send({
-        email: user.email
+        email: userData.email
       })
       expect(res).to.have.status(200)
       expect(res.body).to.be.a('object')

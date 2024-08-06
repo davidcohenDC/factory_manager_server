@@ -6,14 +6,10 @@ const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
 const User = require('@models/user')
 const mongoose = require('mongoose')
+const {userData} = require("@test/api/controllers/user");
 chai.use(chaiHttp)
 
 describe('User Model', () => {
-  const user = {
-    email: faker.internet.email(),
-    password: 'password123!',
-    test: true
-  }
 
   beforeEach(async () => {
     await User.deleteMany({ test: true })
@@ -25,7 +21,7 @@ describe('User Model', () => {
   before(async () => {
     await configureApp()
     server = app.listen() // Start the server
-    await new User(user).save()
+    await new User(userData).save()
   })
 
   after(async () => {
@@ -36,10 +32,10 @@ describe('User Model', () => {
 
   describe('Model Creation & Saving', () => {
     it('creates and saves a user successfully', async () => {
-      const userSaved = await new User(user).save()
+      const userSaved = await new User(userData).save()
       expect(userSaved).to.have.property('_id')
-      expect(userSaved.email).to.equal(user.email.toLowerCase())
-      expect(userSaved.password).to.not.equal(user.password)
+      expect(userSaved.email).to.equal(userData.email.toLowerCase())
+      expect(userSaved.password).to.not.equal(userData.password)
     })
 
     it('throws an error when email is missing', async () => {
@@ -59,7 +55,7 @@ describe('User Model', () => {
     })
 
     it('throws an error when password is invalid', async () => {
-      await new User({ email: faker.internet.email(), password: 'notvalid' })
+      await new User(userData)
         .save()
         .catch((error) => {
           // expect(error).to.be.an.instanceof(mongoose.Error.ValidationError)
@@ -69,8 +65,8 @@ describe('User Model', () => {
 
     describe('Unique Constraints', () => {
       it('throws an error when email is not unique', async () => {
-        await new User(user).save()
-        await new User(user).save().catch((error) => {
+        await new User(userData).save()
+        await new User(userData).save().catch((error) => {
           expect(error.message).to.contains('user is already taken')
         })
       })
@@ -78,8 +74,8 @@ describe('User Model', () => {
 
     describe('Password Hashing', () => {
       it('hashes the password before saving the user', async () => {
-        const userSaved = await new User(user).save()
-        expect(userSaved.password).to.not.equal(user.password)
+        const userSaved = await new User(userData).save()
+        expect(userSaved.password).to.not.equal(userData.password)
         expect(userSaved.password).to.not.equal(undefined)
       })
     })

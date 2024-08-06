@@ -33,6 +33,9 @@
             "theme": "light",
             "language": "en"
         },
+        "accessibility": {
+            "colorFilter": "normal"
+        },
         "socialLinks": {
             "linkedin": "https://linkedin.com/in/johndoe",
             "twitter": "https://twitter.com/johndoe"
@@ -74,6 +77,9 @@
         "preferences": {
             "theme": "dark",
             "language": "es"
+        },
+        "accessibility": {
+            "colorFilter": "normal"
         },
         "socialLinks": {
             "linkedin": "https://linkedin.com/in/janesmith",
@@ -117,6 +123,9 @@
             "theme": "light",
             "language": "fr"
         },
+        "accessibility": {
+            "colorFilter": "normal"
+        },
         "socialLinks": {
             "linkedin": "https://linkedin.com/in/alexjohnson",
             "twitter": "https://twitter.com/alexjohnson"
@@ -159,6 +168,9 @@
             "theme": "dark",
             "language": "en"
         },
+        "accessibility": {
+            "colorFilter": "normal"
+        },
         "socialLinks": {
             "linkedin": "https://linkedin.com/in/michaelbrown",
             "twitter": "https://twitter.com/michaelbrown"
@@ -200,6 +212,9 @@
         "preferences": {
             "theme": "light",
             "language": "es"
+        },
+        "accessibility": {
+            "colorFilter": "normal"
         },
         "socialLinks": {
             "linkedin": "https://linkedin.com/in/emilydavis",

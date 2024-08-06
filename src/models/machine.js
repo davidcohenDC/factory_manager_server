@@ -22,15 +22,9 @@ const machineSchema = new Schema({
   machineState: {
     currentState: {
       type: String,
-      enum: ['operational', 'stand-by', 'maintenance', 'anomaly', 'off'],
-      default: 'off',
+      enum: ['operational', 'anomaly', 'off'],
       required: true
-    },
-    anomalyDetails: [
-      {
-        type: String
-      }
-    ],
+    }
   },
   specifications: {
     powerConsumption: {
@@ -83,13 +77,14 @@ const machineSchema = new Schema({
       },
       userId: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
       },
       name: {
         first: String,
         last: String
-      },
-    }
+      }
+    },
   ],
   maintenance: {
     lastMaintenanceDate: Date,

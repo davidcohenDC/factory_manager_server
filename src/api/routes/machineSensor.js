@@ -5,24 +5,10 @@ const pagination = require('@middlewares/pagination')
 const { tagTest } = require('@middlewares/')
 
 // GET all machineSensors
-router.get(
-  '/',
-  pagination({
-    itemsPerPage: 50,
-    maxItemsPerPage: 100
-  }),
-  machineSensorCRUD.getAll
-)
+router.get('/', pagination({itemsPerPage: 50, maxItemsPerPage: 100}), machineSensorCRUD.getAll)
 
 // GET machineSensor by machineId
-router.get(
-  '/machineId/:machineId',
-  pagination({
-    itemsPerPage: 50,
-    maxItemsPerPage: 100
-  }),
-    getByMachine
-)
+router.get('/machineId/:machineId', pagination({itemsPerPage: 50, maxItemsPerPage: 100}), getByMachine)
 
 module.exports = router
-// RETRIEVE a single machineSensor by ID
+

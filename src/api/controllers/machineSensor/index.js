@@ -1,6 +1,8 @@
 const { getByMachine } = require('@controllers/machineSensor/getByMachine')
-const { machineSensorCRUD } = require('@controllers/machineSensor/machineSensorCRUD')
+const { generateResources } = require('@utils/helpers/crudHandler')
+const MachineSensor = require('@models/machineSensor')
+
 module.exports = {
     getByMachine,
-    machineSensorCRUD
+    machineSensorCRUD: generateResources(MachineSensor, 'machineSensor')
 }

@@ -55,13 +55,16 @@ const userBodySchema = Joi.object({
     theme: Joi.string().valid('light', 'dark').trim().optional(),
     language: Joi.string().valid('en', 'es', 'fr','it').trim().optional()
   }),
+    accessibility: Joi.object({
+    colorFilter: Joi.string().trim().optional(),
+    }),
   socialLinks: Joi.object({
     linkedin: Joi.string().trim().optional(),
     twitter: Joi.string().trim().optional()
   }),
   joinedDate: Joi.date().optional(),
   notes: Joi.string().trim().optional(),
-  testUser: Joi.boolean().optional()
+  test: Joi.boolean().optional()
 })
 const userIdSchema = Joi.object({
   id: Joi.string().length(24).hex().required().trim()

@@ -4,25 +4,23 @@ const { expect } = chai
 const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
 const User = require('@models/user')
-const {
-  expectError,
-  initializeServer,
-  closeServer
-} = require('@test/api/utils/helper')
+const {expectError, initializeServer, closeServer} = require('@test/api/utils/helper')
+const { userData } = require('@test/api/controllers/user/')
+const {userDataTwo} = require("@test/api/controllers/user");
 chai.use(chaiHttp)
 
 describe('User Controller - Login', () => {
-  const user = {
-    email: faker.internet.email(),
-    password: 'testPassword123!',
-    testUser: true
-  }
+
+  delete userData._id
+
+  userData.email = faker.internet.email().toLowerCase()
+
   let server // This will be our test server
 
   // Setup: start the server before tests
   before(async () => {
     server = await initializeServer()
-    await new User(user).save()
+    await new User(userData).save()
   })
 
   after(async () => {
@@ -33,8 +31,8 @@ describe('User Controller - Login', () => {
   describe('POST /api/user/login', () => {
     it('should login successfully and return a token', async () => {
       const res = await chai.request(server).post('/api/user/login').send({
-        email: user.email,
-        password: user.password
+        email: userData.email,
+        password: userData.password
       })
 
       expect(res).to.have.status(200)
@@ -45,7 +43,7 @@ describe('User Controller - Login', () => {
 
     it('should fails and return 401 to login with wrong password', async () => {
       const res = await chai.request(server).post('/api/user/login').send({
-        email: user.email,
+        email: userData.email,
         password: 'wrongPassword123!'
       })
       expect(res).to.have.status(401)
@@ -57,7 +55,7 @@ describe('User Controller - Login', () => {
     it('should fails and return 401 to login with wrong email', async () => {
       const res = await chai.request(server).post('/api/user/login').send({
         email: faker.internet.email(),
-        password: user.password
+        password: userData.password
       })
       expect(res).to.have.status(401)
       expect(res.body).to.be.a('object')

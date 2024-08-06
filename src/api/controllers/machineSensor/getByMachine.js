@@ -5,7 +5,7 @@ module.exports.getByMachine = async (req, res) => {
     const { machineId } = req.params
 
     try {
-        const machineSensor = await MachineSensor.find({ machineId })
+        const machineSensor = await MachineSensor.find({ machineId: machineId }).exec()
         if (!machineSensor) {
             logger.warn('machineSensor not found', {
                 machineId,

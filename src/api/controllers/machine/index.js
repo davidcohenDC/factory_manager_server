@@ -1,5 +1,6 @@
-const { machineCRUD } = require('@controllers/machine/machineCRUD')
+const { generateResources } = require('@utils/helpers/crudHandler');
+const Machine = require('@models/machine');
 
 module.exports = {
-  machineCRUD
+  machineCRUD: generateResources(Machine, 'machine')
 }

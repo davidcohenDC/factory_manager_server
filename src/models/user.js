@@ -16,8 +16,11 @@ const userSchema = new Schema({
     unique: true,
     lowercase: true
   },
-  password: { type: String, required: [true, "'password' is required"] },
-  dataOfBirth: Date,
+  password: {
+    type: String,
+    required: true
+  },
+  dateOfBirth: Date,
   address: {
     street: String,
     city: String,
@@ -36,7 +39,8 @@ const userSchema = new Schema({
   ],
   role: {
     type: String,
-    enum: ['administrator', 'moderator', 'worker'] // Array of strings
+    enum: ['moderator', 'worker'],
+    required: true
   },
   department: { type: String },
   isActive: { type: Boolean, default: true },
@@ -54,9 +58,16 @@ const userSchema = new Schema({
     },
     language: {
       type: String,
-      enum: ['en', 'es', 'fr'],
+      enum: ['en', 'es', 'fr','it'],
       default: 'en'
     }
+  },
+  accessibility: {
+    colorFilter: {
+      type: String,
+      enum: ['normal', 'protanopia', 'deuteranopia', 'tritanopia'],
+      default: 'normal'
+    },
   },
   socialLinks: {
     linkedin: String,
