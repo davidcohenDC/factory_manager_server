@@ -8,7 +8,6 @@ const path = require('path')
 const {
   prefix,
   jwtSecretKey,
-  // nodeEnv,
   userRedis,
   redisHost,
   redisPort,
@@ -87,12 +86,6 @@ module.exports = (app) => {
     res.redirect(`${prefix}${specs}`);
   });
 
-  // app.get('/', (_req, res) =>
-  //   res.status(200).json({
-  //     resultMessage: { en: errorCodes['00004'] },
-  //     resultCode: '00004'
-  //   })
-  // )
   app.get('/health', (_req, res) => res.send({ status: 'OK' }))
 
   app.use((_req, _res, next) => {

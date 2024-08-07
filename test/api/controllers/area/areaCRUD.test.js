@@ -119,12 +119,13 @@ const validationFields = []
 
 describe('Machine Controller - CRUD', () => {
   generateCRUDTests(
-    'area',
-    Area,
-    areaDataPre,
-    areaDataPost,
-    requiredFields,
-    validationFields,
-    { expectError, initializeServer, closeServer }
+        'area',
+        Area,
+        areaDataPre,
+        areaDataPost,
+        requiredFields,
+        validationFields,
+        { expectError, initializeServer, closeServer },
+      { create: true, read: true, update: true, delete: true }
   )
 })

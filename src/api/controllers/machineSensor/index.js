@@ -4,5 +4,6 @@ const MachineSensor = require('@models/machineSensor')
 
 module.exports = {
     getByMachine,
-    machineSensorCRUD: generateResources(MachineSensor, 'machineSensor')
+    machineSensorCRUD: generateResources(MachineSensor, 'machineSensor',
+        { create: false, read: true, update: false, delete: false })
 }

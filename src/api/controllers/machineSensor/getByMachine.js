@@ -5,28 +5,28 @@ module.exports.getByMachine = async (req, res) => {
     const { machineId } = req.params
 
     try {
-        const machineSensor = await MachineSensor.find({ machineId: machineId }).exec()
-        if (!machineSensor) {
+        const machineSensor = await MachineSensor.find({ machineId: machineId })
+        if (!machineSensor || machineSensor.length === 0) {
             logger.warn('machineSensor not found', {
                 machineId,
                 req,
                 source: 'getByMachine'
-            })
-            return res.status(404).json({ error: 'machineSensor not found' })
+            });
+            return res.status(404).json({ error: 'machineSensor not found' });
         } else {
             logger.info('machineSensor found by machineId', {
                 machineId,
                 req,
                 source: 'getByMachine'
-            })
-            res.status(200).json(machineSensor)
+            });
+            res.status(200).json(machineSensor);
         }
     } catch (err) {
         logger.error('Error during get by machineId', {
             req,
             source: 'getByMachine'
-        })
-        res.status(500).json({ error: 'Internal server error' })
+        });
+        res.status(500).json({ error: 'Internal server error' });
     }
 }
 
@@ -36,7 +36,7 @@ module.exports.getByMachine = async (req, res) => {
  *   get:
  *     summary: Get machineSensor by machineId.
  *     tags:
- *       - machineSensor
+ *       - MachineSensor
  *     security:
  *       - bearerAuth: []
  *     parameters:

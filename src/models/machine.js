@@ -110,24 +110,6 @@ const machineSchema = new Schema({
   test: { type: Boolean }
 });
 
-machineSchema.pre('save', async function (next) {
-  logger.info('Pre save hook called', logSource);
-
-  if (this.log.sessions && this.log.sessions.length > 0) {
-    const lastSession = this.log.sessions[this.log.sessions.length - 1];
-    const currentSessionDuration =
-        new Date(lastSession.powerOff).getTime() - new Date(lastSession.powerOn).getTime();
-
-    if (!this.log.totalRunningTime) {
-      this.log.totalRunningTime = 0;
-    }
-
-    this.log.totalRunningTime += currentSessionDuration;
-  }
-
-  logger.info('Total running time updated', logSource);
-  next();
-});
 
 machineSchema.post('save', function (err, doc, next) {
   if (err) {

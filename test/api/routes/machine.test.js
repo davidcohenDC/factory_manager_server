@@ -21,7 +21,10 @@ describe('Machine Routes', () => {
   const routes = [
     { path: '/api/machine', method: 'get' },
     { path: '/api/machine', method: 'get' },
-    { path: '/api/machine/id/:id', method: 'get' }
+    { path: '/api/machine/id/:id', method: 'get' },
+    { path: '/api/machine/id/:id', method: 'delete' },
+    { path: '/api/machine/id/:id', method: 'post' },
+    { path: '/api/machine/id/:id', method: 'patch' },
   ]
 
   routes.forEach((route) => {

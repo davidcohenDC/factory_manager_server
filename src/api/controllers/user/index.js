@@ -6,7 +6,8 @@ const User = require('@models/user');
 
 
 module.exports = {
-  userCRUD: generateResources(User, 'user'),
+  userCRUD: generateResources(User, 'user',
+      { create: true, read: true, update: true, delete: true }),
   login,
   checkEmail,
   getByEmail

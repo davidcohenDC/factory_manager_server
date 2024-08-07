@@ -37,6 +37,7 @@ describe('User Controller - CRUD', () => {
     userDataTwo,
     requiredFields,
     validationFields,
-    { expectError, initializeServer, closeServer }
+    { expectError, initializeServer, closeServer },
+      { create: true, read: true, update: true, delete: true }
   )
 })

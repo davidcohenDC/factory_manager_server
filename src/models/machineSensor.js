@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
+const {logger} = require("@root/config");
 const { Schema } = mongoose;
+
+const logSource = { source: 'MachineSensorSchema' };
 
 const sensorDataEntrySchema = new Schema({
     timestamp: {
@@ -34,8 +37,21 @@ const machineSensorDataSchema = new Schema({
         type: String,  // Use String if you're using custom IDs like "MCH1011"
         required: true
     },
-    sensorData: [sensorDataEntrySchema]
+    sensorData: [sensorDataEntrySchema],
+    test: Boolean
 });
 
+machineSensorDataSchema.post('save', function (err, doc, next) {
+    if (err) {
+        if (err.name === 'MongoServerError' && err.code === 11000) {
+            logger.error(`Error saving machine sensor (MongoServerError): ${err.message}`, logSource);
+            next(new Error('machine is already taken.'));
+        } else {
+            next(err);
+        }
+    } else {
+        next();
+    }
+});
 const MachineSensorData = mongoose.model('MachineSensor', machineSensorDataSchema);
 module.exports = MachineSensorData;
