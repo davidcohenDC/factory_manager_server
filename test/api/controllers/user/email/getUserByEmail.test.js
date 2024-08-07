@@ -5,14 +5,10 @@ const chaiHttp = require('chai-http')
 const User = require('@models/user')
 const { expectError, initializeServer, closeServer } = require('@test/api/utils/helper')
 const { userData } = require('@test/api/controllers/user/')
-const {userDataTwo} = require("@test/api/controllers/user");
 chai.use(chaiHttp)
 
 describe('User Controller - GetUserByEmail', () => {
     let server // This will be our test server
-
-    delete userData._id
-
 
     // Setup: start the server before tests
     before(async () => {
@@ -21,7 +17,7 @@ describe('User Controller - GetUserByEmail', () => {
     })
 
     after(async () => {
-        await User.deleteMany({ testUser: true })
+        await User.deleteMany({ test: true })
         await closeServer(server)
     })
 

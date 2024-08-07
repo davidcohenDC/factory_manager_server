@@ -10,9 +10,6 @@ chai.use(chaiHttp)
 
 describe('User Controller - CheckEmail', () => {
 
-
-    delete userData._id
-
   let server
   // Setup: start the server before tests
   before(async () => {
@@ -21,7 +18,7 @@ describe('User Controller - CheckEmail', () => {
   })
 
   after(async () => {
-    await User.deleteMany({ testUser: true })
+    await User.deleteMany({ test: true })
     await closeServer(server)
   })
 

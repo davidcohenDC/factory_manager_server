@@ -25,7 +25,7 @@ describe('User Model', () => {
   })
 
   after(async () => {
-    await User.deleteMany({ testUser: true })
+    await User.deleteMany({ test: true })
     await mongoose.disconnect()
     server.close() // Close the server after tests
   })

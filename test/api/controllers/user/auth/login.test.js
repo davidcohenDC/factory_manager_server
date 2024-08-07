@@ -10,11 +10,6 @@ const {userDataTwo} = require("@test/api/controllers/user");
 chai.use(chaiHttp)
 
 describe('User Controller - Login', () => {
-
-  delete userData._id
-
-  userData.email = faker.internet.email().toLowerCase()
-
   let server // This will be our test server
 
   // Setup: start the server before tests
@@ -24,7 +19,7 @@ describe('User Controller - Login', () => {
   })
 
   after(async () => {
-    await User.deleteMany({ testUser: true })
+    await User.deleteMany({ test: true })
     await closeServer(server)
   })
 
