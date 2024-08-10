@@ -11,27 +11,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 180.00,
-          "max": 550.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.60,
-          "max": 1.70
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 15.00,
           "max": 35.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 30.00,
-          "max": 70.00
+          "min": 0.0,
+          "max": 15
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 15
         }
       }
     },
@@ -80,27 +91,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 180.00,
-          "max": 550.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.60,
-          "max": 1.70
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 15.00,
           "max": 35.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 30.00,
-          "max": 70.00
+          "min": 0.0,
+          "max": 15
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 15
         }
       }
     },
@@ -143,27 +165,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
           "min": 150.00,
           "max": 500.00
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.50,
-          "max": 1.50
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 10.00,
           "max": 35.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 30.00,
-          "max": 60.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -212,27 +245,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 150.00,
-          "max": 500.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.50,
-          "max": 1.50
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 10.00,
           "max": 35.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 30.00,
-          "max": 60.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -275,27 +319,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 150.00,
-          "max": 500.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.50,
-          "max": 1.50
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 10.00,
           "max": 35.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 30.00,
-          "max": 60.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -338,27 +393,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 100.00,
-          "max": 450.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.40,
-          "max": 1.20
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 15.00,
           "max": 30.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 40.00,
-          "max": 70.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -407,27 +473,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 100.00,
-          "max": 450.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.40,
-          "max": 1.20
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 15.00,
           "max": 30.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 40.00,
-          "max": 70.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -470,27 +547,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 100.00,
-          "max": 450.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.40,
-          "max": 1.20
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 15.00,
           "max": 30.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 40.00,
-          "max": 70.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -533,27 +621,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 80.00,
-          "max": 300.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.30,
-          "max": 1.00
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 5.00,
           "max": 25.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 20.00,
-          "max": 50.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -602,27 +701,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 80.00,
-          "max": 300.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.30,
-          "max": 1.00
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 5.00,
           "max": 25.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 20.00,
-          "max": 50.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -665,27 +775,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 80.00,
-          "max": 300.00
+          "min": 0.5,
+          "max": 150.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.30,
-          "max": 1.00
+          "min": 0.00,
+          "max": 1000.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 5.00,
           "max": 25.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 20.00,
-          "max": 50.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -728,27 +849,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 200.00,
-          "max": 600.00
+          "min": 0.5,
+          "max": 140.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.70,
-          "max": 1.80
+          "min": 0.00,
+          "max": 900.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 20.00,
           "max": 40.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 35.00,
-          "max": 65.00
+          "min": 0.0,
+          "max": 15
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 15
         }
       }
     },
@@ -797,27 +929,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 200.00,
-          "max": 600.00
+          "min": 0.5,
+          "max": 140.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.70,
-          "max": 1.80
+          "min": 0.00,
+          "max": 900.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 20.00,
           "max": 40.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 35.00,
-          "max": 65.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -860,27 +1003,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 250.00,
-          "max": 700.00
+          "min": 0.5,
+          "max": 140.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.80,
-          "max": 2.00
+          "min": 0.00,
+          "max": 900.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 25.00,
           "max": 45.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 40.00,
-          "max": 75.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -929,27 +1083,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 250.00,
-          "max": 700.00
+          "min": 0.5,
+          "max": 140.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.80,
-          "max": 2.00
+          "min": 0.00,
+          "max": 900.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 25.00,
           "max": 45.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 40.00,
-          "max": 75.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -992,27 +1157,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 220.00,
-          "max": 600.00
+          "min": 0.5,
+          "max": 140.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.80,
-          "max": 2.20
+          "min": 0.00,
+          "max": 900.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 20.00,
           "max": 45.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 35.00,
-          "max": 75.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -1061,27 +1237,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 220.00,
-          "max": 600.00
+          "min": 0.5,
+          "max": 140.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.80,
-          "max": 2.20
+          "min": 0.00,
+          "max": 900.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 20.00,
           "max": 45.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 35.00,
-          "max": 75.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },
@@ -1124,27 +1311,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 200.00,
-          "max": 650.00
+          "min": 0.5,
+          "max": 130.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.75,
-          "max": 2.00
+          "min": 0.00,
+          "max": 800.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 20.00,
           "max": 45.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 35.00,
-          "max": 70.00
+          "min": 0.0,
+          "max": 10
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 10
         }
       }
     },
@@ -1193,27 +1391,38 @@
     },
     "specifications": {
       "powerConsumption": {
+        "measurementUnit": "kWh",
         "normalRange": {
-          "min": 200.00,
-          "max": 650.00
+          "min": 0.5,
+          "max": 130.0
         }
       },
       "emissions": {
+        "measurementUnit": "ppm",
         "normalRange": {
-          "min": 0.75,
-          "max": 2.00
+          "min": 0.00,
+          "max": 800.0
         }
       },
       "operatingTemperature": {
+        "measurementUnit": "C",
         "normalRange": {
           "min": 20.00,
           "max": 45.00
         }
       },
-      "humidity": {
+      "vibration": {
+        "measurementUnit": "m/s²",
         "normalRange": {
-          "min": 35.00,
-          "max": 70.00
+          "min": 0.0,
+          "max": 20
+        }
+      },
+      "pressure": {
+        "measurementUnit": "bar",
+        "normalRange": {
+          "min": 0.5 ,
+          "max": 20
         }
       }
     },

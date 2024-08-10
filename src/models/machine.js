@@ -24,10 +24,15 @@ const machineSchema = new Schema({
       type: String,
       enum: ['operational', 'anomaly', 'off'],
       required: true
+    },
+    anomalyDetails: {
+      type: [String],
+      enum: ['powerConsumption', 'emissions', 'operatingTemperature', 'vibration', 'pressure']
     }
   },
   specifications: {
     powerConsumption: {
+      measurementUnit: String,
       normalRange: {
         min: {
           type: mongoose.Types.Decimal128,
@@ -38,6 +43,7 @@ const machineSchema = new Schema({
       }
     },
     emissions: {
+      measurementUnit: String,
       normalRange: {
         min: {
           type: mongoose.Types.Decimal128,
@@ -48,6 +54,7 @@ const machineSchema = new Schema({
       }
     },
     operatingTemperature: {
+      measurementUnit: String,
       normalRange: {
         min: {
           type: mongoose.Types.Decimal128,
@@ -57,7 +64,19 @@ const machineSchema = new Schema({
         }
       }
     },
-    humidity: {
+    vibration: {
+      measurementUnit: String,
+      normalRange: {
+        min: {
+          type: mongoose.Types.Decimal128,
+        },
+        max: {
+          type: mongoose.Types.Decimal128,
+        }
+      }
+    },
+    pressure: {
+      measurementUnit: String,
       normalRange: {
         min: {
           type: mongoose.Types.Decimal128,

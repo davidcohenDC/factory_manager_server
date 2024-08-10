@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Sensor Data</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- date-fns for Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <!-- Socket.io -->
+    <script src="https://cdn.jsdelivr.net/npm/socket.io/client-dist/socket.io.js"></script>
+    <style>
+        .chart-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+        .chart-title {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        .machine-id {
+            font-size: 0.8rem;
+            color: #777;
+            text-align: center;
+            margin-top: 5px;
+        }
+        .anomaly {
+            color: red;
+        }
+        .anomaly-sensor {
+            border-color: #dc3545 !important;
+            background-color: rgba(220, 53, 69, 0.1) !important;
+        }
+        .off-sensor {
+            border-color: #6c757d !important;
+            background-color: rgba(108, 117, 125, 0.1) !important;
+        }
+        .anomaly-badge, .status-badge {
+            font-size: 0.9rem;
+            margin-left: 10px;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .anomaly-badge {
+            background-color: #dc3545;
+        }
+        .status-badge {
+            background-color: #6c757d;
+        }
+        .status-badge-operational {
+            background-color: #28a745; /* Green for operational */
+        }
+        .anomaly-list {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #dc3545;
+            text-align: center;
+        }
+        .anomaly-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        .anomaly-item-icon {
+            margin-right: 8px;
+            color: #dc3545;
+        }
+        .status-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .row > .col-md-6 {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 767px) {
+            .row > .col-md-6 {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <a class="navbar-brand" href="#">Sensor Dashboard</a>
+</nav>
+<div class="container mt-5">
+    <div class="row" id="chartsContainer">
+        <!-- Chart containers will be dynamically added here -->
+    </div>
+</div>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    const socket = io('http://localhost:9000');
+    const sensorData = {};
+    const charts = {};
+
+    socket.on('sensorData', (data) => {
+        const { machineId, machineName, timestamp, powerConsumption, emissions, operatingTemperature, vibration, pressure, anomaly, anomalyDetails, currentState } = data;
+
+        if (!sensorData[machineId]) {
+            sensorData[machineId] = {
+                powerConsumption: [],
+                emissions: [],
+                operatingTemperature: [],
+                vibration: [],
+                pressure: [],
+                anomaly: anomaly || false,
+                anomalyDetails: anomalyDetails || [], // Store anomaly details
+                currentState: currentState || 'operational' // Store the current state
+            };
+
+            createChart(machineId, machineName);
+        }
+
+        // Add new data point to each dataset
+        sensorData[machineId].powerConsumption.push({ x: new Date(timestamp), y: powerConsumption });
+        sensorData[machineId].emissions.push({ x: new Date(timestamp), y: emissions });
+        sensorData[machineId].operatingTemperature.push({ x: new Date(timestamp), y: operatingTemperature });
+        sensorData[machineId].vibration.push({ x: new Date(timestamp), y: vibration });
+        sensorData[machineId].pressure.push({ x: new Date(timestamp), y: pressure });
+
+        // Update anomaly status and details in sensorData
+        sensorData[machineId].anomaly = anomaly || false;
+        sensorData[machineId].currentState = currentState || 'operational';
+
+        // Update the anomalyDetails array if anomaly is detected
+        if (anomaly && anomalyDetails && anomalyDetails.length > 0) {
+            sensorData[machineId].anomalyDetails = anomalyDetails;
+        } else {
+            sensorData[machineId].anomalyDetails = [];
+        }
+
+        updateChart(machineId);
+    });
+
+    function createChart(machineId, machineName) {
+        const chartContainer = document.createElement('div');
+        chartContainer.className = 'col-md-6 chart-container';
+        chartContainer.innerHTML = `
+            <h4 class="chart-title">Machine: ${machineName}
+                <span id="badge-${machineId}" class="anomaly-badge d-none">Anomaly</span>
+                <span id="status-badge-${machineId}" class="status-badge"></span>
+            </h4>
+            <div class="machine-id">(ID: ${machineId})</div>
+            <canvas id="chart-${machineId}"></canvas>
+            <div id="anomaly-list-${machineId}" class="anomaly-list d-none"></div>
+        `;
+        document.getElementById('chartsContainer').appendChild(chartContainer);
+
+        const ctx = document.getElementById(`chart-${machineId}`).getContext('2d');
+
+        charts[machineId] = new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                        label: `Power Consumption`,
+                        data: sensorData[machineId].powerConsumption,
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        hidden: false
+                    },
+                    {
+                        label: `Emissions`,
+                        data: sensorData[machineId].emissions,
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        hidden: false
+                    },
+                    {
+                        label: `Operating Temperature`,
+                        data: sensorData[machineId].operatingTemperature,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        hidden: false
+                    },
+                    {
+                        label: `Vibration`,
+                        data: sensorData[machineId].vibration,
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        hidden: false
+                    },
+                    {
+                        label: `Pressure`,
+                        data: sensorData[machineId].pressure,
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        hidden: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'second',
+                            tooltipFormat: 'MMM d, yyyy, h:mm:ss a'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Time'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Value'
+                        },
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                let label = tooltipItem.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += tooltipItem.raw.y;
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function updateChart(machineId) {
+        const chartContainer = document.querySelector(`#chart-${machineId}`).closest('.chart-container');
+        const chartTitle = chartContainer.querySelector('.chart-title');
+        const badge = document.getElementById(`badge-${machineId}`);
+        const anomalyList = document.getElementById(`anomaly-list-${machineId}`);
+        const statusBadge = document.getElementById(`status-badge-${machineId}`);
+
+        const isAnomaly = sensorData[machineId].anomaly;
+        const currentState = sensorData[machineId].currentState;
+        const anomalyDetails = sensorData[machineId].anomalyDetails;
+
+        // Update the status badge
+        if (currentState === 'off') {
+            statusBadge.innerText = 'Off';
+            statusBadge.classList.remove('status-badge-operational');
+            statusBadge.classList.remove('d-none');
+            chartContainer.classList.add('off-sensor');
+            chartContainer.classList.remove('anomaly-sensor');
+            chartTitle.classList.remove('anomaly');
+            badge.classList.add('d-none');
+            anomalyList.classList.add('d-none');
+            anomalyList.innerHTML = '';
+
+            // Reset all line styles to solid
+            charts[machineId].data.datasets.forEach(dataset => {
+                dataset.borderDash = []; // Solid line
+                dataset.borderWidth = 2; // Reset to default width
+            });
+
+        } else if (currentState === 'anomaly') {
+            statusBadge.innerText = 'Anomaly Detected';
+            statusBadge.classList.add('d-none');
+            chartContainer.classList.remove('off-sensor');
+
+            chartContainer.classList.add('anomaly-sensor');
+            chartTitle.classList.add('anomaly');
+            badge.classList.remove('d-none');
+
+            if (anomalyDetails.length > 0) {
+                anomalyList.classList.remove('d-none');
+                anomalyList.innerHTML = anomalyDetails.map(spec => `
+                <div class="anomaly-item">
+                    <span class="anomaly-item-icon">⚠️</span> ${spec}
+                </div>
+            `).join('');
+
+                // Apply dashed line style to anomaly lines for all specified anomalies
+                anomalyDetails.forEach(spec => {
+                    charts[machineId].data.datasets.forEach((dataset, index) => {
+                        if (dataset.label.toLowerCase() === spec.toLowerCase()) {
+                            charts[machineId].data.datasets[index].borderDash = [5, 5]; // Set the line to be dashed
+                            charts[machineId].data.datasets[index].borderWidth = 3; // Increase border width slightly for visibility
+                        }
+                    });
+                });
+
+            } else {
+                anomalyList.classList.add('d-none');
+                anomalyList.innerHTML = '';
+            }
+        } else {
+            statusBadge.innerText = 'Operational';
+            statusBadge.classList.add('status-badge-operational');
+            statusBadge.classList.remove('d-none');
+            chartContainer.classList.remove('off-sensor', 'anomaly-sensor');
+            chartTitle.classList.remove('anomaly');
+            badge.classList.add('d-none');
+            anomalyList.classList.add('d-none');
+            anomalyList.innerHTML = '';
+
+            // Reset all line styles to solid
+            charts[machineId].data.datasets.forEach(dataset => {
+                dataset.borderDash = []; // Solid line
+                dataset.borderWidth = 2; // Reset to default width
+            });
+        }
+
+        charts[machineId].update();  // Force the chart to re-render
+    }
+
+</script>
+</body>
+</html>

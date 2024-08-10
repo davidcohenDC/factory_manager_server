@@ -7,7 +7,7 @@
     "@controllers/*": ["src/api/controllers/*"],
     "@models/*": ["src/models/*"],
     "@routes/*": ["src/api/routes/*"],
-    "@services/*": ["src/services/*"],
+    "@services/*": ["src/api/services/*"],
     "@loaders/*": ["src/loaders/*"],
     "@public/*": ["public/*"],
     "@config/*": ["src/config/*"],
