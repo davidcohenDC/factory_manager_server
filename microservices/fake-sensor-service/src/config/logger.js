@@ -17,10 +17,10 @@ const logger = winston.createLogger({
                 })
             )
         }),
-        new transports.File({ filename: 'combined.log' })
+        new transports.File({ filename: 'log/combined.log' })
     ],
     exceptionHandlers: [
-        new transports.File({ filename: 'exceptions.log' })
+        new transports.File({ filename: 'log/exceptions.log' })
     ]
 });
 
