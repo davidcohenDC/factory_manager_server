@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
-const {logger} = require("@root/config");
 const { Schema } = mongoose;
-
-const logSource = { source: 'MachineSensorSchema' };
 
 const sensorDataEntrySchema = new Schema({
     timestamp: {

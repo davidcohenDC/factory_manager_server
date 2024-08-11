@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const { logger } = require('@config/');
-
-const logSource = { source: 'MachineSchema' };
 
 const machineSchema = new Schema({
     machineId: {

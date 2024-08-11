@@ -1,11 +1,8 @@
 require('module-alias/register');
 require('dotenv').config();
 
-const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
-const socketIo = require('socket.io');
-const path = require('path');
 const { port } = require('@config/');
 const { logger } = require('@config/');
 const { startApp, app } = require('./app');
