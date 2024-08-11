@@ -1,5 +1,8 @@
 const socketIo = require('socket.io');
-const { logger } = require('@config/');
+const { logger, jwtSecret } = require('@config/');
+const jwt = require('jsonwebtoken'); // Assuming you're using JWT for auth
+
+
 
 /**
  * Initialize WebSocket server and handle connections.
@@ -11,11 +14,23 @@ function initializeWebSocket(server) {
 
     logger.info('Initializing WebSocket server...');
 
-    io.on('connection', (socket) => {
-        logger.info('A client connected to the WebSocket server.');
+    const sensorNamespace = io.of('/sensors');
+
+    sensorNamespace.on('connection', (socket) => {
+        logger.info('A client connected to the /sensors namespace.');
+
+        socket.on('joinRoom', (roomId) => {
+            socket.join(roomId);
+            logger.info(`Client joined room: ${roomId}`);
+        });
+
+        socket.on('leaveRoom', (roomId) => {
+            socket.leave(roomId);
+            logger.info(`Client left room: ${roomId}`);
+        });
 
         socket.on('disconnect', () => {
-            logger.info('A client disconnected from the WebSocket server.');
+            logger.info('A client disconnected from the /sensors namespace.');
         });
     });
 

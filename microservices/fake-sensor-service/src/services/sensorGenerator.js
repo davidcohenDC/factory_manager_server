@@ -10,7 +10,7 @@ module.exports = (io) => async function generateSensorData() {
     logger.info('Starting the sensor data generation process...');
     try {
         const machines = await getAllMachines();
-
+        const sensorNamespace = io.of('/sensors');
         for (const machine of machines) {
             try {
                 logger.info(`Generating data for machine ID: ${machine.machineId}...`);
@@ -18,8 +18,8 @@ module.exports = (io) => async function generateSensorData() {
                 // Generate sensor data for the machine
                 const sensorData = await generateDataForMachine(machine);
 
-                // Emit the generated sensor data via WebSocket
-                io.emit('sensorData', sensorData);
+                // Emit the generated sensor data to the specific room (machineId)
+                sensorNamespace.emit('sensorData', sensorData);
 
                 // Find the existing MachineSensor document or create a new one
                 let machineSensor = await MachineSensor.findOne({ machineId: machine.machineId });

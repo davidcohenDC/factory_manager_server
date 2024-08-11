@@ -9,7 +9,8 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- date-fns for Chart.js -->
-    <script src=https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
     <!-- Socket.io -->
     <script src="https://cdn.jsdelivr.net/npm/socket.io/client-dist/socket.io.js"></script>
     <style>
@@ -106,7 +107,11 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-    const socket = io('http://localhost:9000');
+
+
+    // Connect to the /sensors namespace
+    const socket = io('http://localhost:9000/sensors');
+
     const sensorData = {};
     const charts = {};
 
@@ -256,17 +261,43 @@
     }
 
     function updateChart(machineId) {
+        // Check if the chart exists for the given machineId
+        if (!charts[machineId]) {
+            console.error(`Chart for machineId ${machineId} is not initialized.`);
+            return;
+        }
+
+        // Retrieve the chart and sensor data
+        const chart = charts[machineId];
+        const data = sensorData[machineId];
+
+        // Make sure sensor data exists
+        if (!data) {
+            console.error(`Sensor data for machineId ${machineId} is not available.`);
+            return;
+        }
+
+        // Retrieve the chart container, title, and badges for the specific machine
         const chartContainer = document.querySelector(`#chart-${machineId}`).closest('.chart-container');
         const chartTitle = chartContainer.querySelector('.chart-title');
         const badge = document.getElementById(`badge-${machineId}`);
         const anomalyList = document.getElementById(`anomaly-list-${machineId}`);
         const statusBadge = document.getElementById(`status-badge-${machineId}`);
 
-        const isAnomaly = sensorData[machineId].anomaly;
-        const currentState = sensorData[machineId].currentState;
-        const anomalyDetails = sensorData[machineId].anomalyDetails;
+        // Retrieve the anomaly status, current state, and anomaly details from sensor data
+        const isAnomaly = data.anomaly;
+        const currentState = data.currentState;
+        const anomalyDetails = data.anomalyDetails;
 
-        // Update the status badge
+        // Update the chart datasets with new data
+        chart.data.datasets.forEach(dataset => {
+            const datasetName = dataset.label.replace(/\s+/g, '').toLowerCase();
+            if (data[datasetName]) {
+                dataset.data.push(data[datasetName].slice(-1)[0]); // Add only the latest data point
+            }
+        });
+
+        // Update the status badge based on the current state
         if (currentState === 'off') {
             statusBadge.innerText = 'Off';
             statusBadge.classList.remove('status-badge-operational');
@@ -279,7 +310,7 @@
             anomalyList.innerHTML = '';
 
             // Reset all line styles to solid
-            charts[machineId].data.datasets.forEach(dataset => {
+            chart.data.datasets.forEach(dataset => {
                 dataset.borderDash = []; // Solid line
                 dataset.borderWidth = 2; // Reset to default width
             });
@@ -296,12 +327,12 @@
             if (anomalyDetails.length > 0) {
                 anomalyList.classList.remove('d-none');
                 anomalyList.innerHTML = anomalyDetails.map(spec => `
-            <div class="anomaly-item">
-                <span class="anomaly-item-icon">⚠️</span> ${spec}
-            </div>
-        `).join('');
+                <div class="anomaly-item">
+                    <span class="anomaly-item-icon">⚠️</span> ${spec}
+                </div>
+            `).join('');
 
-                charts[machineId].data.datasets.forEach(dataset => {
+                chart.data.datasets.forEach(dataset => {
                     // Reset all lines to solid by default
                     dataset.borderDash = [];
                     dataset.borderWidth = 2;
@@ -330,14 +361,16 @@
             anomalyList.innerHTML = '';
 
             // Reset all line styles to solid
-            charts[machineId].data.datasets.forEach(dataset => {
+            chart.data.datasets.forEach(dataset => {
                 dataset.borderDash = []; // Solid line
                 dataset.borderWidth = 2; // Reset to default width
             });
         }
 
-        charts[machineId].update();  // Force the chart to re-render
+        // Force the chart to re-render with the updated data
+        chart.update();
     }
+
 
 
 

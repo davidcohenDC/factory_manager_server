@@ -7,5 +7,6 @@ config()
 module.exports = {
     logger,
     port: process.env.PORT || 5000,
-    dbUri: process.env.TEST_DB_URI
+    dbUri: process.env.TEST_DB_URI,
+    jwtSecret: process.env.JWT_SECRET,
 }
