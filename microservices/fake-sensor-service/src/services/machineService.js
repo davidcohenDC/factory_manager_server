@@ -5,16 +5,29 @@ const { generateRandomSensorData } = require('@services/sensorDataGenerator');
 const { handleOffState } = require('@services/stateHandler');
 const { logger } = require('@config/');
 
+/**
+ * Fetch all machines from the database.
+ * @returns {Promise<Array>} List of machines.
+ */
 async function getAllMachines() {
+    logger.info('Fetching all machines from the database...');
     try {
-        return await Machine.find();
+        const machines = await Machine.find();
+        logger.info(`Successfully fetched ${machines.length} machines.`);
+        return machines;
     } catch (error) {
-        logger.error('Error fetching machines:', error);
+        logger.error('Error fetching machines:', { error });
         throw error;
     }
 }
 
+/**
+ * Generate sensor data for a specific machine.
+ * @param {Object} machine - Machine object.
+ * @returns {Promise<Object>} Generated sensor data.
+ */
 async function generateDataForMachine(machine) {
+    logger.info(`Generating sensor data for machine ID: ${machine.machineId}...`);
     try {
         let currentValues;
 
@@ -22,7 +35,7 @@ async function generateDataForMachine(machine) {
             currentValues = generateRandomSensorData(machine.specifications);
             currentValues = handleAnomaly(currentValues, machine);
         } else if (machine.machineState.currentState === 'off') {
-            logger.info(`Machine ${machine.machineId} is currently off.`);
+            logger.info(`Machine ID: ${machine.machineId} is currently off.`);
             currentValues = handleOffState();
         } else {
             currentValues = generateRandomSensorData(machine.specifications);
@@ -39,12 +52,7 @@ async function generateDataForMachine(machine) {
         }
 
         await machineSensor.save();
-        logger.info(`Generated sensor data for machine ${machine.machineId}`, {
-            machineId: machine.machineId,
-            machineName: machine.name,
-            sensorData: currentValues,
-            currentState: machine.machineState.currentState,
-        });
+        logger.info(`Sensor data for machine ID: ${machine.machineId} saved successfully.`);
 
         return {
             machineId: machine.machineId,
@@ -54,11 +62,7 @@ async function generateDataForMachine(machine) {
             anomalyDetails: machine.machineState.anomalyDetails,
         };
     } catch (error) {
-        logger.error(`Error generating sensor data for machine ${machine.machineId}: ${error.message}`, {
-            machineId: machine.machineId,
-            machineName: machine.name,
-            error: error.stack,
-        });
+        logger.error(`Error generating sensor data for machine ID: ${machine.machineId}`, { error });
         throw error;
     }
 }

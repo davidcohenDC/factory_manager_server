@@ -53,5 +53,6 @@ machineSensorDataSchema.post('save', function (err, doc, next) {
     }
 });
 
+
 const MachineSensor = mongoose.model('MachineSensor', machineSensorDataSchema);
 module.exports = MachineSensor;

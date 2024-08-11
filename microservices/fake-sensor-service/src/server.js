@@ -8,60 +8,73 @@ const socketIo = require('socket.io');
 const path = require('path');
 const { port } = require('@config/');
 const { logger } = require('@config/');
-const { app, start } = require('./app');
+const { startApp, app } = require('./app');
 const initializeWebSocket = require('@loaders/websocket'); // Import the WebSocket initializer
 const generateSensorData = require('@services/sensorGenerator');
 
 const logSource = { source: 'Express Server' };
 
 const startServer = async () => {
+    logger.info('Initializing server...', logSource);
     try {
         const server = http.createServer(app);
 
         const io = initializeWebSocket(server); // Initialize the WebSocket server
 
-        await start(io);
-        logger.info('Server started');
+        await startApp(io);
+        logger.info('Server initialized successfully.', logSource);
 
-        // Start the sensor data generation process
-        generateSensorData(io); // Start the initial execution
+        // Generate sensor data every 5 seconds
+        await generateSensorData(io)();
 
+// Start listening for incoming requests
         server.listen(port, () => {
-            logger.info(`Server is running on port ${port}`, logSource);
+            logger.info(`Server is running on port ${port}.`, logSource);
         });
 
+        // Handle graceful shutdown
         process.on('SIGINT', () => {
-            logger.info('Gracefully shutting down...', logSource);
+            logger.info('Gracefully shutting down the server...', logSource);
             server.close(async () => {
-                logger.info('Server is closed', logSource);
+                logger.info('Server closed.', logSource);
                 try {
                     await mongoose.disconnect();
-                    logger.info('Mongoose disconnected', logSource);
+                    logger.info('Disconnected from MongoDB.', logSource);
                     process.exit(0);
                 } catch (err) {
-                    logger.error('Error while disconnecting from Mongoose', logSource);
+                    logger.error('Error during MongoDB disconnection.', logSource);
                     process.exit(1);
                 }
             });
         });
 
-        // Log any unhandled rejections and uncaught exceptions
+        // Handle unhandled promise rejections
         process.on('unhandledRejection', (reason, promise) => {
-            logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
+            logger.error('Unhandled Rejection:', {
+                reason,
+                promise,
+                ...logSource,
+            });
         });
 
+        // Handle uncaught exceptions
         process.on('uncaughtException', (error) => {
-            logger.error('Uncaught Exception thrown:', error);
-            process.exit(1); // Exit the process to avoid undefined states
+            logger.error('Uncaught Exception:', {
+                error,
+                ...logSource,
+            });
+            process.exit(1);
         });
 
     } catch (error) {
-        logger.error('Error starting server:', error);
+        logger.error('Error during server initialization:', {
+            error,
+            ...logSource,
+        });
         process.exit(1);
     }
 };
 
-// Serve the HTML file
-app.use(express.static(path.join(__dirname, '..', 'public')));
-
-startServer().then((r) => r);
+startServer()
+    .then(r => console.log('Server started successfully'))
+    .catch(e => console.error('Error starting server:', e));

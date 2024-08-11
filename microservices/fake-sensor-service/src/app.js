@@ -1,19 +1,26 @@
 const express = require('express');
 const { logger } = require('@config/');
 const initializeLoaders = require('@loaders/');
-const logSource = { source: 'Express Server' };
 const path = require('path');
-const errorHandler = require('@middlewares/errorHandler'); // Import the error handler
+const errorHandler = require('@middlewares/errorHandler');
+
 const app = express();
 
-// Serve the HTML file
+// Serve static files (e.g., HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));
 
-const start = async (io) => {
+/**
+ * Start the application by initializing loaders and middleware.
+ * @param {Object} io - Socket.io instance for real-time communication.
+ * @returns {Object} Express app instance.
+ */
+const startApp = async (io) => {
     await initializeLoaders(app);
-    logger.info('App is configured', logSource);
+    logger.info('Application has been successfully configured.', { source: 'Express Server' });
+
+    // Centralized error handling middleware
     app.use(errorHandler);
     return app;
 };
 
-module.exports = { start, app };
+module.exports = { startApp, app };

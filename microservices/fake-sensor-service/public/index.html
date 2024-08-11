@@ -296,17 +296,21 @@
             if (anomalyDetails.length > 0) {
                 anomalyList.classList.remove('d-none');
                 anomalyList.innerHTML = anomalyDetails.map(spec => `
-                <div class="anomaly-item">
-                    <span class="anomaly-item-icon">⚠️</span> ${spec}
-                </div>
-            `).join('');
+            <div class="anomaly-item">
+                <span class="anomaly-item-icon">⚠️</span> ${spec}
+            </div>
+        `).join('');
 
-                // Apply dashed line style to anomaly lines for all specified anomalies
-                anomalyDetails.forEach(spec => {
-                    charts[machineId].data.datasets.forEach((dataset, index) => {
-                        if (dataset.label.toLowerCase() === spec.toLowerCase()) {
-                            charts[machineId].data.datasets[index].borderDash = [5, 5]; // Set the line to be dashed
-                            charts[machineId].data.datasets[index].borderWidth = 3; // Increase border width slightly for visibility
+                charts[machineId].data.datasets.forEach(dataset => {
+                    // Reset all lines to solid by default
+                    dataset.borderDash = [];
+                    dataset.borderWidth = 2;
+
+                    anomalyDetails.forEach(spec => {
+                        const formattedSpec = spec.replace(/([a-z])([A-Z])/g, '$1 $2'); // Convert camelCase to Title Case
+                        if (dataset.label.toLowerCase() === formattedSpec.toLowerCase()) {
+                            dataset.borderDash = [5, 5]; // Set the line to be dashed
+                            dataset.borderWidth = 3; // Increase border width slightly for visibility
                         }
                     });
                 });
@@ -334,6 +338,9 @@
 
         charts[machineId].update();  // Force the chart to re-render
     }
+
+
+
 
 </script>
 </body>
