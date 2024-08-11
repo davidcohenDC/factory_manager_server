@@ -28,6 +28,8 @@
     "@models": "./src/models",
     "@services": "./src/services",
     "@loaders": "./src/loaders",
-    "@routes": "./src/routes"
+    "@routes": "./src/routes",
+    "@utils": "./src/utils",
+    "@middlewares": "./src/middlewares"
   }
 }

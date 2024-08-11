@@ -40,11 +40,11 @@ const machineSensorDataSchema = new Schema({
     test: Boolean
 });
 
+// src/models/machine.js
 machineSensorDataSchema.post('save', function (err, doc, next) {
     if (err) {
         if (err.name === 'MongoServerError' && err.code === 11000) {
-            logger.error(`Error saving machine sensor (MongoServerError): ${err.message}`, logSource);
-            next(new Error('machine is already taken.'));
+            next(new Error('machineSensor is already taken.'));
         } else {
             next(err);
         }
@@ -52,5 +52,6 @@ machineSensorDataSchema.post('save', function (err, doc, next) {
         next();
     }
 });
+
 const MachineSensor = mongoose.model('MachineSensor', machineSensorDataSchema);
 module.exports = MachineSensor;

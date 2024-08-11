@@ -130,10 +130,10 @@ const machineSchema = new Schema({
 });
 
 
+// src/models/machine.js
 machineSchema.post('save', function (err, doc, next) {
     if (err) {
         if (err.name === 'MongoServerError' && err.code === 11000) {
-            logger.error(`Error saving machine (MongoServerError): ${err.message}`, logSource);
             next(new Error('machine is already taken.'));
         } else {
             next(err);
@@ -142,6 +142,7 @@ machineSchema.post('save', function (err, doc, next) {
         next();
     }
 });
+
 
 const Machine = mongoose.model('Machine', machineSchema);
 module.exports = Machine;

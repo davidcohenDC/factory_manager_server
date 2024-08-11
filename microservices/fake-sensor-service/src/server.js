@@ -1,5 +1,6 @@
 require('module-alias/register');
 require('dotenv').config();
+
 const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
@@ -8,23 +9,22 @@ const path = require('path');
 const { port } = require('@config/');
 const { logger } = require('@config/');
 const { app, start } = require('./app');
+const initializeWebSocket = require('@loaders/websocket'); // Import the WebSocket initializer
+const generateSensorData = require('@services/sensorGenerator');
 
 const logSource = { source: 'Express Server' };
 
 const startServer = async () => {
     try {
         const server = http.createServer(app);
-        const io = socketIo(server);
 
-        io.on('connection', (socket) => {
-            logger.info('Client connected');
-            socket.on('disconnect', () => {
-                logger.info('Client disconnected');
-            });
-        });
+        const io = initializeWebSocket(server); // Initialize the WebSocket server
 
         await start(io);
         logger.info('Server started');
+
+        // Start the sensor data generation process
+        generateSensorData(io); // Start the initial execution
 
         server.listen(port, () => {
             logger.info(`Server is running on port ${port}`, logSource);
