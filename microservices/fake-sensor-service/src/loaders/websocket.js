@@ -1,8 +1,5 @@
 const socketIo = require('socket.io');
-const { logger, jwtSecret } = require('@config/');
-const jwt = require('jsonwebtoken'); // Assuming you're using JWT for auth
-
-
+const { logger } = require('@config/');
 
 /**
  * Initialize WebSocket server and handle connections.
