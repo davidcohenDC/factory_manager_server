@@ -6,7 +6,7 @@ let lastAnomalyValue = {}; // To keep track of the last anomaly value per sensor
 function handleAnomaly(currentValues, machine) {
     if (machine.machineState.anomalyDetails && machine.machineState.anomalyDetails.length > 0) {
         currentValues.anomaly = true;
-        logger.info(`Handling anomaly for machine ${machine.machineId}`);
+        logger.info(`Handling anomaly for machine ${machine.serial}`);
 
         machine.machineState.anomalyDetails.forEach((spec) => {
             const normalMax = parseFloat(machine.specifications[spec].normalRange.max.toString());

@@ -16,7 +16,7 @@ router.get(specs, setup(specDoc, { explorer: true }))
 router.use('/user', UserRoutes)
 router.use('/machine', MachineRoutes)
 router.use('/area', AreaRoutes)
-router.use('/machineSensor', MachineSensorRoutes)
+router.use('/machine-sensor', MachineSensorRoutes)
 
 // Redirect from root to /docs
 router.use((_req, res, _next) => {

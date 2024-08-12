@@ -1,16 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const { areaCRUD } = require('@controllers/area/')
+const { areaController } = require('@controllers/area/')
 const { validateAreaId } = require('@validations/area.validation')
-const pagination = require('@middlewares/pagination')
-const { tagTest } = require('@middlewares/')
+const { pagination } = require('@middlewares/')
 
-// CRUD operations for area
 
-router.post('/', tagTest, areaCRUD.create)
-router.get('/', pagination({itemsPerPage: 50, maxItemsPerPage: 100}), areaCRUD.getAll)
-router.get('/id/:id', validateAreaId, areaCRUD.getOne)
-router.patch('/id/:id', validateAreaId, areaCRUD.update)
-router.delete('/id/:id', validateAreaId, areaCRUD.remove)
+router.post('/', areaController.createArea)
+router.get('/', pagination({itemsPerPage: 50, maxItemsPerPage: 100}), areaController.getAllAreas)
+router.get('/id/:id', validateAreaId, areaController.getAreaById)
+router.patch('/id/:id', validateAreaId, areaController.updateAreaById)
+router.delete('/id/:id', validateAreaId, areaController.deleteAreaById)
+router.get('/name/:name', areaController.getAreaByName)
 
 module.exports = router

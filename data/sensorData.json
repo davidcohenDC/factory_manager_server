@@ -1,6 +1,6 @@
 [
     {
-        "machineId": "MCH1011",
+        "serial": "MCH1011",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.286921Z",
@@ -245,7 +245,7 @@
         ]
     },
     {
-        "machineId": "MCH1012",
+        "serial": "MCH1012",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.287379Z",
@@ -490,7 +490,7 @@
         ]
     },
     {
-        "machineId": "MCH1001",
+        "serial": "MCH1001",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.287805Z",
@@ -735,7 +735,7 @@
         ]
     },
     {
-        "machineId": "MCH1002",
+        "serial": "MCH1002",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.288225Z",
@@ -980,7 +980,7 @@
         ]
     },
     {
-        "machineId": "MCH1022",
+        "serial": "MCH1022",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.288657Z",
@@ -1225,7 +1225,7 @@
         ]
     },
     {
-        "machineId": "MCH1003",
+        "serial": "MCH1003",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.289072Z",
@@ -1470,7 +1470,7 @@
         ]
     },
     {
-        "machineId": "MCH1004",
+        "serial": "MCH1004",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.289491Z",
@@ -1715,7 +1715,7 @@
         ]
     },
     {
-        "machineId": "MCH1007",
+        "serial": "MCH1007",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.290044Z",
@@ -1960,7 +1960,7 @@
         ]
     },
     {
-        "machineId": "MCH1008",
+        "serial": "MCH1008",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.290468Z",
@@ -2205,7 +2205,7 @@
         ]
     },
     {
-        "machineId": "MCH1009",
+        "serial": "MCH1009",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.290796Z",
@@ -2450,7 +2450,7 @@
         ]
     },
     {
-        "machineId": "MCH1010",
+        "serial": "MCH1010",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.291483Z",
@@ -2695,7 +2695,7 @@
         ]
     },
     {
-        "machineId": "MCH1013",
+        "serial": "MCH1013",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.291986Z",
@@ -2940,7 +2940,7 @@
         ]
     },
     {
-        "machineId": "MCH1014",
+        "serial": "MCH1014",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.292436Z",
@@ -3185,7 +3185,7 @@
         ]
     },
     {
-        "machineId": "MCH1014",
+        "serial": "MCH1014",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.292894Z",
@@ -3430,7 +3430,7 @@
         ]
     },
     {
-        "machineId": "MCH1005",
+        "serial": "MCH1005",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.293316Z",
@@ -3675,7 +3675,7 @@
         ]
     },
     {
-        "machineId": "MCH1006",
+        "serial": "MCH1006",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.293616Z",
@@ -3920,7 +3920,7 @@
         ]
     },
     {
-        "machineId": "MCH1026",
+        "serial": "MCH1026",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.293890Z",
@@ -4165,7 +4165,7 @@
         ]
     },
     {
-        "machineId": "MCH1024",
+        "serial": "MCH1024",
         "sensorData": [
             {
                 "timestamp": "2024-08-04T22:32:45.294151Z",

@@ -29,7 +29,7 @@ const sensorDataEntrySchema = new Schema({
 });
 
 const machineSensorDataSchema = new Schema({
-    machineId: {
+    serial: {
         type: String,  // Use String if you're using custom IDs like "MCH1011"
         required: true
     },

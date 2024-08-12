@@ -1,16 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const {validateMachineBody, validateMachineId} = require('@validations/machine.validation')
-const { machineCRUD } = require('@controllers/machine/')
-const pagination = require('@middlewares/pagination')
-const { tagTest } = require('@middlewares/')
+const {validateMachineBody, validateMachineId } = require('@validations/machine.validation')
+const { machineController } = require('@controllers/machine/')
+const { pagination } = require('@middlewares/')
 
-// CRUD operations for machine
-
-router.post('/',  tagTest, machineCRUD.create)
-router.get('/', pagination({itemsPerPage: 50, maxItemsPerPage: 100}), machineCRUD.getAll)
-router.get('/id/:id', validateMachineId, machineCRUD.getOne)
-router.patch('/id/:id', validateMachineId, machineCRUD.update)
-router.delete('/id/:id', validateMachineId, machineCRUD.remove)
+router.post('/',  validateMachineBody, machineController.createMachine)
+router.get('/', pagination({itemsPerPage: 50, maxItemsPerPage: 100}), machineController.getAllMachines)
+router.get('/id/:id', validateMachineId, machineController.getMachineById)
+router.patch('/id/:id', validateMachineId, machineController.updateMachineById)
+router.delete('/id/:id', validateMachineId, machineController.deleteMachineById)
+router.get('/serial/:serial', machineController.getMachineBySerial)
 
 module.exports = router

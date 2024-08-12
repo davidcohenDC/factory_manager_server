@@ -5,7 +5,7 @@ const {expectError, initializeServer, closeServer} = require('@test/api/utils/he
 const { machineData, machineDataTwo } = require('@test/api/controllers/machine/')
 
 const machineSensorData = {
-        machineId: machineData.machineId,
+        serial: machineData.serial,
         sensorData: [
                 {
                         timestamp: new Date(),
@@ -19,7 +19,7 @@ const machineSensorData = {
 }
 
 const machineSensorDataTwo = {
-        machineId: machineDataTwo.machineId,
+        serial: machineDataTwo.serial,
         sensorData: [
                 {
                         timestamp: new Date(),

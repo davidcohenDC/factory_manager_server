@@ -5,7 +5,7 @@ const { logger } = require('@config/');
 const logSource = { source: 'MachineSchema' };
 
 const machineSchema = new Schema({
-  machineId: {
+  serial: {
     type: String,
     unique: true
   },

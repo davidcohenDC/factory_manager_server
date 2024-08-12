@@ -21,7 +21,7 @@ describe('Machine Sensors Routes', () => {
     const routes = [
         { path: '/api/machineSensor', method: 'get' },
         { path: '/api/machineSensor/id/:id', method: 'get' },
-        { path: '/api/machineSensor/machineId/:machineId', method: 'get' }
+        { path: '/api/machineSensor/serial/:serial', method: 'get' }
     ]
 
     routes.forEach((route) => {

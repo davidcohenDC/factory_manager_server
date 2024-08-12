@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const machineSchema = new Schema({
-    machineId: {
+    serial: {
         type: String,
         unique: true
     },

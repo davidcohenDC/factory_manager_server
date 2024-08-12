@@ -13,19 +13,19 @@ module.exports = (io) => async function generateSensorData() {
         const sensorNamespace = io.of('/sensors');
         for (const machine of machines) {
             try {
-                logger.info(`Generating data for machine ID: ${machine.machineId}...`);
+                logger.info(`Generating data for serial: ${machine.serial}...`);
 
                 // Generate sensor data for the machine
                 const sensorData = await generateDataForMachine(machine);
 
-                // Emit the generated sensor data to the specific room (machineId)
+                // Emit the generated sensor data to the specific room (serial)
                 sensorNamespace.emit('sensorData', sensorData);
 
                 // Find the existing MachineSensor document or create a new one
-                let machineSensor = await MachineSensor.findOne({ machineId: machine.machineId });
+                let machineSensor = await MachineSensor.findOne({ serial: machine.serial });
                 if (!machineSensor) {
                     machineSensor = new MachineSensor({
-                        machineId: machine.machineId,
+                        serial: machine.serial,
                         sensorData: [sensorData],
                     });
                 } else {
@@ -35,9 +35,9 @@ module.exports = (io) => async function generateSensorData() {
                 // Save the MachineSensor document
                 await machineSensor.save();
 
-                logger.info(`Data generation for machine ID: ${machine.machineId} completed.`);
+                logger.info(`Data generation for serial: ${machine.serial} completed.`);
             } catch (error) {
-                logger.error(`Failed to generate data for machine ID: ${machine.machineId}`, { error: error.message, stack: error.stack });
+                logger.error(`Failed to generate data for serial: ${machine.serial}`, { error: error.message, stack: error.stack });
             }
         }
 

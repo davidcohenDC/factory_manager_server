@@ -75,12 +75,13 @@
     "@validations": "src/api/validations",
     "@public": "./public",
     "@controllers": "src/api/controllers",
-    "@services": "src/api/services",
+    "@services": "src/services",
     "@routes": "src/api/routes",
     "@models": "src/models",
     "@middlewares": "src/api/middlewares",
     "@config": "src/config",
     "@test": "./test",
-    "@logs": "./logs"
+    "@logs": "./logs",
+    "@repositories": "src/models/repositories"
   }
 }

@@ -5,7 +5,7 @@
             "last": "Doe"
         },
         "email": "john.doe@example.com",
-        "password": "$2a$12$kXv43EMcQWoRZGbGfqfAQuJ06nwJLRFcs5jkpkbqKtnd.d7hlk1O2",
+        "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
         "dataOfBirth": "1990-01-15T00:00:00Z",
         "address": {
             "street": "123 Olive St",
@@ -50,7 +50,7 @@
             "last": "Smith"
         },
         "email": "jane.smith@example.com",
-        "password": "$2a$12$iZNtmrXRb7k.sTAIn9Qjl.uOO3Y1yBs60XQ7O.H.PHVCOHSnAsaOG",
+        "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
         "dataOfBirth": "1985-02-20T00:00:00Z",
         "address": {
             "street": "456 Olive Ave",
@@ -95,7 +95,7 @@
             "last": "Johnson"
         },
         "email": "alex.johnson@example.com",
-        "password": "$2a$12$QxibGOmeyzl1LSjV4Eb4net5jfwLfLzZgBNrWQ2dyAPYO.MuvIkN6",
+        "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
         "dataOfBirth": "1992-03-10T00:00:00Z",
         "address": {
             "street": "789 Olive Blvd",
@@ -140,7 +140,7 @@
             "last": "Brown"
         },
         "email": "michael.brown@example.com",
-        "password": "$2a$12$Yxb89UI08GsgUmyjiS97Vem16MoJWz2vLnjkIkc.0haAbvGzMe.NO",
+        "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
         "dataOfBirth": "1988-04-25T00:00:00Z",
         "address": {
             "street": "321 Olive Ln",
@@ -185,7 +185,7 @@
             "last": "Davis"
         },
         "email": "emily.davis@example.com",
-        "password": "$2a$12$SVb8h6b6tdwLZjZHb7ZO3exvZcTimiNRdlw4UTJfwBeObAUybOmcm",
+        "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
         "dataOfBirth": "1995-05-30T00:00:00Z",
         "address": {
             "street": "654 Olive Way",

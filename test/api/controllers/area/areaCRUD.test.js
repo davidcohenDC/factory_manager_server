@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 
 const first_machine = {
   name: 'First Machine',
-  machineId: faker.internet.userName({ firstName: `TestMachine${Date.now()}` }),
+  serial: faker.internet.userName({ firstName: `TestMachine${Date.now()}` }),
   location: {
     area: 'Main Area 1'
   },
@@ -48,7 +48,7 @@ const first_machine = {
 
 const second_machine = {
   name: 'Second Machine',
-  machineId: faker.internet.userName({ firstName: `TestMachine${Date.now()}` }),
+  serial: faker.internet.userName({ firstName: `TestMachine${Date.now()}` }),
   location: {
     area: 'Test Area 1'
   },

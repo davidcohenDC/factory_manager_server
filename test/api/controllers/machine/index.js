@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const machineData = {
     name: 'First Machine',
-    machineId: "Machine1",
+    serial: "Machine1",
     location: {
         area: 'Main Area 1'
     },
@@ -40,7 +40,7 @@ const machineData = {
 
 const machineDataTwo = {
     name: 'Second Machine',
-    machineId: "Machine2",
+    serial: "Machine2",
     location: {
         area: 'Test Area 1'
     },

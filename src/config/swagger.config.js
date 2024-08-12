@@ -186,7 +186,7 @@ module.exports = {
         MachineSchema: {
           type: 'object',
           properties: {
-            machineId: {
+            serial: {
               type: 'string',
               example: 'MCHN001'
             },
@@ -405,7 +405,7 @@ module.exports = {
               example: false
             }
           },
-          required: ['machineId', 'name', 'location', 'machineState', 'specifications']
+          required: ['serial', 'name', 'location', 'machineState', 'specifications']
         },
         SpecRange: {
           type: 'object',
@@ -507,9 +507,9 @@ module.exports = {
     ]
   },
   apis: [
-    'src/utils/helpers/*.js',
+    'src/api/controllers/machine/*.js',
     'src/api/controllers/user/*.js',
-    'src/api/controllers/user/auth/*.js',
-    'src/api/controllers/machineSensor/getByMachine.js',
+    'src/api/controllers/area/*.js',
+    'src/api/controllers/machine-sensor/*.js',
   ]
 };

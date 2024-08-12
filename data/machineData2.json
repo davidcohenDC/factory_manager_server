@@ -1,6 +1,6 @@
 [
   {
-    "machineId": "MCH1011",
+    "serial": "MCH1011",
     "name": "Washing Machine 1",
     "location": {
       "area": "Pre-Processing"
@@ -80,7 +80,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1012",
+    "serial": "MCH1012",
     "name": "Washing Machine 2",
     "location": {
       "area": "Pre-Processing"
@@ -154,7 +154,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1001",
+    "serial": "MCH1001",
     "name": "Olive Crusher 1",
     "location": {
       "area": "Processing"

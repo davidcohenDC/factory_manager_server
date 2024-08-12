@@ -12,7 +12,7 @@ const rangeSchema = Joi.object({
 }).required();
 
 const machineBodySchema = Joi.object({
-  machineId: Joi.string().trim().required(),
+  serial: Joi.string().trim().required(),
   name: Joi.string().trim().required(),
   location: Joi.object({
     area: Joi.string().trim().required()
@@ -23,17 +23,25 @@ const machineBodySchema = Joi.object({
   }),
   specifications: Joi.object({
     powerConsumption: Joi.object({
-      normalRange: rangeSchema
+        measurementUnit: Joi.string().trim(),
+        normalRange: rangeSchema
     }),
     emissions: Joi.object({
+        measurementUnit: Joi.string().trim(),
       normalRange: rangeSchema
     }),
     operatingTemperature: Joi.object({
+        measurementUnit: Joi.string().trim(),
       normalRange: rangeSchema
     }),
-    humidity: Joi.object({
+    vibration: Joi.object({
+        measurementUnit: Joi.string().trim(),
       normalRange: rangeSchema
     }),
+    pressure: Joi.object({
+        measurementUnit: Joi.string().trim(),
+      normalRange: rangeSchema
+    })
   }).required(),
   turns: Joi.array().items(
       Joi.object({

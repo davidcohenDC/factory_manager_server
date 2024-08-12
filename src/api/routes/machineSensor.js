@@ -1,18 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const { getByMachine, machineSensorCRUD } = require('@controllers/machineSensor/')
+const { machineSensorController } = require('@controllers/machine-sensor/')
 const pagination = require('@middlewares/pagination')
 const { validateMachineSensorId } = require('@validations/machineSensor.validation')
-const { validateMachineId } = require('@validations/machine.validation')
 
 
-// GET all machineSensors
-router.get('/', pagination({itemsPerPage: 50, maxItemsPerPage: 100}), machineSensorCRUD.getAll)
-router.get('/id/:id', validateMachineSensorId, machineSensorCRUD.getOne)
-
-// GET machineSensor by machineId
-router.get('/machineId/:machineId',
-pagination({itemsPerPage: 50, maxItemsPerPage: 100}), getByMachine)
+router.post('/', machineSensorController.createMachineSensor)
+router.get('/', pagination({itemsPerPage: 50, maxItemsPerPage: 100}),
+    machineSensorController.getAllMachineSensors)
+router.get('/id/:id', validateMachineSensorId, machineSensorController.getMachineSensorById)
+router.get('/serial/:serial', pagination({itemsPerPage: 50, maxItemsPerPage: 100}),
+    machineSensorController.getMachineSensorBySerial)
 
 module.exports = router
 

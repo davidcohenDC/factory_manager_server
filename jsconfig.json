@@ -7,14 +7,15 @@
     "@controllers/*": ["src/api/controllers/*"],
     "@models/*": ["src/models/*"],
     "@routes/*": ["src/api/routes/*"],
-    "@services/*": ["src/api/services/*"],
     "@loaders/*": ["src/loaders/*"],
     "@public/*": ["public/*"],
     "@config/*": ["src/config/*"],
     "@middlewares/*": ["src/api/middlewares/*"],
     "@validations/*": ["src/api/validations/*"],
     "@test/*": ["test/*"],
-    "@logs/*": ["logs/*"]
+    "@logs/*": ["logs/*"],
+    "@services": ["src/services/*"],
+    "@repositories": ["src/models/repositories/*"]
     }
   },
   "exclude": ["node_modules"]

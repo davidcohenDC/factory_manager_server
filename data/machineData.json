@@ -1,6 +1,6 @@
 [
   {
-    "machineId": "MCH1011",
+    "serial": "MCH1011",
     "name": "Washing Machine 1",
     "location": {
       "area": "Pre-Processing"
@@ -80,7 +80,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1012",
+    "serial": "MCH1012",
     "name": "Washing Machine 2",
     "location": {
       "area": "Pre-Processing"
@@ -154,7 +154,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1001",
+    "serial": "MCH1001",
     "name": "Olive Crusher 1",
     "location": {
       "area": "Processing"
@@ -234,7 +234,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1002",
+    "serial": "MCH1002",
     "name": "Olive Crusher 2",
     "location": {
       "area": "Processing"
@@ -308,7 +308,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1022",
+    "serial": "MCH1022",
     "name": "Olive Crusher 3",
     "location": {
       "area": "Processing"
@@ -382,7 +382,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1003",
+    "serial": "MCH1003",
     "name": "Olive Paste Mixer 1",
     "location": {
       "area": "Processing"
@@ -462,7 +462,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1004",
+    "serial": "MCH1004",
     "name": "Olive Paste Mixer 2",
     "location": {
       "area": "Processing"
@@ -536,7 +536,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1024",
+    "serial": "MCH1024",
     "name": "Olive Paste Mixer 3",
     "location": {
       "area": "Processing"
@@ -610,7 +610,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1005",
+    "serial": "MCH1005",
     "name": "Decanter Centrifuge 1",
     "location": {
       "area": "Processing"
@@ -690,7 +690,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1006",
+    "serial": "MCH1006",
     "name": "Decanter Centrifuge 2",
     "location": {
       "area": "Processing"
@@ -764,7 +764,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1026",
+    "serial": "MCH1026",
     "name": "Decanter Centrifuge 3",
     "location": {
       "area": "Processing"
@@ -838,7 +838,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1007",
+    "serial": "MCH1007",
     "name": "Oil Filter 1",
     "location": {
       "area": "Post-Processing"
@@ -918,7 +918,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1008",
+    "serial": "MCH1008",
     "name": "Oil Filter 2",
     "location": {
       "area": "Post-Processing"
@@ -992,7 +992,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1009",
+    "serial": "MCH1009",
     "name": "Bottling Machine 1",
     "location": {
       "area": "Post-Processing"
@@ -1072,7 +1072,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1010",
+    "serial": "MCH1010",
     "name": "Bottling Machine 2",
     "location": {
       "area": "Post-Processing"
@@ -1146,7 +1146,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1013",
+    "serial": "MCH1013",
     "name": "Labeling Machine 1",
     "location": {
       "area": "Post-Processing"
@@ -1226,7 +1226,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1014",
+    "serial": "MCH1014",
     "name": "Labeling Machine 2",
     "location": {
       "area": "Post-Processing"
@@ -1300,7 +1300,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1015",
+    "serial": "MCH1015",
     "name": "Capping Machine 1",
     "location": {
       "area": "Release"
@@ -1380,7 +1380,7 @@
     "test": false
   },
   {
-    "machineId": "MCH1016",
+    "serial": "MCH1016",
     "name": "Capping Machine 2",
     "location": {
       "area": "Release"

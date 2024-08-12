@@ -27,7 +27,7 @@ async function getAllMachines() {
  * @returns {Promise<Object>} Generated sensor data.
  */
 async function generateDataForMachine(machine) {
-    logger.info(`Generating sensor data for machine ID: ${machine.machineId}...`);
+    logger.info(`Generating sensor data for serial: ${machine.serial}...`);
     try {
         let currentValues;
 
@@ -35,16 +35,16 @@ async function generateDataForMachine(machine) {
             currentValues = generateRandomSensorData(machine.specifications);
             currentValues = handleAnomaly(currentValues, machine);
         } else if (machine.machineState.currentState === 'off') {
-            logger.info(`Machine ID: ${machine.machineId} is currently off.`);
+            logger.info(`Serial: ${machine.serial} is currently off.`);
             currentValues = handleOffState();
         } else {
             currentValues = generateRandomSensorData(machine.specifications);
         }
 
-        let machineSensor = await MachineSensor.findOne({ machineId: machine.machineId });
+        let machineSensor = await MachineSensor.findOne({ serial: machine.serial });
         if (!machineSensor) {
             machineSensor = new MachineSensor({
-                machineId: machine.machineId,
+                serial: machine.serial,
                 sensorData: [currentValues],
             });
         } else {
@@ -52,17 +52,17 @@ async function generateDataForMachine(machine) {
         }
 
         await machineSensor.save();
-        logger.info(`Sensor data for machine ID: ${machine.machineId} saved successfully.`);
+        logger.info(`Sensor data for serial: ${machine.serial} saved successfully.`);
 
         return {
-            machineId: machine.machineId,
+            serial: machine.serial,
             machineName: machine.name,
             ...currentValues,
             currentState: machine.machineState.currentState,
             anomalyDetails: machine.machineState.anomalyDetails,
         };
     } catch (error) {
-        logger.error(`Error generating sensor data for machine ID: ${machine.machineId}`, { error });
+        logger.error(`Error generating sensor data for serial: ${machine.serial}`, { error });
         throw error;
     }
 }

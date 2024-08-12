@@ -152,7 +152,7 @@ function generateCRUDTests(
         expect(res).to.have.status(200);
         expect(res.body).to.be.a('object');
         expect(res.body[modelName]).to.have.property('_id');
-        expect(res.body[modelName].machineId).equal(modelDataPre.machineId);
+        expect(res.body[modelName].serial).equal(modelDataPre.serial);
       });
 
       it(`should return 400 when the ${modelName} ID is not valid`, async function () {
@@ -271,7 +271,7 @@ function generateCRUDTests(
         expect(res).to.have.status(200);
         expect(res.body).to.be.a('object');
         expect(res.body[modelName]).to.have.property('_id');
-        expect(res.body[modelName].machineId).equal(modelDataPre.machineId);
+        expect(res.body[modelName].serial).equal(modelDataPre.serial);
       });
 
       it(`should return 400 when the ${modelName} ID is not valid`, async function () {
