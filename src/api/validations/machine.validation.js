@@ -47,8 +47,8 @@ const machineBodySchema = Joi.object({
             turn: Joi.string().valid('morning', 'evening', 'night').required(),
             userId: Joi.string().length(24).hex().trim(),
             name: Joi.object({
-                firstName: Joi.string().trim(),
-                lastName: Joi.string().trim()
+                first: Joi.string().trim(),  // Updated to `first`
+                last: Joi.string().trim()    // Updated to `last`
             })
         })
     ),
@@ -80,6 +80,7 @@ const validateMachineBody = createValidationMiddleware(machineBodySchema, 'body'
 const validateMachineId = createValidationMiddleware(machineIdSchema, 'params', 'MachineValidation');
 
 module.exports = {
+    machineBodySchema,
     validateMachineBody,
     validateMachineId
 };

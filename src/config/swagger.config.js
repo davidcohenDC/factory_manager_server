@@ -183,24 +183,42 @@ module.exports = {
           },
           required: ['email', 'password']
         },
+        SpecRange: {
+          type: 'object',
+          properties: {
+            normalRange: {
+              type: 'object',
+              properties: {
+                min: {
+                  type: 'string',
+                  format: 'decimal',
+                  example: '20.0',
+                  description: 'Minimum acceptable value.'
+                },
+                max: {
+                  type: 'string',
+                  format: 'decimal',
+                  example: '40.0',
+                  description: 'Maximum acceptable value.'
+                }
+              }
+            }
+          }
+        },
         MachineSchema: {
           type: 'object',
           properties: {
             serial: {
               type: 'string',
-              example: 'MCHN001'
+              example: 'MCH9999'
             },
             name: {
               type: 'string',
-              example: 'Olive Crusher 1'
+              example: 'Olive Crusher'
             },
             location: {
               type: 'object',
               properties: {
-                factory: {
-                  type: 'string',
-                  example: 'Main Olive Oil Production Factory'
-                },
                 area: {
                   type: 'string',
                   example: 'Crushing Section'
@@ -212,14 +230,14 @@ module.exports = {
               properties: {
                 currentState: {
                   type: 'string',
-                  enum: ['operational', 'stand-by', 'maintenance', 'anomaly', 'off'],
+                  enum: ['operational', 'anomaly', 'off'],
                   example: 'operational'
                 },
                 anomalyDetails: {
                   type: 'array',
                   items: {
                     type: 'string',
-                    example: 'Overheating'
+                    example: 'powerConsumption'
                   }
                 }
               }
@@ -228,84 +246,19 @@ module.exports = {
               type: 'object',
               properties: {
                 powerConsumption: {
-                  type: 'object',
-                  properties: {
-                    normalRange: {
-                      type: 'object',
-                      properties: {
-                        min: {
-                          type: 'string',
-                          format: 'decimal',
-                          example: '150.00'
-                        },
-                        max: {
-                          type: 'string',
-                          format: 'decimal',
-                          example: '500.00'
-                        }
-                      }
-                    }
-                  }
+                  $ref: '#/components/schemas/SpecRange'
                 },
                 emissions: {
-                  type: 'object',
-                  properties: {
-                    normalRange: {
-                      type: 'object',
-                      properties: {
-                        min: {
-                          type: 'string',
-                          format: 'decimal',
-                          example: '0.50'
-                        },
-                        max: {
-                          type: 'string',
-                          format: 'decimal',
-                          example: '1.50'
-                        }
-                      }
-                    }
-                  }
+                  $ref: '#/components/schemas/SpecRange'
                 },
                 operatingTemperature: {
-                  type: 'object',
-                  properties: {
-                    normalRange: {
-                      type: 'object',
-                      properties: {
-                        min: {
-                          type: 'string',
-                          format: 'decimal',
-                          example: '10.00'
-                        },
-                        max: {
-                          type: 'string',
-                          format: 'decimal',
-                          example: '35.00'
-                        }
-                      }
-                    }
-                  }
+                  $ref: '#/components/schemas/SpecRange'
                 },
-                humidity: {
-                  type: 'object',
-                  properties: {
-                    normalRange: {
-                      type: 'object',
-                      properties: {
-                        min: {
-                          type: 'string',
-                          format: 'decimal',
-                          example: '30.00'
-                        },
-                        max: {
-                          type: 'string',
-                          format: 'decimal',
-                          example: '60.00'
-                        }
-                      }
-                    }
-                  }
+                vibration: {
+                  $ref: '#/components/schemas/SpecRange'
+                },
+                pressure: {
+                  $ref: '#/components/schemas/SpecRange'
                 }
               }
             },
@@ -321,12 +274,20 @@ module.exports = {
                   },
                   userId: {
                     type: 'string',
-                    format: 'ObjectId',
                     example: '64c8a8fdf86a5d4a781d9f3a'
                   },
-                  userName: {
-                    type: 'string',
-                    example: 'John Doe'
+                  name: {
+                    type: 'object',
+                    properties: {
+                      first: {
+                        type: 'string',
+                        example: 'John'
+                      },
+                      last: {
+                        type: 'string',
+                        example: 'Doe'
+                      }
+                    }
                   }
                 }
               }
@@ -404,33 +365,108 @@ module.exports = {
               type: 'boolean',
               example: false
             }
-          },
-          required: ['serial', 'name', 'location', 'machineState', 'specifications']
+          }
         },
-        SpecRange: {
+        AreaSchema: {
           type: 'object',
           properties: {
-            normalRange: {
-              type: 'object',
-              properties: {
-                min: {
-                  type: 'string',
-                  format: 'decimal',
-                  example: '20.0'
-                },
-                max: {
-                  type: 'string',
-                  format: 'decimal',
-                  example: '40.0'
-                }
-              }
-            },
-            current: {
+            name: {
               type: 'string',
-              format: 'decimal',
-              example: '30.0'
+              example: 'Crushing Section',
+              description: 'The name of the area within the factory.'
+            },
+            size: {
+              type: 'number',
+              example: 1500,
+              description: 'The size of the area in square meters.'
+            },
+            machines: {
+              type: 'array',
+              items: {
+                $ref: '#/components/schemas/MachineSchema'
+              },
+              description: 'A list of machines within the area.'
+            },
+            // subAreas: {
+            //   type: 'array',
+            //   items: {
+            //     $ref: '#/components/schemas/AreaSchema'
+            //   },
+            //   description: 'A list of sub-areas within this area.'
+            // },
+            test: {
+              type: 'boolean',
+              example: false,
+              description: 'Field used for testing purposes.'
             }
-          }
+          },
+          required: ['name', 'size']
+        },
+        MachineSensorSchema: {
+          type: 'object',
+          properties: {
+            serial: {
+              type: 'string',
+              example: 'SNSR001',
+              description: 'The unique serial number of the machine sensor.'
+            },
+            sensorData: {
+              type: 'array',
+              items: {
+                type: 'object',
+                properties: {
+                  timestamp: {
+                    type: 'string',
+                    format: 'date-time',
+                    example: '2024-02-01T08:00:00Z',
+                    description: 'The timestamp of the sensor data entry.'
+                  },
+                  powerConsumption: {
+                    type: 'string',
+                    format: 'decimal',
+                    example: '150.0',
+                    description: 'The power consumption recorded by the sensor.'
+                  },
+                  emissions: {
+                    type: 'string',
+                    format: 'decimal',
+                    example: '0.75',
+                    description: 'The emissions recorded by the sensor.'
+                  },
+                  operatingTemperature: {
+                    type: 'string',
+                    format: 'decimal',
+                    example: '65.3',
+                    description: 'The operating temperature recorded by the sensor.'
+                  },
+                  vibration: {
+                    type: 'string',
+                    format: 'decimal',
+                    example: '0.02',
+                    description: 'The vibration level recorded by the sensor.'
+                  },
+                  pressure: {
+                    type: 'string',
+                    format: 'decimal',
+                    example: '101.3',
+                    description: 'The pressure level recorded by the sensor.'
+                  },
+                  anomaly: {
+                    type: 'boolean',
+                    example: false,
+                    description: 'Indicates if an anomaly was detected.'
+                  }
+                }
+              },
+              description: 'An array of sensor data entries recorded by the machine sensor.'
+            },
+            test: {
+              type: 'boolean',
+              example: false,
+              description: 'Field used for testing purposes.'
+            }
+          },
+          required: ['serial']
         },
         LoginRequestBody: {
           type: 'object',
@@ -461,36 +497,36 @@ module.exports = {
           },
           required: ['email']
         },
-        Response404: {
-          description: 'Resource not found.',
-          content: {
-            'application/json': {
-              schema: {
-                type: 'object',
-                properties: {
-                  error: {
-                    type: 'string'
-                  }
-                }
-              }
-            }
-          }
-        },
-        Response400: {
-          description: 'Bad request.',
-          content: {
-            'application/json': {
-              schema: {
-                type: 'object',
-                properties: {
-                  error: {
-                    type: 'string'
-                  }
-                }
-              }
-            }
-          }
-        }
+        // Response404: {
+        //   description: 'Resource not found.',
+        //   content: {
+        //     'application/json': {
+        //       schema: {
+        //         type: 'object',
+        //         properties: {
+        //           error: {
+        //             type: 'string'
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
+        // },
+        // Response400: {
+        //   description: 'Bad request.',
+        //   content: {
+        //     'application/json': {
+        //       schema: {
+        //         type: 'object',
+        //         properties: {
+        //           error: {
+        //             type: 'string'
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
+        // }
       },
       securitySchemes: {
         bearerAuth: {

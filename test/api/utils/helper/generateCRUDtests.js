@@ -1,4 +1,3 @@
-const { logger }= require('@config/');
 const chai = require('chai');
 const { expect } = chai;
 const chaiHttp = require('chai-http');
@@ -82,10 +81,6 @@ function generateCRUDTests(
       await Model.deleteMany({ test: true });
     }
     await closeServer(server);
-
-    // Ensure to clean up resources
-    server && server.removeAllListeners();
-    logger && logger.removeAllListeners();
   });
 
   if (options.create) {
@@ -205,17 +200,24 @@ function generateCRUDTests(
 
       it(`should offset the ${modelName}`, async () => {
         const all = await chai.request(server).get(`/api/${modelName}`);
-        const res = await chai.request(server).get(`/api/${modelName}?offset=5`);
+        console.log(all.body);
+        const totalItems = all.body.length;
+        const offset = 5;
+
+        // Prevent negative offsets or offsets larger than the number of items
+        const validOffset = Math.min(Math.max(offset, 0), totalItems);
+
+        const res = await chai.request(server).get(`/api/${modelName}?offset=${validOffset}`);
 
         expect(res).to.have.status(200);
         expect(res.body).to.be.a('array');
         console.log(res.body);
-        const expectedLength = Math.min(all.body.length - 5, parseInt(process.env.ITEMS_PER_PAGE, 10));
+
+        const expectedLength = Math.min(totalItems - validOffset, parseInt(process.env.ITEMS_PER_PAGE, 10));
         expect(res.body.length).to.be.equal(expectedLength);
+
         for (let i = 0; i < expectedLength; i++) {
-          expect(res.body[i]._id).to.be.equal(
-              all.body[i + 5]._id
-          );
+          expect(res.body[i]._id).to.be.equal(all.body[i + validOffset]._id);
         }
       });
 

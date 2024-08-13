@@ -23,18 +23,6 @@ const logger = logWithSource('UserController');
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/UserSchema'
- *       "400":
- *         description: Validation error.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       "500":
- *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
  */
 
 const createUser = async (req, res) => {
@@ -52,7 +40,6 @@ const createUser = async (req, res) => {
         res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
-
 
 /**
  * @swagger
@@ -75,47 +62,9 @@ const createUser = async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 _id:
- *                   type: string
- *                   example: 60d5f87f1f1b2c001e8d2b43
- *                 name:
- *                   type: object
- *                   properties:
- *                     first:
- *                       type: string
- *                       example: John
- *                     last:
- *                       type: string
- *                       example: Doe
- *                 email:
- *                   type: string
- *                   example: johndoe@example.com
- *                 role:
- *                   type: string
- *                   example: user
- *       404:
- *         description: User not found.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: User not found
- *       500:
- *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: Internal server error
+ *               $ref: '#/components/schemas/UserSchema'
  */
+
 const getUserById = async (req, res) => {
     try {
         const result = await userService.getUserById(req.params.id);
@@ -131,8 +80,6 @@ const getUserById = async (req, res) => {
         res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
-
-
 
 /**
  * @swagger
@@ -155,19 +102,8 @@ const getUserById = async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/UserSchema'
- *       "404":
- *         description: User not found.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       "500":
- *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
  */
+
 const getUserByEmail = async (req, res) => {
     try {
         const result = await userService.getUserByEmail(req.params.email);
@@ -183,7 +119,6 @@ const getUserByEmail = async (req, res) => {
         res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
-
 
 /**
  * @swagger
@@ -214,19 +149,11 @@ const getUserByEmail = async (req, res) => {
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/UserSchema'
- *       "500":
- *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
  */
 
 const getAllUsers = async (req, res) => {
     try {
-        const limit = req.query.limit ? parseInt(req.query.limit) : 10;
-        const offset = req.query.offset ? parseInt(req.query.offset) : 0;
-        const result = await userService.getAllUsers(limit, offset);
+        const result = await userService.getAllUsers(req.query.limit, req.query.offset);
         if (result.success) {
             logger.info('All users retrieved successfully', { userCount: result.data.length });
             res.status(200).json(result.data);
@@ -269,19 +196,8 @@ const getAllUsers = async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/UserSchema'
- *       "404":
- *         description: User not found.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       "500":
- *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
  */
+
 const updateUserById = async (req, res) => {
     try {
         const result = await userService.updateUserById(req.params.id, req.body);
@@ -318,20 +234,16 @@ const updateUserById = async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ResponseSuccess'
- *       "404":
- *         description: User not found.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       "500":
- *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: User deleted successfully
  */
+
 const deleteUserById = async (req, res) => {
     try {
         const result = await userService.deleteUserById(req.params.id);
@@ -373,19 +285,8 @@ const deleteUserById = async (req, res) => {
  *                 token:
  *                   type: string
  *                   description: JWT token for the authenticated user.
- *       "401":
- *         description: Invalid email or password.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       "500":
- *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
  */
+
 const login = async (req, res) => {
     try {
         const result = await authenticationService.authenticateUser(req.body.email, req.body.password);
@@ -401,7 +302,6 @@ const login = async (req, res) => {
         res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
-
 
 /**
  * @swagger
@@ -428,13 +328,8 @@ const login = async (req, res) => {
  *                 valid:
  *                   type: boolean
  *                   description: Indicates if the email is valid (true) or not (false).
- *       "500":
- *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
  */
+
 const checkEmail = async (req, res) => {
     try {
         const result = await userService.checkUserEmail(req.body.email);

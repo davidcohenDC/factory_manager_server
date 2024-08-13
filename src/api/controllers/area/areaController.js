@@ -23,18 +23,6 @@ const logger = logWithSource('AreaController');
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/AreaSchema'
- *       "400":
- *         description: Bad request - Invalid data
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response400'
- *       "500":
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response400'
  */
 const createArea = async (req, res) => {
     try {
@@ -72,18 +60,6 @@ const createArea = async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/AreaSchema'
- *       "404":
- *         description: Area not found
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response404'
- *       "500":
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response400'
  */
 const getAreaById = async (req, res) => {
     try {
@@ -93,7 +69,7 @@ const getAreaById = async (req, res) => {
             return res.status(200).json(result.data);
         }
         logger.warn(`Area not found with ID: ${req.params.id}`, { error: result.error });
-        return res.status(result.status).json({ success: false, error: result.error });
+        return res.status(404).json({ success: false, error: 'Area not found' });
     } catch (error) {
         logger.error('Internal server error during getAreaById', { error: error.message });
         return res.status(500).json({ success: false, error: 'Internal server error' });
@@ -128,24 +104,6 @@ const getAreaById = async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/AreaSchema'
- *       "400":
- *         description: Bad request - Invalid data
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response400'
- *       "404":
- *         description: Area not found
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response404'
- *       "500":
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response400'
  */
 const updateAreaById = async (req, res) => {
     try {
@@ -155,7 +113,7 @@ const updateAreaById = async (req, res) => {
             return res.status(200).json(result.data);
         }
         logger.warn(`Update failed for area with ID: ${req.params.id}`, { error: result.error });
-        return res.status(result.status).json({ success: false, error: result.error });
+        return res.status(404).json({ success: false, error: 'Area not found' });
     } catch (error) {
         logger.error('Internal server error during updateAreaById', { error: error.message });
         return res.status(500).json({ success: false, error: 'Internal server error' });
@@ -187,18 +145,6 @@ const updateAreaById = async (req, res) => {
  *                 message:
  *                   type: string
  *                   example: Area deleted successfully
- *       "404":
- *         description: Area not found
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response404'
- *       "500":
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response400'
  */
 const deleteAreaById = async (req, res) => {
     try {
@@ -208,7 +154,7 @@ const deleteAreaById = async (req, res) => {
             return res.status(200).json({ success: true, message: 'Area deleted successfully' });
         }
         logger.warn(`Delete failed for area with ID: ${req.params.id}`, { error: result.error });
-        return res.status(result.status).json({ success: false, error: result.error });
+        return res.status(404).json({ success: false, error: 'Area not found' });
     } catch (error) {
         logger.error('Internal server error during deleteAreaById', { error: error.message });
         return res.status(500).json({ success: false, error: 'Internal server error' });
@@ -244,24 +190,10 @@ const deleteAreaById = async (req, res) => {
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/AreaSchema'
- *       "400":
- *         description: Bad request - Invalid parameters
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response400'
- *       "500":
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response400'
  */
 const getAllAreas = async (req, res) => {
     try {
-        const limit = req.query.limit ? parseInt(req.query.limit) : 10;
-        const offset = req.query.offset ? parseInt(req.query.offset) : 0;
-        const result = await areaService.getAllAreas(limit, offset);
+        const result = await areaService.getAllAreas(req.query.limit, req.query.offset);
         if (result.success) {
             logger.info('All areas retrieved successfully', { areaCount: result.data.length });
             return res.status(200).json(result.data);
@@ -295,18 +227,6 @@ const getAllAreas = async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/AreaSchema'
- *       "404":
- *         description: Area not found
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response404'
- *       "500":
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Response400'
  */
 const getAreaByName = async (req, res) => {
     try {
@@ -316,7 +236,7 @@ const getAreaByName = async (req, res) => {
             return res.status(200).json(result.data);
         }
         logger.warn(`Area not found with name: ${req.params.name}`, { error: result.error });
-        return res.status(result.status).json({ success: false, error: result.error });
+        return res.status(404).json({ success: false, error: 'Area not found' });
     } catch (error) {
         logger.error('Internal server error during getAreaByName', { error: error.message });
         return res.status(500).json({ success: false, error: 'Internal server error' });

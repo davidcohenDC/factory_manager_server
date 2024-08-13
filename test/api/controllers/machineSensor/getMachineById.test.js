@@ -30,16 +30,16 @@ describe("Machine Controller - GetMachineById", () => {
 
     describe("GET /api/machineSensor/serial/:serial", () => {
         it("should return machine sensor data when the serial exists", async () => {
-            const res = await chai.request(server).get(`/api/machineSensor/serial/${machineData.serial}`)
+            const res = await chai.request(server).get(`/api/machine-sensor/serial/${machineData.serial}`)
             expect(res).to.have.status(200)
-            expect(res.body).to.be.a("array")
-            expect(res.body.length).to.be.greaterThan(0)
-            expect(res.body[0].serial).to.equal(machineSensorData.serial)
+            expect(res.body).to.be.a("object")
+            expect(res.body.sensorData.length).to.be.greaterThan(0)
+            expect(res.body.serial).to.equal(machineSensorData.serial)
         })
 
         it("should fail and return 404 when the serial does not exist", async () => {
-            const res = await chai.request(server).get("/api/machineSensor/serial/123") // invalid serial
-            expectError(res, 404, "machineSensor not found")
+            const res = await chai.request(server).get("/api/machine-sensor/serial/123") // invalid serial
+            expectError(res, 404, "Machine sensor not found")
         })
     })
 })

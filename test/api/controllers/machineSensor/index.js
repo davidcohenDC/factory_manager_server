@@ -11,7 +11,8 @@ const machineSensorData = {
             humidity: 100,
             anomaly: false
         }
-    ]
+    ],
+    test: true
 }
 
 const machineSensorDataTwo = {
@@ -25,7 +26,8 @@ const machineSensorDataTwo = {
             humidity: 100,
             anomaly: false
         }
-    ]
+    ],
+    test: true
 }
 
 module.exports = {

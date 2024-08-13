@@ -2,35 +2,8 @@ require('module-alias/register')
 const MachineSensor = require('@persistence/mongoose/models/machineSensor')
 const { generateCRUDTests } = require('@test/api/utils/helper/')
 const {expectError, initializeServer, closeServer} = require('@test/api/utils/helper')
-const { machineData, machineDataTwo } = require('@test/api/controllers/machine/')
+const { machineSensorData, machineSensorDataTwo } = require('@test/api/controllers/machineSensor/')
 
-const machineSensorData = {
-        serial: machineData.serial,
-        sensorData: [
-                {
-                        timestamp: new Date(),
-                        powerConsumption: 100,
-                        emissions: 100,
-                        operatingTemperature: 100,
-                        humidity: 100,
-                        anomaly: false
-                }
-        ]
-}
-
-const machineSensorDataTwo = {
-        serial: machineDataTwo.serial,
-        sensorData: [
-                {
-                        timestamp: new Date(),
-                        powerConsumption: 100,
-                        emissions: 100,
-                        operatingTemperature: 100,
-                        humidity: 100,
-                        anomaly: false
-                }
-        ]
-}
 
 const requiredFields = []
 

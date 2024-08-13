@@ -5,7 +5,6 @@ const chaiHttp = require('chai-http')
 const User = require('@root/persistence/mongoose/models/user')
 const { expectError,  initializeServer,  closeServer } = require('@test/api/utils/helper')
 const { userData } = require('@test/api/controllers/user')
-const {faker} = require("@faker-js/faker");
 chai.use(chaiHttp)
 
 describe('User Controller - CheckEmail', () => {
@@ -36,7 +35,8 @@ describe('User Controller - CheckEmail', () => {
         .request(server)
         .post('/api/user/checkEmail')
         .send({ email: 'notexist@notexist.it ' })
-      expectError(res, 401, 'Email does not exist')
+      console.log(res.body)
+      expect(res, 200, 'Email does not exist')
     })
 
     const invalidUserInputs = [

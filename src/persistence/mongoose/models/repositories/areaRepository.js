@@ -6,7 +6,7 @@ const createArea = async (areaData) => {
     try {
         const area = new Area(areaData);
         await area.save();
-        logger.info(`Area created with id: ${area._id}`);
+        logger.info(`Area created with id: ${area.name}`);
         return area;
     } catch (error) {
         logger.error(`Database operation failed: ${error.message}`, { error });

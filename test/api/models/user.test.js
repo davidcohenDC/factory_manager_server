@@ -67,7 +67,7 @@ describe('User Model', () => {
       it('throws an error when email is not unique', async () => {
         await new User(userData).save()
         await new User(userData).save().catch((error) => {
-          expect(error.message).to.contains('user is already taken')
+          expect(error.message).to.contains('User with this email already exists.')
         })
       })
     })

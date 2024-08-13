@@ -6,7 +6,7 @@ const { pagination } = require('@middlewares/')
 
 
 router.post('/', validateAreaBody, areaController.createArea)
-router.get('/', pagination({itemsPerPage: 50, maxItemsPerPage: 100}), areaController.getAllAreas)
+router.get('/', pagination({itemsPerPage: process.env.ITEMS_PER_PAGE, maxItemsPerPage: 100}), areaController.getAllAreas)
 router.get('/id/:id', validateAreaId, areaController.getAreaById)
 router.patch('/id/:id', validateAreaId, areaController.updateAreaById)
 router.delete('/id/:id', validateAreaId, areaController.deleteAreaById)

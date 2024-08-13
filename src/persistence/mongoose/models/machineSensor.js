@@ -36,7 +36,7 @@ const machineSensorDataSchema = new Schema({
         required: true
     },
     sensorData: [sensorDataEntrySchema],
-    test: Boolean
+    test: { type: Boolean }
 });
 
 // Indexing
