@@ -1,7 +1,7 @@
 module.exports = {
     userService: require('@services/user/userService'),
-    authenticationService: require('@services/user/authenticationService'),
+    authenticationService: require('@services/user/auth/authenticationService'),
     machineService: require('@services/machine/machineService'),
     areaService: require('@services/area/areaService'),
-    machineSensorService: require('@services/machine-sensor/machineSensorService'),
+    machineSensorService: require('@services/machineSensor/machineSensorService'),
 }

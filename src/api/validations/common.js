@@ -1,5 +1,6 @@
 const { Decimal128 } = require('mongoose').Types;
-const { logger } = require('@config/');
+const { logWithSource } = require('@config/');
+const logger = logWithSource('CommonValidation');
 
 const validateDecimal128String = (value, helpers) => {
     try {

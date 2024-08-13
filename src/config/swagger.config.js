@@ -510,6 +510,6 @@ module.exports = {
     'src/api/controllers/machine/*.js',
     'src/api/controllers/user/*.js',
     'src/api/controllers/area/*.js',
-    'src/api/controllers/machine-sensor/*.js',
+    'src/api/controllers/machineSensor/*.js',
   ]
 };

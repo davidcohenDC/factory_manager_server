@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const { machineSensorController } = require('@controllers/machine-sensor/')
-const pagination = require('@middlewares/pagination')
+const { machineSensorController } = require('@controllers/machineSensor/')
+const { pagination } = require('@middlewares/')
 const { validateMachineSensorId } = require('@validations/machineSensor.validation')
 
 

@@ -1,5 +1,5 @@
-const mongooseLoader = require('@loaders/mongoose')
-const expressLoader = require('./express')
+const mongooseLoader = require('@bootstrap/mongoose')
+const expressLoader = require('@bootstrap/express')
 
 // export modules in default
 

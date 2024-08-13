@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"node src/server.js\" \"node microservices/metric-service/server.js\"",
+    "start": "node src/server.js",
     "start-metric": "node microservices/metric-service/server.js",
     "clean-install": "rm -rf node_modules package-lock.json && npm install",
     "lint": "eslint --fix --config .eslintrc.json \"src/**/*.js\"",
@@ -71,17 +71,18 @@
   "_moduleAliases": {
     "@root": "./src",
     "@utils": "src/utils",
-    "@loaders": "src/loaders",
+    "@bootstrap": "src/bootstrap",
     "@validations": "src/api/validations",
     "@public": "./public",
     "@controllers": "src/api/controllers",
     "@services": "src/services",
     "@routes": "src/api/routes",
-    "@models": "src/models",
+    "@models": "src/persistence/mongoose/models",
     "@middlewares": "src/api/middlewares",
     "@config": "src/config",
     "@test": "./test",
     "@logs": "./logs",
-    "@repositories": "src/models/repositories"
+    "@repositories": "src/persistence/mongoose/models/repositories",
+    "@persistence": "src/persistence/"
   }
 }

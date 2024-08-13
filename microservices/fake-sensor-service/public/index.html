@@ -116,10 +116,10 @@
     const charts = {};
 
     socket.on('sensorData', (data) => {
-        const { machineId, machineName, timestamp, powerConsumption, emissions, operatingTemperature, vibration, pressure, anomaly, anomalyDetails, currentState } = data;
+        const { serial, machineName, timestamp, powerConsumption, emissions, operatingTemperature, vibration, pressure, anomaly, anomalyDetails, currentState } = data;
 
-        if (!sensorData[machineId]) {
-            sensorData[machineId] = {
+        if (!sensorData[serial]) {
+            sensorData[serial] = {
                 powerConsumption: [],
                 emissions: [],
                 operatingTemperature: [],
@@ -130,81 +130,81 @@
                 currentState: currentState || 'operational' // Store the current state
             };
 
-            createChart(machineId, machineName);
+            createChart(serial, machineName);
         }
 
         // Add new data point to each dataset
-        sensorData[machineId].powerConsumption.push({ x: new Date(timestamp), y: powerConsumption });
-        sensorData[machineId].emissions.push({ x: new Date(timestamp), y: emissions });
-        sensorData[machineId].operatingTemperature.push({ x: new Date(timestamp), y: operatingTemperature });
-        sensorData[machineId].vibration.push({ x: new Date(timestamp), y: vibration });
-        sensorData[machineId].pressure.push({ x: new Date(timestamp), y: pressure });
+        sensorData[serial].powerConsumption.push({ x: new Date(timestamp), y: powerConsumption });
+        sensorData[serial].emissions.push({ x: new Date(timestamp), y: emissions });
+        sensorData[serial].operatingTemperature.push({ x: new Date(timestamp), y: operatingTemperature });
+        sensorData[serial].vibration.push({ x: new Date(timestamp), y: vibration });
+        sensorData[serial].pressure.push({ x: new Date(timestamp), y: pressure });
 
         // Update anomaly status and details in sensorData
-        sensorData[machineId].anomaly = anomaly || false;
-        sensorData[machineId].currentState = currentState || 'operational';
+        sensorData[serial].anomaly = anomaly || false;
+        sensorData[serial].currentState = currentState || 'operational';
 
         // Update the anomalyDetails array if anomaly is detected
         if (anomaly && anomalyDetails && anomalyDetails.length > 0) {
-            sensorData[machineId].anomalyDetails = anomalyDetails;
+            sensorData[serial].anomalyDetails = anomalyDetails;
         } else {
-            sensorData[machineId].anomalyDetails = [];
+            sensorData[serial].anomalyDetails = [];
         }
 
-        updateChart(machineId);
+        updateChart(serial);
     });
 
-    function createChart(machineId, machineName) {
+    function createChart(serial, machineName) {
         const chartContainer = document.createElement('div');
         chartContainer.className = 'col-md-6 chart-container';
         chartContainer.innerHTML = `
             <h4 class="chart-title">Machine: ${machineName}
-                <span id="badge-${machineId}" class="anomaly-badge d-none">Anomaly</span>
-                <span id="status-badge-${machineId}" class="status-badge"></span>
+                <span id="badge-${serial}" class="anomaly-badge d-none">Anomaly</span>
+                <span id="status-badge-${serial}" class="status-badge"></span>
             </h4>
-            <div class="machine-id">(ID: ${machineId})</div>
-            <canvas id="chart-${machineId}"></canvas>
-            <div id="anomaly-list-${machineId}" class="anomaly-list d-none"></div>
+            <div class="machine-id">(SERIAL: ${serial})</div>
+            <canvas id="chart-${serial}"></canvas>
+            <div id="anomaly-list-${serial}" class="anomaly-list d-none"></div>
         `;
         document.getElementById('chartsContainer').appendChild(chartContainer);
 
-        const ctx = document.getElementById(`chart-${machineId}`).getContext('2d');
+        const ctx = document.getElementById(`chart-${serial}`).getContext('2d');
 
-        charts[machineId] = new Chart(ctx, {
+        charts[serial] = new Chart(ctx, {
             type: 'line',
             data: {
                 datasets: [
                     {
                         label: `Power Consumption`,
-                        data: sensorData[machineId].powerConsumption,
+                        data: sensorData[serial].powerConsumption,
                         borderColor: 'rgba(255, 99, 132, 1)',
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                         hidden: false
                     },
                     {
                         label: `Emissions`,
-                        data: sensorData[machineId].emissions,
+                        data: sensorData[serial].emissions,
                         borderColor: 'rgba(54, 162, 235, 1)',
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
                         hidden: false
                     },
                     {
                         label: `Operating Temperature`,
-                        data: sensorData[machineId].operatingTemperature,
+                        data: sensorData[serial].operatingTemperature,
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         hidden: false
                     },
                     {
                         label: `Vibration`,
-                        data: sensorData[machineId].vibration,
+                        data: sensorData[serial].vibration,
                         borderColor: 'rgba(153, 102, 255, 1)',
                         backgroundColor: 'rgba(153, 102, 255, 0.2)',
                         hidden: false
                     },
                     {
                         label: `Pressure`,
-                        data: sensorData[machineId].pressure,
+                        data: sensorData[serial].pressure,
                         borderColor: 'rgba(255, 159, 64, 1)',
                         backgroundColor: 'rgba(255, 159, 64, 0.2)',
                         hidden: false
@@ -260,29 +260,29 @@
         });
     }
 
-    function updateChart(machineId) {
-        // Check if the chart exists for the given machineId
-        if (!charts[machineId]) {
-            console.error(`Chart for machineId ${machineId} is not initialized.`);
+    function updateChart(serial) {
+        // Check if the chart exists for the given serial
+        if (!charts[serial]) {
+            console.error(`Chart for serial ${serial} is not initialized.`);
             return;
         }
 
         // Retrieve the chart and sensor data
-        const chart = charts[machineId];
-        const data = sensorData[machineId];
+        const chart = charts[serial];
+        const data = sensorData[serial];
 
         // Make sure sensor data exists
         if (!data) {
-            console.error(`Sensor data for machineId ${machineId} is not available.`);
+            console.error(`Sensor data for serial ${serial} is not available.`);
             return;
         }
 
         // Retrieve the chart container, title, and badges for the specific machine
-        const chartContainer = document.querySelector(`#chart-${machineId}`).closest('.chart-container');
+        const chartContainer = document.querySelector(`#chart-${serial}`).closest('.chart-container');
         const chartTitle = chartContainer.querySelector('.chart-title');
-        const badge = document.getElementById(`badge-${machineId}`);
-        const anomalyList = document.getElementById(`anomaly-list-${machineId}`);
-        const statusBadge = document.getElementById(`status-badge-${machineId}`);
+        const badge = document.getElementById(`badge-${serial}`);
+        const anomalyList = document.getElementById(`anomaly-list-${serial}`);
+        const statusBadge = document.getElementById(`status-badge-${serial}`);
 
         // Retrieve the anomaly status, current state, and anomaly details from sensor data
         const isAnomaly = data.anomaly;

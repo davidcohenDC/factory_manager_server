@@ -1,112 +1,41 @@
 require('module-alias/register')
-const { faker } = require('@faker-js/faker')
-const Area = require('@models/area')
+const { faker, tr} = require('@faker-js/faker')
+const Area = require('@root/persistence/mongoose/models/area')
 const { generateCRUDTests } = require('@test/api/utils/helper/')
 const {
   expectError,
   initializeServer,
   closeServer
 } = require('@test/api/utils/helper')
-const mongoose = require("mongoose");
+const { machineData, machineDataTwo } = require('@test/api/controllers/machine/')
 
-const first_machine = {
-  name: 'First Machine',
-  serial: faker.internet.userName({ firstName: `TestMachine${Date.now()}` }),
-  location: {
-    area: 'Main Area 1'
-  },
-   machineState: {
-     currentState: 'operational'
-   },
-  specifications: {
-    powerConsumption: {
-      normalRange: {
-        min: 10,
-        max: 100
-      }
-    },
-    emissions: {
-      normalRange: {
-        min: 10,
-        max: 100
-      }
-    },
-    operatingTemperature: {
-      normalRange: {
-        min: 10,
-        max: 100
-      }
-    }
-  },
-  turns: [
-    {
-      turn: 'morning',
-      userId: new mongoose.Types.ObjectId().toString(),
-    }
-  ]
-}
-
-const second_machine = {
-  name: 'Second Machine',
-  serial: faker.internet.userName({ firstName: `TestMachine${Date.now()}` }),
-  location: {
-    area: 'Test Area 1'
-  },
-    machineState: {
-        currentState: 'operational'
-    },
-    specifications: {
-        powerConsumption: {
-            normalRange: {
-                min: 10,
-                max: 100
-            }
-        },
-        emissions: {
-            normalRange: {
-                min: 10,
-                max: 100
-            }
-        },
-        operatingTemperature: {
-            normalRange: {
-                min: 10,
-                max: 100
-            }
-        }
-    },
-    turns: [
-      {
-        turn: 'evening',
-        userId: new mongoose.Types.ObjectId().toString(),
-      }
-    ]
-}
 
 const areaDataPre = {
   name: 'Main Area 4',
   size: 100,
-  machines: [first_machine],
+  machines: [machineData],
   subAreas: [
     {
       name: 'Sub Area 2',
       size: 50,
-      machines: [second_machine]
+      machines: [machineDataTwo]
     }
-  ]
+  ],
+    test: true
 }
 
 const areaDataPost = {
   name: 'Test Area 3',
   size: 100,
-  machines: [second_machine],
+  machines: [machineDataTwo],
   subAreas: [
     {
       name: 'Test Sub Area 2',
       size: 50,
-      machines: [first_machine]
+      machines: [machineData]
     }
-  ]
+  ],
+    test: true
 }
 
 // All required fields

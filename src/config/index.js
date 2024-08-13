@@ -1,7 +1,7 @@
 const { config } = require('dotenv')
 const dotenvExpand = require('dotenv-expand')
 const swaggerConfig = require('./swagger.config.js')
-const logger = require('@config/logger')
+const {logger, logWithSource } = require('@config/logger')
 dotenvExpand.expand(config())
 config()
 
@@ -18,6 +18,7 @@ const {
 module.exports = {
   swaggerConfig,
   logger,
+  logWithSource,
   port: PORT || 4000,
   dbUri: TEST_DB_URI,
   nodeEnv: NODE_ENV,

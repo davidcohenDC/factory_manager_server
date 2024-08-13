@@ -1,6 +1,6 @@
 require('module-alias/register')
 const { faker } = require('@faker-js/faker')
-const User = require('@models/user')
+const User = require('@root/persistence/mongoose/models/user')
 const { expectError, initializeServer, closeServer } = require('@test/api/utils/helper')
 const { generateCRUDTests } = require('@test/api/utils/helper/')
 const { userData, userDataTwo } = require('@test/api/controllers/user/')

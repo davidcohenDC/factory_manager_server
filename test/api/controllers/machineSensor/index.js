@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const { machineData, machineDataTwo } = require('@test/api/controllers/machine/')
 
 const machineSensorData = {

@@ -1,7 +1,4 @@
-const CRUDHandler = require('@utils/helpers/crudHandler')
-const ipHelper = require('@utils/helpers/ip-helper')
-
 module.exports = {
-  CRUDHandler,
-  ipHelper
+  CRUDHandler: require('@utils/helpers/crudHandler'),
+  ipHelper: require('@utils/helpers/ip-helper')
 }

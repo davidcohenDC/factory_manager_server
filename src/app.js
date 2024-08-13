@@ -1,11 +1,10 @@
 const express = require('express')
-const initializeLoaders = require('@loaders/')
-const { logger } = require('@config/')
+const initializeLoaders = require('@bootstrap/')
 const path = require('path');
 const favicon = require('serve-favicon');
 const app = express()
-
-const logSource = { source: 'Express Server' }
+const { logWithSource } = require('@config/');
+const logger = logWithSource('AppLoader');
 
 // Serve the favicon
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
@@ -13,7 +12,7 @@ app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 
 const configureApp = async () => {
   await initializeLoaders(app)
-  logger.info('App is configured', logSource)
+  logger.info('App is configured')
   return app
 }
 

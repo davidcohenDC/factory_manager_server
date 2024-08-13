@@ -1,4 +1,4 @@
-// src/loaders/express.js
+// src/bootstrap/express.js
 
 const express = require('express');
 const cors = require('cors');

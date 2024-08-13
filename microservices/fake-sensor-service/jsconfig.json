@@ -2,15 +2,15 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-        "@app/*": ["src/*"],
+        "@root/*": ["src/*"],
         "@config/*": ["src/config/*"],
         "@controllers/*": ["src/controllers/*"],
         "@models/*": ["src/models/*"],
         "@services/*": ["src/services/*"],
-        "@loaders/*": ["src/loaders/*"],
+        "@bootstrap/*": ["src/bootstrap/*"],
         "@routes/*": ["src/routes/*"],
         "@utils/*": ["src/utils/*"],
-      "@middlewares/*": ["src/middlewares/*"]
+        "@middlewares/*": ["src/middlewares/*"]
     }
   },
   "exclude": ["node_modules"]

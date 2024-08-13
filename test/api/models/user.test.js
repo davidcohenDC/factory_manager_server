@@ -4,7 +4,7 @@ const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
-const User = require('@models/user')
+const User = require('@root/persistence/mongoose/models/user')
 const mongoose = require('mongoose')
 const {userData} = require("@test/api/controllers/user");
 chai.use(chaiHttp)

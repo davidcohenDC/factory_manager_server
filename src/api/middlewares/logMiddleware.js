@@ -1,17 +1,16 @@
-const { logger } = require('@config/');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
-const logSource = { source: 'Log Middleware' };
+const { logWithSource } = require('@config/');
+const logger = logWithSource('LogMiddleware');
 
 function backupLogger(message) {
   const timestamp = new Date().toISOString();
   const formattedMessage = `[${timestamp}] BACKUP: ${message}\n`;
   fs.appendFile('backup.log', formattedMessage, (err) => {
-    if (err) console.error('Failed to write to backup.log');
+    if (err) console.error('Failed to write to backup.log:', err.message);
   });
 }
-
 function logMiddleware(req, res, next) {
   const requestId = uuidv4();
   req.requestId = requestId;
@@ -21,38 +20,25 @@ function logMiddleware(req, res, next) {
   const { method, url, headers, ip } = req;
 
   function logRequest() {
-    try {
-      const duration = Date.now() - start;
-      const logDetails = {
-        ...logSource,
-        method,
-        path: url,
-        ip,
-        duration: `${duration}ms`,
-        requestId,
-        user: req.user ? req.user._id : null,
-        statusCode: res.statusCode,
-      };
+    const duration = Date.now() - start;
+    const logDetails = {
+      method,
+      path: url,
+      ip,
+      duration: `${duration}ms`,
+      requestId,
+      user: req.user ? req.user._id : null,
+      statusCode: res.statusCode,
+      requestHeaders: headers,
+      responseHeaders: res.getHeaders(),
+    };
 
-      if (res.statusCode >= 500) {
-        logDetails.level = 'error';
-        logDetails.message = `[${method}] ${url} - ${res.statusCode}`;
-        if (req.body && req.body.error) {
-          logDetails.errorMessage = req.body.error;
-        }
-      } else if (res.statusCode >= 400) {
-        logDetails.level = 'warn';
-        logDetails.message = `[${method}] ${url} - ${res.statusCode}`;
-        logDetails.headers = headers;
-      } else {
-        logDetails.level = 'info';
-        logDetails.message = `[${method}] ${url} - ${res.statusCode}`;
-      }
-
-      logger.log(logDetails.level, logDetails.message, logDetails);
-    } catch (error) {
-      // If there's an error with the primary logger, use the backup
-      backupLogger(`Logging error: ${error.message}. Original request: ${method} ${url}`);
+    if (res.statusCode >= 500) {
+      logger.error(`Server error on [${method}] ${url}`, logDetails);
+    } else if (res.statusCode >= 400) {
+      logger.warn(`Client error on [${method}] ${url}`, logDetails);
+    } else {
+      logger.info(`Request completed [${method}] ${url}`, logDetails);
     }
   }
 

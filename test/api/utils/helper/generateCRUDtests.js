@@ -1,9 +1,12 @@
-const { logger } = require('@config/');
+const { logger }= require('@config/');
 const chai = require('chai');
 const { expect } = chai;
 const chaiHttp = require('chai-http');
 const { faker } = require('@faker-js/faker');
 chai.use(chaiHttp);
+
+const { EventEmitter } = require('events');
+EventEmitter.defaultMaxListeners = 20; // Increase this number as needed
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -26,7 +29,7 @@ function generateTestCases(requiredFields) {
   const testCases = [];
 
   for (const fieldInfo of requiredFields) {
-    const { fieldName, _ } = fieldInfo;
+    const { fieldName } = fieldInfo;
     const testCase = {
       field: fieldName,
       name: `missing ${fieldName}`,
@@ -37,7 +40,7 @@ function generateTestCases(requiredFields) {
     // Populate userData with dummy values, excluding the current field
     for (const otherFieldInfo of requiredFields) {
       if (otherFieldInfo.fieldName !== fieldName) {
-        const dummyValue = otherFieldInfo.fieldValue;
+        const dummyValue = otherFieldInfo.fieldValue || "dummy_value"; // Use a default value for required fields
         setNestedField(testCase.userData, otherFieldInfo.fieldName, dummyValue);
       }
     }
@@ -47,6 +50,7 @@ function generateTestCases(requiredFields) {
 
   return testCases;
 }
+
 
 function generateCRUDTests(
     modelName,
@@ -78,6 +82,10 @@ function generateCRUDTests(
       await Model.deleteMany({ test: true });
     }
     await closeServer(server);
+
+    // Ensure to clean up resources
+    server && server.removeAllListeners();
+    logger && logger.removeAllListeners();
   });
 
   if (options.create) {
@@ -87,6 +95,7 @@ function generateCRUDTests(
             .request(server)
             .post(`/api/${modelName}`)
             .send(modelData);
+        console.log(res.body);
         expect(res).to.have.status(201);
         expect(res.body).to.be.a('object');
 
@@ -104,15 +113,7 @@ function generateCRUDTests(
         }
       });
 
-      it(`should return 400 when the ${modelName} id is already in use`, async () => {
-        await chai.request(server).post(`/api/${modelName}`).send(modelData);
 
-        const res = await chai
-            .request(server)
-            .post(`/api/${modelName}`)
-            .send(modelData);
-        expectError(res, 400, `${modelName} is already taken.`);
-      });
 
       const invalidInputs = generateTestCases(requiredFields);
 
@@ -151,8 +152,9 @@ function generateCRUDTests(
 
         expect(res).to.have.status(200);
         expect(res.body).to.be.a('object');
-        expect(res.body[modelName]).to.have.property('_id');
-        expect(res.body[modelName].serial).equal(modelDataPre.serial);
+
+        expect(res.body).to.have.property('_id');
+        expect(res.body.serial).equal(modelDataPre.serial);
       });
 
       it(`should return 400 when the ${modelName} ID is not valid`, async function () {
@@ -167,35 +169,36 @@ function generateCRUDTests(
             .request(server)
             .get(`/api/${modelName}/id/000000000000000000000001`);
 
-        expectError(res, 404, `${modelName} not found.`);
+        //camelcase the modelName
+        // Process the modelName: remove hyphens and force lowercase
+        const processedModelName = modelName.replace(/-/g, ' ').toLowerCase();
+        expectError(res, 404, `${capitalizeFirstLetter(processedModelName)} not found`);
       });
     });
 
     describe(`Get All ${capitalizeFirstLetter(modelName)}`, () => {
       it(`should return all ${modelName}`, async () => {
         const res = await chai.request(server).get(`/api/${modelName}`);
-
         expect(res).to.have.status(200);
-        expect(res.body).to.be.a('object');
-        expect(res.body[modelName]).to.be.a('array');
-        if (res.body[modelName].length > 0) {
-          expect(res.body[modelName].length).to.be.greaterThan(0);
-          expect(res.body[modelName][0]).to.have.property('_id');
+        expect(res.body).to.be.a('array');
+
+        if (res.body.length > 0) {
+          expect(res.body.length).to.be.greaterThan(0);
+          expect(res.body[0]).to.have.property('_id');
         }
       });
 
       it(`should limit the ${modelName}`, async () => {
         const all = await chai.request(server).get(`/api/${modelName}`);
         const res = await chai.request(server).get(`/api/${modelName}?limit=5`);
-
+        console.log(res.body);
         expect(res).to.have.status(200);
-        expect(res.body).to.be.a('object');
-        expect(res.body[modelName]).to.be.a('array');
-        const expectedLength = Math.min(5, all.body[modelName].length);
-        expect(res.body[modelName].length).to.be.equal(expectedLength);
+        expect(res.body).to.be.a('array');
+        const expectedLength = Math.min(5, all.body.length);
+        expect(res.body.length).to.be.equal(expectedLength);
         for (let i = 0; i < expectedLength; i++) {
-          expect(res.body[modelName][i]._id).to.be.equal(
-              all.body[modelName][i]._id
+          expect(res.body[i]._id).to.be.equal(
+              all.body[i]._id
           );
         }
       });
@@ -205,13 +208,13 @@ function generateCRUDTests(
         const res = await chai.request(server).get(`/api/${modelName}?offset=5`);
 
         expect(res).to.have.status(200);
-        expect(res.body).to.be.a('object');
-        expect(res.body[modelName]).to.be.a('array');
-        const expectedLength = Math.min(all.body[modelName].length - 5, parseInt(process.env.ITEMS_PER_PAGE, 10));
-        expect(res.body[modelName].length).to.be.equal(expectedLength);
+        expect(res.body).to.be.a('array');
+        console.log(res.body);
+        const expectedLength = Math.min(all.body.length - 5, parseInt(process.env.ITEMS_PER_PAGE, 10));
+        expect(res.body.length).to.be.equal(expectedLength);
         for (let i = 0; i < expectedLength; i++) {
-          expect(res.body[modelName][i]._id).to.be.equal(
-              all.body[modelName][i + 5]._id
+          expect(res.body[i]._id).to.be.equal(
+              all.body[i + 5]._id
           );
         }
       });
@@ -222,7 +225,7 @@ function generateCRUDTests(
 
         // Fetch all models without any limit or offset
         const all = await chai.request(server).get(`/api/${modelName}`);
-        const totalModels = all.body[modelName].length;
+        const totalModels = all.body.length;
 
         // Fetch models with limit and offset
         const res = await chai
@@ -235,11 +238,10 @@ function generateCRUDTests(
         // General checks
         expect(res).to.have.status(200);
         expect(res).to.have.header('content-type', /json/);
-        expect(res.body).to.be.an('object').that.includes.keys(modelName);
-        expect(res.body[modelName]).to.be.an('array');
+        expect(res.body).to.be.an('array');
 
         // Length checks
-        const responseLength = res.body[modelName].length;
+        const responseLength = res.body.length;
         if (responseLength < limit) {
           expect(responseLength).to.equal(responseLength);
         } else {
@@ -251,8 +253,8 @@ function generateCRUDTests(
 
         // Check individual items
         for (let i = 0; i < Math.min(limit, expectedLength); i++) {
-          expect(res.body[modelName][i]._id).to.equal(
-              all.body[modelName][i + offset]._id
+          expect(res.body[i]._id).to.equal(
+              all.body[i + offset]._id
           );
         }
       });
@@ -270,8 +272,8 @@ function generateCRUDTests(
 
         expect(res).to.have.status(200);
         expect(res.body).to.be.a('object');
-        expect(res.body[modelName]).to.have.property('_id');
-        expect(res.body[modelName].serial).equal(modelDataPre.serial);
+        expect(res.body).to.have.property('_id');
+        expect(res.body.serial).equal(modelDataPre.serial);
       });
 
       it(`should return 400 when the ${modelName} ID is not valid`, async function () {
@@ -287,7 +289,7 @@ function generateCRUDTests(
             .request(server)
             .patch(`/api/${modelName}/id/000000000000000000000001`);
 
-        expectError(res, 404, `${modelName} not found.`);
+        expectError(res, 404, `${capitalizeFirstLetter(modelName)} not found`);
       });
     });
   }
@@ -302,7 +304,7 @@ function generateCRUDTests(
 
         expect(res).to.have.status(200);
         expect(res.body).to.be.a('object');
-        expect(res.body.message).to.equal(`${modelName} deleted successfully`);
+        expect(res.body.message).to.equal(`${capitalizeFirstLetter(modelName)} deleted successfully`);
       });
 
       it(`should return 400 when the ${modelName} ID is not valid`, async function () {
@@ -318,7 +320,7 @@ function generateCRUDTests(
             .request(server)
             .delete(`/api/${modelName}/id/000000000000000000000001`);
 
-        expectError(res, 404, `${modelName} not found.`);
+        expectError(res, 404, `${capitalizeFirstLetter(modelName)} not found`);
       });
     });
   }

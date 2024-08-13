@@ -1,13 +1,7 @@
-const rateLimiter = require('@middlewares/rateLimiter');
-const logMiddleware = require('@middlewares/logMiddleware');
-const auth = require('@middlewares/authenticate');
-const pagination = require('@middlewares/pagination');
-const { tagTest } = require('@middlewares/testTagMiddleware');
-
 module.exports = {
-  rateLimiter,
-  logMiddleware,
-  pagination,
-  auth,
-  tagTest
+  rateLimiter: require('@middlewares/rateLimiter'),
+  logMiddleware: require('@middlewares/logMiddleware'),
+  pagination: require('@middlewares/pagination'),
+  auth: require('@middlewares/authenticate'),
+  tagTest: require('@middlewares/testTagMiddleware')
 }

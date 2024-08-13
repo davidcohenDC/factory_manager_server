@@ -2,7 +2,7 @@ require('module-alias/register')
 const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
-const User = require('@models/user')
+const User = require('@root/persistence/mongoose/models/user')
 const { expectError, initializeServer, closeServer } = require('@test/api/utils/helper')
 const { userData } = require('@test/api/controllers/user/')
 chai.use(chaiHttp)

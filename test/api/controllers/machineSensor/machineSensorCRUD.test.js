@@ -1,5 +1,5 @@
 require('module-alias/register')
-const MachineSensor = require('@models/machineSensor')
+const MachineSensor = require('@persistence/mongoose/models/machineSensor')
 const { generateCRUDTests } = require('@test/api/utils/helper/')
 const {expectError, initializeServer, closeServer} = require('@test/api/utils/helper')
 const { machineData, machineDataTwo } = require('@test/api/controllers/machine/')
@@ -38,7 +38,7 @@ const validationFields = []
 
 describe('Machine Sensor Controller - CRUD', () => {
   generateCRUDTests(
-      'machineSensor',
+      'machine-sensor',
       MachineSensor,
       machineSensorData,
       machineSensorDataTwo,

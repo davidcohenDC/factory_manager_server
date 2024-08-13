@@ -27,7 +27,7 @@
     "@controllers": "./src/controllers",
     "@models": "./src/models",
     "@services": "./src/services",
-    "@loaders": "./src/loaders",
+    "@bootstrap": "./src/bootstrap",
     "@routes": "./src/routes",
     "@utils": "./src/utils",
     "@middlewares": "./src/middlewares"

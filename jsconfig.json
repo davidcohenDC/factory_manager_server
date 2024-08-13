@@ -2,20 +2,21 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-    "@utils/*": ["src/utils/*"],
-    "@root/*": ["src/*"],
-    "@controllers/*": ["src/api/controllers/*"],
-    "@models/*": ["src/models/*"],
-    "@routes/*": ["src/api/routes/*"],
-    "@loaders/*": ["src/loaders/*"],
-    "@public/*": ["public/*"],
-    "@config/*": ["src/config/*"],
-    "@middlewares/*": ["src/api/middlewares/*"],
-    "@validations/*": ["src/api/validations/*"],
-    "@test/*": ["test/*"],
-    "@logs/*": ["logs/*"],
-    "@services": ["src/services/*"],
-    "@repositories": ["src/models/repositories/*"]
+      "@utils/*": ["src/utils/*"],
+      "@root/*": ["src/*"],
+      "@controllers/*": ["src/api/controllers/*"],
+      "@models/*": ["src/persistence/mongoose/models/*"],
+      "@routes/*": ["src/api/routes/*"],
+      "@bootstrap/*": ["src/bootstrap/*"],
+      "@public/*": ["public/*"],
+      "@config/*": ["src/config/*"],
+      "@middlewares/*": ["src/api/middlewares/*"],
+      "@validations/*": ["src/api/validations/*"],
+      "@test/*": ["test/*"],
+      "@logs/*": ["logs/*"],
+      "@services/*": ["src/services/*"],
+      "@repositories/*": ["src/persistence/mongoose/models/repositories/*"],
+      "@persistence/*": ["src/persistence/*"]
     }
   },
   "exclude": ["node_modules"]

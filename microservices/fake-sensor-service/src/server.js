@@ -3,10 +3,9 @@ require('dotenv').config();
 
 const http = require('http');
 const mongoose = require('mongoose');
-const { port } = require('@config/');
-const { logger } = require('@config/');
+const { port, logger } = require('@config/');
 const { startApp, app } = require('./app');
-const initializeWebSocket = require('@loaders/websocket'); // Import the WebSocket initializer
+const initializeWebSocket = require('@bootstrap/websocket'); // Import the WebSocket initializer
 const generateSensorData = require('@services/sensorGenerator');
 
 const logSource = { source: 'Express Server' };

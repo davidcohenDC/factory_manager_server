@@ -1,9 +1,7 @@
-const userRepository = require("@models/repositories/userRepository");
+const userRepository = require("@persistence/mongoose/models/repositories/userRepository");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { jwtSecretKey } = require("@config/");
-const { logger } = require("@config/");
-
+const { jwtSecretKey, logger } = require("@config/");
 
 const authenticateUser = async (email, password) => {
     try {

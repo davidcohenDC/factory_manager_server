@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const { logger } = require('@config/');
-
-const logSource = { source: 'MachineSchema' };
+const { logWithSource } = require('@config/');
+const logger = logWithSource('MachineSchema');
 
 const machineSchema = new Schema({
   serial: {
@@ -130,16 +129,40 @@ const machineSchema = new Schema({
 });
 
 
+// Post-save hook for catching errors
 machineSchema.post('save', function (err, doc, next) {
   if (err) {
     if (err.name === 'MongoServerError' && err.code === 11000) {
-      logger.error(`Error saving machine (MongoServerError): ${err.message}`, logSource);
-      next(new Error('machine is already taken.'));
+      logger.error(`Duplicate key error (MongoServerError): E11000 duplicate key error on serial: ${JSON.stringify(err.keyValue)}`);
+      return next(new Error('Machine with this serial already exists.'));
     } else {
-      next(err);
+      logger.error(`Error saving machine: ${err.message}`);
+      return next(err);
     }
+  }
+  next();
+});
+
+// Post-validate hook
+machineSchema.post('validate', function (doc) {
+  logger.info(`Machine with id: ${doc._id}, Serial: ${doc.serial} passed validation.`);
+});
+
+// Post-update hook
+machineSchema.post('findOneAndUpdate', function (doc) {
+  if (doc) {
+    logger.info(`Machine with id: ${doc._id}, Serial: ${doc.serial} was updated.`);
   } else {
-    next();
+    logger.warn('No machine was found to update.');
+  }
+});
+
+// Post-delete hook
+machineSchema.post('findOneAndDelete', function (doc) {
+  if (doc) {
+    logger.info(`Machine with id: ${doc._id}, Email: ${doc.serial} was deleted.`);
+  } else {
+    logger.warn('No machine was found to delete.');
   }
 });
 

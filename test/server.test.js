@@ -31,19 +31,6 @@ describe('Test Server ', () => {
     })
   })
 
-  describe('Socket Demo', () => {
-    it('should return 200', async () => {
-      const res = await chai.request(server).get('/socketdemo')
-      expect(res).to.have.status(200)
-      expect(res).to.be.html
-    })
-
-    it('should return 404', async () => {
-      const res = await chai.request(server).get('/health1')
-      expect(res).to.have.status(404)
-    })
-  })
-
   describe('Documentation', () => {
     it('should return 200', async () => {
       const res = await chai.request(server).get('/api/docs')

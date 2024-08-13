@@ -7,25 +7,29 @@ const machineData = {
         area: 'Main Area 1'
     },
     machineState: {
-        currentState: 'operational'
+        currentState: 'operational',
+        anomalyDetails: []
     },
     specifications: {
         powerConsumption: {
+            measurementUnit: 'kWh',
             normalRange: {
-                min: 10,
-                max: 100
+                min: "10",
+                max: "100"
             }
         },
         emissions: {
+            measurementUnit: 'ppm',
             normalRange: {
-                min: 10,
-                max: 100
+                min: "10",
+                max: "100"
             }
         },
         operatingTemperature: {
+            measurementUnit: 'C',
             normalRange: {
-                min: 10,
-                max: 100
+                min: "10",
+                max: "100"
             }
         }
     },
@@ -50,20 +54,20 @@ const machineDataTwo = {
     specifications: {
         powerConsumption: {
             normalRange: {
-                min: 10,
-                max: 100
+                min: "10",
+                max: "100"
             }
         },
         emissions: {
             normalRange: {
-                min: 10,
-                max: 100
+                min: "10",
+                max: "100"
             }
         },
         operatingTemperature: {
             normalRange: {
-                min: 10,
-                max: 100
+                min: "10",
+                max: "100"
             }
         }
     },

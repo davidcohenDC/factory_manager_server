@@ -1,6 +1,6 @@
 const { machineService } = require('@services/');
-const { logger } = require('@config/');
-
+const { logWithSource } = require('@config/');
+const logger = logWithSource('MachineController');
 /**
  * @swagger
  * /machine:
@@ -102,18 +102,19 @@ const { logger } = require('@config/');
  */
 const createMachine = async (req, res) => {
     try {
-        const machineData = req.body;
-        const result = await machineService.createMachine(machineData);
+        const result = await machineService.createMachine(req.body);
         if (result.success) {
+            logger.info(`Machine created successfully:`, { serial: result.data._id });
             res.status(201).json(result.data);
         } else {
-            res.status(400).json(result.error);
+            logger.warn(`Validation error during machine creation`, { error: result.error });
+            res.status(400).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Error creating machine: ${error.message}`);
-        res.status(500).json('Internal server error');
+        logger.error('Internal server error', { error: error.message, requestId: req.id });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
-};
+}
 
 /**
  * @swagger
@@ -155,18 +156,74 @@ const createMachine = async (req, res) => {
  */
 const getMachineById = async (req, res) => {
     try {
-        const id = req.params.id;
-        const result = await machineService.getMachineById(id);
+        const result = await machineService.getMachineById(req.params.id);
         if (result.success) {
+            logger.info('Machine retrieved successfully by ID:', { machineId: result.data._id });
             res.status(200).json(result.data);
         } else {
-            res.status(404).json(result.error);
+            logger.warn(`Machine not found with ID: ${req.params.id}`, { error: result.error });
+            res.status(404).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Error retrieving machine by id: ${error.message}`);
-        res.status(500).json('Internal server error');
+        logger.error('Internal server error during getMachineById', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
-};
+}
+
+
+/**
+ * @swagger
+ * /machine/serial/{serial}:
+ *   get:
+ *     summary: Get machine by serial
+ *     tags:
+ *       - Machine
+ *     parameters:
+ *       - in: path
+ *         name: serial
+ *         required: true
+ *         schema:
+ *           type: string
+ *           example: "MCH1011"
+ *         description: Serial of the machine to retrieve
+ *     responses:
+ *       "200":
+ *         description: Machine retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 serial:
+ *                   type: string
+ *                 name:
+ *                   type: string
+ *                 location:
+ *                   type: object
+ *                 machineState:
+ *                   type: object
+ *                 specifications:
+ *                   type: object
+ *       "404":
+ *         description: Machine not found
+ *       "500":
+ *         description: Internal Server Error
+ */
+const getMachineBySerial = async (req, res) => {
+    try {
+        const result = await machineService.getMachineBySerial(req.params.serial);
+        if (result.success) {
+            logger.info('Machine retrieved successfully by Serial:', { machineSerial: result.data._id });
+            res.status(200).json(result.data);
+        } else {
+            logger.warn(`Machine not found with Serial: ${req.params.serial}`, { error: result.error });
+            res.status(404).json({ success: false, error: result.error });
+        }
+    } catch (error) {
+        logger.error('Internal server error during getMachineBySerial', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+}
 
 /**
  * @swagger
@@ -226,19 +283,93 @@ const getMachineById = async (req, res) => {
  */
 const updateMachineById = async (req, res) => {
     try {
-        const id = req.params.id;
-        const updateData = req.body;
-        const result = await machineService.updateMachineById(id, updateData);
+        const result = await machineService.updateMachineById(req.params.id, req.body);
         if (result.success) {
+            logger.info('Machine updated successfully by ID', {machineId: result.data._id});
             res.status(200).json(result.data);
         } else {
-            res.status(400).json(result.error);
+            logger.warn(`Update failed for machine with ID: ${req.params.id}`, {error: result.error});
+            res.status(result.status).json({success: false, error: result.error});
         }
     } catch (error) {
-        logger.error(`Error updating machine by id: ${error.message}`);
-        res.status(500).json('Internal server error');
+        logger.error('Internal server error during updateMachineById', {error: error.message});
+        res.status(500).json({success: false, error: 'Internal server error'});
     }
-};
+}
+
+
+
+/**
+ * @swagger
+ * /machine/serial/{serial}:
+ *   patch:
+ *     summary: Update machine by Serial
+ *     tags:
+ *       - Machine
+ *     parameters:
+ *       - in: path
+ *         name: serial
+ *         required: true
+ *         schema:
+ *           type: string
+ *           example: "MCH1011"
+ *         description: Serial of the machine to update
+ *     requestBody:
+ *       description: Data to update the machine
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               location:
+ *                 type: object
+ *               machineState:
+ *                 type: object
+ *               specifications:
+ *                 type: object
+ *     responses:
+ *       "200":
+ *         description: Machine updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 serial:
+ *                   type: string
+ *                 name:
+ *                   type: string
+ *                 location:
+ *                   type: object
+ *                 machineState:
+ *                   type: object
+ *                 specifications:
+ *                   type: object
+ *       "400":
+ *         description: Bad Request - Invalid data
+ *       "404":
+ *         description: Machine not found
+ *       "500":
+ *         description: Internal Server Error
+ */
+const updateMachineBySerial = async (req, res) => {
+    try {
+        const result = await machineService.updateMachineBySerial(req.params.serial, req.body);
+        if (result.success) {
+            logger.info('Machine updated successfully by Serial', { machineSerial: result.data._id });
+            res.status(200).json(result.data);
+        } else {
+            logger.warn(`Update failed for machine with Serial: ${req.params.serial}`, { error: result.error });
+            res.status(result.status).json({ success: false, error: result.error });
+        }
+    } catch (error) {
+        logger.error('Internal server error during updateMachineBySerial', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+}
 
 /**
  * @swagger
@@ -273,18 +404,19 @@ const updateMachineById = async (req, res) => {
  */
 const deleteMachineById = async (req, res) => {
     try {
-        const id = req.params.id;
-        const result = await machineService.deleteMachineById(id);
+        const result = await machineService.deleteMachineById(req.params.id);
         if (result.success) {
-            res.status(200).json(result.data);
+            logger.info('Machine deleted successfully by ID', { machineId: req.params.id });
+            res.status(200).json({ message: 'Machine deleted successfully' });
         } else {
-            res.status(404).json(result.error);
+            logger.warn(`Delete failed for machine with ID: ${req.params.id}`, { error: result.error });
+            res.status(404).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Error deleting machine by id: ${error.message}`);
-        res.status(500).json('Internal server error');
+        logger.error('Internal server error during deleteMachineById', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
-};
+}
 
 /**
  * @swagger
@@ -333,80 +465,33 @@ const deleteMachineById = async (req, res) => {
  *       "500":
  *         description: Internal Server Error
  */
+
 const getAllMachines = async (req, res) => {
     try {
-        const limit = parseInt(req.query.limit) || 10;
-        const offset = parseInt(req.query.offset) || 0;
+        const limit = req.query.limit ? parseInt(req.query.limit) : 10;
+        const offset = req.query.offset ? parseInt(req.query.offset) : 0;
         const result = await machineService.getAllMachines(limit, offset);
         if (result.success) {
+            logger.info('All machines retrieved successfully', { machineCount: result.data.length });
             res.status(200).json(result.data);
         } else {
-            res.status(404).json(result.error);
+            logger.error('Error retrieving all machines', { error: result.error });
+            res.status(500).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Error retrieving all machines: ${error.message}`);
-        res.status(500).json('Internal server error');
+        logger.error('Internal server error during getAllMachines', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
-};
+}
 
-/**
- * @swagger
- * /machine/serial/{serial}:
- *   get:
- *     summary: Get machine by serial
- *     tags:
- *       - Machine
- *     parameters:
- *       - in: path
- *         name: serial
- *         required: true
- *         schema:
- *           type: string
- *           example: "MCH1011"
- *         description: Serial of the machine to retrieve
- *     responses:
- *       "200":
- *         description: Machine retrieved successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 serial:
- *                   type: string
- *                 name:
- *                   type: string
- *                 location:
- *                   type: object
- *                 machineState:
- *                   type: object
- *                 specifications:
- *                   type: object
- *       "404":
- *         description: Machine not found
- *       "500":
- *         description: Internal Server Error
- */
-const getMachineBySerial = async (req, res) => {
-    try {
-        const serial = req.params.serial;
-        const result = await machineService.getMachineBySerial(serial);
-        if (result.success) {
-            res.status(200).json(result.data);
-        } else {
-            res.status(404).json(result.error);
-        }
-    } catch (error) {
-        logger.error(`Error retrieving machine by serial: ${error.message}`);
-        res.status(500).json('Internal server error');
-    }
-};
+
 
 module.exports = {
     createMachine,
     getMachineById,
     updateMachineById,
+    updateMachineBySerial,
     deleteMachineById,
     getAllMachines,
     getMachineBySerial
-};
+}

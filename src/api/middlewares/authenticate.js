@@ -1,7 +1,6 @@
 const expressJwt = require('express-jwt')
 const jwtBlacklist = require('express-jwt-blacklist')
-const { logger } = require('@config/')
-const { host, port, jwtSecretKey } = require('@config/')
+const { logger, host, port, jwtSecretKey } = require('@config/')
 const logSource = { source: 'JWT Middleware' }
 
 jwtBlacklist.configure({

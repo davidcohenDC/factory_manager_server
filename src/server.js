@@ -1,10 +1,11 @@
 require('module-alias/register')
-const { app, configureApp } = require('./app')
-const { logger } = require('@config/')
+const { app, configureApp } = require('@root/app')
+const { port } = require('@config/')
 const mongoose = require('mongoose')
-const { port } = require('./config')
 const logSource = { source: 'Express Server' }
 const http = require('http')
+const { logWithSource } = require('@config/');
+const logger = logWithSource('Server');
 
 const startServer = async () => {
   await configureApp() // Configure the app before starting the server

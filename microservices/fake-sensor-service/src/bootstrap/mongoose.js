@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const { dbUri } = require('@config');
-const { logger } = require('@config/');
+const { dbUri, logger } = require('@config/');
 const logSource = { source: 'MongoDB Connection' };
 
 /**

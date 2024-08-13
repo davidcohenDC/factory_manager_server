@@ -1,6 +1,6 @@
 const express = require('express');
 const { logger } = require('@config/');
-const initializeLoaders = require('@loaders/');
+const initializeLoaders = require('@bootstrap/');
 const path = require('path');
 const errorHandler = require('@middlewares/errorHandler');
 

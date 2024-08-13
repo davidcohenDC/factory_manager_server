@@ -1,6 +1,6 @@
 const { userService, authenticationService } = require('@services/');
-
-const { logger } = require('@config/');
+const { logWithSource } = require('@config/');
+const logger = logWithSource('UserController');
 
 /**
  * @swagger
@@ -36,22 +36,23 @@ const { logger } = require('@config/');
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
  */
+
 const createUser = async (req, res) => {
     try {
-        const userData = req.body;
-        const result = await userService.createUser(userData);
-
-        if (result && result.success) {
-            return res.status(201).json(result.data);
+        const result = await userService.createUser(req.body);
+        if (result.success) {
+            logger.info('User created successfully', { userId: result.data._id });
+            res.status(201).json(result.data);
         } else {
-            const errorMessage = result && result.error ? result.error : 'Unknown error';
-            return res.status(400).json({ error: errorMessage });
+            logger.warn('Validation error during user creation', { error: result.error });
+            res.status(400).json({ success: false, error: result.error });
         }
     } catch (error) {
-        console.error('[createUserController] Create user error:', error?.message || error);
-        res.status(500).json({ message: 'Error creating user', error: error?.message || 'Unknown error' });
+        logger.error('Internal server error during user creation', { error: error.message, requestId: req.id });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
+
 
 /**
  * @swagger
@@ -117,19 +118,22 @@ const createUser = async (req, res) => {
  */
 const getUserById = async (req, res) => {
     try {
-        const { id } = req.params;
-        const result = await userService.getUserById(id);
-
+        const result = await userService.getUserById(req.params.id);
         if (result.success) {
-            return res.status(200).json(result.data);
+            logger.info('User retrieved successfully by ID', { userId: result.data._id });
+            res.status(200).json(result.data);
         } else {
-            return res.status(404).json({ error: result.error });
+            logger.warn(`User not found with ID: ${req.params.id}`, { error: result.error });
+            res.status(result.status).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Get user by ID error: ${error.message}`, { source: 'getUserByIdController' });
-        return res.status(500).json({ error: 'Internal server error' });
+        logger.error('Internal server error during getUserById', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
-}
+};
+
+
+
 /**
  * @swagger
  * /user/email/{email}:
@@ -166,19 +170,20 @@ const getUserById = async (req, res) => {
  */
 const getUserByEmail = async (req, res) => {
     try {
-        const { email } = req.params;
-        const result = await userService.getUserByEmail(email);
-
+        const result = await userService.getUserByEmail(req.params.email);
         if (result.success) {
-            return res.status(200).json(result.data);
+            logger.info('User retrieved successfully by email', { userEmail: result.data.email });
+            res.status(200).json(result.data);
         } else {
-            return res.status(404).json({ error: result.error });
+            logger.warn(`User not found with email: ${req.params.email}`, { error: result.error });
+            res.status(result.status).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Get user by email error: ${error.message}`, { source: 'getUserByEmailController' });
-        return res.status(500).json({ error: 'Internal server error' });
+        logger.error('Internal server error during getUserByEmail', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
+
 
 /**
  * @swagger
@@ -216,21 +221,25 @@ const getUserByEmail = async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
  */
+
 const getAllUsers = async (req, res) => {
     try {
-        const { limit, offset } = req.query;
+        const limit = req.query.limit ? parseInt(req.query.limit) : 10;
+        const offset = req.query.offset ? parseInt(req.query.offset) : 0;
         const result = await userService.getAllUsers(limit, offset);
-
         if (result.success) {
-            return res.status(200).json(result.data);
+            logger.info('All users retrieved successfully', { userCount: result.data.length });
+            res.status(200).json(result.data);
         } else {
-            return res.status(500).json({ error: result.error });
+            logger.error('Error retrieving all users', { error: result.error });
+            res.status(500).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Get all users error: ${error.message}`, { source: 'getAllUsersController' });
-        return res.status(500).json({ error: 'Internal server error' });
+        logger.error('Internal server error during getAllUsers', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
+
 
 /**
  * @swagger
@@ -275,18 +284,17 @@ const getAllUsers = async (req, res) => {
  */
 const updateUserById = async (req, res) => {
     try {
-        const { id } = req.params;
-        const updateData = req.body;
-        const result = await userService.updateUserById(id, updateData);
-
+        const result = await userService.updateUserById(req.params.id, req.body);
         if (result.success) {
-            return res.status(200).json(result.data);
+            logger.info('User updated successfully by ID', { userId: result.data._id });
+            res.status(200).json(result.data);
         } else {
-            return res.status(404).json({ error: result.error });
+            logger.warn(`Update failed for user with ID: ${req.params.id}`, { error: result.error });
+            res.status(result.status).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Update user by ID error: ${error.message}`, { source: 'updateUserByIdController' });
-        return res.status(500).json({ error: 'Internal server error' });
+        logger.error('Internal server error during updateUserById', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
 
@@ -326,17 +334,17 @@ const updateUserById = async (req, res) => {
  */
 const deleteUserById = async (req, res) => {
     try {
-        const { id } = req.params;
-        const result = await userService.deleteUserById(id);
-
+        const result = await userService.deleteUserById(req.params.id);
         if (result.success) {
-            return res.status(200).json({ message: 'User deleted successfully' });
+            logger.info('User deleted successfully by ID', { userId: req.params.id });
+            res.status(200).json({ success: true, message: 'User deleted successfully' });
         } else {
-            return res.status(404).json({ error: result.error });
+            logger.warn(`Delete failed for user with ID: ${req.params.id}`, { error: result.error });
+            res.status(result.status).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Delete user by ID error: ${error.message}`, { source: 'deleteUserByIdController' });
-        return res.status(500).json({ error: 'Internal server error' });
+        logger.error('Internal server error during deleteUserById', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
 
@@ -380,19 +388,20 @@ const deleteUserById = async (req, res) => {
  */
 const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const result = await authenticationService.authenticateUser(email, password);
-
+        const result = await authenticationService.authenticateUser(req.body.email, req.body.password);
         if (result.success) {
-            return res.status(200).json(result.data);
+            logger.info('User authenticated successfully', { userId: result.data.userId });
+            res.status(200).json(result.data);
         } else {
-            return res.status(401).json({ error: result.error });
+            logger.warn('Authentication failed', { error: result.error });
+            res.status(401).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Login error: ${error.message}`, { source: 'loginController' });
-        return res.status(500).json({ error: 'Internal server error' });
+        logger.error('Internal server error during login', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
-}
+};
+
 
 /**
  * @swagger
@@ -428,21 +437,19 @@ const login = async (req, res) => {
  */
 const checkEmail = async (req, res) => {
     try {
-        const { email } = req.body;
-        const result = await userService.checkUserEmail(email);
-
+        const result = await userService.checkUserEmail(req.body.email);
         if (result.success) {
-            return res.status(200).json({ valid: result.exists });
+            logger.info('Email check completed', { email: req.body.email, valid: result.exists });
+            res.status(200).json({ valid: result.exists });
         } else {
-            return res.status(500).json({ error: result.error });
+            logger.warn('Email check failed', { error: result.error });
+            res.status(500).json({ success: false, error: result.error });
         }
     } catch (error) {
-        logger.error(`Check email error: ${error.message}`, { source: 'checkEmailController' });
-        return res.status(500).json({ error: 'Internal server error' });
+        logger.error('Internal server error during checkEmail', { error: error.message });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
-
-
 
 module.exports = {
     createUser,

@@ -1,5 +1,4 @@
-const { swaggerConfig } = require('@config/');
-const { logger } = require('@config/');
+const { swaggerConfig, logger } = require('@config/');
 
 function generateSwaggerDocForCRUD(modelName, schemaRef, include) {
   const paths = {};

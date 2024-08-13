@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const {createValidationMiddleware} = require("@validations/common");
+const { createValidationMiddleware } = require("@validations/common");
 
 const logSource = 'MachineSensor Validation';
 
