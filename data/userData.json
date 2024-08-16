@@ -6,7 +6,7 @@
         },
         "email": "john.doe@example.com",
         "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
-        "dataOfBirth": "1990-01-15T00:00:00Z",
+        "dateOfBirth": "1990-01-15T00:00:00Z",
         "address": {
             "street": "123 Olive St",
             "city": "Olive City",
@@ -51,7 +51,7 @@
         },
         "email": "jane.smith@example.com",
         "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
-        "dataOfBirth": "1985-02-20T00:00:00Z",
+        "dateOfBirth": "1985-02-20T00:00:00Z",
         "address": {
             "street": "456 Olive Ave",
             "city": "Olive City",
@@ -96,7 +96,7 @@
         },
         "email": "alex.johnson@example.com",
         "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
-        "dataOfBirth": "1992-03-10T00:00:00Z",
+        "dateOfBirth": "1992-03-10T00:00:00Z",
         "address": {
             "street": "789 Olive Blvd",
             "city": "Olive City",
@@ -141,7 +141,7 @@
         },
         "email": "michael.brown@example.com",
         "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
-        "dataOfBirth": "1988-04-25T00:00:00Z",
+        "dateOfBirth": "1988-04-25T00:00:00Z",
         "address": {
             "street": "321 Olive Ln",
             "city": "Olive City",
@@ -186,7 +186,7 @@
         },
         "email": "emily.davis@example.com",
         "password": "$2a$12$m26XquqYllXu.0RVEQ88Yu6BWPyWe/vMZGbcrrKpuemM.6POMoofG",
-        "dataOfBirth": "1995-05-30T00:00:00Z",
+        "dateOfBirth": "1995-05-30T00:00:00Z",
         "address": {
             "street": "654 Olive Way",
             "city": "Olive City",
