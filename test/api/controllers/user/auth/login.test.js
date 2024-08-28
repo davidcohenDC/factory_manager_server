@@ -4,9 +4,13 @@ const { expect } = chai
 const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
 const User = require('@root/persistence/mongoose/models/user')
-const {expectError, initializeServer, closeServer} = require('@test/api/utils/helper')
+const {
+  expectError,
+  initializeServer,
+  closeServer
+} = require('@test/api/utils/helper')
 const { userData } = require('@test/api/controllers/user/')
-const {userDataTwo} = require("@test/api/controllers/user");
+const { userDataTwo } = require('@test/api/controllers/user')
 chai.use(chaiHttp)
 
 describe('User Controller - Login', () => {

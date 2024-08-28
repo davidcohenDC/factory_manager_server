@@ -20,7 +20,7 @@ router.use('/machine-sensor', MachineSensorRoutes)
 
 // Redirect from root to /docs
 router.use((_req, res, _next) => {
-    res.redirect(prefix+specs);
-});
+  res.redirect(prefix + specs)
+})
 
 module.exports = router

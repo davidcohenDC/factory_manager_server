@@ -1,5 +1,5 @@
 require('module-alias/register')
-const { faker, tr} = require('@faker-js/faker')
+const { faker, tr } = require('@faker-js/faker')
 const Area = require('@root/persistence/mongoose/models/area')
 const { generateCRUDTests } = require('@test/api/utils/helper/')
 const {
@@ -7,8 +7,10 @@ const {
   initializeServer,
   closeServer
 } = require('@test/api/utils/helper')
-const { machineData, machineDataTwo } = require('@test/api/controllers/machine/')
-
+const {
+  machineData,
+  machineDataTwo
+} = require('@test/api/controllers/machine/')
 
 const areaDataPre = {
   name: 'Main Area 4',
@@ -21,7 +23,7 @@ const areaDataPre = {
       machines: [machineDataTwo]
     }
   ],
-    test: true
+  test: true
 }
 
 const areaDataPost = {
@@ -35,26 +37,23 @@ const areaDataPost = {
       machines: [machineData]
     }
   ],
-    test: true
+  test: true
 }
 
 // All required fields
-const requiredFields = [
-  { fieldName: 'name' },
-  { fieldName: 'size' }
-]
+const requiredFields = [{ fieldName: 'name' }, { fieldName: 'size' }]
 
 const validationFields = []
 
 describe('Machine Controller - CRUD', () => {
   generateCRUDTests(
-        'area',
-        Area,
-        areaDataPre,
-        areaDataPost,
-        requiredFields,
-        validationFields,
-        { expectError, initializeServer, closeServer },
-      { create: true, read: true, update: true, delete: true }
+    'area',
+    Area,
+    areaDataPre,
+    areaDataPost,
+    requiredFields,
+    validationFields,
+    { expectError, initializeServer, closeServer },
+    { create: true, read: true, update: true, delete: true }
   )
 })

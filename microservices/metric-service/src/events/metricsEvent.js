@@ -8,7 +8,7 @@ module.exports = (io) => {
     })
 
     socket.on('disconnect', () => {
-      logger.info('User disconnected', {source: logSource})
+      logger.info('User disconnected', { source: logSource })
     })
   })
 }

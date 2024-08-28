@@ -1,7 +1,7 @@
 const socketIo = require('socket.io')
 const { logger } = require('./config')
 
-const logSource ='Socket Server'
+const logSource = 'Socket Server'
 
 function sendMetrics(io) {
   const metrics = {
@@ -13,11 +13,10 @@ function sendMetrics(io) {
 }
 // process.env.SERVICE_NAME
 const initializeSocket = (server) => {
-
   const io = socketIo(server, {
     cors: {
-      origin: "http://localhost:4000",
-      methods: ["GET", "POST"],
+      origin: 'http://localhost:4000',
+      methods: ['GET', 'POST'],
       credentials: true
     }
   })
@@ -26,10 +25,13 @@ const initializeSocket = (server) => {
     setInterval(() => {
       sendMetrics(socket)
     }, 500)
-    logger.info('User connected', { source: logSource, socketId: socket.id})
+    logger.info('User connected', { source: logSource, socketId: socket.id })
 
     socket.on('disconnect', () => {
-      logger.info('User disconnected', { source: logSource, socketId: socket.id })
+      logger.info('User disconnected', {
+        source: logSource,
+        socketId: socket.id
+      })
     })
   })
 }

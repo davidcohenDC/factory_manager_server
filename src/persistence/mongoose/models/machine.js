@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
-const { logWithSource } = require('@config/');
-const logger = logWithSource('MachineSchema');
+const mongoose = require('mongoose')
+const { Schema } = mongoose
+const { logWithSource } = require('@config/')
+const logger = logWithSource('MachineSchema')
 
 const machineSchema = new Schema({
   serial: {
@@ -26,7 +26,13 @@ const machineSchema = new Schema({
     },
     anomalyDetails: {
       type: [String],
-      enum: ['powerConsumption', 'emissions', 'operatingTemperature', 'vibration', 'pressure']
+      enum: [
+        'powerConsumption',
+        'emissions',
+        'operatingTemperature',
+        'vibration',
+        'pressure'
+      ]
     }
   },
   specifications: {
@@ -34,10 +40,10 @@ const machineSchema = new Schema({
       measurementUnit: String,
       normalRange: {
         min: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         },
         max: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         }
       }
     },
@@ -45,10 +51,10 @@ const machineSchema = new Schema({
       measurementUnit: String,
       normalRange: {
         min: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         },
         max: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         }
       }
     },
@@ -56,10 +62,10 @@ const machineSchema = new Schema({
       measurementUnit: String,
       normalRange: {
         min: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         },
         max: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         }
       }
     },
@@ -67,10 +73,10 @@ const machineSchema = new Schema({
       measurementUnit: String,
       normalRange: {
         min: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         },
         max: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         }
       }
     },
@@ -78,10 +84,10 @@ const machineSchema = new Schema({
       measurementUnit: String,
       normalRange: {
         min: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         },
         max: {
-          type: mongoose.Types.Decimal128,
+          type: mongoose.Types.Decimal128
         }
       }
     }
@@ -102,7 +108,7 @@ const machineSchema = new Schema({
         first: String,
         last: String
       }
-    },
+    }
   ],
   maintenance: {
     lastMaintenanceDate: Date,
@@ -126,45 +132,52 @@ const machineSchema = new Schema({
     ]
   },
   test: { type: Boolean }
-});
-
+})
 
 // Post-save hook for catching errors
 machineSchema.post('save', function (err, doc, next) {
   if (err) {
     if (err.name === 'MongoServerError' && err.code === 11000) {
-      logger.error(`Duplicate key error (MongoServerError): E11000 duplicate key error on serial: ${JSON.stringify(err.keyValue)}`);
-      return next(new Error('Machine with this serial already exists.'));
+      logger.error(
+        `Duplicate key error (MongoServerError): E11000 duplicate key error on serial: ${JSON.stringify(err.keyValue)}`
+      )
+      return next(new Error('Machine with this serial already exists.'))
     } else {
-      logger.error(`Error saving machine: ${err.message}`);
-      return next(err);
+      logger.error(`Error saving machine: ${err.message}`)
+      return next(err)
     }
   }
-  next();
-});
+  next()
+})
 
 // Post-validate hook
 machineSchema.post('validate', function (doc) {
-  logger.info(`Machine with id: ${doc._id}, Serial: ${doc.serial} passed validation.`);
-});
+  logger.info(
+    `Machine with id: ${doc._id}, Serial: ${doc.serial} passed validation.`
+  )
+})
 
 // Post-update hook
 machineSchema.post('findOneAndUpdate', function (doc) {
   if (doc) {
-    logger.info(`Machine with id: ${doc._id}, Serial: ${doc.serial} was updated.`);
+    logger.info(
+      `Machine with id: ${doc._id}, Serial: ${doc.serial} was updated.`
+    )
   } else {
-    logger.warn('No machine was found to update.');
+    logger.warn('No machine was found to update.')
   }
-});
+})
 
 // Post-delete hook
 machineSchema.post('findOneAndDelete', function (doc) {
   if (doc) {
-    logger.info(`Machine with id: ${doc._id}, Email: ${doc.serial} was deleted.`);
+    logger.info(
+      `Machine with id: ${doc._id}, Email: ${doc.serial} was deleted.`
+    )
   } else {
-    logger.warn('No machine was found to delete.');
+    logger.warn('No machine was found to delete.')
   }
-});
+})
 
-const Machine = mongoose.model('Machine', machineSchema);
-module.exports = Machine;
+const Machine = mongoose.model('Machine', machineSchema)
+module.exports = Machine

@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
 const { dbUri } = require('@config/')
-const { logWithSource } = require('@config/');
-const logger = logWithSource('MongooseConnection');
-
+const { logWithSource } = require('@config/')
+const logger = logWithSource('MongooseConnection')
 
 module.exports = async () => {
   mongoose.set('strictQuery', false)

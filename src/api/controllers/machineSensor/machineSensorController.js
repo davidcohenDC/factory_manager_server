@@ -1,6 +1,6 @@
-const { machineSensorService } = require('@services/');
-const { logWithSource } = require('@config/');
-const logger = logWithSource('MachineSensorController');
+const { machineSensorService } = require('@services/')
+const { logWithSource } = require('@config/')
+const logger = logWithSource('MachineSensorController')
 
 /**
  * @swagger
@@ -25,20 +25,26 @@ const logger = logWithSource('MachineSensorController');
  *               $ref: '#/components/schemas/MachineSensorSchema'
  */
 const createMachineSensor = async (req, res) => {
-    try {
-        const result = await machineSensorService.createMachineSensor(req.body);
-        if (result.success) {
-            logger.info('Machine sensor created successfully', { machineSensorId: result.data._id });
-            res.status(201).json(result.data);
-        } else {
-            logger.warn('Validation error during machine sensor creation', { error: result.error });
-            res.status(400).json({ success: false, error: result.error });
-        }
-    } catch (error) {
-        logger.error('Internal server error during machine sensor creation', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await machineSensorService.createMachineSensor(req.body)
+    if (result.success) {
+      logger.info('Machine sensor created successfully', {
+        machineSensorId: result.data._id
+      })
+      res.status(201).json(result.data)
+    } else {
+      logger.warn('Validation error during machine sensor creation', {
+        error: result.error
+      })
+      res.status(400).json({ success: false, error: result.error })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during machine sensor creation', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -64,20 +70,30 @@ const createMachineSensor = async (req, res) => {
  *               $ref: '#/components/schemas/MachineSensorSchema'
  */
 const getMachineSensorById = async (req, res) => {
-    try {
-        const result = await machineSensorService.getMachineSensorById(req.params.id);
-        if (result.success) {
-            logger.info('Machine sensor retrieved successfully by ID', { machineSensorId: result.data._id });
-            res.status(200).json(result.data);
-        } else {
-            logger.warn(`Machine sensor not found with ID: ${req.params.id}`, { error: result.error });
-            res.status(404).json({ success: false, error: 'Machine sensor not found' });
-        }
-    } catch (error) {
-        logger.error('Internal server error during getMachineSensorById', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await machineSensorService.getMachineSensorById(
+      req.params.id
+    )
+    if (result.success) {
+      logger.info('Machine sensor retrieved successfully by ID', {
+        machineSensorId: result.data._id
+      })
+      res.status(200).json(result.data)
+    } else {
+      logger.warn(`Machine sensor not found with ID: ${req.params.id}`, {
+        error: result.error
+      })
+      res
+        .status(404)
+        .json({ success: false, error: 'Machine sensor not found' })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during getMachineSensorById', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -103,20 +119,31 @@ const getMachineSensorById = async (req, res) => {
  *               $ref: '#/components/schemas/MachineSensorSchema'
  */
 const getMachineSensorBySerial = async (req, res) => {
-    try {
-        const result = await machineSensorService.getMachineSensorBySerial(req.params.serial);
-        if (result.success) {
-            logger.info('Machine sensor retrieved successfully by serial', { serial: result.data.serial });
-            res.status(200).json(result.data);
-        } else {
-            logger.warn(`Machine sensor not found with serial: ${req.params.serial}`, { error: result.error });
-            res.status(404).json({ success: false, error: 'Machine sensor not found' });
-        }
-    } catch (error) {
-        logger.error('Internal server error during getMachineSensorBySerial', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await machineSensorService.getMachineSensorBySerial(
+      req.params.serial
+    )
+    if (result.success) {
+      logger.info('Machine sensor retrieved successfully by serial', {
+        serial: result.data.serial
+      })
+      res.status(200).json(result.data)
+    } else {
+      logger.warn(
+        `Machine sensor not found with serial: ${req.params.serial}`,
+        { error: result.error }
+      )
+      res
+        .status(404)
+        .json({ success: false, error: 'Machine sensor not found' })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during getMachineSensorBySerial', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -149,24 +176,33 @@ const getMachineSensorBySerial = async (req, res) => {
  *                 $ref: '#/components/schemas/MachineSensorSchema'
  */
 const getAllMachineSensors = async (req, res) => {
-    try {
-        const result = await machineSensorService.getAllMachineSensors(req.query.limit, req.query.offset);
-        if (result.success) {
-            logger.info('All machine sensors retrieved successfully', { sensorCount: result.data.length });
-            res.status(200).json(result.data);
-        } else {
-            logger.warn('No machine sensors found', { error: result.error });
-            res.status(404).json({ success: false, error: 'No machine sensors found' });
-        }
-    } catch (error) {
-        logger.error('Internal server error during getAllMachineSensors', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await machineSensorService.getAllMachineSensors(
+      req.query.limit,
+      req.query.offset
+    )
+    if (result.success) {
+      logger.info('All machine sensors retrieved successfully', {
+        sensorCount: result.data.length
+      })
+      res.status(200).json(result.data)
+    } else {
+      logger.warn('No machine sensors found', { error: result.error })
+      res
+        .status(404)
+        .json({ success: false, error: 'No machine sensors found' })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during getAllMachineSensors', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 module.exports = {
-    createMachineSensor,
-    getMachineSensorById,
-    getMachineSensorBySerial,
-    getAllMachineSensors,
-};
+  createMachineSensor,
+  getMachineSensorById,
+  getMachineSensorBySerial,
+  getAllMachineSensors
+}

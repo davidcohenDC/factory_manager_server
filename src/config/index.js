@@ -1,7 +1,7 @@
 const { config } = require('dotenv')
 const dotenvExpand = require('dotenv-expand')
 const swaggerConfig = require('./swagger.config.js')
-const {logger, logWithSource } = require('@config/logger')
+const { logger, logWithSource } = require('@config/logger')
 dotenvExpand.expand(config())
 config()
 

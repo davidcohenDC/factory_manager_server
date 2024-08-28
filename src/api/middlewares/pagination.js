@@ -8,7 +8,8 @@
  */
 module.exports = (options = {}) => {
   const itemsPerPage = options.itemsPerPage || process.env.ITEMS_PER_PAGE || 50
-  const maxItemsPerPage = options.maxItemsPerPage || process.env.MAX_ITEMS_PER_PAGE || 100
+  const maxItemsPerPage =
+    options.maxItemsPerPage || process.env.MAX_ITEMS_PER_PAGE || 100
 
   return (req, res, next) => {
     let { limit, offset } = req.query

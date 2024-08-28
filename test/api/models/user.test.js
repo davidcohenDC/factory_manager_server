@@ -6,11 +6,10 @@ const chaiHttp = require('chai-http')
 const { faker } = require('@faker-js/faker')
 const User = require('@root/persistence/mongoose/models/user')
 const mongoose = require('mongoose')
-const {userData} = require("@test/api/controllers/user");
+const { userData } = require('@test/api/controllers/user')
 chai.use(chaiHttp)
 
 describe('User Model', () => {
-
   beforeEach(async () => {
     await User.deleteMany({ test: true })
   })
@@ -55,19 +54,19 @@ describe('User Model', () => {
     })
 
     it('throws an error when password is invalid', async () => {
-      await new User(userData)
-        .save()
-        .catch((error) => {
-          // expect(error).to.be.an.instanceof(mongoose.Error.ValidationError)
-          expect(error.errors).to.have.property('password')
-        })
+      await new User(userData).save().catch((error) => {
+        // expect(error).to.be.an.instanceof(mongoose.Error.ValidationError)
+        expect(error.errors).to.have.property('password')
+      })
     })
 
     describe('Unique Constraints', () => {
       it('throws an error when email is not unique', async () => {
         await new User(userData).save()
         await new User(userData).save().catch((error) => {
-          expect(error.message).to.contains('User with this email already exists.')
+          expect(error.message).to.contains(
+            'User with this email already exists.'
+          )
         })
       })
     })

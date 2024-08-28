@@ -83,8 +83,8 @@ module.exports = (app) => {
 
   // Redirect from root to your Swagger docs
   app.get('/', (_req, res) => {
-    res.redirect(`${prefix}${specs}`);
-  });
+    res.redirect(`${prefix}${specs}`)
+  })
 
   app.get('/health', (_req, res) => res.send({ status: 'OK' }))
 
@@ -94,30 +94,31 @@ module.exports = (app) => {
     next(error)
   })
 
-
-
   app.use((error, req, res, _next) => {
     if (error) {
-      const status = error.status || 500;
-      let resultCode = status === 500 ? '00013' : '00014';
-      let level = status === 500 ? 'Server Error' : 'Client Error';
+      const status = error.status || 500
+      let resultCode = status === 500 ? '00013' : '00014'
+      let level = status === 500 ? 'Server Error' : 'Client Error'
 
       // Log the error
-      logger.error(`[Code: ${resultCode}] - ${level}: ${error.message} with req ${req.method} ${req.originalUrl}`, {
-        ...logSource,
-        user: req?.user?._id ?? null,
-        method: req.method,
-        path: req.originalUrl,
-        ip: req.ip,
-        error
-      });
+      logger.error(
+        `[Code: ${resultCode}] - ${level}: ${error.message} with req ${req.method} ${req.originalUrl}`,
+        {
+          ...logSource,
+          user: req?.user?._id ?? null,
+          method: req.method,
+          path: req.originalUrl,
+          ip: req.ip,
+          error
+        }
+      )
 
       return res.status(status).json({
         resultMessage: { en: errorCodes[resultCode] },
         resultCode
-      });
+      })
     } else {
-      _next();
+      _next()
     }
-  });
+  })
 }

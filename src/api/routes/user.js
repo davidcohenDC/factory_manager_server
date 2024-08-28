@@ -1,11 +1,23 @@
 const express = require('express')
 const { userController } = require('@controllers/user/')
-const { validateLogin, validateCheckMail, validateUserBody, validateUserId } = require('@validations/user.validation')
+const {
+  validateLogin,
+  validateCheckMail,
+  validateUserBody,
+  validateUserId
+} = require('@validations/user.validation')
 const router = express.Router()
 const { pagination } = require('@middlewares/')
 
 router.post('/', validateUserBody, userController.createUser)
-router.get('/', pagination({itemsPerPage: process.env.ITEMS_PER_PAGE, maxItemsPerPage: 100}), userController.getAllUsers)
+router.get(
+  '/',
+  pagination({
+    itemsPerPage: process.env.ITEMS_PER_PAGE,
+    maxItemsPerPage: 100
+  }),
+  userController.getAllUsers
+)
 router.get('/id/:id', validateUserId, userController.getUserById)
 router.patch('/id/:id', validateUserId, userController.updateUserById)
 router.delete('/id/:id', validateUserId, userController.deleteUserById)

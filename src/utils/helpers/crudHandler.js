@@ -1,7 +1,7 @@
-const { swaggerConfig, logger } = require('@config/');
+const { swaggerConfig, logger } = require('@config/')
 
 function generateSwaggerDocForCRUD(modelName, schemaRef, include) {
-  const paths = {};
+  const paths = {}
 
   if (include.create) {
     paths[`/${modelName.toLowerCase()}`] = {
@@ -42,7 +42,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef, include) {
           }
         }
       }
-    };
+    }
   }
 
   if (include.read) {
@@ -57,7 +57,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef, include) {
             in: 'query',
             required: false,
             description:
-                'Limit the number of results per request. Maximum allowed is 100.',
+              'Limit the number of results per request. Maximum allowed is 100.',
             schema: {
               type: 'integer',
               default: 50,
@@ -69,10 +69,10 @@ function generateSwaggerDocForCRUD(modelName, schemaRef, include) {
             in: 'query',
             required: false,
             description:
-                'Offset to start fetching results from. Useful for pagination.',
+              'Offset to start fetching results from. Useful for pagination.',
             schema: {
               description:
-                  'Limit the number of results per request. Maximum allowed is 100.',
+                'Limit the number of results per request. Maximum allowed is 100.',
               type: 'integer',
               default: 0
             }
@@ -100,7 +100,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef, include) {
           }
         }
       }
-    };
+    }
 
     paths[`/${modelName.toLowerCase()}/id/{id}`] = {
       get: {
@@ -140,7 +140,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef, include) {
           }
         }
       }
-    };
+    }
   }
 
   if (include.update) {
@@ -203,7 +203,7 @@ function generateSwaggerDocForCRUD(modelName, schemaRef, include) {
           }
         }
       }
-    };
+    }
   }
 
   if (include.delete) {
@@ -246,114 +246,169 @@ function generateSwaggerDocForCRUD(modelName, schemaRef, include) {
           }
         }
       }
-    };
+    }
   }
 
-  return { paths };
+  return { paths }
 }
 
 const CRUDHandler = (Model, modelName, include) => {
-  const logSource = `CRUDHandler - ${modelName}`;
+  const logSource = `CRUDHandler - ${modelName}`
 
-  const handler = {};
+  const handler = {}
 
   if (include.create) {
     handler.create = async (req, res) => {
-      const instance = new Model(req.body);
+      const instance = new Model(req.body)
       try {
-        await instance.save();
-        logger.info(`Successfully created ${modelName} with id ${instance._id}.`, { source: logSource });
-        res.status(201).send({ [modelName]: instance });
+        await instance.save()
+        logger.info(
+          `Successfully created ${modelName} with id ${instance._id}.`,
+          { source: logSource }
+        )
+        res.status(201).send({ [modelName]: instance })
       } catch (error) {
-        logger.error(`Error creating ${modelName}: ${error.message}`, { source: logSource });
-        res.status(400).send({ error: error.message });
+        logger.error(`Error creating ${modelName}: ${error.message}`, {
+          source: logSource
+        })
+        res.status(400).send({ error: error.message })
       }
-    };
+    }
   }
 
   if (include.read) {
     handler.getOne = async (req, res) => {
       try {
-        const instance = await Model.findById(req.params.id);
+        const instance = await Model.findById(req.params.id)
         if (!instance) {
-          logger.warn(`${modelName} with id ${req.params.id} not found.`, { source: logSource });
-          return res.status(404).send({ error: `${modelName} not found.` });
+          logger.warn(`${modelName} with id ${req.params.id} not found.`, {
+            source: logSource
+          })
+          return res.status(404).send({ error: `${modelName} not found.` })
         }
-        logger.info(`Successfully retrieved ${modelName} with id ${req.params.id}.`, { source: logSource });
-        res.json({ [modelName]: instance });
+        logger.info(
+          `Successfully retrieved ${modelName} with id ${req.params.id}.`,
+          { source: logSource }
+        )
+        res.json({ [modelName]: instance })
       } catch (error) {
-        logger.error(`Error retrieving ${modelName} with id ${req.params.id}: ${error}`, { source: logSource });
-        res.status(500).send({ error: 'Internal server error' });
+        logger.error(
+          `Error retrieving ${modelName} with id ${req.params.id}: ${error}`,
+          { source: logSource }
+        )
+        res.status(500).send({ error: 'Internal server error' })
       }
-    };
+    }
 
     handler.getAll = async (req, res) => {
-      const limit = parseInt(req.query.limit, 10) || 50; // Default limit is 50
-      const offset = parseInt(req.query.offset, 10) || 0; // Default offset is 0
+      const limit = parseInt(req.query.limit, 10) || 50 // Default limit is 50
+      const offset = parseInt(req.query.offset, 10) || 0 // Default offset is 0
 
       if (limit > 100) {
-        logger.warn(`Requested limit exceeds maximum allowed limit.`, { source: logSource });
-        return res.status(400).send({ error: `Limit should not exceed 100 items per request.` });
+        logger.warn(`Requested limit exceeds maximum allowed limit.`, {
+          source: logSource
+        })
+        return res
+          .status(400)
+          .send({ error: `Limit should not exceed 100 items per request.` })
       }
 
       try {
-        const instances = await Model.find().skip(offset).limit(limit);
-        logger.info(`Successfully retrieved ${instances.length} ${modelName}s from offset ${offset}.`, { source: logSource });
-        res.json({ [modelName]: instances });
+        const instances = await Model.find().skip(offset).limit(limit)
+        logger.info(
+          `Successfully retrieved ${instances.length} ${modelName}s from offset ${offset}.`,
+          { source: logSource }
+        )
+        res.json({ [modelName]: instances })
       } catch (error) {
-        logger.error(`Error retrieving ${modelName}s: ${error.message}`, { source: logSource });
-        res.status(500).json({ error: 'Internal server error' });
+        logger.error(`Error retrieving ${modelName}s: ${error.message}`, {
+          source: logSource
+        })
+        res.status(500).json({ error: 'Internal server error' })
       }
-    };
+    }
   }
 
   if (include.update) {
     handler.update = async (req, res) => {
       try {
-        const instance = await Model.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const instance = await Model.findByIdAndUpdate(
+          req.params.id,
+          req.body,
+          { new: true, runValidators: true }
+        )
         if (!instance) {
-          logger.warn(`Failed to update ${modelName} with id ${req.params.id} - Not found.`, { source: logSource });
-          return res.status(404).send({ error: `${modelName} not found.` });
+          logger.warn(
+            `Failed to update ${modelName} with id ${req.params.id} - Not found.`,
+            { source: logSource }
+          )
+          return res.status(404).send({ error: `${modelName} not found.` })
         }
-        logger.info(`Successfully updated ${modelName} with id ${req.params.id}.`, { source: logSource });
-        res.send({ [modelName]: instance });
+        logger.info(
+          `Successfully updated ${modelName} with id ${req.params.id}.`,
+          { source: logSource }
+        )
+        res.send({ [modelName]: instance })
       } catch (error) {
-        logger.error(`Error updating ${modelName} with id ${req.params.id}: ${error.message}`, { source: logSource });
-        res.status(400).send({ error: error.message });
+        logger.error(
+          `Error updating ${modelName} with id ${req.params.id}: ${error.message}`,
+          { source: logSource }
+        )
+        res.status(400).send({ error: error.message })
       }
-    };
+    }
   }
 
   if (include.delete) {
     handler.remove = async (req, res) => {
       try {
-        const instance = await Model.findByIdAndDelete(req.params.id);
+        const instance = await Model.findByIdAndDelete(req.params.id)
         if (!instance) {
-          logger.warn(`Failed to delete ${modelName} with id ${req.params.id} - Not found.`, { source: logSource });
-          return res.status(404).send({ error: `${modelName} not found.` });
+          logger.warn(
+            `Failed to delete ${modelName} with id ${req.params.id} - Not found.`,
+            { source: logSource }
+          )
+          return res.status(404).send({ error: `${modelName} not found.` })
         }
-        logger.info(`Successfully deleted ${modelName} with id ${req.params.id}.`, { source: logSource });
-        res.send({ [modelName]: instance, message: `${modelName} deleted successfully` });
+        logger.info(
+          `Successfully deleted ${modelName} with id ${req.params.id}.`,
+          { source: logSource }
+        )
+        res.send({
+          [modelName]: instance,
+          message: `${modelName} deleted successfully`
+        })
       } catch (error) {
-        logger.error(`Error deleting ${modelName} with id ${req.params.id}: ${error.message}`, { source: logSource });
-        res.status(500).send({ error: 'Internal server error' });
+        logger.error(
+          `Error deleting ${modelName} with id ${req.params.id}: ${error.message}`,
+          { source: logSource }
+        )
+        res.status(500).send({ error: 'Internal server error' })
       }
-    };
+    }
   }
 
-  return handler;
-};
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return handler
 }
 
-module.exports.generateResources = (Model, modelName, options = { create: true, read: true, update: true, delete: true }) => {
-  const capitalizedModelName = capitalizeFirstLetter(modelName);
-  const handler = CRUDHandler(Model, modelName, options);
-  const SwaggerSpecs = generateSwaggerDocForCRUD(capitalizedModelName, `${capitalizedModelName}Schema`, options);
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
 
-  Object.assign(swaggerConfig.swaggerDefinition.paths, SwaggerSpecs.paths);
+module.exports.generateResources = (
+  Model,
+  modelName,
+  options = { create: true, read: true, update: true, delete: true }
+) => {
+  const capitalizedModelName = capitalizeFirstLetter(modelName)
+  const handler = CRUDHandler(Model, modelName, options)
+  const SwaggerSpecs = generateSwaggerDocForCRUD(
+    capitalizedModelName,
+    `${capitalizedModelName}Schema`,
+    options
+  )
 
-  return handler;
-};
+  Object.assign(swaggerConfig.swaggerDefinition.paths, SwaggerSpecs.paths)
+
+  return handler
+}

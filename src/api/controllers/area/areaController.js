@@ -1,6 +1,6 @@
-const { areaService } = require('@services/');
-const { logWithSource } = require('@config/');
-const logger = logWithSource('AreaController');
+const { areaService } = require('@services/')
+const { logWithSource } = require('@config/')
+const logger = logWithSource('AreaController')
 
 /**
  * @swagger
@@ -25,19 +25,26 @@ const logger = logWithSource('AreaController');
  *               $ref: '#/components/schemas/AreaSchema'
  */
 const createArea = async (req, res) => {
-    try {
-        const result = await areaService.createArea(req.body);
-        if (result.success) {
-            logger.info('Area created successfully', { areaId: result.data._id });
-            return res.status(201).json(result.data);
-        }
-        logger.warn('Validation error during area creation', { error: result.error });
-        return res.status(400).json({ success: false, error: result.error });
-    } catch (error) {
-        logger.error('Internal server error during area creation', { error: error.message, requestId: req.id });
-        return res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await areaService.createArea(req.body)
+    if (result.success) {
+      logger.info('Area created successfully', { areaId: result.data._id })
+      return res.status(201).json(result.data)
     }
-};
+    logger.warn('Validation error during area creation', {
+      error: result.error
+    })
+    return res.status(400).json({ success: false, error: result.error })
+  } catch (error) {
+    logger.error('Internal server error during area creation', {
+      error: error.message,
+      requestId: req.id
+    })
+    return res
+      .status(500)
+      .json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -62,19 +69,27 @@ const createArea = async (req, res) => {
  *               $ref: '#/components/schemas/AreaSchema'
  */
 const getAreaById = async (req, res) => {
-    try {
-        const result = await areaService.getAreaById(req.params.id);
-        if (result.success) {
-            logger.info('Area retrieved successfully by ID', { areaId: result.data._id });
-            return res.status(200).json(result.data);
-        }
-        logger.warn(`Area not found with ID: ${req.params.id}`, { error: result.error });
-        return res.status(404).json({ success: false, error: 'Area not found' });
-    } catch (error) {
-        logger.error('Internal server error during getAreaById', { error: error.message });
-        return res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await areaService.getAreaById(req.params.id)
+    if (result.success) {
+      logger.info('Area retrieved successfully by ID', {
+        areaId: result.data._id
+      })
+      return res.status(200).json(result.data)
     }
-};
+    logger.warn(`Area not found with ID: ${req.params.id}`, {
+      error: result.error
+    })
+    return res.status(404).json({ success: false, error: 'Area not found' })
+  } catch (error) {
+    logger.error('Internal server error during getAreaById', {
+      error: error.message
+    })
+    return res
+      .status(500)
+      .json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -106,19 +121,27 @@ const getAreaById = async (req, res) => {
  *               $ref: '#/components/schemas/AreaSchema'
  */
 const updateAreaById = async (req, res) => {
-    try {
-        const result = await areaService.updateAreaById(req.params.id, req.body);
-        if (result.success) {
-            logger.info('Area updated successfully by ID', { areaId: result.data._id });
-            return res.status(200).json(result.data);
-        }
-        logger.warn(`Update failed for area with ID: ${req.params.id}`, { error: result.error });
-        return res.status(404).json({ success: false, error: 'Area not found' });
-    } catch (error) {
-        logger.error('Internal server error during updateAreaById', { error: error.message });
-        return res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await areaService.updateAreaById(req.params.id, req.body)
+    if (result.success) {
+      logger.info('Area updated successfully by ID', {
+        areaId: result.data._id
+      })
+      return res.status(200).json(result.data)
     }
-};
+    logger.warn(`Update failed for area with ID: ${req.params.id}`, {
+      error: result.error
+    })
+    return res.status(404).json({ success: false, error: 'Area not found' })
+  } catch (error) {
+    logger.error('Internal server error during updateAreaById', {
+      error: error.message
+    })
+    return res
+      .status(500)
+      .json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -147,19 +170,27 @@ const updateAreaById = async (req, res) => {
  *                   example: Area deleted successfully
  */
 const deleteAreaById = async (req, res) => {
-    try {
-        const result = await areaService.deleteAreaById(req.params.id);
-        if (result.success) {
-            logger.info('Area deleted successfully by ID', { areaId: req.params.id });
-            return res.status(200).json({ success: true, message: 'Area deleted successfully' });
-        }
-        logger.warn(`Delete failed for area with ID: ${req.params.id}`, { error: result.error });
-        return res.status(404).json({ success: false, error: 'Area not found' });
-    } catch (error) {
-        logger.error('Internal server error during deleteAreaById', { error: error.message });
-        return res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await areaService.deleteAreaById(req.params.id)
+    if (result.success) {
+      logger.info('Area deleted successfully by ID', { areaId: req.params.id })
+      return res
+        .status(200)
+        .json({ success: true, message: 'Area deleted successfully' })
     }
-};
+    logger.warn(`Delete failed for area with ID: ${req.params.id}`, {
+      error: result.error
+    })
+    return res.status(404).json({ success: false, error: 'Area not found' })
+  } catch (error) {
+    logger.error('Internal server error during deleteAreaById', {
+      error: error.message
+    })
+    return res
+      .status(500)
+      .json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -192,19 +223,28 @@ const deleteAreaById = async (req, res) => {
  *                 $ref: '#/components/schemas/AreaSchema'
  */
 const getAllAreas = async (req, res) => {
-    try {
-        const result = await areaService.getAllAreas(req.query.limit, req.query.offset);
-        if (result.success) {
-            logger.info('All areas retrieved successfully', { areaCount: result.data.length });
-            return res.status(200).json(result.data);
-        }
-        logger.error('Error retrieving all areas', { error: result.error });
-        return res.status(500).json({ success: false, error: result.error });
-    } catch (error) {
-        logger.error('Internal server error during getAllAreas', { error: error.message });
-        return res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await areaService.getAllAreas(
+      req.query.limit,
+      req.query.offset
+    )
+    if (result.success) {
+      logger.info('All areas retrieved successfully', {
+        areaCount: result.data.length
+      })
+      return res.status(200).json(result.data)
     }
-};
+    logger.error('Error retrieving all areas', { error: result.error })
+    return res.status(500).json({ success: false, error: result.error })
+  } catch (error) {
+    logger.error('Internal server error during getAllAreas', {
+      error: error.message
+    })
+    return res
+      .status(500)
+      .json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -229,25 +269,33 @@ const getAllAreas = async (req, res) => {
  *               $ref: '#/components/schemas/AreaSchema'
  */
 const getAreaByName = async (req, res) => {
-    try {
-        const result = await areaService.getAreaByName(req.params.name);
-        if (result.success) {
-            logger.info('Area retrieved successfully by name', { areaName: result.data.name });
-            return res.status(200).json(result.data);
-        }
-        logger.warn(`Area not found with name: ${req.params.name}`, { error: result.error });
-        return res.status(404).json({ success: false, error: 'Area not found' });
-    } catch (error) {
-        logger.error('Internal server error during getAreaByName', { error: error.message });
-        return res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await areaService.getAreaByName(req.params.name)
+    if (result.success) {
+      logger.info('Area retrieved successfully by name', {
+        areaName: result.data.name
+      })
+      return res.status(200).json(result.data)
     }
-};
+    logger.warn(`Area not found with name: ${req.params.name}`, {
+      error: result.error
+    })
+    return res.status(404).json({ success: false, error: 'Area not found' })
+  } catch (error) {
+    logger.error('Internal server error during getAreaByName', {
+      error: error.message
+    })
+    return res
+      .status(500)
+      .json({ success: false, error: 'Internal server error' })
+  }
+}
 
 module.exports = {
-    createArea,
-    getAreaById,
-    updateAreaById,
-    deleteAreaById,
-    getAllAreas,
-    getAreaByName
-};
+  createArea,
+  getAreaById,
+  updateAreaById,
+  deleteAreaById,
+  getAllAreas,
+  getAreaByName
+}

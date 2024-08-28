@@ -437,7 +437,8 @@ module.exports = {
                     type: 'string',
                     format: 'decimal',
                     example: '65.3',
-                    description: 'The operating temperature recorded by the sensor.'
+                    description:
+                      'The operating temperature recorded by the sensor.'
                   },
                   vibration: {
                     type: 'string',
@@ -458,7 +459,8 @@ module.exports = {
                   }
                 }
               },
-              description: 'An array of sensor data entries recorded by the machine sensor.'
+              description:
+                'An array of sensor data entries recorded by the machine sensor.'
             },
             test: {
               type: 'boolean',
@@ -496,7 +498,7 @@ module.exports = {
             }
           },
           required: ['email']
-        },
+        }
         // Response404: {
         //   description: 'Resource not found.',
         //   content: {
@@ -546,6 +548,6 @@ module.exports = {
     'src/api/controllers/machine/*.js',
     'src/api/controllers/user/*.js',
     'src/api/controllers/area/*.js',
-    'src/api/controllers/machineSensor/*.js',
+    'src/api/controllers/machineSensor/*.js'
   ]
-};
+}

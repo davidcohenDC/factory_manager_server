@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
-const bcrypt = require('bcrypt');
-const { logWithSource } = require('@config/');
-const logger = logWithSource('UserSchema');
+const mongoose = require('mongoose')
+const { Schema, model } = mongoose
+const bcrypt = require('bcrypt')
+const { logWithSource } = require('@config/')
+const logger = logWithSource('UserSchema')
 
 const userSchema = new Schema({
   name: {
@@ -75,74 +75,80 @@ const userSchema = new Schema({
   joinedDate: Date,
   notes: String,
   test: { type: Boolean }
-});
+})
 
 // Indexing
-userSchema.index({ email: 1 });
+userSchema.index({ email: 1 })
 
 // Virtual for fullName
 userSchema
-    .virtual('fullName')
-    .get(function () {
-      return this.name.first + ' ' + this.name.last;
-    })
-    .set(function (value) {
-      const parts = value.split(' ');
-      this.name.first = parts[0];
-      this.name.last = parts[1];
-    });
+  .virtual('fullName')
+  .get(function () {
+    return this.name.first + ' ' + this.name.last
+  })
+  .set(function (value) {
+    const parts = value.split(' ')
+    this.name.first = parts[0]
+    this.name.last = parts[1]
+  })
 
 // Pre-save hook for hashing password
 userSchema.pre('save', async function (next) {
-  logger.info('Pre save hook called');
+  logger.info('Pre save hook called')
   if (this.isModified('password')) {
     try {
-      this.password = await bcrypt.hash(this.password, 10);
-      logger.info(`Password hashed for user with email: ${this.email}`);
+      this.password = await bcrypt.hash(this.password, 10)
+      logger.info(`Password hashed for user with email: ${this.email}`)
     } catch (error) {
-      logger.error(`Error hashing password for user ${this.email}: ${error.message}`);
-      return next(error);
+      logger.error(
+        `Error hashing password for user ${this.email}: ${error.message}`
+      )
+      return next(error)
     }
   }
-  next();
-});
+  next()
+})
 
 // Post-save hook for catching errors
 userSchema.post('save', function (err, doc, next) {
   if (err) {
     if (err.name === 'MongoServerError' && err.code === 11000) {
-      logger.error(`Duplicate key error (MongoServerError): E11000 duplicate key error on email: ${JSON.stringify(err.keyValue)}`);
-      return next(new Error('User with this email already exists.'));
+      logger.error(
+        `Duplicate key error (MongoServerError): E11000 duplicate key error on email: ${JSON.stringify(err.keyValue)}`
+      )
+      return next(new Error('User with this email already exists.'))
     } else {
-      logger.error(`Error saving user: ${err.message}`);
-      return next(err);
+      logger.error(`Error saving user: ${err.message}`)
+      return next(err)
     }
   }
-  next();
-});
+  next()
+})
 
 // Post-validate hook
 userSchema.post('validate', function (doc) {
-  logger.info(`User with id: ${doc._id}, Email: ${doc.email} passed validation.`);
-});
+  logger.info(
+    `User with id: ${doc._id}, Email: ${doc.email} passed validation.`
+  )
+})
 
 // Post-update hook
 userSchema.post('findOneAndUpdate', function (doc) {
   if (doc) {
-    logger.info(`User with id: ${doc._id}, Email: ${doc.email} was updated.`);
+    logger.info(`User with id: ${doc._id}, Email: ${doc.email} was updated.`)
   } else {
-    logger.warn('No user was found to update.');
+    logger.warn('No user was found to update.')
   }
-});
+})
 
 // Post-delete hook
 userSchema.post('findOneAndDelete', function (doc) {
   if (doc) {
-    logger.info(`User with id: ${doc._id}, Email: ${doc.email} was deleted.`);
+    logger.info(`User with id: ${doc._id}, Email: ${doc.email} was deleted.`)
   } else {
-    logger.warn('No user was found to delete.');
+    logger.warn('No user was found to delete.')
   }
-});
+})
 
-const User = model('User', userSchema);
-module.exports = User;
+const User = model('User', userSchema)
+module.exports = User

@@ -3,12 +3,15 @@ const chai = require('chai')
 const { expect } = chai
 const chaiHttp = require('chai-http')
 const User = require('@root/persistence/mongoose/models/user')
-const { expectError,  initializeServer,  closeServer } = require('@test/api/utils/helper')
+const {
+  expectError,
+  initializeServer,
+  closeServer
+} = require('@test/api/utils/helper')
 const { userData } = require('@test/api/controllers/user')
 chai.use(chaiHttp)
 
 describe('User Controller - CheckEmail', () => {
-
   let server
   // Setup: start the server before tests
   before(async () => {

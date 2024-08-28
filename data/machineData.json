@@ -388,8 +388,8 @@
       "area": "Processing"
     },
     "machineState": {
-      "currentState": "maintenance",
-      "anomalyDetails": ["Overheating"]
+      "currentState": "operational",
+      "anomalyDetails": []
     },
     "specifications": {
       "powerConsumption": {
@@ -845,7 +845,7 @@
     },
     "machineState": {
       "currentState": "anomaly",
-      "anomalyDetails": ["Clogged filter"]
+      "anomalyDetails": ["vibration"]
     },
     "specifications": {
       "powerConsumption": {
@@ -873,14 +873,14 @@
         "measurementUnit": "m/s²",
         "normalRange": {
           "min": 0.0,
-          "max": 15
+          "max": 20
         }
       },
       "pressure": {
         "measurementUnit": "bar",
         "normalRange": {
           "min": 0.5 ,
-          "max": 15
+          "max": 20
         }
       }
     },

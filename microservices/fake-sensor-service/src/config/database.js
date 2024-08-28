@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 /**
  * Connect to the MongoDB database.
@@ -6,18 +6,18 @@ const mongoose = require('mongoose');
  * @returns {Promise} Promise representing the connection.
  */
 const connectToDatabase = async (uri) => {
-    try {
-        await mongoose.connect(uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        logger.info('Successfully connected to MongoDB.');
-    } catch (error) {
-        logger.error('Failed to connect to MongoDB:', { error });
-        throw error;
-    }
-};
+  try {
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    logger.info('Successfully connected to MongoDB.')
+  } catch (error) {
+    logger.error('Failed to connect to MongoDB:', { error })
+    throw error
+  }
+}
 
 module.exports = {
-    connectToDatabase
-};
+  connectToDatabase
+}

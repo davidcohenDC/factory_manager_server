@@ -4,7 +4,7 @@ const { logger } = require('/src/config')
 module.exports = (io) => {
   const logSource = 'Chat Events'
   io.on('connection', (socket) => {
-    logger.info('User connected', {source: logSource})
+    logger.info('User connected', { source: logSource })
 
     socket.on('chatMessage', (message) => {
       logger.info('Chat message received', { ...logSource, message }, logSource)

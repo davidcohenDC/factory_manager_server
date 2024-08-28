@@ -4,8 +4,8 @@ const { port } = require('@config/')
 const mongoose = require('mongoose')
 const logSource = { source: 'Express Server' }
 const http = require('http')
-const { logWithSource } = require('@config/');
-const logger = logWithSource('Server');
+const { logWithSource } = require('@config/')
+const logger = logWithSource('Server')
 
 const startServer = async () => {
   await configureApp() // Configure the app before starting the server

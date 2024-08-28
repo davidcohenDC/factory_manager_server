@@ -1,6 +1,6 @@
-const { userService, authenticationService } = require('@services/');
-const { logWithSource } = require('@config/');
-const logger = logWithSource('UserController');
+const { userService, authenticationService } = require('@services/')
+const { logWithSource } = require('@config/')
+const logger = logWithSource('UserController')
 
 /**
  * @swagger
@@ -26,20 +26,25 @@ const logger = logWithSource('UserController');
  */
 
 const createUser = async (req, res) => {
-    try {
-        const result = await userService.createUser(req.body);
-        if (result.success) {
-            logger.info('User created successfully', { userId: result.data._id });
-            res.status(201).json(result.data);
-        } else {
-            logger.warn('Validation error during user creation', { error: result.error });
-            res.status(400).json({ success: false, error: result.error });
-        }
-    } catch (error) {
-        logger.error('Internal server error during user creation', { error: error.message, requestId: req.id });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await userService.createUser(req.body)
+    if (result.success) {
+      logger.info('User created successfully', { userId: result.data._id })
+      res.status(201).json(result.data)
+    } else {
+      logger.warn('Validation error during user creation', {
+        error: result.error
+      })
+      res.status(400).json({ success: false, error: result.error })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during user creation', {
+      error: error.message,
+      requestId: req.id
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -66,20 +71,26 @@ const createUser = async (req, res) => {
  */
 
 const getUserById = async (req, res) => {
-    try {
-        const result = await userService.getUserById(req.params.id);
-        if (result.success) {
-            logger.info('User retrieved successfully by ID', { userId: result.data._id });
-            res.status(200).json(result.data);
-        } else {
-            logger.warn(`User not found with ID: ${req.params.id}`, { error: result.error });
-            res.status(result.status).json({ success: false, error: result.error });
-        }
-    } catch (error) {
-        logger.error('Internal server error during getUserById', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await userService.getUserById(req.params.id)
+    if (result.success) {
+      logger.info('User retrieved successfully by ID', {
+        userId: result.data._id
+      })
+      res.status(200).json(result.data)
+    } else {
+      logger.warn(`User not found with ID: ${req.params.id}`, {
+        error: result.error
+      })
+      res.status(result.status).json({ success: false, error: result.error })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during getUserById', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -105,20 +116,26 @@ const getUserById = async (req, res) => {
  */
 
 const getUserByEmail = async (req, res) => {
-    try {
-        const result = await userService.getUserByEmail(req.params.email);
-        if (result.success) {
-            logger.info('User retrieved successfully by email', { userEmail: result.data.email });
-            res.status(200).json(result.data);
-        } else {
-            logger.warn(`User not found with email: ${req.params.email}`, { error: result.error });
-            res.status(result.status).json({ success: false, error: result.error });
-        }
-    } catch (error) {
-        logger.error('Internal server error during getUserByEmail', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await userService.getUserByEmail(req.params.email)
+    if (result.success) {
+      logger.info('User retrieved successfully by email', {
+        userEmail: result.data.email
+      })
+      res.status(200).json(result.data)
+    } else {
+      logger.warn(`User not found with email: ${req.params.email}`, {
+        error: result.error
+      })
+      res.status(result.status).json({ success: false, error: result.error })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during getUserByEmail', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -152,21 +169,27 @@ const getUserByEmail = async (req, res) => {
  */
 
 const getAllUsers = async (req, res) => {
-    try {
-        const result = await userService.getAllUsers(req.query.limit, req.query.offset);
-        if (result.success) {
-            logger.info('All users retrieved successfully', { userCount: result.data.length });
-            res.status(200).json(result.data);
-        } else {
-            logger.error('Error retrieving all users', { error: result.error });
-            res.status(500).json({ success: false, error: result.error });
-        }
-    } catch (error) {
-        logger.error('Internal server error during getAllUsers', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await userService.getAllUsers(
+      req.query.limit,
+      req.query.offset
+    )
+    if (result.success) {
+      logger.info('All users retrieved successfully', {
+        userCount: result.data.length
+      })
+      res.status(200).json(result.data)
+    } else {
+      logger.error('Error retrieving all users', { error: result.error })
+      res.status(500).json({ success: false, error: result.error })
     }
-};
-
+  } catch (error) {
+    logger.error('Internal server error during getAllUsers', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -199,20 +222,26 @@ const getAllUsers = async (req, res) => {
  */
 
 const updateUserById = async (req, res) => {
-    try {
-        const result = await userService.updateUserById(req.params.id, req.body);
-        if (result.success) {
-            logger.info('User updated successfully by ID', { userId: result.data._id });
-            res.status(200).json(result.data);
-        } else {
-            logger.warn(`Update failed for user with ID: ${req.params.id}`, { error: result.error });
-            res.status(result.status).json({ success: false, error: result.error });
-        }
-    } catch (error) {
-        logger.error('Internal server error during updateUserById', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await userService.updateUserById(req.params.id, req.body)
+    if (result.success) {
+      logger.info('User updated successfully by ID', {
+        userId: result.data._id
+      })
+      res.status(200).json(result.data)
+    } else {
+      logger.warn(`Update failed for user with ID: ${req.params.id}`, {
+        error: result.error
+      })
+      res.status(result.status).json({ success: false, error: result.error })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during updateUserById', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -245,20 +274,26 @@ const updateUserById = async (req, res) => {
  */
 
 const deleteUserById = async (req, res) => {
-    try {
-        const result = await userService.deleteUserById(req.params.id);
-        if (result.success) {
-            logger.info('User deleted successfully by ID', { userId: req.params.id });
-            res.status(200).json({ success: true, message: 'User deleted successfully' });
-        } else {
-            logger.warn(`Delete failed for user with ID: ${req.params.id}`, { error: result.error });
-            res.status(result.status).json({ success: false, error: result.error });
-        }
-    } catch (error) {
-        logger.error('Internal server error during deleteUserById', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await userService.deleteUserById(req.params.id)
+    if (result.success) {
+      logger.info('User deleted successfully by ID', { userId: req.params.id })
+      res
+        .status(200)
+        .json({ success: true, message: 'User deleted successfully' })
+    } else {
+      logger.warn(`Delete failed for user with ID: ${req.params.id}`, {
+        error: result.error
+      })
+      res.status(result.status).json({ success: false, error: result.error })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during deleteUserById', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -288,20 +323,25 @@ const deleteUserById = async (req, res) => {
  */
 
 const login = async (req, res) => {
-    try {
-        const result = await authenticationService.authenticateUser(req.body.email, req.body.password);
-        if (result.success) {
-            logger.info('User authenticated successfully', { userId: result.data.userId });
-            res.status(200).json(result.data);
-        } else {
-            logger.warn('Authentication failed', { error: result.error });
-            res.status(401).json({ success: false, error: result.error });
-        }
-    } catch (error) {
-        logger.error('Internal server error during login', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await authenticationService.authenticateUser(
+      req.body.email,
+      req.body.password
+    )
+    if (result.success) {
+      logger.info('User authenticated successfully', {
+        userId: result.data.userId
+      })
+      res.status(200).json(result.data)
+    } else {
+      logger.warn('Authentication failed', { error: result.error })
+      res.status(401).json({ success: false, error: result.error })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during login', { error: error.message })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 /**
  * @swagger
@@ -331,28 +371,33 @@ const login = async (req, res) => {
  */
 
 const checkEmail = async (req, res) => {
-    try {
-        const result = await userService.checkUserEmail(req.body.email);
-        if (result.success) {
-            logger.info('Email check completed', { email: req.body.email, valid: result.exists });
-            res.status(200).json({ valid: result.exists });
-        } else {
-            logger.warn('Email check failed', { error: result.error });
-            res.status(500).json({ success: false, error: result.error });
-        }
-    } catch (error) {
-        logger.error('Internal server error during checkEmail', { error: error.message });
-        res.status(500).json({ success: false, error: 'Internal server error' });
+  try {
+    const result = await userService.checkUserEmail(req.body.email)
+    if (result.success) {
+      logger.info('Email check completed', {
+        email: req.body.email,
+        valid: result.exists
+      })
+      res.status(200).json({ valid: result.exists })
+    } else {
+      logger.warn('Email check failed', { error: result.error })
+      res.status(500).json({ success: false, error: result.error })
     }
-};
+  } catch (error) {
+    logger.error('Internal server error during checkEmail', {
+      error: error.message
+    })
+    res.status(500).json({ success: false, error: 'Internal server error' })
+  }
+}
 
 module.exports = {
-    createUser,
-    login,
-    checkEmail,
-    getUserByEmail,
-    getUserById,
-    updateUserById,
-    deleteUserById,
-    getAllUsers,
-};
+  createUser,
+  login,
+  checkEmail,
+  getUserByEmail,
+  getUserById,
+  updateUserById,
+  deleteUserById,
+  getAllUsers
+}
