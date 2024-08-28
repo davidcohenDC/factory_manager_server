@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area and Machine Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .area {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .machine {
+            margin-top: 10px;
+            padding-left: 20px;
+            background-color: #f9f9f9;
+            border-left: 3px solid #007bff;
+        }
+        .machine-state {
+            font-style: italic;
+            color: #666;
+        }
+        .specifications, .maintenance, .log {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Area and Machine Data</h1>
+<div id="area-list"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io('http://localhost:10000/areas');
+    const areaList = document.getElementById('area-list');
+
+    socket.on('areas', function(areas) {
+        areaList.innerHTML = ''; // Pulisci la lista precedente
+
+        areas.forEach(area => {
+            const areaDiv = document.createElement('div');
+            areaDiv.className = 'area';
+            areaDiv.innerHTML = `
+                    <h2>${area.name}</h2>
+                    <p>Size: ${area.size}</p>
+                    <p>Test: ${area.test ? 'Yes' : 'No'}</p>
+                    <h3>Machines:</h3>
+                    ${renderMachines(area.machines)}
+                `;
+            areaList.appendChild(areaDiv);
+        });
+    });
+
+    function renderMachines(machines) {
+        if (!machines || machines.length === 0) {
+            return '<p>No machines available.</p>';
+        }
+
+        return machines.map(machine => `
+                <div class="machine">
+                    <h4>${machine.name} (Serial: ${machine.serial})</h4>
+                    <p class="machine-state">State: ${machine.machineState.currentState}</p>
+                    ${renderAnomalies(machine.machineState.anomalyDetails)}
+                    <div class="specifications">
+                        <h5>Specifications:</h5>
+                        <ul>
+                            ${renderSpecifications(machine.specifications)}
+                        </ul>
+                    </div>
+                    <div class="maintenance">
+                        <h5>Maintenance:</h5>
+                        <p>Last Maintenance: ${new Date(machine.maintenance.lastMaintenanceDate).toLocaleString()}</p>
+                        <p>Next Maintenance: ${new Date(machine.maintenance.nextMaintenanceDate).toLocaleString()}</p>
+                        <h6>Maintenance History:</h6>
+                        <ul>
+                            ${renderMaintenanceHistory(machine.maintenance.maintenanceHistory)}
+                        </ul>
+                    </div>
+                    <div class="log">
+                        <h5>Log:</h5>
+                        <p>Last Power On: ${new Date(machine.log.lastPowerOn).toLocaleString()}</p>
+                        <p>Last Power Off: ${new Date(machine.log.lastPowerOff).toLocaleString()}</p>
+                        <h6>Sessions:</h6>
+                        <ul>
+                            ${renderSessions(machine.log.sessions)}
+                        </ul>
+                    </div>
+                </div>
+            `).join('');
+    }
+
+    function renderSpecifications(specifications) {
+        return Object.entries(specifications).map(([key, spec]) => `
+                <li>${key}: ${spec.normalRange.min} - ${spec.normalRange.max} ${spec.measurementUnit}</li>
+            `).join('');
+    }
+
+    function renderAnomalies(anomalies) {
+        if (!anomalies || anomalies.length === 0) {
+            return '';
+        }
+
+        return `
+                <h5>Anomalies:</h5>
+                <ul>
+                    ${anomalies.map(anomaly => `<li>${anomaly}</li>`).join('')}
+                </ul>
+            `;
+    }
+
+    function renderMaintenanceHistory(history) {
+        if (!history || history.length === 0) {
+            return '<li>No maintenance history available.</li>';
+        }
+
+        return history.map(entry => `
+                <li>${new Date(entry.date).toLocaleString()}: ${entry.description}</li>
+            `).join('');
+    }
+
+    function renderSessions(sessions) {
+        if (!sessions || sessions.length === 0) {
+            return '<li>No session data available.</li>';
+        }
+
+        return sessions.map(session => `
+                <li>Power On: ${new Date(session.powerOn).toLocaleString()} | Power Off: ${new Date(session.powerOff).toLocaleString()} | Duration: ${session.duration}</li>
+            `).join('');
+    }
+
+    socket.on('connect_error', function(error) {
+        console.error('Connection Error:', error);
+    });
+</script>
+</body>
+</html>

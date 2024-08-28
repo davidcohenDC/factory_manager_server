@@ -1,0 +1,35 @@
+{
+  "name": "area-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon --inspect=9230 src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
+    "express": "^4.19.2",
+    "module-alias": "^2.2.3",
+    "mongoose": "^8.5.2",
+    "nodemon": "^3.1.4",
+    "socket.io": "^4.7.5",
+    "winston": "^3.14.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "_moduleAliases": {
+    "@root": "./src",
+    "@config": "./src/config",
+    "@controllers": "./src/controllers",
+    "@models": "./src/models",
+    "@services": "./src/services",
+    "@bootstrap": "./src/bootstrap",
+    "@routes": "./src/routes",
+    "@utils": "./src/utils",
+    "@middlewares": "./src/middlewares"
+  }
+}
