@@ -17,5 +17,5 @@ module.exports = (io) =>
         }
 
         // Schedule the next execution of this function
-        setTimeout(() => generateAreaData(io), 5000);
+        setTimeout(() => generateAreaData(io), 2000);
     }
