@@ -53,7 +53,41 @@
         "name": {
           "first": "John",
           "last": "Doe"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -133,7 +167,41 @@
         "name": {
           "first": "John",
           "last": "Doe"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -207,7 +275,41 @@
         "name": {
           "first": "John",
           "last": "Doe"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -287,8 +389,43 @@
         "name": {
           "first": "John",
           "last": "Doe"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
+
     ],
     "maintenance": {
       "lastMaintenanceDate": "2024-01-15T08:30:00Z",
@@ -361,7 +498,41 @@
         "name": {
           "first": "John",
           "last": "Doe"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -430,12 +601,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
         "turn": "evening",
         "userId": "66afa8da53f623cfe843995c",
         "name": {
           "first": "Jane",
           "last": "Smith"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -510,12 +715,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
         "turn": "evening",
         "userId": "66afa8da53f623cfe843995c",
         "name": {
           "first": "Jane",
           "last": "Smith"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -584,12 +823,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
         "turn": "evening",
         "userId": "66afa8da53f623cfe843995c",
         "name": {
           "first": "Jane",
           "last": "Smith"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -616,7 +889,7 @@
       "area": "Processing"
     },
     "machineState": {
-      "currentState": "stand-by",
+      "currentState": "operational",
       "anomalyDetails": []
     },
     "specifications": {
@@ -658,12 +931,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
         "turn": "night",
         "userId": "66afa8da53f623cfe843995d",
         "name": {
           "first": "Alex",
           "last": "Johnson"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -738,12 +1045,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
         "turn": "night",
         "userId": "66afa8da53f623cfe843995d",
         "name": {
           "first": "Alex",
           "last": "Johnson"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -812,12 +1153,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
         "turn": "night",
         "userId": "66afa8da53f623cfe843995d",
         "name": {
           "first": "Alex",
           "last": "Johnson"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -891,7 +1266,41 @@
         "name": {
           "first": "Michael",
           "last": "Brown"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-3456"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -971,7 +1380,41 @@
         "name": {
           "first": "Michael",
           "last": "Brown"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-3456"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -1040,12 +1483,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
         "turn": "night",
         "userId": "66afa8da53f623cfe843995f",
         "name": {
           "first": "Emily",
           "last": "Davis"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-7890"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -1120,12 +1597,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
         "turn": "night",
         "userId": "66afa8da53f623cfe843995f",
         "name": {
           "first": "Emily",
           "last": "Davis"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-7890"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -1194,12 +1705,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
         "turn": "evening",
         "userId": "66afa8da53f623cfe843995c",
         "name": {
           "first": "Jane",
           "last": "Smith"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -1274,12 +1819,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
         "turn": "evening",
         "userId": "66afa8da53f623cfe843995c",
         "name": {
           "first": "Jane",
           "last": "Smith"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
+        "turn": "night",
+        "userId": "66afa8da53f623cfe843995d",
+        "name": {
+          "first": "Alex",
+          "last": "Johnson"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -1348,12 +1927,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
         "turn": "night",
         "userId": "66afa8da53f623cfe843995d",
         "name": {
           "first": "Alex",
           "last": "Johnson"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {
@@ -1428,12 +2041,46 @@
     },
     "turns": [
       {
+        "turn": "morning",
+        "userId": "66afa8da53f623cfe843995b",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-1234"
+          }
+        ]
+      },
+      {
+        "turn": "evening",
+        "userId": "66afa8da53f623cfe843995c",
+        "name": {
+          "first": "Jane",
+          "last": "Smith"
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-5678"
+          }
+        ]
+      },
+      {
         "turn": "night",
         "userId": "66afa8da53f623cfe843995d",
         "name": {
           "first": "Alex",
           "last": "Johnson"
-        }
+        },
+        "phoneNumbers": [
+          {
+            "type": "mobile",
+            "number": "555-9012"
+          }
+        ]
       }
     ],
     "maintenance": {

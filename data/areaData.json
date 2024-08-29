@@ -57,7 +57,41 @@
               "name": {
                 "first": "John",
                 "last": "Doe"
-              }
+              },
+              "phoneNumbers": [
+                {
+                  "type": "mobile",
+                  "number": "555-1234"
+                }
+              ]
+            },
+            {
+              "turn": "evening",
+              "userId": "66afa8da53f623cfe843995c",
+              "name": {
+                "first": "Jane",
+                "last": "Smith"
+              },
+              "phoneNumbers": [
+                {
+                  "type": "mobile",
+                  "number": "555-5678"
+                }
+              ]
+            },
+            {
+              "turn": "night",
+              "userId": "66afa8da53f623cfe843995d",
+              "name": {
+                "first": "Alex",
+                "last": "Johnson"
+              },
+              "phoneNumbers": [
+                {
+                  "type": "mobile",
+                  "number": "555-9012"
+                }
+              ]
             }
           ],
           "maintenance": {
@@ -137,7 +171,41 @@
               "name": {
                 "first": "John",
                 "last": "Doe"
-              }
+              },
+              "phoneNumbers": [
+                {
+                  "type": "mobile",
+                  "number": "555-1234"
+                }
+              ]
+            },
+            {
+              "turn": "evening",
+              "userId": "66afa8da53f623cfe843995c",
+              "name": {
+                "first": "Jane",
+                "last": "Smith"
+              },
+              "phoneNumbers": [
+                {
+                  "type": "mobile",
+                  "number": "555-5678"
+                }
+              ]
+            },
+            {
+              "turn": "night",
+              "userId": "66afa8da53f623cfe843995d",
+              "name": {
+                "first": "Alex",
+                "last": "Johnson"
+              },
+              "phoneNumbers": [
+                {
+                  "type": "mobile",
+                  "number": "555-9012"
+                }
+              ]
             }
           ],
           "maintenance": {
@@ -161,1328 +229,1906 @@
       "subAreas": [],
       "test": false
     },
-    {
-      "name": "Processing",
-      "size": 470,
-      "machines": [
-        {
-          "serial": "MCH2001",
-          "name": "Olive Crusher 1",
-          "location": {
-            "area": "Processing"
-          },
-          "machineState": {
-            "currentState": "operational",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 150.00,
-                "max": 500.00
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 1000.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 10.00,
-                "max": 35.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
-            {
-              "turn": "morning",
-              "userId": "66afa8da53f623cfe843995b",
-              "name": {
-                "first": "John",
-                "last": "Doe"
-              }
-            }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-01-15T08:30:00Z",
-            "nextMaintenanceDate": "2024-07-15T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-07-15T08:30:00Z",
-                "description": "Replaced crusher blades"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": "2024-02-01T08:00:00Z",
-            "lastPowerOff": "2024-02-01T16:00:00Z",
-            "sessions": [
-              {
-                "powerOn": "2024-02-01T08:00:00Z",
-                "powerOff": "2024-02-01T16:00:00Z",
-                "duration": "8h"
-              }
-            ]
-          },
-          "test": false
+  {
+    "name": "Processing",
+    "size": 470,
+    "machines": [
+      {
+        "serial": "MCH2001",
+        "name": "Olive Crusher 1",
+        "location": {
+          "area": "Processing"
         },
-        {
-          "serial": "MCH2002",
-          "name": "Olive Crusher 2",
-          "location": {
-            "area": "Processing"
-          },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 150.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 1000.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 10.00,
-                "max": 35.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
-            {
-              "turn": "morning",
-              "userId": "66afa8da53f623cfe843995b",
-              "name": {
-                "first": "John",
-                "last": "Doe"
-              }
-            }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-01-15T08:30:00Z",
-            "nextMaintenanceDate": "2024-07-15T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-07-15T08:30:00Z",
-                "description": "Replaced crusher blades"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
-          },
-          "test": false
+        "machineState": {
+          "currentState": "operational",
+          "anomalyDetails": []
         },
-        {
-          "serial": "MCH2003",
-          "name": "Olive Crusher 3",
-          "location": {
-            "area": "Processing"
-          },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 150.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 1000.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 10.00,
-                "max": 35.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 150.00,
+              "max": 500.00
             }
           },
-          "turns": [
-            {
-              "turn": "morning",
-              "userId": "66afa8da53f623cfe843995b",
-              "name": {
-                "first": "John",
-                "last": "Doe"
-              }
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 1000.0
             }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-01-15T08:30:00Z",
-            "nextMaintenanceDate": "2024-07-15T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-07-15T08:30:00Z",
-                "description": "Replaced crusher blades"
-              }
-            ]
           },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 10.00,
+              "max": 35.00
+            }
           },
-          "test": false
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
         },
-        {
-          "serial": "MCH3001",
-          "name": "Olive Paste Mixer 1",
-          "location": {
-            "area": "Processing"
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
           },
-          "machineState": {
-            "currentState": "operational",
-            "anomalyDetails": []
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
           },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 150.0
-              }
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
             },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 1000.0
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
               }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 15.00,
-                "max": 30.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-01-15T08:30:00Z",
+          "nextMaintenanceDate": "2024-07-15T08:30:00Z",
+          "maintenanceHistory": [
             {
-              "turn": "evening",
-              "userId": "66afa8da53f623cfe843995c",
-              "name": {
-                "first": "Jane",
-                "last": "Smith"
-              }
+              "date": "2023-07-15T08:30:00Z",
+              "description": "Replaced crusher blades"
             }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-02-10T08:30:00Z",
-            "nextMaintenanceDate": "2024-08-10T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2024-02-10T08:30:00Z",
-                "description": "Replaced mixer motor"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": "2024-02-01T08:00:00Z",
-            "lastPowerOff": "2024-02-01T16:00:00Z",
-            "sessions": [
-              {
-                "powerOn": "2024-02-01T08:00:00Z",
-                "powerOff": "2024-02-01T16:00:00Z",
-                "duration": "8h"
-              }
-            ]
-          },
-          "test": false
+          ]
         },
-        {
-          "serial": "MCH3002",
-          "name": "Olive Paste Mixer 2",
-          "location": {
-            "area": "Processing"
-          },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 150.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 1000.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 15.00,
-                "max": 30.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
+        "log": {
+          "lastPowerOn": "2024-02-01T08:00:00Z",
+          "lastPowerOff": "2024-02-01T16:00:00Z",
+          "sessions": [
             {
-              "turn": "evening",
-              "userId": "66afa8da53f623cfe843995c",
-              "name": {
-                "first": "Jane",
-                "last": "Smith"
-              }
+              "powerOn": "2024-02-01T08:00:00Z",
+              "powerOff": "2024-02-01T16:00:00Z",
+              "duration": "8h"
             }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-02-10T08:30:00Z",
-            "nextMaintenanceDate": "2024-08-10T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2024-02-10T08:30:00Z",
-                "description": "Replaced mixer motor"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
-          },
-          "test": false
+          ]
         },
-        {
-          "serial": "MCH3003",
-          "name": "Olive Paste Mixer 3",
-          "location": {
-            "area": "Processing"
-          },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 150.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 1000.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 15.00,
-                "max": 30.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
-            {
-              "turn": "evening",
-              "userId": "66afa8da53f623cfe843995c",
-              "name": {
-                "first": "Jane",
-                "last": "Smith"
-              }
-            }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-02-10T08:30:00Z",
-            "nextMaintenanceDate": "2024-08-10T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2024-02-10T08:30:00Z",
-                "description": "Replaced mixer motor"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
-          },
-          "test": false
+        "test": false
+      },
+      {
+        "serial": "MCH2002",
+        "name": "Olive Crusher 2",
+        "location": {
+          "area": "Processing"
         },
-        {
-          "serial": "MCH4001",
-          "name": "Decanter Centrifuge 1",
-          "location": {
-            "area": "Processing"
-          },
-          "machineState": {
-            "currentState": "stand-by",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 150.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 1000.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 5.00,
-                "max": 25.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
-            {
-              "turn": "night",
-              "userId": "66afa8da53f623cfe843995d",
-              "name": {
-                "first": "Alex",
-                "last": "Johnson"
-              }
-            }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-01-20T08:30:00Z",
-            "nextMaintenanceDate": "2024-07-20T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-07-20T08:30:00Z",
-                "description": "Cleaned separation chamber"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": "2024-02-01T08:00:00Z",
-            "lastPowerOff": "2024-02-01T16:00:00Z",
-            "sessions": [
-              {
-                "powerOn": "2024-02-01T08:00:00Z",
-                "powerOff": "2024-02-01T16:00:00Z",
-                "duration": "8h"
-              }
-            ]
-          },
-          "test": false
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
         },
-        {
-          "serial": "MCH4002",
-          "name": "Decanter Centrifuge 2",
-          "location": {
-            "area": "Processing"
-          },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 150.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 1000.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 5.00,
-                "max": 25.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 150.0
             }
           },
-          "turns": [
-            {
-              "turn": "night",
-              "userId": "66afa8da53f623cfe843995d",
-              "name": {
-                "first": "Alex",
-                "last": "Johnson"
-              }
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 1000.0
             }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-01-20T08:30:00Z",
-            "nextMaintenanceDate": "2024-07-20T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-07-20T08:30:00Z",
-                "description": "Cleaned separation chamber"
-              }
-            ]
           },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 10.00,
+              "max": 35.00
+            }
           },
-          "test": false
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
         },
-        {
-          "serial": "MCH4003",
-          "name": "Decanter Centrifuge 3",
-          "location": {
-            "area": "Processing"
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
           },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
           },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 150.0
-              }
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
             },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 1000.0
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
               }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 5.00,
-                "max": 25.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-01-15T08:30:00Z",
+          "nextMaintenanceDate": "2024-07-15T08:30:00Z",
+          "maintenanceHistory": [
             {
-              "turn": "night",
-              "userId": "66afa8da53f623cfe843995d",
-              "name": {
-                "first": "Alex",
-                "last": "Johnson"
-              }
+              "date": "2023-07-15T08:30:00Z",
+              "description": "Replaced crusher blades"
             }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-01-20T08:30:00Z",
-            "nextMaintenanceDate": "2024-07-20T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-07-20T08:30:00Z",
-                "description": "Cleaned separation chamber"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
-          },
-          "test": false
-        }
-      ],
-      "subAreas": [],
-      "test": false
-    },
-    {
-      "name": "Post-Processing",
-      "size": 100,
-      "machines": [
-        {
-          "serial": "MCH5001",
-          "name": "Oil Filter 1",
-          "location": {
-            "area": "Post-Processing"
-          },
-          "machineState": {
-            "currentState": "anomaly",
-            "anomalyDetails": ["vibration"]
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 140.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 900.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 20.00,
-                "max": 40.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
-            {
-              "turn": "morning",
-              "userId": "66afa8da53f623cfe843995e",
-              "name": {
-                "first": "Michael",
-                "last": "Brown"
-              }
-            }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-02-05T08:30:00Z",
-            "nextMaintenanceDate": "2024-08-05T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2024-02-05T08:30:00Z",
-                "description": "Replaced filter element"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": "2024-02-01T08:00:00Z",
-            "lastPowerOff": "2024-02-01T16:00:00Z",
-            "sessions": [
-              {
-                "powerOn": "2024-02-01T08:00:00Z",
-                "powerOff": "2024-02-01T16:00:00Z",
-                "duration": "8h"
-              }
-            ]
-          },
-          "test": false
+          ]
         },
-        {
-          "serial": "MCH5002",
-          "name": "Oil Filter 2",
-          "location": {
-            "area": "Post-Processing"
-          },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 140.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 900.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 20.00,
-                "max": 40.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
-            {
-              "turn": "morning",
-              "userId": "66afa8da53f623cfe843995e",
-              "name": {
-                "first": "Michael",
-                "last": "Brown"
-              }
-            }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-02-05T08:30:00Z",
-            "nextMaintenanceDate": "2024-08-05T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2024-02-05T08:30:00Z",
-                "description": "Replaced filter element"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
-          },
-          "test": false
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
         },
-        {
-          "serial": "MCH6001",
-          "name": "Bottling Machine 1",
-          "location": {
-            "area": "Post-Processing"
-          },
-          "machineState": {
-            "currentState": "operational",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 140.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 900.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 25.00,
-                "max": 45.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
-            {
-              "turn": "night",
-              "userId": "66afa8da53f623cfe843995f",
-              "name": {
-                "first": "Emily",
-                "last": "Davis"
-              }
-            }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-02-01T08:30:00Z",
-            "nextMaintenanceDate": "2024-08-01T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-08-01T08:30:00Z",
-                "description": "Recalibrated bottling sensors"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": "2024-02-01T08:00:00Z",
-            "lastPowerOff": "2024-02-01T16:00:00Z",
-            "sessions": [
-              {
-                "powerOn": "2024-02-01T08:00:00Z",
-                "powerOff": "2024-02-01T16:00:00Z",
-                "duration": "8h"
-              }
-            ]
-          },
-          "test": false
+        "test": false
+      },
+      {
+        "serial": "MCH2003",
+        "name": "Olive Crusher 3",
+        "location": {
+          "area": "Processing"
         },
-        {
-          "serial": "MCH6002",
-          "name": "Bottling Machine 2",
-          "location": {
-            "area": "Post-Processing"
-          },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 140.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 900.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 25.00,
-                "max": 45.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
-            {
-              "turn": "night",
-              "userId": "66afa8da53f623cfe843995f",
-              "name": {
-                "first": "Emily",
-                "last": "Davis"
-              }
-            }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-02-01T08:30:00Z",
-            "nextMaintenanceDate": "2024-08-01T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-08-01T08:30:00Z",
-                "description": "Recalibrated bottling sensors"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
-          },
-          "test": false
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
         },
-        {
-          "serial": "MCH7001",
-          "name": "Labeling Machine 1",
-          "location": {
-            "area": "Post-Processing"
-          },
-          "machineState": {
-            "currentState": "operational",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 140.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 900.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 20.00,
-                "max": 45.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 150.0
             }
           },
-          "turns": [
-            {
-              "turn": "evening",
-              "userId": "66afa8da53f623cfe843995c",
-              "name": {
-                "first": "Jane",
-                "last": "Smith"
-              }
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 1000.0
             }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-01-30T08:30:00Z",
-            "nextMaintenanceDate": "2024-07-30T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-07-30T08:30:00Z",
-                "description": "Replaced labeling rollers"
-              }
-            ]
           },
-          "log": {
-            "lastPowerOn": "2024-02-01T08:00:00Z",
-            "lastPowerOff": "2024-02-01T16:00:00Z",
-            "sessions": [
-              {
-                "powerOn": "2024-02-01T08:00:00Z",
-                "powerOff": "2024-02-01T16:00:00Z",
-                "duration": "8h"
-              }
-            ]
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 10.00,
+              "max": 35.00
+            }
           },
-          "test": false
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
         },
-        {
-          "serial": "MCH7002",
-          "name": "Labeling Machine 2",
-          "location": {
-            "area": "Post-Processing"
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
           },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
           },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 140.0
-              }
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
             },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 900.0
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
               }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 20.00,
-                "max": 45.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
-            }
-          },
-          "turns": [
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-01-15T08:30:00Z",
+          "nextMaintenanceDate": "2024-07-15T08:30:00Z",
+          "maintenanceHistory": [
             {
-              "turn": "evening",
-              "userId": "66afa8da53f623cfe843995c",
-              "name": {
-                "first": "Jane",
-                "last": "Smith"
-              }
+              "date": "2023-07-15T08:30:00Z",
+              "description": "Replaced crusher blades"
             }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-01-30T08:30:00Z",
-            "nextMaintenanceDate": "2024-07-30T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-07-30T08:30:00Z",
-                "description": "Replaced labeling rollers"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
-          },
-          "test": false
-        }
-      ],
-      "subAreas": [],
-      "test": false
-    },
-    {
-      "name": "Release",
-      "size": 310,
-      "machines": [
-        {
-          "serial": "MCH8001",
-          "name": "Capping Machine 1",
-          "location": {
-            "area": "Release"
-          },
-          "machineState": {
-            "currentState": "operational",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 130.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 800.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 20.00,
-                "max": 45.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 10
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 10
-              }
-            }
-          },
-          "turns": [
-            {
-              "turn": "night",
-              "userId": "66afa8da53f623cfe843995d",
-              "name": {
-                "first": "Alex",
-                "last": "Johnson"
-              }
-            }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-02-05T08:30:00Z",
-            "nextMaintenanceDate": "2024-08-05T08:30:00Z",
-            "maintenanceHistory": [
-              {
-                "date": "2023-08-05T08:30:00Z",
-                "description": "Replaced capping head"
-              }
-            ]
-          },
-          "log": {
-            "lastPowerOn": "2024-02-01T08:00:00Z",
-            "lastPowerOff": "2024-02-01T16:00:00Z",
-            "sessions": [
-              {
-                "powerOn": "2024-02-01T08:00:00Z",
-                "powerOff": "2024-02-01T16:00:00Z",
-                "duration": "8h"
-              }
-            ]
-          },
-          "test": false
+          ]
         },
-        {
-          "serial": "MCH8002",
-          "name": "Capping Machine 2",
-          "location": {
-            "area": "Release"
-          },
-          "machineState": {
-            "currentState": "off",
-            "anomalyDetails": []
-          },
-          "specifications": {
-            "powerConsumption": {
-              "measurementUnit": "kWh",
-              "normalRange": {
-                "min": 0.5,
-                "max": 130.0
-              }
-            },
-            "emissions": {
-              "measurementUnit": "ppm",
-              "normalRange": {
-                "min": 0.00,
-                "max": 800.0
-              }
-            },
-            "operatingTemperature": {
-              "measurementUnit": "C",
-              "normalRange": {
-                "min": 20.00,
-                "max": 45.00
-              }
-            },
-            "vibration": {
-              "measurementUnit": "m/s²",
-              "normalRange": {
-                "min": 0.0,
-                "max": 20
-              }
-            },
-            "pressure": {
-              "measurementUnit": "bar",
-              "normalRange": {
-                "min": 0.5 ,
-                "max": 20
-              }
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH3001",
+        "name": "Olive Paste Mixer 1",
+        "location": {
+          "area": "Processing"
+        },
+        "machineState": {
+          "currentState": "operational",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 150.0
             }
           },
-          "turns": [
-            {
-              "turn": "night",
-              "userId": "66afa8da53f623cfe843995d",
-              "name": {
-                "first": "Alex",
-                "last": "Johnson"
-              }
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 1000.0
             }
-          ],
-          "maintenance": {
-            "lastMaintenanceDate": "2024-02-05T08:30:00Z",
-            "nextMaintenanceDate": "2024-08-05T08:30:00Z",
-            "maintenanceHistory": [
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 15.00,
+              "max": 30.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
               {
-                "date": "2023-08-05T08:30:00Z",
-                "description": "Replaced capping head"
+                "type": "mobile",
+                "number": "555-1234"
               }
             ]
           },
-          "log": {
-            "lastPowerOn": null,
-            "lastPowerOff": null,
-            "sessions": []
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
           },
-          "test": false
-        }
-      ],
-      "subAreas": [],
-      "test": false
-    }
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-02-10T08:30:00Z",
+          "nextMaintenanceDate": "2024-08-10T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2024-02-10T08:30:00Z",
+              "description": "Replaced mixer motor"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": "2024-02-01T08:00:00Z",
+          "lastPowerOff": "2024-02-01T16:00:00Z",
+          "sessions": [
+            {
+              "powerOn": "2024-02-01T08:00:00Z",
+              "powerOff": "2024-02-01T16:00:00Z",
+              "duration": "8h"
+            }
+          ]
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH3002",
+        "name": "Olive Paste Mixer 2",
+        "location": {
+          "area": "Processing"
+        },
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 150.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 1000.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 15.00,
+              "max": 30.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-02-10T08:30:00Z",
+          "nextMaintenanceDate": "2024-08-10T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2024-02-10T08:30:00Z",
+              "description": "Replaced mixer motor"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH3003",
+        "name": "Olive Paste Mixer 3",
+        "location": {
+          "area": "Processing"
+        },
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 150.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 1000.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 15.00,
+              "max": 30.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-02-10T08:30:00Z",
+          "nextMaintenanceDate": "2024-08-10T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2024-02-10T08:30:00Z",
+              "description": "Replaced mixer motor"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH4001",
+        "name": "Decanter Centrifuge 1",
+        "location": {
+          "area": "Processing"
+        },
+        "machineState": {
+          "currentState": "operational",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 150.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 1000.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 5.00,
+              "max": 25.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-01-20T08:30:00Z",
+          "nextMaintenanceDate": "2024-07-20T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2023-07-20T08:30:00Z",
+              "description": "Cleaned separation chamber"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": "2024-02-01T08:00:00Z",
+          "lastPowerOff": "2024-02-01T16:00:00Z",
+          "sessions": [
+            {
+              "powerOn": "2024-02-01T08:00:00Z",
+              "powerOff": "2024-02-01T16:00:00Z",
+              "duration": "8h"
+            }
+          ]
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH4002",
+        "name": "Decanter Centrifuge 2",
+        "location": {
+          "area": "Processing"
+        },
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 150.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 1000.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 5.00,
+              "max": 25.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-01-20T08:30:00Z",
+          "nextMaintenanceDate": "2024-07-20T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2023-07-20T08:30:00Z",
+              "description": "Cleaned separation chamber"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH4003",
+        "name": "Decanter Centrifuge 3",
+        "location": {
+          "area": "Processing"
+        },
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 150.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 1000.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 5.00,
+              "max": 25.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-01-20T08:30:00Z",
+          "nextMaintenanceDate": "2024-07-20T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2023-07-20T08:30:00Z",
+              "description": "Cleaned separation chamber"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
+        },
+        "test": false
+      }
+    ],
+    "subAreas": [],
+    "test": false
+  },
+  {
+    "name": "Post-Processing",
+    "size": 100,
+    "machines": [
+      {
+        "serial": "MCH5001",
+        "name": "Oil Filter 1",
+        "location": {
+          "area": "Post-Processing"
+        },
+        "machineState": {
+          "currentState": "anomaly",
+          "anomalyDetails": ["vibration"]
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 140.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 900.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 20.00,
+              "max": 40.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995e",
+            "name": {
+              "first": "Michael",
+              "last": "Brown"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-3456"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-02-05T08:30:00Z",
+          "nextMaintenanceDate": "2024-08-05T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2024-02-05T08:30:00Z",
+              "description": "Replaced filter element"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": "2024-02-01T08:00:00Z",
+          "lastPowerOff": "2024-02-01T16:00:00Z",
+          "sessions": [
+            {
+              "powerOn": "2024-02-01T08:00:00Z",
+              "powerOff": "2024-02-01T16:00:00Z",
+              "duration": "8h"
+            }
+          ]
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH5002",
+        "name": "Oil Filter 2",
+        "location": {
+          "area": "Post-Processing"
+        },
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 140.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 900.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 20.00,
+              "max": 40.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995e",
+            "name": {
+              "first": "Michael",
+              "last": "Brown"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-3456"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-02-05T08:30:00Z",
+          "nextMaintenanceDate": "2024-08-05T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2024-02-05T08:30:00Z",
+              "description": "Replaced filter element"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH6001",
+        "name": "Bottling Machine 1",
+        "location": {
+          "area": "Post-Processing"
+        },
+        "machineState": {
+          "currentState": "operational",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 140.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 900.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 25.00,
+              "max": 45.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995f",
+            "name": {
+              "first": "Emily",
+              "last": "Davis"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-7890"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-02-01T08:30:00Z",
+          "nextMaintenanceDate": "2024-08-01T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2023-08-01T08:30:00Z",
+              "description": "Recalibrated bottling sensors"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": "2024-02-01T08:00:00Z",
+          "lastPowerOff": "2024-02-01T16:00:00Z",
+          "sessions": [
+            {
+              "powerOn": "2024-02-01T08:00:00Z",
+              "powerOff": "2024-02-01T16:00:00Z",
+              "duration": "8h"
+            }
+          ]
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH6002",
+        "name": "Bottling Machine 2",
+        "location": {
+          "area": "Post-Processing"
+        },
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 140.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 900.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 25.00,
+              "max": 45.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995f",
+            "name": {
+              "first": "Emily",
+              "last": "Davis"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-7890"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-02-01T08:30:00Z",
+          "nextMaintenanceDate": "2024-08-01T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2023-08-01T08:30:00Z",
+              "description": "Recalibrated bottling sensors"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH7001",
+        "name": "Labeling Machine 1",
+        "location": {
+          "area": "Post-Processing"
+        },
+        "machineState": {
+          "currentState": "operational",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 140.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 900.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 20.00,
+              "max": 45.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-01-30T08:30:00Z",
+          "nextMaintenanceDate": "2024-07-30T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2023-07-30T08:30:00Z",
+              "description": "Replaced labeling rollers"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": "2024-02-01T08:00:00Z",
+          "lastPowerOff": "2024-02-01T16:00:00Z",
+          "sessions": [
+            {
+              "powerOn": "2024-02-01T08:00:00Z",
+              "powerOff": "2024-02-01T16:00:00Z",
+              "duration": "8h"
+            }
+          ]
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH7002",
+        "name": "Labeling Machine 2",
+        "location": {
+          "area": "Post-Processing"
+        },
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 140.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 900.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 20.00,
+              "max": 45.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-01-30T08:30:00Z",
+          "nextMaintenanceDate": "2024-07-30T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2023-07-30T08:30:00Z",
+              "description": "Replaced labeling rollers"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
+        },
+        "test": false
+      }
+    ],
+    "subAreas": [],
+    "test": false
+  },
+  {
+    "name": "Release",
+    "size": 310,
+    "machines": [
+      {
+        "serial": "MCH8001",
+        "name": "Capping Machine 1",
+        "location": {
+          "area": "Release"
+        },
+        "machineState": {
+          "currentState": "operational",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 130.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 800.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 20.00,
+              "max": 45.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 10
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 10
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-02-05T08:30:00Z",
+          "nextMaintenanceDate": "2024-08-05T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2023-08-05T08:30:00Z",
+              "description": "Replaced capping head"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": "2024-02-01T08:00:00Z",
+          "lastPowerOff": "2024-02-01T16:00:00Z",
+          "sessions": [
+            {
+              "powerOn": "2024-02-01T08:00:00Z",
+              "powerOff": "2024-02-01T16:00:00Z",
+              "duration": "8h"
+            }
+          ]
+        },
+        "test": false
+      },
+      {
+        "serial": "MCH8002",
+        "name": "Capping Machine 2",
+        "location": {
+          "area": "Release"
+        },
+        "machineState": {
+          "currentState": "off",
+          "anomalyDetails": []
+        },
+        "specifications": {
+          "powerConsumption": {
+            "measurementUnit": "kWh",
+            "normalRange": {
+              "min": 0.5,
+              "max": 130.0
+            }
+          },
+          "emissions": {
+            "measurementUnit": "ppm",
+            "normalRange": {
+              "min": 0.00,
+              "max": 800.0
+            }
+          },
+          "operatingTemperature": {
+            "measurementUnit": "C",
+            "normalRange": {
+              "min": 20.00,
+              "max": 45.00
+            }
+          },
+          "vibration": {
+            "measurementUnit": "m/s²",
+            "normalRange": {
+              "min": 0.0,
+              "max": 20
+            }
+          },
+          "pressure": {
+            "measurementUnit": "bar",
+            "normalRange": {
+              "min": 0.5 ,
+              "max": 20
+            }
+          }
+        },
+        "turns": [
+          {
+            "turn": "morning",
+            "userId": "66afa8da53f623cfe843995b",
+            "name": {
+              "first": "John",
+              "last": "Doe"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-1234"
+              }
+            ]
+          },
+          {
+            "turn": "evening",
+            "userId": "66afa8da53f623cfe843995c",
+            "name": {
+              "first": "Jane",
+              "last": "Smith"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-5678"
+              }
+            ]
+          },
+          {
+            "turn": "night",
+            "userId": "66afa8da53f623cfe843995d",
+            "name": {
+              "first": "Alex",
+              "last": "Johnson"
+            },
+            "phoneNumbers": [
+              {
+                "type": "mobile",
+                "number": "555-9012"
+              }
+            ]
+          }
+        ],
+        "maintenance": {
+          "lastMaintenanceDate": "2024-02-05T08:30:00Z",
+          "nextMaintenanceDate": "2024-08-05T08:30:00Z",
+          "maintenanceHistory": [
+            {
+              "date": "2023-08-05T08:30:00Z",
+              "description": "Replaced capping head"
+            }
+          ]
+        },
+        "log": {
+          "lastPowerOn": null,
+          "lastPowerOff": null,
+          "sessions": []
+        },
+        "test": false
+      }
+    ],
+    "subAreas": [],
+    "test": false
+  }
 ]

@@ -107,7 +107,24 @@ const machineSchema = new Schema({
       name: {
         first: String,
         last: String
-      }
+      },
+      phoneNumbers: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            type: {
+              type: 'string',
+              enum: ['mobile'],
+              example: 'mobile'
+            },
+            number: {
+              type: 'string',
+              example: '+1234567890'
+            }
+          }
+        }
+      },
     }
   ],
   maintenance: {
