@@ -91,6 +91,96 @@
     },
     {
         "name": {
+            "first": "Giulia",
+            "last": "Nardicchia"
+        },
+        "email": "giulia@example.com",
+        "password": "$2a$12$lAPLE0w2O6btB4l8.4Vqzu6Ao4AM3B.WSC1QOaG64y.7PdhuM/Ra6",
+        "dateOfBirth": "1999-03-02T00:00:00Z",
+        "address": {
+            "street": "Via Gaggio 45",
+            "city": "Savignano sul Rubicone",
+            "state": "",
+            "zip": "47039",
+            "country": "IT"
+        },
+        "phoneNumbers": [
+            {
+                "type": "mobile",
+                "number": "3318888812"
+            }
+        ],
+        "role": "moderator",
+        "department": "Mixing",
+        "isActive": true,
+        "lastLogin": "2024-01-26T08:00:00Z",
+        "profilePicture": "profile2.jpg",
+        "security": {
+            "twoFactorEnabled": true,
+            "lastPasswordChange": "2024-01-02T00:00:00Z"
+        },
+        "preferences": {
+            "theme": "light",
+            "language": "es"
+        },
+        "accessibility": {
+            "colorFilter": "normal"
+        },
+        "socialLinks": {
+            "linkedin": "https://linkedin.com/in/janesmith",
+            "twitter": "https://twitter.com/janesmith"
+        },
+        "joinedDate": "2017-06-10T00:00:00Z",
+        "notes": "Responsible for overseeing mixing operations.",
+        "test": false
+    },
+    {
+        "name": {
+            "first": "David",
+            "last": "Cohen"
+        },
+        "email": "david@example.com",
+        "password": "$2a$12$lAPLE0w2O6btB4l8.4Vqzu6Ao4AM3B.WSC1QOaG64y.7PdhuM/Ra6",
+        "dateOfBirth": "1999-03-02T00:00:00Z",
+        "address": {
+            "street": "789 Olive Blvd",
+            "city": "Olive City",
+            "state": "OC",
+            "zip": "12345",
+            "country": "USA"
+        },
+        "phoneNumbers": [
+            {
+                "type": "mobile",
+                "number": "555-9012"
+            }
+        ],
+        "role": "moderator",
+        "department": "Mixing",
+        "isActive": true,
+        "lastLogin": "2024-01-26T08:00:00Z",
+        "profilePicture": "profile2.jpg",
+        "security": {
+            "twoFactorEnabled": true,
+            "lastPasswordChange": "2024-01-02T00:00:00Z"
+        },
+        "preferences": {
+            "theme": "light",
+            "language": "es"
+        },
+        "accessibility": {
+            "colorFilter": "normal"
+        },
+        "socialLinks": {
+            "linkedin": "https://linkedin.com/in/janesmith",
+            "twitter": "https://twitter.com/janesmith"
+        },
+        "joinedDate": "2017-06-10T00:00:00Z",
+        "notes": "Responsible for overseeing mixing operations.",
+        "test": false
+    },
+    {
+        "name": {
             "first": "Alex",
             "last": "Johnson"
         },
