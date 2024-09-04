@@ -54,7 +54,8 @@ const machineBodySchema = Joi.object({
       name: Joi.object({
         first: Joi.string().trim(), // Updated to `first`
         last: Joi.string().trim() // Updated to `last`
-      })
+      }),
+
     })
   ),
   maintenance: Joi.object({

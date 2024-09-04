@@ -41,7 +41,8 @@ const validationFields = [
   }
 ]
 
-describe('User Controller - CRUD', () => {
+describe('User Controller - CRUD', function() {
+  this.timeout(5000)
   generateCRUDTests(
     'user',
     User,

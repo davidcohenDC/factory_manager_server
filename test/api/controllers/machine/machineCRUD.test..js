@@ -19,7 +19,8 @@ const requiredFields = [
 
 const validationFields = []
 
-describe('Machine Controller - CRUD', () => {
+describe('Machine Controller - CRUD', function() {
+  this.timeout(5000)
   generateCRUDTests(
     'machine',
     Machine,

@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:16-alpine
 # Set working directory
 WORKDIR /usr/src/app
 # Copy package.json
@@ -7,7 +7,6 @@ COPY package*.json ./
 RUN npm install
 # Copy source code
 COPY . .
-ENV PORT=4000
 # Expose port 3000
 EXPOSE 4000
 # Run app

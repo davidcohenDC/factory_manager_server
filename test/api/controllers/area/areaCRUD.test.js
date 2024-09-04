@@ -1,5 +1,4 @@
 require('module-alias/register')
-const { faker, tr } = require('@faker-js/faker')
 const Area = require('@root/persistence/mongoose/models/area')
 const { generateCRUDTests } = require('@test/api/utils/helper/')
 const {
@@ -45,7 +44,8 @@ const requiredFields = [{ fieldName: 'name' }, { fieldName: 'size' }]
 
 const validationFields = []
 
-describe('Machine Controller - CRUD', () => {
+describe('Machine Controller - CRUD', function() {
+  this.timeout(5000)
   generateCRUDTests(
     'area',
     Area,

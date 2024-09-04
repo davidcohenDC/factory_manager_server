@@ -13,9 +13,6 @@ RUN npm install --production
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Copy the .env file to the working directory
-COPY .env .env
-
 # Expose the port that your application will run on
 EXPOSE 9000
 

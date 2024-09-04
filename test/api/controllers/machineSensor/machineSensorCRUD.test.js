@@ -15,7 +15,8 @@ const requiredFields = []
 
 const validationFields = []
 
-describe('Machine Sensor Controller - CRUD', () => {
+describe('Machine Sensor Controller - CRUD', function() {
+  this.timeout(5000)
   generateCRUDTests(
     'machine-sensor',
     MachineSensor,

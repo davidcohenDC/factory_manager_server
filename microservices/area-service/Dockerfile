@@ -14,10 +14,10 @@ RUN npm install --production
 COPY . .
 
 # Copy the .env file to the working directory
-COPY .env .env
+COPY . .
 
 # Expose the port that your application will run on
-EXPOSE 6000
+EXPOSE 10000
 
 # Command to start the application
 CMD ["npm", "start"]

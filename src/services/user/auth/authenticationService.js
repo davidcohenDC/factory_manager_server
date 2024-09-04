@@ -1,5 +1,5 @@
 const userRepository = require('@persistence/mongoose/models/repositories/userRepository')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { jwtSecretKey, logger } = require('@config/')
 

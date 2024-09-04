@@ -1,0 +1,169 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam classFontColor black
+skinparam classBorderColor black
+skinparam classBackgroundColor white
+
+class Area {
+  +String name
+  +Number size
+  +List<Machine> machines
+  +List<Area> subAreas
+  +Boolean test
+}
+
+class Machine {
+  +String serial
+  +String name
+  +Area location
+  +MachineState machineState
+  +Specifications specifications
+  +List<Turn> turns
+  +Maintenance maintenance
+  +Log log
+  +Boolean test
+}
+
+class MachineState {
+  +String currentState
+  +List<String> anomalyDetails
+}
+
+class Specifications {
+  +Measurement powerConsumption
+  +Measurement emissions
+  +Measurement operatingTemperature
+  +Measurement vibration
+  +Measurement pressure
+}
+
+class Measurement {
+  +String measurementUnit
+  +Decimal128 min
+  +Decimal128 max
+}
+
+class Turn {
+  +String turn
+  +User userId
+  +String first
+  +String last
+  +List<PhoneNumber> phoneNumbers
+}
+
+class PhoneNumber {
+  +String type
+  +String number
+}
+
+class Maintenance {
+  +Date lastMaintenanceDate
+  +Date nextMaintenanceDate
+  +List<MaintenanceHistory> maintenanceHistory
+}
+
+class MaintenanceHistory {
+  +Date date
+  +String description
+}
+
+class Log {
+  +Date lastPowerOn
+  +Date lastPowerOff
+  +List<Session> sessions
+}
+
+class Session {
+  +Date powerOn
+  +Date powerOff
+  +String duration
+}
+
+class MachineSensor {
+  +String serial
+  +List<SensorDataEntry> sensorData
+  +Boolean test
+}
+
+class SensorDataEntry {
+  +Date timestamp
+  +Decimal128 powerConsumption
+  +Decimal128 emissions
+  +Decimal128 operatingTemperature
+  +Decimal128 vibration
+  +Decimal128 pressure
+  +Boolean anomaly
+}
+
+class User {
+  +Name name
+  +String email
+  +String password
+  +Date dateOfBirth
+  +Address address
+  +List<PhoneNumber> phoneNumbers
+  +String role
+  +String department
+  +Boolean isActive
+  +Date lastLogin
+  +String profilePicture
+  +Security security
+  +Preferences preferences
+  +Accessibility accessibility
+  +SocialLinks socialLinks
+  +Date joinedDate
+  +String notes
+  +Boolean test
+}
+
+class Name {
+  +String first
+  +String last
+}
+
+class Address {
+  +String street
+  +String city
+  +String state
+  +String zip
+  +String country
+}
+
+class Security {
+  +Boolean twoFactorEnabled
+  +Date lastPasswordChange
+}
+
+class Preferences {
+  +String theme
+  +String language
+}
+
+class Accessibility {
+  +String colorFilter
+}
+
+class SocialLinks {
+  +String linkedin
+  +String twitter
+}
+
+'// Relationships
+Area --> Machine
+Area --> Area : subAreas
+Machine --> MachineState
+Machine --> Specifications
+Machine --> Turn
+Machine --> Maintenance
+Machine --> Log
+Turn --> User
+Turn --> PhoneNumber
+MachineSensor --> SensorDataEntry
+User --> Name
+User --> Address
+User --> Security
+User --> Preferences
+User --> Accessibility
+User --> SocialLinks
+
+@enduml
